@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo form đơn giản đăng kí học viên</title>
+    <style>
+        .cotmot{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<form method="get" action="BaiTapTaoFormDonGianDangKiHocVien.html">
+ <table style="width: 400px; background-color: #bfeeee">
+     <tr>
+         <td colspan="2" style="text-align: center;background-color: #ff9580">ĐĂNG KÍ HỌC VIÊN</td>
+     </tr>
+     <tr>
+         <td class="cotmot">Họ và Tên</td>
+         <td><input type="text" name="yourname"/></td>
+     </tr>
+     <tr>
+         <td class="cotmot">Ngày sinh</td>
+         <td><input type="text" name="birth"/></td>
+     </tr>
+     <tr>
+         <td class="cotmot">Giới Tính</td>
+         <td>
+             <label><input name="gioitinh" type="radio" value="nam" />Nam</label>
+             <label><input name="gioitinh" type="radio" value="nu" />Nữ</label>
+         </td>
+     </tr>
+     <tr>
+         <td class="cotmot">Địa Chỉ</td>
+         <td><input style="padding-bottom: 40px" type="text" name="adress"/></td>
+     </tr>
+     <tr>
+         <td class="cotmot">Lớp</td>
+         <td>
+             <select name="class">
+                 <option value="lopa">Lớp A</option>
+                 <option value="lopb">Lớp B</option>
+             </select>
+         </td>
+     </tr>
+     <tr>
+         <td class="cotmot">Email</td>
+         <td><input type="text" name="email" /></td>
+     </tr>
+     <tr>
+         <td class="cotmot">Điện Thoại</td>
+         <td><input type="text" name="phonenumber" /></td>
+     </tr>
+     <tr>
+         <td></td>
+         <td>
+             <button type="submit">Đăng kí</button>
+             <button type="reset">Nhập lại</button>
+         </td>
+     </tr>
+ </table>
+</form>
+</body>
+</html>

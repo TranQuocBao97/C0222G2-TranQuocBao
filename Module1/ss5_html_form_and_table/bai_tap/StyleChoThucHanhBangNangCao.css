@@ -1,0 +1,25 @@
+
+td,th {
+    border: 1px solid red;
+    padding: 30px;
+    text-align: center;
+}
+table {
+    width: 60%;
+    border-collapse: collapse;
+}
+th {
+    font-family: "Berlin Sans FB";
+    font-size: 26px;
+    font-weight:200;
+    color: #9906e0;
+    background-color: #de8757;
+    border-color: darkgreen;
+}
+td{
+    font-family: 'Open Sans', sans-serif;
+    font-weight:100;
+    color: #5f6062;
+    font-size:13px;
+    padding:20px;
+}

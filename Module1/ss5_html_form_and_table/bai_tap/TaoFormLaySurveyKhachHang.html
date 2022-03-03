@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form lấy survey khách hàng</title>
+    <style>
+        div:hover{
+            background-color: #bac8e3;
+        }
+    </style>
+</head>
+<body style="margin-left: 20px">
+     <h3>Market Research Survey</h3>
+     <p>Please take a few momments to complete this satisfaction survey</p>
+     <hr/>
+    <form>
+    <div>
+        <label><b>What is your age range?</b></label>
+        <br>
+     <select name="age" style="width: 500px">
+         <option value="age1">18-24</option>
+         <option value="age2">25-34</option>
+         <option value="age3">35-50</option>
+         <option value="age4">50+</option>
+     </select>
+        <br>
+        <br>
+        <div>
+            <label><b>What is your yearly income range</b></label>
+            <br>
+     <select name="age" style="width: 500px">
+         <option value="earn1">0$-25,000$</option>
+         <option value="earn2">25,001$-50,000$</option>
+         <option value="earn3">50,001$-100,000$</option>
+         <option value="earn4">100,000$+</option>
+     </select>
+        </div>
+    </div>
+        <br>
+        <br>
+     <div>
+         <label><b>Gender Identity</b></label>
+        <br>
+        </label><input type="radio" name="gender" value="male" />Male</label>
+        <br>
+        </label><input type="radio" name="gender" value="female" />Female</label>
+        <br>
+        </label><input type="radio" name="gender" value="nonbinary" />Nonbinary</label>
+        <br>
+        </label><input type="radio" name="gender" value="other" class="more"/>other</label>
+        <br>
+        </label><input type="text" name="gender" placeholder="other" class="more" /></label>
+        <br><br>
+     </div>
+        <div>
+     <label>Which of the following products have your purchased in the last 2 months. Please check all that apply.</label>
+            <br>
+        <label><input type="checkbox" name="product" value="one"/>Product 1</label>
+            <br>
+        <label><input type="checkbox" name="product" value="two"/>Product 2</label>
+            <br>
+        <label><input type="checkbox" name="product" value="three"/>Product 3</label>
+            <br><br>
+     </div>
+        <div>
+            <label><b>How often would you use our new product?</b></label>
+            <br>
+            <label><input type="radio" name="timeOften" value="daily" />Daily</label>
+            <br>
+            <label><input type="radio" name="timeOften" value="weekly" />Weekly</label>
+            <br>
+            <label><input type="radio" name="timeOften" value="monthly" />Monthly</label>
+            <br><br>
+        </div>
+        <div>
+            <label><b>What would you pay for the new product?</b></label>
+            <table>
+                <tr>
+                    <td>$</td>
+                    <td><input type="text" name="money" style="width: 50px"/></td>
+                    <td>.</td>
+                    <td><input type="text" name="money" style="width: 20px"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="font-size: 80%">Dollars</td>
+                    <td></td>
+                    <td style="font-size: 80%">Cents</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <label><b>What features would you like to see in the new product.</b></label>
+            <br>
+            <input type="text" name="commend" style="padding-bottom: 100px;width: 100%"/>
+            <br><br>
+        </div>
+        <div>
+            <label style="font-size: 80%">Please rate your level of agreement with the following statements.</label>
+            <table style="width: 100%; border:1px">
+                <tr>
+                    <td></td>
+                    <td>Strongly Disagree</td>
+                    <td>SDisagree</td>
+                    <td>Agree</td>
+                    <td>Strongly Agree</td>
+
+                </tr>
+            </table>
+        </div>
+    </form>
+
+</body>
+</html>

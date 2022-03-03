@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập tạo form đơn giản 2</title>
+    <style>
+        .cotdau{
+            text-align: right;
+        }
+        .caccotsau{
+            text-align: left;
+          }
+    </style>
+</head>
+<body>
+<form method="get" action="BaiTapTaoFormDonGian.html">
+    <div style="width:500px;height:250px ;background-color: #bfeeee">
+        <h2 style="text-align: center;background-color: #ffb93e">Sở Thích Của Bạn</h2>
+    <table style="padding-left: 30px">
+        <tr>
+            <th class="cotdau">Họ và Tên:</th>
+            <th class="caccotsau" colspan="3"><input type="text" name="yourname" value="name"/></th>
+        </tr>
+            <th class="cotdau">Email:</th>
+            <th class="caccotsau" colspan="3"><input style="text-align: left" type="text" name="email" value="mail" /></th>
+        </tr>
+        <tr>
+            <td class="cotdau">Sở Thích:</td>
+            <td><input type="checkbox" name="hobby" value="Thể Thao">Thể Thao</td>
+            <td><input type="checkbox" name="hobby" value="Âm nhạc">Âm nhạc</td>
+            <td><input type="checkbox" name="hobby" value="Đọc sách">Đọc sách</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="checkbox" name="hobby" value="lướt web">lướt web</td>
+            <td><input type="checkbox" name="hobby" value="Chơi game">Chơi game</td>
+            <td><input type="checkbox" name="hobby" value="Điện ảnh">Điện ảnh</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="checkbox" name="hobby" value="Du lịch">Du lịch</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit">Gửi thông tin</button></td>
+            <td><button type="reset">Nhập lại</button></td>
+        </tr>
+    </table>
+    </div>
+</form>
+
+</body>
+</html>
