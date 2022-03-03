@@ -7,6 +7,9 @@
         div:hover{
             background-color: #bac8e3;
         }
+        .collum{
+            width: 15%; text-align: center;
+        }
     </style>
 </head>
 <body style="margin-left: 20px">
@@ -92,22 +95,45 @@
         <div>
             <label><b>What features would you like to see in the new product.</b></label>
             <br>
-            <input type="text" name="commend" style="padding-bottom: 100px;width: 100%"/>
+            <input type="text" name="commend" style="padding-bottom: 100px;width: 98%"/>
             <br><br>
         </div>
         <div>
             <label style="font-size: 80%">Please rate your level of agreement with the following statements.</label>
-            <table style="width: 100%; border:1px">
+            <table border=1 style="width: 100%; border-collapse: collapse">
                 <tr>
                     <td></td>
-                    <td>Strongly Disagree</td>
-                    <td>SDisagree</td>
-                    <td>Agree</td>
-                    <td>Strongly Agree</td>
+                    <td class="collum">Strongly Disagree</td>
+                    <td class="collum">Disagree</td>
+                    <td class="collum">Agree</td>
+                    <td class="collum">Strongly Agree</td>
 
+                </tr>
+                <tr style="text-align: center">
+                    <td style="text-align: left">Our products are priced fairly.</td>
+                    <td><label><input type="radio" name="pricedFairly" value="SD"/></label></td>
+                    <td><label><input type="radio" name="pricedFairly" value="D"/></label></td>
+                    <td><label><input type="radio" name="pricedFairly" value="A"/></label></td>
+                    <td><label><input type="radio" name="pricedFairly" value="SA"/></label></td>
+                </tr>
+                <tr style="text-align: center">
+                    <td style="text-align: left">Our products are high quality.</td>
+                    <td><label><input type="radio" name="highQuality" value="SD"/></label></td>
+                    <td><label><input type="radio" name="highQuality" value="D"/></label></td>
+                    <td><label><input type="radio" name="highQuality" value="A"/></label></td>
+                    <td><label><input type="radio" name="highQuality" value="SA"/></label></td>
+                </tr>
+                <tr style="text-align: center">
+                    <td style="text-align: left">You would recommend our product to a friend or coworker.</td>
+                    <td><label><input type="radio" name="recommend" value="SD"/></label></td>
+                    <td><label><input type="radio" name="recommend" value="D"/></label></td>
+                    <td><label><input type="radio" name="recommend" value="A"/></label></td>
+                    <td><label><input type="radio" name="recommend" value="SA"/></label></td>
                 </tr>
             </table>
         </div>
+        <br>
+        <input type="submit" value="Submit"/>
     </form>
 
 </body>
