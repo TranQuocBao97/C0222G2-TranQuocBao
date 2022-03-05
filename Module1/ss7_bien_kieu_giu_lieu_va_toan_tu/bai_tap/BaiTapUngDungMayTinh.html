@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng Dụng Máy Tính</title>
+</head>
+<body>
+<form>
+    <input type="text" id="cell1" size="8px">
+    <input type="text" id="cell2" size="8px">
+    <br>
+</form>
+    <button onclick="adD()">Ddd(+)</button>
+    <button onclick="suB()">Sub(-)</button>
+    <button onclick="muL()">Multi(x)</button>
+    <button onclick="diV()">Div(/)</button>
+    <br>
+    <div id="result"></div>
+
+<script>
+    function adD() {
+        let cell1 = parseFloat(document.getElementById("cell1").value);
+        let cell2 = parseFloat(document.getElementById("cell2").value);
+        let addVar = cell1+cell2;
+        document.getElementById("result").innerHTML= addVar;
+    }
+    function suB() {
+        let cell1 = parseFloat(document.getElementById("cell1").value);
+        let cell2 = parseFloat(document.getElementById("cell2").value);
+        let subVar = cell1-cell2;
+        document.getElementById("result").innerHTML= subVar;
+    }
+    function muL() {
+        let cell1 = parseFloat(document.getElementById("cell1").value);
+        let cell2 = parseFloat(document.getElementById("cell2").value);
+        let mulVar = cell1*cell2;
+        document.getElementById("result").innerHTML= mulVar;
+    }
+    function diV() {
+        let cell1 = parseFloat(document.getElementById("cell1").value);
+        let cell2 = parseFloat(document.getElementById("cell2").value);
+        let divVar = cell1/cell2;
+        document.getElementById("result").innerHTML= divVar;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng Dụng Máy Tính 2</title>
+</head>
+<body>
+<form>
+    <input type="text" id="cell1" size="10px" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+    <input type="text" id="cell2" size="10px" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+    <br>
+</form>
+<button onclick="solve('+')" >Ddd(+)</button>
+<button onclick="solve('-')" >Sub(-)</button>
+<button onclick="solve('*')" >Multi(x)</button>
+<button onclick="solve('/')" >Div(/)</button>
+<br>
+<div id="result"></div>
+
+<script>
+   function solve(math) {
+        let cell1Var = parseFloat(document.getElementById("cell1").value);
+        let cell2Var = parseFloat(document.getElementById("cell2").value);
+        let showMathVar = math;
+        let screenVar = "cell1Var + math + cell2Var";
+        let calculatorVar =eval(eval(screenVar));
+
+        document.getElementById('result').innerHTML=calculatorVar;
+   }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="UngDungMayTinhCaoCap.css" type="text/css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="screen">
+            <p id="outPut" style="padding-right: 20px; font-size: 30px">0</p>
+        </div>
+        <div class="keyboard">
+            <div class="first-row">
+                <button id="r1-1" onclick="screenShow('(')">(</button>
+                <button id="r1-2" onclick="screenShow(')')">)</button>
+                <button id="r1-3" onclick="percent()">%</button>
+                <button id="r1-4" onclick="clearScreen()">AC</button>
+            </div>
+            <div class="first-row">
+                <button id="r2-1" onclick="screenShow('7')">7</button>
+                <button id="r2-2" onclick="screenShow('8')">8</button>
+                <button id="r2-3" onclick="screenShow('9')">9</button>
+                <button id="r2-4" onclick="screenShow('/')">/</button>
+            </div>
+            <div class="first-row">
+                <button id="r3-1" onclick="screenShow('4')">4</button>
+                <button id="r3-2" onclick="screenShow('5')">5</button>
+                <button id="r3-3" onclick="screenShow('6')">6</button>
+                <button id="r3-4" onclick="screenShow('*')">x</button>
+            </div>
+            <div class="first-row">
+                <button id="r4-1" onclick="screenShow('1')">1</button>
+                <button id="r4-2" onclick="screenShow('2')">2</button>
+                <button id="r4-3" onclick="screenShow('3')">3</button>
+                <button id="r4-4" onclick="screenShow('-')">-</button>
+            </div>
+            <div class="first-row">
+                <button id="r5-1" onclick="screenShow('0')">0</button>
+                <button id="r5-2" onclick="screenShow('.')">.</button>
+                <button class="final" id="r5-3" onclick="result()">=</button>
+                <button id="r5-4" onclick="screenShow('+')">+</button>
+            </div>
+        </div>
+    </div>
+<script src="UngDungMayTinhCaoCap.js"></script>
+</body>
+</html>

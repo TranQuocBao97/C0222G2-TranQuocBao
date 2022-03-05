@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script language="javascript">
+    // Hàm thiết lập nội dung cho thẻ div#content
+    function set_content()
+    {
+        document.getElementById("content").innerHTML = "<h1>Nội dung đã được thay đổi</h1>";
+    }
+
+    // Hàm lấy nội dung cho thẻ div#content
+    function get_content()
+    {
+        var html = document.getElementById("content").innerHTML;
+        alert("Nội dung cần lấy là: " + html);
+    }
+
+</script>
+<div id="content">Nội dung của thẻ DIV</div>
+<input type="button" value="Lấy nội dung" id="get_content" onclick="get_content()" />
+<input type="button" value="Thay đổi nội dung" id="set_content" onclick="set_content()" />
+</body>
+</html>

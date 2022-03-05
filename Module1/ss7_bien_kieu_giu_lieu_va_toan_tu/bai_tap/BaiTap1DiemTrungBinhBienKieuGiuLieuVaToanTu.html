@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toán Tử</title>
+</head>
+<body>
+<form>
+    <label>Vật Lý: </label><br>
+    <input type="text" id="physical"/><br>
+    <label>Hóa Học: </label><br>
+    <input type="text" id="chemical"/><br>
+    <label>Sinh Học: </label><br>
+    <input type="text" id="biological"/><br>
+</form>
+    <label>Điểm Trung Bình: </label><br>
+    <button onclick="average()">Result</button>
+    <div id="avgPoint"> </div>
+<script>
+    function average(){
+        let physical2 = parseFloat(document.getElementById("physical").value);
+        let chemical2 = parseFloat(document.getElementById("chemical").value);
+        let biological2 = parseFloat(document.getElementById("biological").value);
+        let aVG = (physical2+chemical2+biological2)/3;
+        document.getElementById("avgPoint").innerHTML= aVG ;
+    }
+</script>
+</body>
+</html>

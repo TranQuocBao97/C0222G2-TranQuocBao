@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển Đổi Tiền Tệ</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+    </tr>
+    <tr>
+        <td><input type="text" id="amount"></td>
+        <td><select name="" id="select1">
+                <option value="1">VND</option>
+                <option value="23000">USD</option>
+                <option value="3500">CNY</option>
+            </select>
+        </td>
+        <td><select name="" id="select2">
+            <option value="1">VND</option>
+            <option value="23000">USD</option>
+            <option value="3500">CNY</option>
+        </select>
+        </td>
+        <td><button onclick="conVert()">Convert</button></td>
+    </tr>
+</table>
+<script>
+    function conVert(){
+        let moneyValue = parseFloat(document.getElementById('amount').value);
+        let select1 = parseFloat(document.getElementById('select1').value);
+        let select2 = parseFloat(document.getElementById('select2').value);
+        if (select1==select2)
+        {
+            alert(moneyValue);
+        }
+        else
+        {
+            let rate = parseFloat(moneyValue*select1/select2);
+            alert(rate);
+        }
+    }
+</script>
+</body>
+</html>

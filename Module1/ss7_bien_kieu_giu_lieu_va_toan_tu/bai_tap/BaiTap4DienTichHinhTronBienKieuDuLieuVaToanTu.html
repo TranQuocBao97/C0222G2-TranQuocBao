@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diện Tích Hình Tròn</title>
+</head>
+<body>
+<form>
+    <label>Độ dài bán kính : </label>
+    <input type="text" id="radius">
+</form>
+<button onclick="area()">Hiện kết quả</button>
+<div id="result"></div>
+<script>
+    function area() {
+        let radiusVar = parseFloat(document.getElementById("radius").value);
+        let areaVar = parseFloat(radiusVar*radiusVar*3.14);
+        document.getElementById("result").innerText="Diện tích = " + areaVar + " (Đơn Vị)";
+    }
+</script>
+</body>
+</html>

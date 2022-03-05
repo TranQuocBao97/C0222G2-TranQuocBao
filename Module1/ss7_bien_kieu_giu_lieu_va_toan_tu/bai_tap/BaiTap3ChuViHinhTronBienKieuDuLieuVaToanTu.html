@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diện tích hình tròn</title>
+</head>
+<body>
+    <form>
+        <label>Độ dài bán kính : </label>
+        <input type="text" id="radius">
+    </form>
+        <button onclick="perimeter()">Hiện kết quả</button>
+        <div id="result"></div>
+<script>
+    function perimeter() {
+        let radiusVar = parseFloat(document.getElementById("radius").value);
+        let perimeterVar = parseFloat(radiusVar*2*3.14);
+        document.getElementById("result").innerText="Chu vi = " + perimeterVar + " (Đơn Vị)";
+    }
+</script>
+</body>
+</html>
