@@ -3,7 +3,7 @@ function clearScreen() {
 }
 function percent() {
     let percentVar = document.getElementById("outPut").innerHTML;
-    percentVar=eval(percentVar);
+    percentVar=parseFloat(percentVar);
     percentVar=percentVar/100;
     document.getElementById("outPut").innerHTML=percentVar;
 }
