@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chỉ số cân nặng</title>
+</head>
+<body>
+
+<script>
+    let weight = parseFloat(prompt('Nhập cân nặng'));
+    let height = parseFloat(prompt('Nhập chiều cao'));
+    let mbi =  parseFloat(weight / (height*height));
+    switch ((mbi<18) ? 1 : (mbi<25) ? 2 : (mbi<30) ? 3 : 4) {
+            case 1:
+                alert('Underweight');
+                break;
+            case 2:
+                alert('Normal');
+                break;
+            case 3:
+                alert('Overweight');
+                break;
+            default:
+                alert('Obese');
+                break;
+
+    }
+
+</script>
+</body>
+</html>
