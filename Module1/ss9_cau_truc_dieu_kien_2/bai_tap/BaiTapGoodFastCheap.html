@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .slider1 {
+            -webkit-appearance: none;
+            width: 80px;
+            height: 20px;
+            background: #89d286;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            border-top-right-radius: 16px;
+            border-top-left-radius: 16px;
+        }
+        .slider2 {
+            -webkit-appearance: none;
+            width: 80px;
+            height: 20px;
+            background: #a4aedc;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            border-top-right-radius: 16px;
+            border-top-left-radius: 16px;
+        }
+        .slider3 {
+            -webkit-appearance: none;
+            width: 80px;
+            height: 20px;
+            background: #e2a5a5;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            border-top-right-radius: 16px;
+            border-top-left-radius: 16px;
+        }
+
+        .slider1::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 35px;
+            height: 35px;
+            background: #33c123;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            border-top-right-radius: 16px;
+            border-top-left-radius: 16px;
+        }
+        .slider2::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 35px;
+            height: 35px;
+            background: #2338c1;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            border-top-right-radius: 16px;
+            border-top-left-radius: 16px;
+        }
+        .slider3::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 35px;
+            height: 35px;
+            background: #c12323;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            border-top-right-radius: 16px;
+            border-top-left-radius: 16px;
+        }
+
+    </style>
+</head>
+<body>
+<input type="range" class='slider1' id="goodId" min="0" max="100" step="100" value="0" onclick="pick()">
+<label>GOOD</label><br><br><br>
+<input type="range" class='slider2' id="cheapId" min="0" max="100" step="100" value="0" onclick="pick()">
+<label>CHEAP</label><br><br><br>
+<input type="range" class='slider3' id="fastId" min="0" max="100" step="100" value="0" onclick="pick()">
+<label>FAST</label><br><br><br>
+</body>
+<script>
+    function pick() {
+        let good = parseInt(document.getElementById('goodId').value);
+        let cheap = parseInt(document.getElementById('cheapId').value);
+        let fast = parseInt(document.getElementById('fastId').value);
+        if (good===100){
+
+        }
+    }
+
+    function fastReturn() {
+        document.getElementById('fastId').value=0;
+    }
+    function goodReturn() {
+        document.getElementById('goodId').value=0;
+    }
+    function cheapReturn() {
+        document.getElementById('cheapId').value=0;
+    }
+
+</script>
+</html>

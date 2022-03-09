@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let pointMotTiet = parseFloat(prompt('Nhap diem mot tiet'));
+    let pointGiuaKi = parseFloat(prompt('Nhap diem giu ki'));
+    let pointCuoiKi = parseFloat(prompt('Nhap diem cuoi ki'));
+    let pointAvg = (pointMotTiet+pointGiuaKi*2+pointCuoiKi*3)/6;
+    console.log(pointAvg);
+    if(pointAvg<3.5){
+        alert('Hoc Lai');
+    }else if(pointAvg<6.5){
+        alert('Trung Binh');
+    }else if(pointAvg<8){
+        alert('Kha');
+    }else {
+        alert('Gioi');
+    }
+
+</script>
+</body>
+</html>

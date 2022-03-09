@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Máy tính đơn giản">
+    <title>Title</title>
+    <style>
+        html{
+            font-family: Arial;
+        }
+
+        .screen {
+            background-color: #98a4bd;
+            width: 400px;
+            padding: 5px;
+            text-align: right;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+        .keyboard {
+            width: 410px;
+            height: 310px;
+            background-color: #b2c1af;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+        .final {
+            background-color: #98afea;
+        }
+        button {
+            padding: 10px;
+            width: 90px;
+            height: 50px;
+            margin-top: 10px;
+            margin-left: 7px;
+            background-color: #eaebee;
+            font-size: 20px;
+            border: 1px;
+            border-radius: 5px;
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: #7a7a7f;
+        }
+        .final:hover {
+            background-color: #bfaf9e;
+        }
+    </style>
+</head>
+<body>
+<div class="calculator">
+    <div class="screen">
+        <p id="outPut" style="padding-right: 20px; font-size: 30px">0</p>
+    </div>
+    <div class="keyboard">
+        <div class="first-row">
+            <button id="r1-1" onclick="screenShow('(')">(</button>
+            <button id="r1-2" onclick="screenShow(')')">)</button>
+            <button id="r1-3" onclick="percent()">%</button>
+            <button id="r1-4" onclick="clearScreen()">AC</button>
+        </div>
+        <div class="first-row">
+            <button id="r2-1" onclick="screenShow('7')">7</button>
+            <button id="r2-2" onclick="screenShow('8')">8</button>
+            <button id="r2-3" onclick="screenShow('9')">9</button>
+            <button id="r2-4" onclick="screenShow('/')">/</button>
+        </div>
+        <div class="first-row">
+            <button id="r3-1" onclick="screenShow('4')">4</button>
+            <button id="r3-2" onclick="screenShow('5')">5</button>
+            <button id="r3-3" onclick="screenShow('6')">6</button>
+            <button id="r3-4" onclick="screenShow('*')">x</button>
+        </div>
+        <div class="first-row">
+            <button id="r4-1" onclick="screenShow('1')">1</button>
+            <button id="r4-2" onclick="screenShow('2')">2</button>
+            <button id="r4-3" onclick="screenShow('3')">3</button>
+            <button id="r4-4" onclick="screenShow('-')">-</button>
+        </div>
+        <div class="first-row">
+            <button id="r5-1" onclick="screenShow('0')">0</button>
+            <button id="r5-2" onclick="screenShow('.')">.</button>
+            <button class="final" id="r5-3" onclick="result()">=</button>
+            <button id="r5-4" onclick="screenShow('+')">+</button>
+        </div>
+    </div>
+</div>
+<script>
+    function clearScreen() {
+        document.getElementById("outPut").innerHTML="0";
+    }
+    function percent() {
+        let percentVar = document.getElementById("outPut").innerHTML;
+        percentVar=parseFloat(percentVar);
+        percentVar=percentVar/100;
+        document.getElementById("outPut").innerHTML=percentVar;
+    }
+    function removeZero() {
+        let zeroVar=document.getElementById("outPut").innerHTML;
+        if (zeroVar==0){
+            zeroVar="";
+            document.getElementById("outPut").innerHTML=zeroVar;
+        }
+
+    }
+    function screenShow(screenValue) {
+        removeZero();
+        let zero = document.getElementById("outPut").value;
+        document.getElementById("outPut").innerHTML += screenValue;
+
+    }
+
+    function result() {
+        let resultValue = document.getElementById("outPut").innerHTML;
+        let resultFinal = eval(resultValue);
+        document.getElementById("outPut").innerHTML=resultFinal;
+    }
+</script>
+</body>
+</html>

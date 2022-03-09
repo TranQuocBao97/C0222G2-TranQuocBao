@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let doanhSoBanHang = prompt('Nhap Doanh So Ban Hang (vnd)');
+    let hoahong = '';
+    if (doanhSoBanHang>20000000){
+        hoahong = doanhSoBanHang*0.1;
+        alert('hoa hong nhan dc la (10%) '+ hoahong);
+    }else if (doanhSoBanHang>10000000){
+        hoahong = doanhSoBanHang*0.05;
+        alert('hoa hong nhan dc la (5%) '+ hoahong);
+    }
+</script>
+</body>
+</html>

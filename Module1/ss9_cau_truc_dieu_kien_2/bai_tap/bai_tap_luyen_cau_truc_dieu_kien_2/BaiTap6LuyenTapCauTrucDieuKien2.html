@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Phương trình bậc 1 có dạng ax+b=0</p>
+<input type='text' id='a' placeholder='Nhập a'>
+<input type='text' id='b' placeholder='Nhập b'>
+<button id ='caculate' onclick='run()'>Kết quá</button>
+<input id='result' placeholder='x=' >
+<!--<p id='test'></p>-->
+<!--<p id='test2'></p>-->
+<!--<p id='test3' value=""></p>-->
+<script>
+function run() {
+    let a = parseFloat(document.getElementById('a').value);
+    let b = parseFloat(document.getElementById('b').value);
+    let x = parseFloat('');
+    if (a===0){
+        if (b===0){
+        alert('phương trình có vô số nghiệm')}
+        if (b!==0){
+        alert('phương trình vô nghiệm')}
+    }
+    else{
+        x=-b/a;
+    }
+    document.getElementById('result').value=x;
+    // document.getElementById('test').innerHTML=x;
+    // document.getElementById('test2').value=x;
+    // document.getElementById('test3').value=x;
+}
+</script>
+</body>
+</html>

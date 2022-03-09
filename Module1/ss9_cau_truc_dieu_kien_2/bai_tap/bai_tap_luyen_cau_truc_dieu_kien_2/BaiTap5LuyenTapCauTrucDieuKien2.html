@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+let edge1 = parseFloat(prompt('nhap canh a'));
+let edge2 = parseFloat(prompt('nhap canh b'));
+let edge3 = parseFloat('');
+let area = parseFloat('');
+if (edge1<0 && edge2<0){
+    alert('Nhập cạnh độ dài lớn hơn 0');
+}else if(edge1>edge2){
+    edge3 = Math.sqrt(edge1*edge1-edge2*edge2);
+    area = (edge3*edge2)/2;
+    alert('dien tich hinh tam giac vuong la : ' + area)
+}else if(edge2>edge1){
+    edge3 = Math.sqrt(edge2*edge2-edge1*edge1);
+    area = (edge3*edge1)/2;
+    alert('dien tich hinh tam giac vuong la : ' + area)
+}
+</script>
+</body>
+</html>

@@ -91,26 +91,27 @@ function checkcolor()
     let check2 = confirm2.getAttribute('src')
     let check3 = confirm3.getAttribute('src')
     let check4 = confirm4.getAttribute('src')
-    if ((check1 == firstLine[0]) &&
-        (check2 == secondLine[0]) &&
-        (check3 == thirdLine[0]) &&
-        (check4 == fourthLine[0]))
+    if ((check1 === firstLine[0]) &&
+        (check2 === secondLine[0]) &&
+        (check3 === thirdLine[0]) &&
+        (check4 === fourthLine[0]))
+    {
+
+        document.getElementById('table').style.border='solid';
+        document.getElementById('table').style.borderColor = 'red';
+    }
+    else if ((check1 === firstLine[1]) &&
+            (check2 === secondLine[1]) &&
+            (check3 === thirdLine[1]) &&
+            (check4 === fourthLine[1]))
     {
         document.getElementById('table').style.border='solid';
         document.getElementById('table').style.borderColor = 'red';
     }
-    else if ((check1 == firstLine[1]) &&
-         (check2 == secondLine[1]) &&
-         (check3 == thirdLine[1]) &&
-         (check4 == fourthLine[1]))
-    {
-        document.getElementById('table').style.border='solid';
-        document.getElementById('table').style.borderColor = 'red';
-    }
-    else if ((check1 == firstLine[2]) &&
-         (check2 == secondLine[2]) &&
-         (check3 == thirdLine[2]) &&
-         (check4 == fourthLine[2]))
+    else if ((check1 === firstLine[2]) &&
+            (check2 === secondLine[2]) &&
+            (check3 === thirdLine[2]) &&
+            (check4 === fourthLine[2]))
     {
         document.getElementById('table').style.border='solid';
         document.getElementById('table').style.borderColor = 'red';

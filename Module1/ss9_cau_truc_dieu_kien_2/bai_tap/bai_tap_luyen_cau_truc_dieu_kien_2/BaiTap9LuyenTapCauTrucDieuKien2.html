@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseFloat(prompt('Nhập cạnh a'));
+    let b = parseFloat(prompt('Nhập cạnh b'));
+    let c = parseFloat(prompt('Nhập cạnh c'));
+    if (a>0 && b>0 && c>0){
+        if (a+b>c){
+            if(b+c>a){
+                if(a+c>b){
+                    alert('a= '+a + ';  b= ' +b+ ';  c= ' +c+ ' : là 3 cạnh của tam giác ')
+                }
+                else{
+                    alert('3 số vừa nhập ko phải là cạnh của tam giác');
+                }
+            }else{
+                alert('3 số vừa nhập ko phải là cạnh của tam giác');
+            }
+        }else{
+            alert('3 số vừa nhập ko phải là cạnh của tam giác');
+        }
+    }else{
+        alert('3 số vừa nhập ko phải là cạnh của tam giác');
+    }
+</script>
+</body>
+</html>
