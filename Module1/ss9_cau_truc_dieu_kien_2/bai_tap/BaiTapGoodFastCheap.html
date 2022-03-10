@@ -69,22 +69,36 @@
     </style>
 </head>
 <body>
-<input type="range" class='slider1' id="goodId" min="0" max="100" step="100" value="0" onclick="pick()">
+<input type="range" class='slider1' id="goodId" min="0" max="100" step="100" value="0" onclick="checkGood()">
 <label>GOOD</label><br><br><br>
-<input type="range" class='slider2' id="cheapId" min="0" max="100" step="100" value="0" onclick="pick()">
+<input type="range" class='slider2' id="cheapId" min="0" max="100" step="100" value="0" onclick="checkCheap()">
 <label>CHEAP</label><br><br><br>
-<input type="range" class='slider3' id="fastId" min="0" max="100" step="100" value="0" onclick="pick()">
+<input type="range" class='slider3' id="fastId" min="0" max="100" step="100" value="0" onclick="checkFast()">
 <label>FAST</label><br><br><br>
 </body>
 <script>
-    function pick() {
-        let good = parseInt(document.getElementById('goodId').value);
+    function checkGood() {
         let cheap = parseInt(document.getElementById('cheapId').value);
         let fast = parseInt(document.getElementById('fastId').value);
-        if (good===100){
-
+        if (cheap===100 && fast===100){
+            cheapReturn();
         }
     }
+    function checkCheap() {
+        let good = parseInt(document.getElementById('goodId').value);
+        let fast = parseInt(document.getElementById('fastId').value);
+        if (good===100 && fast===100){
+            fastReturn();
+        }
+    }
+    function checkFast() {
+        let good = parseInt(document.getElementById('goodId').value);
+        let cheap = parseInt(document.getElementById('cheapId').value);
+        if (good===100 && cheap===100){
+            goodReturn();
+        }
+    }
+
 
     function fastReturn() {
         document.getElementById('fastId').value=0;
