@@ -10,33 +10,33 @@
     <input type="text" id="cell2" size="8px">
     <br>
 </form>
-    <button onclick="adD()">Ddd(+)</button>
-    <button onclick="suB()">Sub(-)</button>
-    <button onclick="muL()">Multi(x)</button>
-    <button onclick="diV()">Div(/)</button>
+    <button onclick="addButton()">Ddd(+)</button>
+    <button onclick="subtractButton()">Sub(-)</button>
+    <button onclick="multiplyButton()">Multi(x)</button>
+    <button onclick="divideButton()">Div(/)</button>
     <br>
     <div id="result"></div>
 
 <script>
-    function adD() {
+    function addButton() {
         let cell1 = parseFloat(document.getElementById("cell1").value);
         let cell2 = parseFloat(document.getElementById("cell2").value);
         let addVar = cell1+cell2;
         document.getElementById("result").innerHTML= addVar;
     }
-    function suB() {
+    function subtractButton() {
         let cell1 = parseFloat(document.getElementById("cell1").value);
         let cell2 = parseFloat(document.getElementById("cell2").value);
         let subVar = cell1-cell2;
         document.getElementById("result").innerHTML= subVar;
     }
-    function muL() {
+    function multiplyButton() {
         let cell1 = parseFloat(document.getElementById("cell1").value);
         let cell2 = parseFloat(document.getElementById("cell2").value);
         let mulVar = cell1*cell2;
         document.getElementById("result").innerHTML= mulVar;
     }
-    function diV() {
+    function divideButton() {
         let cell1 = parseFloat(document.getElementById("cell1").value);
         let cell2 = parseFloat(document.getElementById("cell2").value);
         let divVar = cell1/cell2;

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="start()">Chơi</button>
+<button onclick="start()">Chơi Lại</button>
+
+
+<script>
+    function start() {
+        alert('Nhập Khoảng số bạn muốn đoán')
+        let n1 = parseInt(prompt('Nhập số đầu'))
+        let n2 = parseInt(prompt('Nhập số sau'))
+        let numberMax ='';
+        let numberMin ='';
+        let n = 1;
+        if(n1>n2){
+            numberMax=n1;
+            numberMin=n2;
+        }else{
+            numberMax=n2;
+            numberMin=n1;
+        }
+        while(numberMax>numberMin){
+            let random = Math.floor(Math.random()*numberMax);
+            while(random>numberMin && random<numberMax){
+                let guess = parseInt(prompt('Nhập số Bạn Đoán'));
+                if(guess===random){
+                    alert('Bạn đã đoán đúng!')
+                    break;
+                }else if(guess<random){
+                    alert('Bạn đoán sai rồi! Bạn đoán NHỎ hơn kết quả');
+                    continue;
+                }else {
+                    alert('Số bạn đoán sai rồi! Bạn đoán LỚN hơn kết quả')
+                    continue;
+                }
+                ++n;
+                if(n===4){
+                    break;
+                }
+            }
+        }
+
+
+    }
+
+</script>
+</body>
+</html>

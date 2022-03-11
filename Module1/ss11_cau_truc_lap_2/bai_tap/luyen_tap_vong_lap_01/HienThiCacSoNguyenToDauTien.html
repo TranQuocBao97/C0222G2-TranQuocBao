@@ -8,18 +8,18 @@
 <script>
     let n=1;
     let number = 2;
-    let confirm = true;
     while(n<=20){
+        let confirm = true;
         number++;
         for (let i = 2; i < number; i++) {
             if (number%i===0){
                 confirm=false;
                 break;
-            }else{
-                document.write(number + "<br>");
-                n++
-                break;
             }
+        }
+        if(confirm===true){
+            document.write(number + "<br>");
+            n++;
         }
     }
 </script>

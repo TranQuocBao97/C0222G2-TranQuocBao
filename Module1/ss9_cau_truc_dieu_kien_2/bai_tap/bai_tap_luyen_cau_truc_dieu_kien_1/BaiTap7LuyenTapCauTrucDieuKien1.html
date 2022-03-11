@@ -6,10 +6,15 @@
 </head>
 <body>
 <script>
-   let timeUsed = parseFloat(prompt('Số phút gọi : '));
-   let phoneCharge = timeUsed*1000;
-   alert('Số tiền phải trả là: '+phoneCharge)
-
+    let timeUsed = parseFloat(prompt('Số phút gọi : '));
+    let phoneCharge = 0;
+    if(timeUsed<60) {
+        phoneCharge = timeUsed * 1000;
+        alert('Số tiền phải trả là (dưới 60p gọi -> 1k/1p): ' + phoneCharge)
+    }else{
+        phoneCharge = timeUsed * 1200;
+        alert('Số tiền phải trả là (trên 60p gọi -> 1k2/1p: ' + phoneCharge)
+    }
 </script>
 </body>
 </html>
