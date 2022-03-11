@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    alert('Lãi Ngân Hàng là 0.5%/1 tháng (6%/1năm)');
+    let money = parseInt(prompt('Nhập số tiền bạn muốn gửi vào ngân hàng (vnđ): '));
+    let time = parseInt(prompt('Nhập thời gian bạn muốn gửi (tháng) : '));
+    for (let i = 1; i <= time; i++) {
+        money += money*0.005;
+    }
+    alert(money)
+</script>
+</body>
+</html>

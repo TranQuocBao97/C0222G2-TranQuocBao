@@ -12,7 +12,8 @@
     let n=1;
     document.write(f1+'<br>');
     document.write(f2+'<br>');
-    while(n<=18){
+    let userNumber = parseInt(prompt('Bạn muốn hiển thị bao nhiêu số Fibonanci'))
+    while(n<=userNumber-2){
         f3=f2+f1;
         f1=f2;
         f2=f3;

@@ -16,7 +16,6 @@
         let n2 = parseInt(prompt('Nhập số sau'))
         let numberMax ='';
         let numberMin ='';
-        let n = 1;
         if(n1>n2){
             numberMax=n1;
             numberMin=n2;
@@ -25,6 +24,7 @@
             numberMin=n1;
         }
         while(numberMax>numberMin){
+            let n = 1;
             let random = Math.floor(Math.random()*numberMax);
             while(random>numberMin && random<numberMax){
                 let guess = parseInt(prompt('Nhập số Bạn Đoán'));
@@ -33,9 +33,17 @@
                     break;
                 }else if(guess<random){
                     alert('Bạn đoán sai rồi! Bạn đoán NHỎ hơn kết quả');
+                    ++n;
+                    if(n===4){
+                        break;
+                    }
                     continue;
                 }else {
                     alert('Số bạn đoán sai rồi! Bạn đoán LỚN hơn kết quả')
+                    ++n;
+                    if(n===4){
+                        break;
+                    }
                     continue;
                 }
                 ++n;
@@ -43,6 +51,8 @@
                     break;
                 }
             }
+            alert('Chơi Lại');
+            start();
         }
 
 
