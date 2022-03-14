@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="search here" id="word">
+<button id="search" onclick="enter()">Search</button>
+<p id="here"> </p>
+<script>
+let english = ["apple", "banana"];
+let vietNam = ["táo", "chuối"];
+
+function enter() {
+    //C1:
+
+
+    // let text = document.getElementById('word').value;
+    // let confirm = false;
+    // for (let i = 0; i < english.length ; i++) {
+    //     if (english[i]===text){
+    //         console.log(vietNam[i]);
+    //         document.getElementById('here').innerHTML=vietNam[i];
+    //         confirm = true;
+    //         break;
+    //     }
+    // }
+    // if(confirm===false){
+    //     document.getElementById('here').innerHTML='cant find this word'
+    // }
+
+    //C2
+    let text = document.getElementById('word').value;
+    let x = '';
+    if(english.includes(text)){
+        x = english.indexOf(text);
+        document.getElementById('here').innerHTML=vietNam[x];
+    }else{
+        document.getElementById('here').innerHTML='cant find this word'
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    intArr = [];
+    let n = parseInt(prompt('Bạn muốn mảng có độ dài bao nhiêu '))
+    for (let i = 0; i < n ; i++) {
+        intArr[i] = Math.floor(Math.random()/Math.random()*100);
+    }
+    console.log(intArr);
+    // let x = '';
+    // for (let i = 1; i<n; i++) {
+    //     for (let j = 0; j < n-i; j++) {
+    //         x=intArr[j+1];
+    //         intArr[j+1]=intArr[j];
+    //         intArr[j]=x;
+    //     }
+    // }
+    // for (let i = 0; i < n; i++) {
+    //     console.log(intArr[i]+'<br>');
+    // }
+    intArr.reverse();
+    console.log(intArr);
+
+</script>
+</body>
+</html>

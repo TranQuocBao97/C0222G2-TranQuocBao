@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    intArr = [];
+    let n = parseInt(prompt('Bạn muốn mảng có độ dài bao nhiêu '))
+    for (let i = 0; i < n ; i++) {
+        intArr[i] = Math.floor(Math.random()/Math.random()*100);
+    }
+    console.log(intArr)
+    let max=intArr[0];
+    let sum=0;
+    for (let i = 0; i < (n-1) ; i++) {
+        sum+=intArr[i];
+        if(max<intArr[i+1]){
+            max=intArr[i+1];
+        }
+    }
+    sum+=intArr[n-1];
+    console.log('max = '+max);
+    console.log('sumAvg = '+(sum/n))
+</script>
+</body>
+</html>

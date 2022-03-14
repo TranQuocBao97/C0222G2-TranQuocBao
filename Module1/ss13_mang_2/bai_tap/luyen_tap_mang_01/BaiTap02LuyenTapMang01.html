@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let intArr = [];
+    for (let i = 0; i < 10 ; i++) {
+        intArr[i] = Math.floor(Math.random()/Math.random()*100);
+    }
+    console.log(intArr)
+    let max=intArr[0];
+    let n=0;
+    for (let i = 0; i < 9 ; i++) {
+        if(max<intArr[i+1]){
+            max=intArr[i+1];
+            n=i+1;
+        }
+    }
+    console.log('max : '+max);
+    console.log('vị trí trong mảng: '+ n)
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <h1 style="margin-left: 800px"> Gõ chữ vô đây : </h1>
+    <textarea id ='realText' onkeydown="keyBoard()" style="width: 500px; height: 500px; margin-left: 800px"></textarea>
+</form>
+<script>
+    let fakeText = "càng gõ bạn sẽ càng thấy mình bị ngu đi!!!";
+    let n ="";
+    function keyBoard() {
+        let x = document.getElementById('realText').value;
+        if(x.length>0){
+            for (let i = 0; i < x.length ; i++) {
+                n = n + fakeText[i];
+                if (i === fakeText.length) {
+                    document.getElementById('realText').value = "";
+                    n = "";
+                }
+            }
+        }
+        document.getElementById('realText').value = n;
+        n='';
+        setTimeout("keyBoard()", 1);
+    }
+</script>
+</body>
+</html>

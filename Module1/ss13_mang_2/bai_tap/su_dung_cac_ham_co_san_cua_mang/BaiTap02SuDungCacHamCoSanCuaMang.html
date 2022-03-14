@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = prompt('Nhập dãy số của bạn : ')
+    let stringNumber = number.toString();
+    console.log(stringNumber);
+    console.log(stringNumber.length)
+    let showNumber = [stringNumber[0]];
+    for (let i = 1; i < stringNumber.length ; i++) {
+        if ((stringNumber[i-1]%2===0)&&((stringNumber[i])%2===0)){
+            showNumber.push('-',stringNumber[i]);
+        }
+        else {
+            showNumber.push(stringNumber[i]);
+        }
+    }
+    console.log(showNumber);
+    for (let i = 0; i < showNumber.length ; i++) {
+        document.write(showNumber[i]);
+    }
+</script>
+</body>
+</html>

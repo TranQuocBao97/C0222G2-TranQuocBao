@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let intArr = [];
+    for (let i = 0; i < 10 ; i++) {
+        intArr[i] = Math.floor(Math.random()*10)
+    }
+    console.log(intArr)
+    let V = parseInt(prompt('Nhập số 1 đến 9'))
+    if (intArr.includes(V)){
+        alert('V is in the array')
+    }else{
+        alert('V is not in the array')
+    }
+</script>
+</body>
+</html>
