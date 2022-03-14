@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let text = '';
+    text = prompt('Nhập mảng kí tự')
+    text.toString();
+    let arr = [];
+    for (let i = 0; i < text.length; i++) {
+        arr[i] = text[i];
+    }
+    console.log(arr);
+    for (let i = 0; i < arr.length ; i++) {
+        if (arr[i]==="-"){
+            arr.splice(i,1,'_');
+        }
+    }
+    console.log(arr)
+</script>
+</body>
+</html>

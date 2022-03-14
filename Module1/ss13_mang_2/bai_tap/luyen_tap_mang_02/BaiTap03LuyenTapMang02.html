@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let n = parseInt(prompt('Nhập chiều dài của mảng'))
+    for (let i = 0; i < n ; i++) {
+        arr[i]=prompt('nhập giá trị cho mảng : '+i)
+    }
+    let textCount = 0;
+    for (let i = 0; i < arr.length ; i++) {
+        textCount += arr[i].length;
+    }
+
+    console.log(textCount);
+</script>
+</body>
+</html>

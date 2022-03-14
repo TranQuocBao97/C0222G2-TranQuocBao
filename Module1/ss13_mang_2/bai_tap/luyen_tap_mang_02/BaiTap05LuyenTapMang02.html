@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr1 = prompt('Nhập chuỗi 1: ')
+    let arr2 = prompt('Nhập chuỗi 2: ')
+    arr1.toString();
+    arr2.toString();
+    let confirm = true;
+    if(arr1.length===arr2.length){
+        for (let i = 0; i < arr1.length ; i++) {
+            if(arr1[i]===arr2[i]){
+                confirm=true;
+            }else {
+                confirm=false;
+                break
+            }
+        }
+    }else {
+        confirm=false;
+    }
+    if(confirm===true){
+        alert('2 chuỗi giống nhau')
+    }else {
+        alert('2 chuỗi khác nhau')
+    }
+</script>
+</body>
+</html>

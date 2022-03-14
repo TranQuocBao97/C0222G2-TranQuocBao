@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let text = prompt('Nhập chuỗi');
+    // text.toString();
+    // document.write(text.length)
+    let text = prompt("nhập chuỗi: ");
+    text.toString();
+    n=0;
+    if(text[0]!==" "){
+        n=1;
+    }
+    for (let i = 0; i < text.length ; i++) {
+        if(text[i]===" " && text[i+1]!==" "){
+            n++
+        }
+    }
+    console.log('số từ trong chuỗi : ' + n)
+</script>
+</body>
+</html>
