@@ -9,14 +9,18 @@
     let arr = [];
     let n = parseInt(prompt('Nhập chiều dài của mảng'))
     for (let i = 0; i < n ; i++) {
-        arr[i]=prompt('nhập giá trị cho mảng : '+i)
+        arr[i]=prompt('nhập giá trị cho mảng : '+i);
     }
-    let textCount = 0;
-    for (let i = 0; i < arr.length ; i++) {
-        textCount += arr[i].length;
+    let text = arr.join('');
+    console.log(text);
+    let textArr ='';
+    for (let i = 0; i < text.length ; i++) {
+        if(!isNaN(text[i])){
+            textArr +=text[i];
+        }
     }
-
-    console.log(textCount);
+    console.log(textArr);
+    console.log(textArr.length);
 </script>
 </body>
 </html>

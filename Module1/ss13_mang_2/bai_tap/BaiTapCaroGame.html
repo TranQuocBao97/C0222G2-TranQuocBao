@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .p1{
+            position: absolute;
+            z-index: 1;
+        }
+        .p2{
+            position: absolute;
+            z-index: 0;
+        }
+        table{
+            border-collapse: collapse;
+            margin-left: 500px;
+            margin-top: 50px;
+        }
+        td:hover{
+            cursor: pointer;
+            background-color: #867b72;
+        }
+        button{
+            width: 1000px;
+            height: 900px;
+            margin-left: 400px;
+            background-color: #5461a0;
+            opacity: 60%;
+            font-size: 150px;
+            color: #ff0000;
+        }
+
+    </style>
+</head>
+<body>
+<p class="p1" id="reset" ></p>
+<p class="p2" id="result"></p>
+
+
+
+
+<script>
+    //Tạo Mảng 2 chiều:
+    let array = new Array(20);
+    for (let i = 0; i < array.length ; i++) {
+        array[i]= new Array(20);
+        for (let j = 0; j <array[i].length ; j++) {
+            array[i][j]="";
+        }
+    }
+    //Hiển thị Bảng qua function display:
+    display();
+
+    //function onclick bảng:
+    let playerX = true;
+    function pick(i,j) {
+        if (playerX && !checkPlayed(i,j)){
+            array[i][j]='X';
+            playerX=false;
+            if(checkWin1()){
+                alert('player X WIN');
+                resetButton();
+            }
+        }else if(!playerX && !checkPlayed(i,j)) {
+            array[i][j]='O';
+            playerX=true;
+            if(checkWin2()){
+                alert('player O WIN');
+                resetButton();
+            }
+        }
+
+        display();
+    }
+    //function kiểm tra ô đã đc điền chưa:
+    function checkPlayed(i,j) {
+        if(array[i][j]!==""){
+            return true;
+        }
+        return false;
+    }
+
+    //check người thắng:
+    function checkWin1() {
+        for (let i = 0; i < array.length ; i++) {
+            for (let j = 0; j < array[i].length ; j++) {
+                if (array[i][j]==='X'){
+                    if(array[i][j+1]==='X' && array[i][j+2]==='X' && array[i][j+3]==='X' && array[i][j+4]==='X'){
+                        return true;
+                    } if(array[i+1][j]==='X' && array[i+2][j]==='X' && array[i+3][j]==='X' && array[i+4][j]==='X'){
+                        return true;
+                    } if(array[i+1][j+1]==='X' && array[i+2][j+2]==='X' && array[i+3][j+3]==='X' && array[i+4][j+4]==='X'){
+                        return true;
+                    } if(array[i-1][j+1]==='X' && array[i-2][j+2]==='X' && array[i-3][j+3]==='X' && array[i-4][j+4]==='X'){
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    function checkWin2() {
+        for (let i = 0; i < array.length ; i++) {
+            for (let j = 0; j < array[i].length ; j++) {
+                if (array[i][j]==='O'){
+                    if(array[i][j+1]==='O' && array[i][j+2]==='O' && array[i][j+3]==='O' && array[i][j+4]==='O'){
+                        return true;
+                    } if(array[i+1][j]==='O' && array[i+2][j]==='O' && array[i+3][j]==='O' && array[i+4][j]==='O'){
+                        return true;
+                    } if(array[i+1][j+1]==='O' && array[i+2][j+2]==='O' && array[i+3][j+3]==='O' && array[i+4][j+4]==='O'){
+                        return true;
+                    } if(array[i-1][j+1]==='O' && array[i-2][j+2]==='O' && array[i-3][j+3]==='O' && array[i-4][j+4]==='O'){
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    //function hiện Bảng:
+    function display(){
+    let tableString="";
+    tableString='<table border="1">'
+    for (let i = 0; i <15 ; i++) {
+        tableString+='<tr>'
+        for (let j = 0; j < 15 ; j++) {
+            tableString+='<td onclick="pick('+i+','+j+')" style = "width: 50px; height: 50px; text-align: center; font-size: 40px;">'+array[i][j]+'</td>'
+        }
+        tableString+='</tr>'
+    }
+    tableString+='</table>'
+    document.getElementById('result').innerHTML= tableString;
+    }
+
+    //function RESET khi kết thúc game:
+    function resetButton() {
+        let reset= '<button onclick="resetGame()";>CHƠI LẠI!!!</button>';
+        document.getElementById('reset').innerHTML= reset;
+
+    }
+    function resetGame() {
+        location.reload();
+    }
+
+</script>
+</body>
+</html>

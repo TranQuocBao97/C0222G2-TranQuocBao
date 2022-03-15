@@ -6,17 +6,21 @@
 </head>
 <body>
 <script>
-    let negativeArray = [];
-    n=0;
-    for (let i = 0; i < 5; i++) {
-        negativeArray[i] = (prompt('nhập số vô mảng (nhập số âm để đc đếm): '+i));
+    let arr = [];
+    let n = parseInt(prompt('Nhập chiều dài của mảng'))
+    for (let i = 0; i < n ; i++) {
+        arr[i]=prompt('nhập giá trị cho mảng : '+i);
     }
-    for (let i = 0; i < 5; i++) {
-        if(negativeArray[i]<0){
-            n++;
+    let text = arr.join('');
+    console.log(text);
+    let textArr ='';
+    for (let i = 0; i < text.length ; i++) {
+        if(!isNaN(text[i]) && text[i-1]==='-'){
+            textArr +=text[i];
         }
     }
-    console.log('số âm có trong chuỗi : '+ n)
+    console.log(textArr);
+    console.log(textArr.length);
 </script>
 </body>
 </html>
