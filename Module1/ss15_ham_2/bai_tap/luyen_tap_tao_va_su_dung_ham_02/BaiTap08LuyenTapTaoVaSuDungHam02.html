@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    array=[1,2,3,4,5,6,7,8,9,10,11];
+    console.log(array);
+    console.log(swapTheArray(array));
+
+    function swapTheArray(arr) {
+        let n = arr.length-1;
+        while (n>0){
+            let j = 0;
+            for (let i = j; i < n; i++) {
+                let a = arr[i];
+                arr[i]= arr[i+1];
+                arr[i+1]=a;
+            }
+            n--;
+        }
+        return arr;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            margin-top: 100px;
+            border-collapse: collapse;
+            width: 40%;
+            border-style: dashed;
+            font-size: 20px;
+        }
+        tr:nth-child(odd){
+            background-color: #ffc3c3;
+        }
+        tr:nth-child(even){
+            background-color: rgba(248, 238, 233, 0.99);
+        }
+
+        .stt{
+            height: 50px;
+            text-align: center;
+
+        }
+        button {
+            width: 70%;
+            height: 45px;
+            margin-left: 12px;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border: 1px solid #949bc2;
+            background-color: #34aa4d;
+            color: white;
+            font-weight: lighter;
+            font-family: "Courier New";
+        }
+        button:hover {
+            cursor: pointer;
+            background-color: #354144;
+        }
+        .head{
+            background-color: #dce5ff;
+            width: 450px;
+        }
+    </style>
+</head>
+<body style="margin-left: 20px">
+<div class="head" style="margin-top: 20px">
+    <label style="font-size: 30px">Add New Product</label><br>
+    <input type="text" id="inputProduct" style="width: 300px; height: 30px">
+    <span><button onclick='addProduct()' style="width: 80px; ">Thêm</button></span>
+</div>
+<div>
+    <p id='table'></p>
+</div>
+
+<script>
+let arrayProduct =['Laptop Asus','Camera Sony','Apple Phone','TV LG','Fridge ToShiBa'];
+drawTable(arrayProduct);
+
+function addProduct() {
+    let flag = true;
+    if(document.getElementById('inputProduct').value===''){
+        flag = false;
+    }
+    if(flag){
+    let newProduct = document.getElementById('inputProduct').value;
+    arrayProduct.push(newProduct);
+    drawTable(arrayProduct);}
+
+}
+function fixProduct(numberProduct) {
+    let oldProduct = arrayProduct[numberProduct]
+    arrayProduct[numberProduct]=prompt('Sửa sản phẩm');
+    if(arrayProduct[numberProduct]===null || arrayProduct[numberProduct]===''){
+        arrayProduct[numberProduct]=oldProduct;
+    }
+    drawTable(arrayProduct);
+}
+
+function deleteProduct(numberProduct) {
+    if(confirm('Bạn có muốn xóa sản phẩm '+ arrayProduct[numberProduct]+ ' Không?')){
+        arrayProduct.splice(numberProduct,1);
+    }
+    drawTable(arrayProduct);
+}
+
+function drawTable(array) {
+    let tableString ="";
+    tableString += "<table>"
+    for (let i = 0; i < array.length ; i++) {
+        tableString+="<tr>";
+        tableString+="<td width='10%' class='stt'>"+(i+1)+'.'+"</td>";
+        tableString+="<td width='60%'><p style='margin-left: 20px'>" + array[i] + "</p></td>";
+        tableString+="<td width='15%' id='fix'><button onclick='fixProduct("+ i +")'>Sửa</button></td>";
+        tableString+="<td width='15%'><button onclick='deleteProduct("+ i +")'>Xóa</button></td>";
+        tableString+="</tr>";
+    }
+    tableString+="</table>"
+    document.getElementById('table').innerHTML=tableString;
+}
+
+</script>
+</body>
+</html>

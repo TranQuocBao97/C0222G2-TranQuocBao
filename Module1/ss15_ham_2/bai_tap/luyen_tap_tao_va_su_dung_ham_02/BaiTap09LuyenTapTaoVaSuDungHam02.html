@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = ["letter","better","bet","book","punch"];
+    let yourLetter1 = "e";
+    let yourLetter2 = "b";
+    let yourLetter3 = "w";
+
+    console.log(array.toString());
+    console.log("đếm số lần kí tự e :"+checkSameLetter(array,yourLetter1));
+    console.log("đếm số lần chữ b :"+checkSameLetter(array,yourLetter2));
+    console.log("đếm số lần chữ w :"+checkSameLetter(array,yourLetter3));
+
+    function checkSameLetter(arrayString,letter) {
+        let count = 0;
+        for (let i = 0; i < arrayString.length ; i++) {
+            for (let j = 0; j < arrayString[i].length; j++) {
+                if(arrayString[i][j]===letter){
+                    count++;
+                }
+            }
+        }
+        if(count!==0){
+            return count;
+        }else {
+            return -1;
+        }
+    }
+</script>
+</body>
+</html>

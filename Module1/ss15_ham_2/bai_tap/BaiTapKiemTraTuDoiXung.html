@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    arrayString = prompt('nhập chuỗi');
+    arrayString.toString();
+    arr = [];
+    for (let i = 0; i < arrayString.length; i++) {
+        arr[i]=arrayString[i];
+    }
+    console.log(arr)
+
+    if(isPalindrome(arr)){
+        console.log('đối xứng');
+    }else{
+        console.log('không đối xứng');
+    }
+
+    function isPalindrome(array){
+        while (array.length>=2){
+            //cách 1:
+            // let n = array.length;
+            // if(array[0]!==array[n-1]){
+            //     return false;
+            // }else{
+            //     array.shift();
+            //     array.pop();
+            // }
+            //cách 2:
+            checkArray(array);
+            if(checkArray(array)===false){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function checkArray(array2) {
+        if (array2[0]===array2[array2.length-1]){
+            array2.shift();
+            array2.pop();
+        }
+        else {
+            return false
+        }
+    }
+
+</script>
+</body>
+</html>

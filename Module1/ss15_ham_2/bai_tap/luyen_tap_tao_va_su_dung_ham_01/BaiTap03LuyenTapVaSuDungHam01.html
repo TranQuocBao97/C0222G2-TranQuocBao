@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Vòng lặp để test 2 trường hợp mà khỏi load lại trang
+    while (true){
+    let number1 = parseInt(prompt('số 1'));
+    let number2 = parseInt(prompt('số 2'));
+    compareNumber(number1,number2);
+
+    function compareNumber(a,b) {
+        if(a>b){
+            return alert('Số thứ 1 lớn hơn số thứ 2');
+        }else{
+            return alert('tổng 2 số : '+(a+b));
+        }
+    }
+    }
+</script>
+</body>
+</html>

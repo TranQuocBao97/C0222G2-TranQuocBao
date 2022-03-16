@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let randomNumber = []; 
+    for (let i = 0; i < 3 ; i++) {
+        randomNumber[i]=Math.floor(Math.random()*100);
+    }
+    console.log(randomNumber);
+    console.log(checkMinNumber(randomNumber));
+    
+    function checkMinNumber(arr) {
+        let min = arr[0];
+        for (let i = 0; i < 3 ; i++) {
+            if(arr[i]<min){
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+</script>
+</body>
+</html>
