@@ -8,15 +8,25 @@
 <script>
     let intArr = [];
     for (let i = 0; i < 10 ; i++) {
-        intArr[i] = Math.floor(Math.random()*100)
+        intArr[i] = Math.floor(Math.random()*10)
     }
     console.log(intArr)
     let V = parseInt(prompt('Nhập'));
-    let x = intArr.indexOf(V);
+    let x = intArr.includes(V);
     console.log(x)
-    if (x!==-1){
-        intArr.splice(x,1);
-        intArr.push(0);
+    let n =0;
+    if (x){
+        for (let i = 0; i < 10; i++) {
+            if(intArr[i]===V){
+                intArr.splice(i,1)
+                n++
+            }
+        }
+        //làm thế này để có thể xóa được cả phần tử là số 0
+        for (let i = 0; i < n; i++) {
+            intArr.push(0);
+        }
+
     }else{
         alert('V is not in the array')
     }
