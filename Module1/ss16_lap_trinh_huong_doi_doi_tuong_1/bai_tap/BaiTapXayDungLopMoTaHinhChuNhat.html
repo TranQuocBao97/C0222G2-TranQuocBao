@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div>
+        <span>Nhập chiều dài</span>
+        <input type="number" id="width">
+    </div>
+    <div>
+        <span>Nhập chiều rộng</span>
+        <input type="number" id="height">
+    </div>
+    <button onclick="creatNewRectangle()">Tạo</button>
+    <button onclick="drawRectangle()">Vẽ</button>
+</div>
+<div>
+    <span>diên tích: <span id="area"></span></span><br>
+    <span>chu vi: <span id="perimeter"></span></span>
+</div>
+
+<canvas id='myCanvas' width="1200px" height="800px" style="border:1px solid red; "></canvas>
+<script>
+
+
+    let Rectangle = function (longEdge,smallEdge) {
+        this.longEdge = longEdge;
+        this.smallEdge = smallEdge;
+
+        this.getLongEdge = function () {
+            return this.longEdge;
+        }
+
+        this.getSmallEdge = function () {
+            return this.smallEdge;
+        }
+
+        this.area = function () {
+            return longEdge*smallEdge;
+        }
+        this.perimeter = function () {
+            return (longEdge*2+smallEdge*2);
+        }
+
+        this.createRectangle = function () {
+            let drawRectangle = document.getElementById('myCanvas').getContext('2d');
+            drawRectangle.strokeRect(500,50,longEdge,smallEdge);
+        }
+    }
+
+    function creatNewRectangle(){
+        let longEdge = document.getElementById('width').value;
+        let shortEdge = document.getElementById('height').value;
+        let newRectangle = new Rectangle(longEdge,shortEdge);
+        document.getElementById('area').innerHTML = newRectangle.area();
+        document.getElementById('perimeter').innerHTML = newRectangle.perimeter();
+    }
+    function drawRectangle() {
+        let longEdge = document.getElementById('width').value;
+        let shortEdge = document.getElementById('height').value;
+        let newRectangle = new Rectangle(longEdge,shortEdge);
+        newRectangle.createRectangle();
+    }
+
+    // let rectangle1 = new Rectangle(100,50);
+    // let area1 = rectangle1.area();
+    // let draw1 = rectangle1.createRectangle()
+    // console.log(area1);
+</script>
+</body>
+</html>

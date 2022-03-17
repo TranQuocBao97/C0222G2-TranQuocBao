@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let MyDate = function (day,month,year) {
+        this.day=day;
+        this.month=month;
+        this.year=year;
+        this.time=day+'/'+month+'/'+year;
+
+        this.getDay= function () {
+            return this.day;
+        }
+        this.getMonth = function() {
+            return this.month;
+        }
+        this.getYear = function() {
+            return this.year;
+        }
+        this.getTime = function () {
+            return this.time;
+        }
+
+        this.setDay = function(day) {
+            this.day  = day;
+        }
+        this.setMonth = function(month) {
+            this.month  = month;
+        }
+        this.setYear = function(year) {
+            this.year  = year;
+        }
+
+        this.setDate = function(day,month,year){
+            this.day =day;
+            this.month=month;
+            this.year=year;
+        }
+
+        this.toString = function (day,month,year) {
+            this.time = day+'/'+month+'/'+year;
+        }
+    };
+    let date = new MyDate(2, 2, 2007);
+    let day = date.getDay();
+    let month = date.getMonth();
+    let year = date.getYear();
+    console.log(('Ngày: ' +day+ '. Tháng: '+month+'. Năm: '+year));
+
+
+    date.setDay(17);
+    date.setMonth(5);
+    date.setYear(2022);
+    day = date.getDay();
+    month = date.getMonth();
+    year = date.getYear();
+    console.log(date);
+    console.log(('Ngày: ' +day+ '. Tháng: '+month+'. Năm: '+year));
+
+
+    date.setDate(5,5,2020);
+    day = date.getDay();
+    month = date.getMonth();
+    year = date.getYear();
+    console.log(('Ngày: ' +day+ '. Tháng: '+month+'. Năm: '+year));
+
+    date.toString(6,9,2069);
+    time = date.getTime();
+    console.log(time);
+
+
+</script>
+</body>
+</html>
