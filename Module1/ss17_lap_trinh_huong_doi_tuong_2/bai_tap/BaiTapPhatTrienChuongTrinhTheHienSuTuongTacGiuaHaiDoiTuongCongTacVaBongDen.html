@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="switchUsed()" style="width: 500px; height: 500px; margin-left: 400px;font-size: 100px">Công Tắc</button>
+<script>
+    class SwitchButton {
+        constructor(switchStatus) {
+            this.switchStustus=switchStatus;
+        }
+        getSwitchStatus(){
+            return this.switchStustus;
+        }
+        usedSwitch(switchStatus){
+            if(switchStatus){
+                this.switchStustus = false;
+                return false;
+            }else {
+                this.switchStustus = true;
+                return true;
+            }
+        }
+    }
+    class Lamp {
+        constructor(lampStatus) {
+            this.lampStatus = lampStatus;
+        }
+        getLampStatus(){
+            return this.lampStatus;
+        }
+        setLampStatus(lampStatus){
+            this.lampStatus = lampStatus;
+        }
+    }
+
+    let switchButton1 = new SwitchButton(false);
+    console.log(switchButton1.getSwitchStatus());
+    let lamp1 = new Lamp(switchButton1.getSwitchStatus())
+    console.log(lamp1.getLampStatus())
+    function switchUsed(){
+        lamp1.setLampStatus(switchButton1.usedSwitch(switchButton1.getSwitchStatus()));
+        console.log("công tắc: "+switchButton1.getSwitchStatus());
+        console.log("đèn:      "+lamp1.getLampStatus());
+    }
+</script>
+</body>
+</html>

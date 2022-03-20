@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <button onclick="adamApp1()" >Adam ăn táo 1</button>
+    <button onclick="evaApp1()" >Eva ăn táo 1</button>
+</p>
+<p>
+    <button onclick="adamApp2()" >Adam ăn táo 2</button>
+    <button onclick="evaApp2()" >Eva ăn táo 2</button>
+</p>
+<p>
+    <button onclick="adamCheckApp1()">check táo 1</button>
+    <button onclick="adamCheckApp2()">check táo 2</button>
+</p>
+<p id="screen"></p>
+
+<script>
+    class Apple {
+        constructor(weight) {
+            this.weight = 10
+        }
+        getWeight (){
+            return this.weight;
+        }
+        setWeight (weight){
+            this.weight = weight;
+        }
+
+    }
+
+
+    class Human {
+        constructor(weight,name,gender) {
+            this.weight = weight;
+            this.name = name;
+            this.gender = gender;
+        }
+        getName(){
+            return this.name;
+        }
+        getGender(){
+            return this.gender;
+        }
+        getWeight(){
+            return this.weight;
+        }
+        setWeight(weight){
+            this.weight=weight;
+        }
+
+
+        talk(human){
+           console.log(("i'am "+this.name)) ;
+           console.log(("hi. i'am "+human.getName()+""))
+        }
+        checkApple(apple){
+            alert('quả táo còn: '+apple.getWeight()+' lạng');
+        }
+        eatApple(apple,humanWeight){
+            let b = apple.getWeight()
+            if(b>0){
+                humanWeight++;
+                this.setWeight(humanWeight);
+                b--;
+                apple.setWeight(b);
+            }else{
+                alert('Táo bị ăn sạch zồi')
+            }
+        }
+    }
+
+    let apple1 = new Apple();
+    let apple2 = new Apple();
+    let human1 = new Human(700,'Adam','male');
+    let human2 = new Human(600,'Eva','female')
+    function adamApp1() {
+        human1.eatApple(apple1,human1.getWeight());
+        console.log(apple1.getWeight());
+        console.log(human1.getWeight());
+    }
+    function adamApp2() {
+        human1.eatApple(apple2,human1.getWeight());
+        console.log(apple2.getWeight());
+        console.log(human1.getWeight());
+    }
+    function evaApp1() {
+        human2.eatApple(apple1,human2.getWeight());
+        console.log(apple1.getWeight());
+        console.log(human2.getWeight());
+    }
+    function evaApp2() {
+        human2.eatApple(apple2,human2.getWeight());
+        console.log(apple2.getWeight());
+        console.log(human2.getWeight());
+    }
+    function adamCheckApp1(){
+        human1.checkApple(apple1);
+    }
+    function adamCheckApp2(){
+        human1.checkApple(apple2);
+    }
+
+    human1.talk(human2);
+    console.log(human1.getName())
+    console.log(human1.getWeight())
+    console.log(human1.getGender())
+
+
+
+</script>
+</body>
+</html>
