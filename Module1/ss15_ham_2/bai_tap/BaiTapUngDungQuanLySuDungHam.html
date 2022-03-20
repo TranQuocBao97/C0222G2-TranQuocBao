@@ -52,8 +52,10 @@
     <label style="font-size: 30px">Add New Product</label><br>
     <input type="text" id="inputProduct" style="width: 300px; height: 30px">
     <span><button onclick='addProduct()' style="width: 80px; ">Thêm</button></span>
+
 </div>
 <div>
+    <p id="value">Số Lượng Sản Phẩm</p>
     <p id='table'></p>
 </div>
 
@@ -69,12 +71,13 @@ function addProduct() {
     if(flag){
     let newProduct = document.getElementById('inputProduct').value;
     arrayProduct.push(newProduct);
+    document.getElementById('inputProduct').value="";
     drawTable(arrayProduct);}
 
 }
 function fixProduct(numberProduct) {
     let oldProduct = arrayProduct[numberProduct]
-    arrayProduct[numberProduct]=prompt('Sửa sản phẩm');
+    arrayProduct[numberProduct]=prompt('Sửa sản phẩm ' + arrayProduct[numberProduct]);
     if(arrayProduct[numberProduct]===null || arrayProduct[numberProduct]===''){
         arrayProduct[numberProduct]=oldProduct;
     }
@@ -90,7 +93,15 @@ function deleteProduct(numberProduct) {
 
 function drawTable(array) {
     let tableString ="";
-    tableString += "<table>"
+    let productValue = arrayProduct.length;
+    document.getElementById('value').innerHTML='số lượng sản phẩm :'+productValue;
+    tableString += "<table>" +
+        "<tr>" +
+        "<th width='10%' class='stt'>Stt</th>" +
+        "<th width='60%'><p style='margin-right: 300px'>Tên sản phẩm</p></th>" +
+        "<th width='15%' id='fix'>Sửa</th>" +
+        "<th width='15%'>Xóa</th>" +
+        "</tr>"
     for (let i = 0; i < array.length ; i++) {
         tableString+="<tr>";
         tableString+="<td width='10%' class='stt'>"+(i+1)+'.'+"</td>";

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <p>Độ C: <span id="c" ></span></p><input type='number' oninput="changeValue(this.value)">
+    <p>Độ F: <span id="f" ></span></p>
+    <p>Độ K: <span id="k" ></span></p>
+</div>
+<script>
+    class Temperature {
+        constructor(celsius) {
+            if(celsius>(-275)){
+                this.celsius = celsius;
+            }
+
+        }
+        getCelsius (){
+            return this.celsius;
+        }
+
+        setCelsius (celsius){
+            this.celsius = celsius;
+        }
+
+        changeFahrenheit (celsius){
+            return celsius*1.8+32;
+        }
+        changeKenvin (celsius){
+            return celsius*1+271.15;
+        }
+
+    }
+
+    let temperature = new Temperature(25);
+    let value = temperature.getCelsius();
+    document.getElementById('c').innerHTML=value;
+    document.getElementById('f').innerHTML=temperature.changeFahrenheit(value);
+    document.getElementById('k').innerHTML=temperature.changeKenvin(value);
+
+    function changeValue(updateTem) {
+        let newTemperature = new Temperature(updateTem);
+        let newValue = newTemperature.getCelsius();
+        document.getElementById('c').innerHTML=newValue;
+        document.getElementById('f').innerHTML=newTemperature.changeFahrenheit(newValue);
+        document.getElementById('k').innerHTML=newTemperature.changeKenvin(newValue);
+    }
+
+</script>
+</body>
+</html>

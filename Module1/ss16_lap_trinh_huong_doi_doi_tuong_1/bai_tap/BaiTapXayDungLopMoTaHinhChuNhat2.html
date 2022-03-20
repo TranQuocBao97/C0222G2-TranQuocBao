@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <p>Nhập cạnh 1 : <input type="number" id="edge1"></p>
+        <p>Nhập cạnh 2 : <input type="number" id="edge2"></p>
+        <p><button onclick="creatRectangle()">Tạo hình chữ nhật</button></p>
+            <p>Diện Tích: <span id="area"></span></p>
+            <p>Chi vi: <span id="perimeter"></span></p>
+    </div>
+    <div>
+        <p><button onclick="drawRectangle()">Vẽ hình chữ nhật</button></p>
+        <span id="canvasHere"><canvas id="myCanvas" width="1200px" height="630px" style="border: 1px solid red;margin-left: 300px"></canvas></span>
+    </div>
+<script>
+    class Rectangle {
+        constructor(longEdge,shortEdge) {
+            this.longEdge = longEdge;
+            this.shortEdge = shortEdge;
+        }
+        getLongEdge (){
+            return this.longEdge;
+        }
+        getShortEdge (){
+            return this.shortEdge;
+        }
+
+        setLongEdge (longEdge){
+            this.longEdge = longEdge;
+        }
+        setShortEdge (shortEdge){
+            this.shortEdgeEdge = shortEdge;
+        }
+
+        area (longEdge,shortEdge){
+            return longEdge*shortEdge;
+        }
+        perimeter (longEdge,shortEdge){
+            return longEdge*2+shortEdge*2;
+        }
+    }
+
+    let count = 0;
+    let rectangle = [];
+
+
+
+    function creatRectangle() {
+        let edge1 = document.getElementById('edge1').value;
+        let edge2 = document.getElementById('edge2').value;
+        rectangle[count] = new Rectangle(edge1,edge2);
+        document.getElementById('area').innerHTML=rectangle[count].area(edge1,edge2);
+        document.getElementById('perimeter').innerHTML=rectangle[count].perimeter(edge1,edge2);
+        console.log(rectangle[count]);
+        count++;
+    }
+    function drawRectangle() {
+        let canvas ="<canvas id=\"myCanvas\" width=\"1200px\" height=\"630px\" style=\"border: 1px solid red;margin-left: 300px\"></canvas>";
+        document.getElementById('canvasHere').innerHTML=canvas;
+        let edge1 = document.getElementById('edge1').value;
+        let edge2 = document.getElementById('edge2').value;
+        rectangle[count] = new Rectangle(edge1,edge2);
+        console.log(rectangle[count]);
+        let draw = document.getElementById('myCanvas').getContext('2d');
+        draw.strokeRect(30,40,edge1,edge2);
+        count++;
+    }
+
+
+</script>
+</body>
+</html>

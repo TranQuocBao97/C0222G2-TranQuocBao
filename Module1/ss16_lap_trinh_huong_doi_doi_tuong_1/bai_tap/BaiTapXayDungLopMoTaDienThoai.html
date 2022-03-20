@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1px" style="width: 1200px; height: 800px;">
+    <tr>
+        <td width="600px" style="padding: 20px">
+            <p>Nokia</p>
+            <p><button onclick="powerNokia()" >Nút nguồn</button></p>
+            <p><button id="chargerNokia" onclick="chargerNokia()">sạc pin</button></p>
+            <p>hộp thư nhận: <button onclick="checkNokiaTextIn()">check</button></p>
+            <p>hộp thư đã gửi: <button onclick="checkNokiaTextOut()">check</button> </p>
+            <p><label for="textNokia"></label><input type="text" id="textNokia"><button onclick="sendTextNokia()" >gửi tin nhắn</button></p>
+            <div id="nokia" style="width: 600px;height: 500px;background-color: #dfdfe5"></div>
+        </td>
+        <td width="600px" style="padding: 20px">
+            <p>Apple</p>
+            <p><button onclick="powerApple()" >Nút nguồn</button></p>
+            <p><button id="chargerApple" onclick="chargerApple()">sạc pin</button></p>
+            <p>hộp thư nhận: <button onclick="checkAppleTextIn()">check</button></p>
+            <p>hộp thư đã gửi: <button onclick="checkAppleTextOut()">check</button> </p>
+            <p><label for="textApple"></label><input type="text" id="textApple"><button onclick="sendTextApple()" >gửi tin nhắn</button></p>
+            <div id="apple" style="width: 600px;height: 500px;background-color: #dfdfe5"></div>
+        </td>
+    </tr>
+</table>
+<script>
+    //Phone
+    class Phone {
+        constructor(battery,boxOut,boxIn,phoneStatus){
+            this.battery = battery;
+            this.boxOut = boxOut;
+            this.boxIn = boxIn;
+            this.phoneStatus=phoneStatus;
+        }
+
+        getBattery (){
+            return this.battery;
+        }
+        getBoxOut (){
+            return this.boxOut;
+        }
+        getBoxIn (){
+            return this.boxIn;
+        }
+        getPhoneStatus (){
+            return this.phoneStatus;
+        }
+
+
+        setBattery (battery){
+           this.battery=battery;
+        }
+        setBoxOut(boxOut){
+            this.boxOut=boxOut;
+        }
+        setBoxIn(boxIn){
+            this.boxIn=boxIn;
+        }
+        setPhoneStatus(phoneStatus){
+            this.phoneStatus=phoneStatus;
+        }
+
+        checkBattery (){
+            if(this.battery===0){
+                this.phoneStatus=false;
+            }
+            return this.setPhoneStatus(this.phoneStatus);
+        }
+
+        controlStatus (phoneStatus){
+            phoneStatus = !phoneStatus;
+            this.setPhoneStatus(phoneStatus);
+        }
+
+        charger (){
+            this.battery++;
+        }
+        batteryDown (){
+            this.battery--;
+        }
+    }
+
+    //Nokia
+
+    let arrayNokiaTextOut = [];
+    let arrayNokiaTextIn = [];
+    let nokia = new Phone(10,arrayNokiaTextOut,arrayNokiaTextIn,true);
+
+    nokiaDisplay();
+
+    function chargerNokia() {
+        nokia.charger(nokia.getBattery())
+        nokiaDisplay();
+    }
+
+    function powerNokia() {
+        nokia.controlStatus(nokia.getPhoneStatus());
+        nokiaDisplay();
+    }
+    function sendTextNokia() {
+        if(nokia.getPhoneStatus()){
+        let mess =document.getElementById('textNokia').value;
+        if (mess!==""){
+            arrayNokiaTextOut[arrayNokiaTextOut.length] = mess;
+            nokia.batteryDown(nokia.getBattery());
+        }
+        document.getElementById('textNokia').value = '';
+        nokia.setBoxOut(nokia.getBoxOut());
+        nokiaDisplay();
+        apple.setBoxIn(nokia.getBoxOut());
+        }else {
+            alert('Điện thoại nokia đang tắt');
+        }
+    }
+
+
+    function checkNokiaTextOut() {
+        if(nokia.getPhoneStatus()){
+            nokia.batteryDown(nokia.getBattery());
+            nokiaDisplay();
+            document.getElementById('screenNokia').innerHTML='<p>tin nhắn đã gửi</p>'+nokia.getBoxOut();
+        }else{
+            alert('Điện thoại nokia đang tắt');
+        }
+    }
+    function checkNokiaTextIn() {
+        if(nokia.getPhoneStatus()){
+            nokia.batteryDown(nokia.getBattery());
+            nokiaDisplay()
+            document.getElementById('screenNokia').innerHTML='<p>tin nhắn đã nhận</p>'+nokia.getBoxIn();
+        }else {
+            alert('Điện thoại nokia đang tắt');
+        }
+    }
+
+
+
+    function nokiaDisplay() {
+        let nokiaScreen = "";
+        let showNokia ="";
+        nokia.checkBattery();
+        if(nokia.getPhoneStatus()){
+            showNokia = 'mở';
+        }else{
+            showNokia = 'tắt';
+        }
+        nokiaScreen+="Máy đang: "+showNokia+"<br>";
+        nokiaScreen+="Battery: "+nokia.getBattery()+"%<br>";
+        nokiaScreen+="Màn hình hiển thị của Nokia: <p id='screenNokia'></p>"
+
+        document.getElementById('nokia').innerHTML=nokiaScreen;
+    }
+
+    // Apple
+
+    let arrayAppleTextOut = [];
+    let arrayAppleTextIn = [];
+    let apple = new Phone(15,arrayAppleTextOut,arrayAppleTextIn,true);
+
+    appleDisplay();
+
+    function chargerApple() {
+        apple.charger(apple.getBattery())
+        appleDisplay();
+    }
+
+    function powerApple() {
+        apple.controlStatus(apple.getPhoneStatus());
+        appleDisplay();
+    }
+    function sendTextApple() {
+        if(apple.getPhoneStatus()){
+        let mess =document.getElementById('textApple').value;
+        if (mess!==""){
+            arrayAppleTextOut[arrayAppleTextOut.length] = mess;
+            apple.batteryDown(apple.getBattery());
+        }
+        document.getElementById('textApple').value = '';
+        apple.setBoxOut(apple.getBoxOut());
+        appleDisplay()
+        nokia.setBoxIn(apple.getBoxOut());
+        }else{
+            alert('Điện thoại apple đang tắt')
+        }
+    }
+
+    function checkAppleTextOut() {
+        if(apple.getPhoneStatus()){
+            apple.batteryDown(apple.getBattery());
+            appleDisplay()
+            document.getElementById('screenApple').innerHTML='<p>tin nhắn đã gửi</p>'+apple.getBoxOut();
+        }else{
+            alert('Điện thoại apple đang tắt')
+        }
+    }
+    function checkAppleTextIn() {
+        if(apple.getPhoneStatus()) {
+                apple.batteryDown(apple.getBattery());
+                appleDisplay()
+                document.getElementById('screenApple').innerHTML = '<p>tin nhắn đã nhận</p>' + apple.getBoxIn();
+        }else {
+            alert('Điện thoại apple đang tắt')
+        }
+    }
+
+
+
+
+    function appleDisplay() {
+        let appleScreen = "";
+        let showApple ="";
+        apple.checkBattery()
+        if(apple.getPhoneStatus()){
+            showApple = 'mở';
+        }else{
+            showApple = 'tắt';
+        }
+        appleScreen+="Máy đang: "+showApple+"<br>";
+        appleScreen+="Battery: "+apple.getBattery()+"%<br>";
+        appleScreen+="Màn hình hiển thị của Apple: <span id='screenApple'></span>"
+
+
+        document.getElementById('apple').innerHTML=appleScreen;
+    }
+
+
+
+</script>
+</body>
+</html>
