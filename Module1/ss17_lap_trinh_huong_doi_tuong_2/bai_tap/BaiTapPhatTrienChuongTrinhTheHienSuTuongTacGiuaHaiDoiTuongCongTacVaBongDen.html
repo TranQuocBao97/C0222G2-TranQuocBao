@@ -9,17 +9,17 @@
 <script>
     class SwitchButton {
         constructor(switchStatus) {
-            this.switchStustus=switchStatus;
+            this.switchStatus=switchStatus;
         }
         getSwitchStatus(){
-            return this.switchStustus;
+            return this.switchStatus;
         }
         usedSwitch(switchStatus){
             if(switchStatus){
-                this.switchStustus = false;
+                this.switchStatus = false;
                 return false;
             }else {
-                this.switchStustus = true;
+                this.switchStatus = true;
                 return true;
             }
         }

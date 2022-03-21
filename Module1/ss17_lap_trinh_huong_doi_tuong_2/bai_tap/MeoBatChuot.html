@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mouse {
+        constructor(name,weight,speed,status) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.status = status;
+        }
+        getWeight(){
+            return this.weight;
+        }
+        getSpeed(){
+            return this.speed;
+        }
+        getStatus(){
+            return this.status;
+        }
+        setdead(){
+            this.weight = 0;
+            this.status = false;
+        }
+    }
+
+    class Cat {
+        constructor() {
+            this.name="tom";
+            this.weight = 30;
+            this.speed = 20;
+            this.mouse = null;
+        }
+        getSpeed(){
+            return this.speed;
+        }
+        getWeight(){
+            return this.weight;
+        }
+        connect(mouse){
+            this.mouse=mouse;
+        }
+        catchMouse(){
+            if(this.mouse.getStatus() && this.getSpeed()>this.mouse.getSpeed()) {
+                this.weight += this.mouse.getWeight();
+                this.mouse.setdead();
+            }
+        }
+    }
+
+    let mouse1 = new Mouse('chuot1',10,10,true);
+    let mouse2 = new Mouse('chuot2',8,15,true);
+    let cat1 = new Cat();
+    cat1.connect(mouse1);
+    cat1.catchMouse();
+    console.log(cat1.getWeight());
+    console.log(mouse1.getWeight());
+    console.log(mouse1.getStatus());
+    cat1.connect(mouse2);
+    cat1.catchMouse();
+    console.log(cat1.getWeight());
+    console.log(mouse2.getWeight());
+    console.log(mouse2.getStatus());
+
+
+</script>
+</body>
+</html>

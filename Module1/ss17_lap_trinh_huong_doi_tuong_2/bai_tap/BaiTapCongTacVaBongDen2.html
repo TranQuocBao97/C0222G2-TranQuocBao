@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="switchUsed()" style="width: 500px; height: 500px; margin-left: 400px;font-size: 100px">Công Tắc</button>
+<div style="width: 200px;height: 200px;background-color: yellow" id="lamp"></div>
+<script>
+class Lamp{
+    constructor() {
+        this.status = false;
+    }
+    getLampStatus(){
+        return this.status;
+    }
+    turnOn(){
+        this.status = true;
+    }
+    turnOff(){
+        this.status = false;
+    }
+}
+class Switch{
+    constructor() {
+    this.status = false;
+    this.lamp = null;
+    }
+    getSwitchStatus(){
+        return this.status;
+    }
+    connectLamp(lamp){
+        this.lamp = lamp;
+    }
+    turnLampOn(){
+        this.status = true;
+        this.lamp.turnOn();
+    }
+    turnLampOff(){
+        this.status = false;
+        this.lamp.turnOff();
+    }
+
+}
+let lamp1 = new Lamp();
+let switch1 = new Switch();
+console.log(lamp1.getLampStatus())
+console.log(switch1.getSwitchStatus())
+switch1.connectLamp(lamp1);
+switch1.turnLampOn();
+console.log(lamp1.getLampStatus())
+console.log(switch1.getSwitchStatus())
+switch1.turnLampOff();
+console.log(lamp1.getLampStatus())
+console.log(switch1.getSwitchStatus())
+function switchUsed(){
+    if(switch1.getSwitchStatus()){
+        switch1.turnLampOff();
+        document.getElementById("lamp").innerHTML="<div style=\"width: 200px;height: 200px;background-color: yellow\"></div>"
+    }else{
+        switch1.turnLampOn();
+        document.getElementById("lamp").innerHTML="<div style=\"width: 200px;height: 200px;background-color: red\"></div>"
+    }
+    console.log(lamp1.getLampStatus())
+    console.log(switch1.getSwitchStatus())
+}
+
+
+
+</script>
+</body>
+</html>
