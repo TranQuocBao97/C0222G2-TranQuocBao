@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 70px;
+        }
+        button{
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <button onclick="getCode(1)">1</button>
+    <button onclick="getCode(2)">2</button>
+    <button onclick="getCode(3)">3</button>
+</div>
+<div>
+    <button onclick="getCode(4)">4</button>
+    <button onclick="getCode(5)">5</button>
+    <button onclick="getCode(6)">6</button>
+</div>
+<div id="screen" >
+
+</div>
+<script>
+function getCode(channel) {
+    let value ='';
+    switch (channel) {
+        case 1:
+            value = "<iframe width=\"1280\" height=\"720\" src=\"https://www.youtube.com/embed/qAYWw67yiN0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            break;
+        case 2:
+            value = "<iframe width=\"1022\" height=\"690\" src=\"https://www.youtube.com/embed/NaFd8ucHLuo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            break;
+        case 3:
+            value = "<iframe width=\"1227\" height=\"690\" src=\"https://www.youtube.com/embed/n6Pnzi6r9NU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            break;
+        case 4:
+            value = "<iframe width=\"1227\" height=\"690\" src=\"https://www.youtube.com/embed/vKN4QaNtDdI\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            break;
+        case 5:
+            value = "<iframe width=\"1227\" height=\"690\" src=\"https://www.youtube.com/embed/NZKXkD6EgBk\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            break;
+        case 6:
+            value = "<iframe width=\"1232\" height=\"693\" src=\"https://www.youtube.com/embed/iLth82u56sg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            break;
+    }
+    console.log(value)
+    document.getElementById('screen').innerHTML= value;
+}
+
+
+</script>
+</body>
+</html>

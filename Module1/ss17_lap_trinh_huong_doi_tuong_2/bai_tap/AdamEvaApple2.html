@@ -39,6 +39,7 @@
             this.weight = weight;
             this.name = name;
             this.gender = gender;
+            this.apple = null;
         }
         getName(){
             return this.name;
@@ -55,21 +56,20 @@
 
 
         talk(human){
-           console.log(("i'am "+this.name)) ;
-           console.log(("hi. i'am "+human.getName()+""))
+            console.log(("i'am "+this.name)) ;
+            console.log(("hi. i'am "+human.getName()+""))
         }
         checkApple(apple){
             alert('quả táo còn: '+apple.getWeight()+' lạng');
         }
-        eatApple(apple,humanWeight){
-            let b = apple.getWeight()
-            if(b>0){
-                humanWeight++;
-                this.setWeight(humanWeight);
-                b--;
-                apple.setWeight(b);
-            }else{
-                alert('Táo bị ăn sạch zồi')
+
+        eatApple(apple){
+            this.apple = apple;
+            if(this.apple.getWeight()>0){
+                this.apple.weight--;
+                this.weight++;
+            }else {
+                alert('quả táo này đã bị ăn sạch')
             }
         }
     }
@@ -78,26 +78,30 @@
     let apple2 = new Apple();
     let human1 = new Human(700,'Adam','male');
     let human2 = new Human(600,'Eva','female');
+
+
     function adamApp1() {
-        human1.eatApple(apple1,human1.getWeight());
+        human1.eatApple(apple1)
         console.log(apple1.getWeight());
         console.log(human1.getWeight());
     }
     function adamApp2() {
-        human1.eatApple(apple2,human1.getWeight());
+        human1.eatApple(apple2)
         console.log(apple2.getWeight());
         console.log(human1.getWeight());
     }
     function evaApp1() {
-        human2.eatApple(apple1,human2.getWeight());
+        human2.eatApple(apple1)
         console.log(apple1.getWeight());
         console.log(human2.getWeight());
     }
     function evaApp2() {
-        human2.eatApple(apple2,human2.getWeight());
+        human2.eatApple(apple2)
         console.log(apple2.getWeight());
         console.log(human2.getWeight());
     }
+
+
     function adamCheckApp1(){
         human1.checkApple(apple1);
     }
