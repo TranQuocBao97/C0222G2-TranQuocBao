@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let h = "";
+    do{
+        h = parseInt(prompt('nhập chiều cao tam giác cân'))
+    }while (h<2)
+    let d = h;
+    let u = h;
+    for (let i = 1; i <= h ; i++) {
+        for (let j = 1; j <=u ; j++) {
+            if(j===d || j===u || i===h ){
+                document.write("*");
+            }else {
+                document.write("&nbsp&nbsp")
+            }
+        }
+        document.write('<br>')
+        d--;
+        u++;
+    }
+</script>
+</body>
+</html>

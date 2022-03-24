@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        select{
+            width: 100px;
+            height: 50px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <div><button style="width: 725px;height: 50px;font-size: 32px" onclick="buyRandomTicket()">Buy Random Ticket</button></div>
+    <br>
+    <div>
+        <label for="option1"></label><select id="option1"></select>
+        <label for="option2"></label><select id="option2"></select>
+        <label for="option3"></label><select id="option3"></select>
+        <label for="option4"></label><select id="option4"></select>
+        <label for="option5"></label><select id="option5"></select>
+        <label for="option6"></label><select id="option6"></select>
+        <button onclick="pickBuyTicket()" style="width: 100px;height: 50px;font-size: 32px;">Mua</button>
+    </div>
+</div>
+<br>
+<div>
+    <button style="width: 725px;height: 50px;font-size: 32px" onclick="lotteryResult()">Kết Quả</button>
+</div>
+<script>
+    class Ticket{
+        constructor(number1,number2,number3,number4,number5,number6) {
+            this.number1=number1;
+            this.number2=number2;
+            this.number3=number3;
+            this.number4=number4;
+            this.number5=number5;
+            this.number6=number6;
+            this.ticket = [];
+        }
+        getNumber1 (){
+            return this.number1
+        }
+        getNumber2 (){
+            return this.number2
+        }
+        getNumber3 (){
+            return this.number3
+        }
+        getNumber4 (){
+            return this.number4
+        }
+        getNumber5 (){
+            return this.number5
+        }
+        getNumber6 (){
+            return this.number6
+        }
+
+        setNumber1 (number1){
+            return this.number1=number1;
+        }
+        setNumber2 (number2){
+            return this.number2=number2;
+        }
+        setNumber3 (number3){
+            return this.number3=number3;
+        }
+        setNumber4 (number4){
+            return this.number4=number4;
+        }
+        setNumber5 (number5){
+            return this.number5=number5;
+        }
+        setNumber6 (number6){
+            return this.number6=number6;
+        }
+
+        fullTicket (){
+            return this.ticket=[this.number1,this.number2,this.number3,this.number4,this.number5,this.number6]
+        }
+    }
+    class MachineTicket extends Ticket{
+        constructor(number1,number2,number3,number4,number5,number6,randomTicket,pickTicket,resultVietLot) {
+            super(number1,number2,number3,number4,number5,number6);
+            this.randomTicket=randomTicket;
+            this.pickTicket=pickTicket;
+            this.resultVietLot=resultVietLot;
+            this.ticket = null;
+        }
+        sellRandomTicket(ticket){
+            this.ticket = ticket;
+            this.ticket.setNumber1(Math.floor(Math.random()*10));
+            this.ticket.setNumber2(Math.floor(Math.random()*10));
+            this.ticket.setNumber3(Math.floor(Math.random()*10));
+            this.ticket.setNumber4(Math.floor(Math.random()*10));
+            this.ticket.setNumber5(Math.floor(Math.random()*10));
+            this.ticket.setNumber6(Math.floor(Math.random()*10));
+            return this.ticket.fullTicket();
+        }
+        sellPickTicket(ticket,number1,number2,number3,number4,number5,number6){
+            this.ticket=ticket;
+            this.ticket.setNumber1(number1);
+            this.ticket.setNumber2(number2);
+            this.ticket.setNumber3(number3);
+            this.ticket.setNumber4(number4);
+            this.ticket.setNumber5(number5);
+            this.ticket.setNumber6(number6);
+            return this.ticket.fullTicket();
+        }
+        makeResultVietLot(){
+            this.number1=Math.floor(Math.random()*10);
+            this.number2=Math.floor(Math.random()*10);
+            this.number3=Math.floor(Math.random()*10);
+            this.number4=Math.floor(Math.random()*10);
+            this.number5=Math.floor(Math.random()*10);
+            this.number6=Math.floor(Math.random()*10);
+            return this.resultVietLot=[this.number1,this.number2,this.number3,this.number4,this.number5,this.number6]
+        }
+        checkTicket(ticket,resultVietLot){
+            this.ticket=ticket
+            ///
+            let flag = true;
+            for (let i = 0; i < 6; i++) {
+                if (this.ticket[i]!==this.resultVietLot[i]){
+                    flag = false;
+                }
+            }
+            if(flag){
+                return console.log('Bạn đã thắng giải nhất 500 tỷ');
+            }
+            ///
+            flag = true;
+            for (let i = 3; i < 6; i++) {
+                if (this.ticket[i]!==this.resultVietLot[i]){
+                    flag = false;
+                }
+            }
+            if(flag){
+                return console.log('Bạn đã thắng giải nhì 100 tỷ');
+            }
+            ////
+            flag = true;
+            for (let i = 5; i < 6; i++) {
+                if (this.ticket[i]!==this.resultVietLot[i]){
+                    flag = false;
+                }
+            }
+            if(flag){
+                return console.log('Bạn đã thắng giải ba 1 triệu');
+            }else {
+                return console.log('chúc bạn may mắn lần sau');
+            }
+
+        }
+
+    }
+
+    let lotteryMachine = new MachineTicket();
+    let arrYourTicket = [];
+    let n = 0;
+
+    function lotteryResult() {
+        let result = lotteryMachine.makeResultVietLot();
+        for (let i = 0; i < arrYourTicket.length ; i++) {
+            lotteryMachine.checkTicket(arrYourTicket[i],result)
+        }
+        console.log(result);
+    }
+    function pickBuyTicket() {
+        number1=document.getElementById('option1').value;
+        number2=document.getElementById('option2').value;
+        number3=document.getElementById('option3').value;
+        number4=document.getElementById('option4').value;
+        number5=document.getElementById('option5').value;
+        number6=document.getElementById('option6').value;
+        if(arrYourTicket.length<10){
+            arrYourTicket[n] = new Ticket();
+            arrYourTicket[n] = lotteryMachine.sellPickTicket(arrYourTicket[n],number1,number2,number3,number4,number5,number6)
+            console.log(arrYourTicket)
+            n++
+        }else{
+            console.log('bạn ko thể mua hơn 10 vé')
+        }
+    }
+    function buyRandomTicket() {
+        if (arrYourTicket.length<10){
+            arrYourTicket[n] = new Ticket();
+            arrYourTicket[n]= lotteryMachine.sellRandomTicket(arrYourTicket[n]);
+            console.log(arrYourTicket)
+            n++;
+        }else{
+            return console.log('bạn ko thể mua hơn 10 vé')
+        }
+        showTicketRandom()
+    }
+    pickNumberTicket()
+    function pickNumberTicket() {
+        let screen ="";
+        for (let i = 0; i < 100; i++) {
+            screen+="<option>"+i+"</option>"
+        }
+        document.getElementById('option1').innerHTML=screen;
+        document.getElementById('option2').innerHTML=screen;
+        document.getElementById('option3').innerHTML=screen;
+        document.getElementById('option4').innerHTML=screen;
+        document.getElementById('option5').innerHTML=screen;
+        document.getElementById('option6').innerHTML=screen;
+    }
+    function showTicketRandom() {
+
+        let number1 = arrYourTicket[n-1][0];
+        let number2 = arrYourTicket[n-1][1];
+        let number3 = arrYourTicket[n-1][2];
+        let number4 = arrYourTicket[n-1][3];
+        let number5 = arrYourTicket[n-1][4];
+        let number6 = arrYourTicket[n-1][5];
+        document.getElementById('option1').value =  number1;
+        document.getElementById('option2').value =  number2;
+        document.getElementById('option3').value =  number3;
+        document.getElementById('option4').value =  number4;
+        document.getElementById('option5').value =  number5;
+        document.getElementById('option6').value =  number6;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{
+            width: 150px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+<div id="screen"></div>
+
+<script>
+    display()
+
+    function display() {
+        let display ="<div><button onclick=\"orderDrink(0)\">1.Cà phê</button></div>\n" +
+            "    <div><button onclick=\"orderDrink(1)\">2.Cam vắt</button></div>\n" +
+            "    <div><button onclick=\"orderDrink(2)\">3.Nước ép cà rốt</button></div>\n" +
+            "    <div><button onclick=\"orderDrink(3)\">4.Nước ép cà chua</button></div>\n" +
+            "    <div><button onclick=\"orderDrink(4)\">5.Nước lọc</button></div>\n" +
+            "    <div><button onclick=\"orderDrink(5)\">6.Nước dừa</button></div>\n" +
+            "    <div><button onclick=\"orderDrink(6)\">7.Thoát gọi món</button></div>"
+        document.getElementById('screen').innerHTML=display;
+    }
+
+
+    do{
+    let array = [15000,20000,15000,20000,5000,15000]
+
+    function orderDrink(number) {
+        if(number===6){
+            blank();
+        }else{
+            let display ="";
+            display+="<p>đơn giá: <span>"+array[number]+"</span><input id='value' type='number' oninput='check("+array[number]+")'></p>"
+                +"<div id='bill'></div>"
+            display+="<button onclick='display()'>xác nhận</button>"
+            document.getElementById('screen').innerHTML=display;
+        }
+    }
+
+    function check(price) {
+        let value = document.getElementById('value').value;
+        if(value>0){
+            let bill = price*value;
+            document.getElementById('bill').innerHTML="tổng bill " + bill;
+        }else {
+            alert('Nhập số lượng >=1')
+            document.getElementById('value').value=1;
+        }
+
+
+    }
+    }while(number!==6)
+    function blank() {
+        document.getElementById('screen').innerHTML="Đã thoát";
+    }
+</script>
+</body>
+</html>

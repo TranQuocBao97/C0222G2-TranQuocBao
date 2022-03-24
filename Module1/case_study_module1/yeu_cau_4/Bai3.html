@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let text1 = 'aabccdfsdvf';
+    let text2 = 'adcaasdfsdf';
+    let arr1 = text1.split("");
+    let arr2 = text2.split("");
+    let count = 0;
+    while(arr1.length>0){
+        let x = arr1[0];
+        while (arr1.includes(x)){
+            if(arr2.includes(x)){
+                let n = arr1.indexOf(x);
+                let m = arr2.indexOf(x);
+                arr1.splice(n,1);
+                arr2.splice(m,1);
+                count++;
+            }else {
+                let n = arr1.indexOf(x);
+                arr1.splice(n,1);
+            }
+        }
+    }
+    console.log(count);
+</script>
+</body>
+</html>

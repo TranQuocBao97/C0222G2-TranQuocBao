@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let text = 'asdddasdqw';
+    let arr = text.split("");
+    console.log(arr)
+    let count = 0;
+    while(arr.length>0){
+        let x = arr[0];
+        while (arr.includes(x)){
+            let n = arr.indexOf(x)
+            arr.splice(n,1)
+        }
+        count++;
+    }
+    console.log(count);
+</script>
+</body>
+</html>
