@@ -17,21 +17,26 @@
             arr[i][j] = Math.floor(Math.random()*15);
         }
     }
-    let max=arr[0][0];
-    let min=arr[0][0];
-    for (let i = 0; i <n ; i++) {
-        for (let j = 0; j <m ; j++) {
-            if(max<arr[i][j]){
-                max = arr[i][j];
-            }
-            if(min>arr[i][j]){
-                min = arr[i][j];
+    doSomeThing(arr);
+
+    function doSomeThing(arr){
+        let max=arr[0][0];
+        let min=arr[0][0];
+        for (let i = 0; i <n ; i++) {
+            for (let j = 0; j <m ; j++) {
+                if(max<arr[i][j]){
+                    max = arr[i][j];
+                }
+                if(min>arr[i][j]){
+                    min = arr[i][j];
+                }
             }
         }
+        console.log(arr);
+        console.log(max);
+        console.log(min);
     }
-    console.log(arr);
-    console.log(max);
-    console.log(min);
+
 </script>
 </body>
 </html>
