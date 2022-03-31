@@ -7,18 +7,23 @@
 <body>
 <script>
     let text = 'asdddasdqw';
-    let arr = text.split("");
-    console.log(arr)
-    let count = 0;
-    while(arr.length>0){
-        let x = arr[0];
-        while (arr.includes(x)){
-            let n = arr.indexOf(x)
-            arr.splice(n,1)
+    console.log(countDifferentNumber(text))
+    function countDifferentNumber (text){
+        let arr = text.split("");
+
+        console.log(arr)
+        let count = 0;
+        while(arr.length>0){
+            let x = arr[0];
+            while (arr.includes(x)){
+                let n = arr.indexOf(x)
+                arr.splice(n,1)
+            }
+            count++;
         }
-        count++;
+        return count;
     }
-    console.log(count);
+
 </script>
 </body>
 </html>

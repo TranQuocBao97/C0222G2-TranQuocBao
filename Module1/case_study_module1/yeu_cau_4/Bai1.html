@@ -6,38 +6,44 @@
 </head>
 <body>
 <script>
-    let yourType = "trAn  quOc bAO";
-    let arr1 = yourType.toLowerCase().split(" ");
-    let arr2 = [];
-    let j = 0;
-    console.log(arr1)
-    for (let i = 0; i < arr1.length ; i++) {
-        if(arr1[i]===""){
-            continue;
+    let yourType = "trAn  quOc bAO   ";
+    change(yourType)
+    function change(yourType){
+        let arr1 = yourType.toLowerCase().split(" ");
+        let arr2 = [];
+        let j = 0;
+        console.log(arr1)
+        for (let i = 0; i < arr1.length ; i++) {
+            if(arr1[i]===""){
+                continue;
+            }
+            arr2[j]=arr1[i];
+            j++
         }
-        arr2[j]=arr1[i];
-        j++
-    }
-    for (let i = 0; i <arr2.length ; i++) {
-        arr2[i]=arr2[i][0].toUpperCase() + arr2[i].slice(1);
-    }
-    let string ='';
-    let maxLength = arr2[0].length;
-    let l=0;
-    for (let i = 0; i <arr2.length; i++) {
-        string += arr2[i] + ' ';
-        if(maxLength<arr2[i].length){
-            maxLength=arr2[i].length;
+        console.log(arr2+'here')
+        for (let i = 0; i <arr2.length ; i++) {
+            arr2[i]=arr2[i][0].toUpperCase() + arr2[i].slice(1);
         }
+        let string ='';
+        let maxLength = arr2[0].length;
+
+        for (let i = 0; i <arr2.length; i++) {
+            string += arr2[i] + ' ';
+            if(maxLength<arr2[i].length){
+                maxLength=arr2[i].length;
+            }
+        }
+        for (let i = 0; i <arr2.length ; i++) {
+            if(arr2[i].length===maxLength){
+                console.log(arr2[i]);
+            }
+        }
+
+        console.log(string);
+        console.log(maxLength);
     }
 
-    console.log(string);
-    console.log(maxLength);
-    for (let i = 0; i <arr2.length ; i++) {
-        if(arr2[i].length===maxLength){
-            console.log(arr2[i]);
-        }
-            }
+
 </script>
 </body>
 </html>
