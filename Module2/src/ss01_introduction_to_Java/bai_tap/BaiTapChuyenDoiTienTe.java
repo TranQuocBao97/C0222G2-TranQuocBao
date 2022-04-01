@@ -9,8 +9,8 @@ public class BaiTapChuyenDoiTienTe {
         System.out.print("nhập usd : ");
         float getUsd = scanner.nextFloat();
 
-        float vndChanged = (float) rate*getUsd;
-        System.out.printf(" = %.0f vnd",vndChanged);
+        float vndChanged = rate*getUsd;
+        System.out.printf(" = %.10f vnd",vndChanged);
 
     }
 }
