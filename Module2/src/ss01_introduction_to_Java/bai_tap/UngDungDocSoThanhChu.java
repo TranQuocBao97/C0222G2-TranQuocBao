@@ -172,7 +172,6 @@ public class UngDungDocSoThanhChu {
             }
             int number2 = number - (number1 * 100);
             int number3 = number2 / 10;
-            int number5 = number2 - number3*10;
             switch (number3) {
                 case 0:
                     int number4 = number2 - number3;
@@ -207,7 +206,7 @@ public class UngDungDocSoThanhChu {
                             System.out.print(" and nine");
                             break;
                     }
-                    break;
+                    return;
                 case 2:
                     System.out.print(" and Twenty");
                     break;
@@ -266,8 +265,10 @@ public class UngDungDocSoThanhChu {
                             break;
 
                     }
+                    return;
 
             }
+            int number5 = number2 - number3*10;
             switch (number5) {
                 case 0:
                     break;
