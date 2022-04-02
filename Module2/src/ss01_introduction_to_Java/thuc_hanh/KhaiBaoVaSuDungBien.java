@@ -1,4 +1,4 @@
-package ss01_introduction_to_Java.thuc_hanh;
+package ss01_introduction_to_java.thuc_hanh;
 
 public class KhaiBaoVaSuDungBien {
     public static void main(String[] args) {

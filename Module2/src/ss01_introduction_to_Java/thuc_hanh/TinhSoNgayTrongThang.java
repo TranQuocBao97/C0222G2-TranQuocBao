@@ -1,4 +1,4 @@
-package ss01_introduction_to_Java.thuc_hanh;
+package ss01_introduction_to_java.thuc_hanh;
 
 import com.sun.org.apache.xpath.internal.objects.XNumber;
 
