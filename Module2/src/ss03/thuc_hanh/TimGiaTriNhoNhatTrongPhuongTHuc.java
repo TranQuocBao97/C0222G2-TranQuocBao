@@ -1,0 +1,23 @@
+package ss03.thuc_hanh;
+
+public class TimGiaTriNhoNhatTrongPhuongTHuc {
+    public static void main(String[] args) {
+        int[] arr = {4, 12, 7, 8, 1, 6, 9};
+        System.out.println("The Array is :");
+        for (int a : arr) {
+            System.out.print(a + " ");
+        }
+        int index = minValue(arr);
+        System.out.println("\nThe smallest element in the array is: " + arr[index]);
+    }
+
+    private static int minValue(int[] array) {
+        int index = 0;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < array[index]) {
+                index = i;
+            }
+        }
+        return index;
+    }
+}
