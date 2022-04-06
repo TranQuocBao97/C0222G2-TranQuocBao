@@ -6,3 +6,10 @@ public class TestSoThuc {
         System.out.printf(" %.10f",a);
     }
 }
+class A {
+    static public class B {
+    }
+
+    public class C {
+    }
+}
