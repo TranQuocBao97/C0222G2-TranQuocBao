@@ -7,13 +7,25 @@ public class MainBai4ss06 {
         Triangle triangle = new Triangle();
         System.out.println(triangle);
 
-        triangle = new Triangle(1,1,2);
+        try {
+            triangle = new Triangle(1,1,2);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         System.out.println(triangle);
 
-        triangle = new Triangle(3,4,5);
+        try {
+            triangle = new Triangle(3,4,5);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         System.out.println(triangle);
+        try{
+            triangle = new Triangle("red",3,4,5);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
-        triangle = new Triangle("red",3,4,5);
         System.out.println(triangle);
         System.out.println("Perimeter: "+triangle.getPerimeter());
         System.out.println("Area: "+triangle.getArea(triangle.getPerimeter()));

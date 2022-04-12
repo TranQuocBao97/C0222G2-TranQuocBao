@@ -13,25 +13,26 @@ public class Triangle extends Shape {
         System.out.println("This is basic triangle");
     }
 
-    public Triangle(double side1, double side2, double side3) {
-        if(side1>0 && side2>0 && side3>0){
-            if(side1+side2>side3 && side2+side3>side1 && side1+side3>side2){
+
+    public Triangle(double side1, double side2, double side3) throws Exception {
+        if(side1>0 && side2>0 && side3>0 && side1+side2>side3 && side2+side3>side1 && side1+side3>side2){
                 this.side1 = side1;
                 this.side2 = side2;
                 this.side3 = side3;
-            }
+        } else {
+            throw new Exception("three sides is not able to make the triangle");
         }
 
     }
 
-    public Triangle(String color, double side1, double side2, double side3) {
+    public Triangle(String color, double side1, double side2, double side3) throws Exception {
         super(color);
-        if(side1>1 && side2>1 && side3>1){
-            if(side1+side2>side3 && side2+side3>side1 && side1+side3>side2){
-                this.side1 = side1;
-                this.side2 = side2;
-                this.side3 = side3;
-            }
+        if(side1>0 && side2>0 && side3>0 && side1+side2>side3 && side2+side3>side1 && side1+side3>side2){
+            this.side1 = side1;
+            this.side2 = side2;
+            this.side3 = side3;
+        } else {
+            throw new Exception("three sides is not able to make the triangle");
         }
 
     }
