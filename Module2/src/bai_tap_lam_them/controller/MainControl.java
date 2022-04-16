@@ -56,6 +56,7 @@ public class MainControl {
                     System.out.println("----------");
                     System.out.println("The System got exit");
                     flag = false;
+                    break;
                 default:
                     System.out.println("----------");
                     System.out.println("Please Enter the right number function");
