@@ -1,4 +1,4 @@
-package ss4_class_object.student_manager1.service.impl;
+package test.student_manager_compare.service.impl;
 
 import test.student_manager_compare.service.TeacherService;
 
