@@ -91,7 +91,5 @@ public class MylinkedListTest {
         System.out.println(myLinkedList.contains(student5));
 
 
-
-
     }
 }
