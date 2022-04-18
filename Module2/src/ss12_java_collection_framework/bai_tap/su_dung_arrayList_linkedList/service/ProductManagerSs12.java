@@ -3,12 +3,14 @@ package ss12_java_collection_framework.bai_tap.su_dung_arrayList_linkedList.serv
 import ss12_java_collection_framework.bai_tap.su_dung_arrayList_linkedList.model.ProductSs12;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ProductManagerSs12 {
     static Scanner scanner = new Scanner(System.in);
-    private static List<ProductSs12> productList = new ArrayList<>();
+//    private static List<ProductSs12> productList = new ArrayList<>();
+    private static List<ProductSs12> productList = new LinkedList<>();
 
     static {
         productList.add(new ProductSs12(4,"Phồng tôm",10000));
