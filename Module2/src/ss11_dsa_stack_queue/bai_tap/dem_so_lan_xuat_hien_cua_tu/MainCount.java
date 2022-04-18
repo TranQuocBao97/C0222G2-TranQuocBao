@@ -12,12 +12,12 @@ public class MainCount {
 
 
         TreeMap<String, Integer> map = new TreeMap<>();
-        TreeMap<String, Integer> keyTree = new TreeMap<>();
+        TreeMap<String, Integer> keyMap = new TreeMap<>();
 
         for (int i = 0; i < arrString.length; i++) {
-            keyTree.put(arrString[i], 1);
+            keyMap.put(arrString[i], 1);
         }
-        for (String v : keyTree.keySet()) {
+        for (String v : keyMap.keySet()) {
             int value = 0;
             for (int i = 0; i < arrString.length; i++) {
                 if (v.equals(arrString[i])) {
