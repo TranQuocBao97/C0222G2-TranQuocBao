@@ -7,10 +7,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ProductManagerSs12 {
+public class ProductManagerSs12 implements IProductManager{
     static Scanner scanner = new Scanner(System.in);
-//    private static List<ProductSs12> productList = new ArrayList<>();
-    private static List<ProductSs12> productList = new LinkedList<>();
+//    private static ArrayList<ProductSs12> productList = new ArrayList<>();
+    private static LinkedList<ProductSs12> productList = new LinkedList<>();
 
     static {
         productList.add(new ProductSs12(4,"Phồng tôm",10000));
@@ -20,6 +20,7 @@ public class ProductManagerSs12 {
         productList.add(new ProductSs12(5,"Mì tôm",6000));
     }
 
+    @Override
     public void add() {
         System.out.print("add id: ");
         Integer id = Integer.parseInt(scanner.nextLine());
@@ -31,6 +32,7 @@ public class ProductManagerSs12 {
         productList.add(new ProductSs12(id, name, price));
     }
 
+    @Override
     public void update() {
         System.out.print("Enter id for update: ");
         Integer idUpdate = Integer.parseInt(scanner.nextLine());
@@ -47,13 +49,16 @@ public class ProductManagerSs12 {
             String nameUpdate = scanner.nextLine();
             System.out.print("Update price : ");
             Integer priceUpdate = Integer.parseInt(scanner.nextLine());
-            productList.remove(productList.get(index));
-            productList.add(index, new ProductSs12(idUpdate, nameUpdate, priceUpdate));
+            productList.get(index).setName(nameUpdate);
+            productList.get(index).setPrice(priceUpdate);
+//          productList.remove(productList.get(index));
+//          productList.add(index, new ProductSs12(idUpdate, nameUpdate, priceUpdate));
         }else {
             System.out.println("this id is not exist to update");
         }
     }
 
+    @Override
     public void delete() {
         System.out.print("Enter id for delete: ");
         Integer idDelete = Integer.parseInt(scanner.nextLine());
@@ -78,6 +83,7 @@ public class ProductManagerSs12 {
         }
     }
 
+    @Override
     public void search(){
         System.out.print("Enter name of product to search: ");
         String nameSearch = scanner.nextLine();
@@ -88,6 +94,7 @@ public class ProductManagerSs12 {
         }
     }
 
+    @Override
     public void sort(){
         System.out.println("sort by price");
         System.out.println("1. High to low");

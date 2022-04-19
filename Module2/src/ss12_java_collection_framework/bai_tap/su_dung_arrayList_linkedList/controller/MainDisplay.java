@@ -1,12 +1,14 @@
 package ss12_java_collection_framework.bai_tap.su_dung_arrayList_linkedList.controller;
 
+import ss12_java_collection_framework.bai_tap.su_dung_arrayList_linkedList.service.IProductManager;
 import ss12_java_collection_framework.bai_tap.su_dung_arrayList_linkedList.service.ProductManagerSs12;
 
 import java.util.Scanner;
 
 public class MainDisplay {
     static Scanner scanner = new Scanner(System.in);
-    static ProductManagerSs12 productManagerSs12 = new ProductManagerSs12();
+//    static ProductManagerSs12 productManagerSs12 = new ProductManagerSs12();
+    static IProductManager iProductManager = new ProductManagerSs12();
     public static void mainMenu() {
         while (true){
             System.out.println("--------------------------");
@@ -22,22 +24,22 @@ public class MainDisplay {
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose){
                 case 1:
-                    productManagerSs12.add();
+                    iProductManager.add();
                     break;
                 case 2:
-                    productManagerSs12.update();
+                    iProductManager.update();
                     break;
                 case 3:
-                    productManagerSs12.delete();
+                    iProductManager.delete();
                     break;
                 case 4:
-                    productManagerSs12.display();
+                    iProductManager.display();
                     break;
                 case 5:
-                    productManagerSs12.search();
+                    iProductManager.search();
                     break;
                 case 6:
-                    productManagerSs12.sort();
+                    iProductManager.sort();
                     break;
                 case 7:
                     System.exit(0);
