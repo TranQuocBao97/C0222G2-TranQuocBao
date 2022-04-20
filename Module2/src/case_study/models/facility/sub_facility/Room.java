@@ -9,12 +9,13 @@ public class Room extends AbsFacility {
 
     }
 
+
     public Room(String direction) {
         this.direction = direction;
     }
 
-    public Room(String area, Integer numberOfRooms, String extraService, String direction) {
-        super(area, numberOfRooms, extraService);
+    public Room(Integer idFacility, String area, Integer numberOfRooms, String extraService, String direction) {
+        super(idFacility, area, numberOfRooms, extraService);
         this.direction = direction;
     }
 

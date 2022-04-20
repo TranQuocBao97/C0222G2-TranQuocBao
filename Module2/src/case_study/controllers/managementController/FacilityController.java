@@ -1,11 +1,13 @@
 package case_study.controllers.managementController;
 
 import case_study.controllers.FuramaController;
+import case_study.services.implement.facility_implement.FacilityServiceImpl;
 
 import java.util.Scanner;
 
 public class FacilityController {
     static Scanner scanner = new Scanner(System.in);
+    static FacilityServiceImpl facilityService = new FacilityServiceImpl();
     public static void facilityMenu(){
         while (true){
             System.out.println("-------Facility Menu-------");
@@ -17,8 +19,10 @@ public class FacilityController {
             int pickFacilityMenu = Integer.parseInt(scanner.nextLine());
             switch (pickFacilityMenu){
                 case 1:
+                    facilityService.display();
                     break;
                 case 2:
+                    facilityService.add();
                     break;
                 case 3:
                     break;
@@ -30,4 +34,5 @@ public class FacilityController {
             }
         }
     }
+
 }

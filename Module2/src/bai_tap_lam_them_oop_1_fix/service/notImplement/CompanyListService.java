@@ -3,11 +3,12 @@ package bai_tap_lam_them_oop_1_fix.service.notImplement;
 import bai_tap_lam_them_oop_1_fix.model.Company;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CompanyListService {
     Scanner scanner = new Scanner(System.in);
-    static ArrayList<Company> companyList = new ArrayList<>();
+    static List<Company> companyList = new ArrayList<>();
 
     static {
         companyList.add(new Company(524,"Honda","Japan"));

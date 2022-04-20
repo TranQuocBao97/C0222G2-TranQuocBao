@@ -5,16 +5,18 @@ import case_study.models.person.sub_person.Employee;
 import case_study.services.IEmployeeService;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements IEmployeeService {
     static Scanner scanner = new Scanner(System.in);
-    static public ArrayList<Employee> employeesList = new ArrayList<>();
+    static public List<Employee> employeesList = new ArrayList<>();
+    static Integer idEmployee = 1;
 
     static {
-        employeesList.add(new Employee("Anh Tuấn",23,"Nam","Lễ Tân",1));
-        employeesList.add(new Employee("Nguyễn Du",25,"Nam","Bảo vệ",2));
-        employeesList.add(new Employee("Linh Ngọc",25,"Nữ","Lễ Tân",3));
+        employeesList.add(new Employee("Anh Tuấn",23,"Nam","Lễ Tân",idEmployee++));
+        employeesList.add(new Employee("Nguyễn Du",25,"Nam","Bảo vệ",idEmployee++));
+        employeesList.add(new Employee("Linh Ngọc",25,"Nữ","Lễ Tân",idEmployee++));
     }
 
     @Override
@@ -27,9 +29,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
         String gender = scanner.nextLine();
         System.out.print("Add employee job: ");
         String job = scanner.nextLine();
-        System.out.print("Add id Employee: ");
-        Integer idEmployee = Integer.parseInt(scanner.nextLine());
-        employeesList.add(new Employee(name,age,gender,job,idEmployee));
+        employeesList.add(new Employee(name,age,gender,job,idEmployee++));
+        display();
     }
 
     @Override
@@ -45,7 +46,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         Integer idEditEmployee = Integer.parseInt(scanner.nextLine());
         for(Employee employee: employeesList){
             if(employee.getIdEmployee().equals(idEditEmployee)){
-                do {
+                while (true){
                     System.out.println("found: ("+employee+")");
                     System.out.print("Edit name: ");
                     String name = scanner.nextLine();
@@ -64,7 +65,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
                         employee.setJob(job);
                         display();
                     }
-                }while (true);
+                }
             }
         }
     }

@@ -1,6 +1,7 @@
 package case_study.models.facility;
 
 public abstract class AbsFacility {
+    protected Integer idFacility;
     protected String area;
     protected Integer numberOfRooms;
     protected String extraService;
@@ -8,10 +9,20 @@ public abstract class AbsFacility {
     public AbsFacility() {
     }
 
-    public AbsFacility(String area, Integer numberOfRooms, String extraService) {
+    public AbsFacility(Integer idFacility,String area, Integer numberOfRooms, String extraService) {
+        this.idFacility =idFacility;
         this.area = area;
         this.numberOfRooms = numberOfRooms;
         this.extraService = extraService;
+    }
+
+
+    public Integer getIdFacility() {
+        return idFacility;
+    }
+
+    public void setIdFacility(Integer idFacility) {
+        this.idFacility = idFacility;
     }
 
     public String getArea() {
@@ -40,7 +51,8 @@ public abstract class AbsFacility {
 
     @Override
     public String toString() {
-        return "area: " + area +
+        return "id Facility: "+ idFacility+
+                ", area: " + area +
                 ", numberOfRooms: " + numberOfRooms +
                 ", extraService: " + extraService;
     }
