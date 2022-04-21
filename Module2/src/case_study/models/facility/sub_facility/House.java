@@ -15,8 +15,8 @@ public class House extends AbsFacility {
         this.numberOfFloors = numberOfFloors;
     }
 
-    public House(Integer idFacility, String area, Integer numberOfRooms, String extraService, Integer numberOfFloors) {
-        super(idFacility, area, numberOfRooms, extraService);
+    public House(Integer idFacility, String area, Integer price, String extraService, Integer numberOfFloors) {
+        super(idFacility, area, price, extraService);
         this.numberOfFloors = numberOfFloors;
     }
 
@@ -31,7 +31,7 @@ public class House extends AbsFacility {
     @Override
     public String toString() {
         return super.toString() +
-                ", numberOfFloors: " + numberOfFloors;
+                ", numberOfFloors: " + numberOfFloors+". ";
     }
 
     @Override

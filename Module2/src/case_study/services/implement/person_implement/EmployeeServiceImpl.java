@@ -11,12 +11,12 @@ import java.util.Scanner;
 public class EmployeeServiceImpl implements IEmployeeService {
     static Scanner scanner = new Scanner(System.in);
     static public List<Employee> employeesList = new ArrayList<>();
-    static Integer idEmployee = 1;
+    static Integer idEmployee = 0;
 
     static {
-        employeesList.add(new Employee("Anh Tuấn",23,"Nam","Lễ Tân",idEmployee++));
-        employeesList.add(new Employee("Nguyễn Du",25,"Nam","Bảo vệ",idEmployee++));
-        employeesList.add(new Employee("Linh Ngọc",25,"Nữ","Lễ Tân",idEmployee++));
+        employeesList.add(new Employee("Anh Tuấn",23,"Nam",212547585,"0123587448","Lễ Tân",++idEmployee,10000000));
+        employeesList.add(new Employee("Nguyễn Du",26,"Nam",262558413,"0599558445","Lễ Tân",++idEmployee,10000000));
+        employeesList.add(new Employee("Linh Ngọc",26,"Nữ",245547574,"0698554113","Lễ Tân",++idEmployee,10000000));
     }
 
     @Override
@@ -27,9 +27,15 @@ public class EmployeeServiceImpl implements IEmployeeService {
         Integer age = Integer.parseInt(scanner.nextLine());
         System.out.print("Add employee gender: ");
         String gender = scanner.nextLine();
+        System.out.print("Add id citizen: ");
+        Integer idCitizen = Integer.parseInt(scanner.nextLine());
+        System.out.print("Add phone number: ");
+        String phoneNumber = scanner.nextLine();
         System.out.print("Add employee job: ");
         String job = scanner.nextLine();
-        employeesList.add(new Employee(name,age,gender,job,idEmployee++));
+        System.out.print("Add salary: ");
+        Integer salary = Integer.parseInt(scanner.nextLine());
+        employeesList.add(new Employee(name,age,gender,idCitizen,phoneNumber,job,++idEmployee,salary));
         display();
     }
 

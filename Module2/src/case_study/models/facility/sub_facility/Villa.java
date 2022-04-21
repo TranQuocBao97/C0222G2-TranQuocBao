@@ -14,8 +14,8 @@ public class Villa extends AbsFacility {
         this.location = location;
     }
 
-    public Villa(Integer idFacility, String area, Integer numberOfRooms, String extraService, String location) {
-        super(idFacility, area, numberOfRooms, extraService);
+    public Villa(Integer idFacility, String area, Integer price, String extraService, String location) {
+        super(idFacility, area, price, extraService);
         this.location = location;
     }
 
@@ -30,6 +30,6 @@ public class Villa extends AbsFacility {
     @Override
     public String toString() {
         return super.toString() +
-                "location='" + location;
+                ", location: " + location+". ";
     }
 }

@@ -5,20 +5,23 @@ import case_study.models.person.AbsPerson;
 public class Employee extends AbsPerson {
     private String job;
     private Integer idEmployee;
+    private Integer salary;
 
     public Employee(){
 
     }
 
-    public Employee(String job, Integer idEmployee) {
+    public Employee(String job, Integer idEmployee, Integer salary) {
         this.job = job;
         this.idEmployee = idEmployee;
+        this.salary = salary;
     }
 
-    public Employee(String name, Integer ege, String gender, String job, Integer idEmployee) {
-        super(name, ege, gender);
+    public Employee(String name, Integer ege, String gender, Integer idCitizen,String phoneNumber, String job, Integer idEmployee, Integer salary) {
+        super(name, ege, gender, idCitizen, phoneNumber);
         this.job = job;
         this.idEmployee = idEmployee;
+        this.salary = salary;
     }
 
     public String getJob() {
@@ -41,6 +44,7 @@ public class Employee extends AbsPerson {
     public String toString() {
         return super.toString() +
                 ", job: " + job +
-                ", ID employee: " + idEmployee;
+                ", idEmployee: " + idEmployee +
+                ", salary: " + salary;
     }
 }

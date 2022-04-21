@@ -12,20 +12,30 @@ public class HouseServiceImpl implements IFacilityService {
     private static FacilityServiceImpl facilityService = new FacilityServiceImpl();
     private static Map<House,Integer> houseServicesList = new LinkedHashMap<>();
     static Integer usedHouse1=0;
-    static Integer usedHouse2=0;
-    static Integer usedHouse3=3;
+    static Integer usedHouse2=4;
+    static Integer usedHouse3=1;
     static {
-        houseServicesList.put(new House(4,"80 mét vuông",4,"Có Nhà Bếp",1),usedHouse1);
-        houseServicesList.put(new House(5,"100 mét vuông",6,"Có Nhà Bếp, Sân Vườn",2),usedHouse2);
-        houseServicesList.put(new House(6,"150 mét vuông",8,"Có Nhà Bếp, Sân Vườn, Nhiều cây cảnh",2),usedHouse3);
+        houseServicesList.put(new House(4,"80 mét vuông",1000000,"Có Nhà Bếp",1),usedHouse1);
+        houseServicesList.put(new House(5,"100 mét vuông",1200000,"Có Nhà Bếp, Sân Vườn",2),usedHouse2);
+        houseServicesList.put(new House(6,"150 mét vuông",1500000,"Có Nhà Bếp, Sân Vườn, Nhiều cây cảnh",2),usedHouse3);
+    }
+
+    public String select(Integer pick){
+        String houseInformation = null;
+        for(Map.Entry<House,Integer> entry : houseServicesList.entrySet()){
+            if(entry.getKey().getIdFacility().equals(pick)){
+                houseInformation = entry.getKey().toString();
+            }
+        }
+        return houseInformation;
     }
 
     @Override
     public void displayMaintenance() {
 //        Set<Map.Entry<House,Integer>> entryList = houseServicesList.entrySet();
         for(Map.Entry<House,Integer> entry : houseServicesList.entrySet()){
-            if(entry.getValue()>3){
-                System.out.println(entry);
+            if(entry.getValue()>5){
+                System.out.println(entry.getKey()+" | Used time: "+entry.getValue());
             }
         }
     }
@@ -67,7 +77,7 @@ public class HouseServiceImpl implements IFacilityService {
     public void display() {
         System.out.println("-------show data house-------");
         for(Map.Entry<House,Integer> entry : houseServicesList.entrySet()){
-            System.out.println(entry.getKey()+". Used: "+entry.getValue());
+            System.out.println(entry.getKey()+" | Used time: "+entry.getValue());
         }
     }
 

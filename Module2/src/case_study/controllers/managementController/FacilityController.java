@@ -25,6 +25,7 @@ public class FacilityController {
                     facilityService.add();
                     break;
                 case 3:
+                    facilityService.displayMaintenance();
                     break;
                 case 4:
                     FuramaController.displayMainMenu();

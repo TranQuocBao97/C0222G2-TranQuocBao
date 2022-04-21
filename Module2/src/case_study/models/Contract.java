@@ -1,4 +1,7 @@
 package case_study.models;
 
-public class Contract {
+public class Contract extends Booking{
+    private Integer idContract;
+
+
 }

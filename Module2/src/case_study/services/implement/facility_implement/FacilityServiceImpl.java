@@ -18,7 +18,19 @@ public class FacilityServiceImpl implements IFacilityService {
     private static VillaServiceImpl villaService = new VillaServiceImpl();
 
 
-
+    public String select(Integer pick){
+        String facilityInformation = null;
+        if(villaService.select(pick)!=null){
+            facilityInformation = villaService.select(pick);
+        }
+        if(houseService.select(pick)!=null){
+            facilityInformation = houseService.select(pick);
+        }
+        if(roomService.select(pick)!=null){
+            facilityInformation = roomService.select(pick);
+        }
+        return  facilityInformation;
+    }
     public void add() {
         while (true){
             System.out.println("-------Add new facility Menu-------");
@@ -30,11 +42,13 @@ public class FacilityServiceImpl implements IFacilityService {
             int addNewFacility = Integer.parseInt(scanner.nextLine());
             switch (addNewFacility){
                 case 1:
+                    villaService.add();
                     break;
                 case 2:
                     houseService.add();
                     break;
                 case 3:
+                    roomService.add();
                     break;
                 case 4:
                     FacilityController.facilityMenu();
@@ -44,9 +58,10 @@ public class FacilityServiceImpl implements IFacilityService {
 
     }
 
-
     public void display() {
+        villaService.display();
         houseService.display();
+        roomService.display();
     }
 
     @Override
@@ -57,6 +72,9 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void displayMaintenance() {
+        System.out.println("used more than 3 time will need to maintenance");
+        villaService.displayMaintenance();
         houseService.displayMaintenance();
+        roomService.displayMaintenance();
     }
 }

@@ -3,16 +3,16 @@ package case_study.models.facility;
 public abstract class AbsFacility {
     protected Integer idFacility;
     protected String area;
-    protected Integer numberOfRooms;
+    protected Integer price;
     protected String extraService;
 
     public AbsFacility() {
     }
 
-    public AbsFacility(Integer idFacility,String area, Integer numberOfRooms, String extraService) {
+    public AbsFacility(Integer idFacility, String area, Integer price, String extraService) {
         this.idFacility =idFacility;
         this.area = area;
-        this.numberOfRooms = numberOfRooms;
+        this.price = price;
         this.extraService = extraService;
     }
 
@@ -33,12 +33,12 @@ public abstract class AbsFacility {
         this.area = area;
     }
 
-    public Integer getNumberOfRooms() {
-        return numberOfRooms;
+    public Integer getPrice() {
+        return price;
     }
 
-    public void setNumberOfRooms(Integer numberOfRooms) {
-        this.numberOfRooms = numberOfRooms;
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
     public String getExtraService() {
@@ -53,7 +53,7 @@ public abstract class AbsFacility {
     public String toString() {
         return "id Facility: "+ idFacility+
                 ", area: " + area +
-                ", numberOfRooms: " + numberOfRooms +
+                ", price: " + price +
                 ", extraService: " + extraService;
     }
 }

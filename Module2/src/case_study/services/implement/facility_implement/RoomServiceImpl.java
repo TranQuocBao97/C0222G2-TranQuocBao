@@ -16,19 +16,30 @@ public class RoomServiceImpl implements IFacilityService {
     private static Map<Room,Integer> roomServiceList = new LinkedHashMap<>();
     static Integer usedRoom1=0;
     static Integer usedRoom2=0;
-    static Integer usedRoom3=0;
+    static Integer usedRoom3=4;
 
     static {
-       roomServiceList.put(new Room(7,"25 mét vuông",1,"Nước uống chào mừng","hướng thành phố"),usedRoom1);
-       roomServiceList.put(new Room(8,"25 mét vuông",1,"Nước uống chào mừng","hướng thành phố"),usedRoom2);
-       roomServiceList.put(new Room(9,"25 mét vuông",1,"Nước uống chào mừng","hướng thành phố"),usedRoom3);
+       roomServiceList.put(new Room(7,"25 mét vuông",400000,"Nước uống chào mừng","hướng thành phố"),usedRoom1);
+       roomServiceList.put(new Room(8,"30 mét vuông",500000,"Nước uống chào mừng","hướng núi"),usedRoom2);
+       roomServiceList.put(new Room(9,"35 mét vuông",600000,"Nước uống chào mừng","hướng vườn"),usedRoom3);
+    }
+
+
+    public String select(Integer pick){
+        String roomInformation = null;
+        for(Map.Entry<Room,Integer> entry : roomServiceList.entrySet()){
+            if(entry.getKey().getIdFacility().equals(pick)){
+                roomInformation = entry.getKey().toString();
+            }
+        }
+        return roomInformation;
     }
 
     @Override
     public void displayMaintenance() {
         for(Map.Entry<Room,Integer> entry : roomServiceList.entrySet()){
-            if(entry.getValue()>3){
-                System.out.println(entry);
+            if(entry.getValue()>5){
+                System.out.println(entry.getKey()+" | Used time: "+entry.getValue());
             }
         }
     }
@@ -42,21 +53,21 @@ public class RoomServiceImpl implements IFacilityService {
             for(Map.Entry<Room,Integer> entry : roomServiceList.entrySet()){
                 System.out.println(++stt+". "+entry.getKey());
             }
-            System.out.print("Select house: ");
-            int addHouse = Integer.parseInt(scanner.nextLine());
-            switch (addHouse){
+            System.out.print("Select room: ");
+            int addRoom = Integer.parseInt(scanner.nextLine());
+            switch (addRoom){
                 case 1:
                     roomServiceList.put(new Room(7,"25 mét vuông",1,"Nước uống chào mừng","hướng thành phố"),++usedRoom1);
                     display();
                     facilityService.add();
                     break;
                 case 2:
-                    roomServiceList.put(new Room(8,"25 mét vuông",1,"Nước uống chào mừng","hướng thành phố"),++usedRoom2);
+                    roomServiceList.put(new Room(8,"30 mét vuông",1,"Nước uống chào mừng","hướng núi"),++usedRoom2);
                     display();
                     facilityService.add();
                     break;
                 case 3:
-                    roomServiceList.put(new Room(9,"25 mét vuông",1,"Nước uống chào mừng","hướng thành phố"),++usedRoom3);
+                    roomServiceList.put(new Room(9,"35 mét vuông",1,"Nước uống chào mừng","hướng vườn"),++usedRoom3);
                     display();
                     facilityService.add();
                     break;
@@ -68,7 +79,10 @@ public class RoomServiceImpl implements IFacilityService {
 
     @Override
     public void display() {
-        System.out.println("-------show data house-------");
+        System.out.println("-------show data room-------");
+        for(Map.Entry<Room,Integer> entry : roomServiceList.entrySet()){
+            System.out.println(entry.getKey()+" | Used time: "+entry.getValue());
+        }
     }
 
     @Override

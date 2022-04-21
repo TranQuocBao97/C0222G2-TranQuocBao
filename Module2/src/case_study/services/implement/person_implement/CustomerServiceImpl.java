@@ -18,7 +18,20 @@ public class CustomerServiceImpl implements ICustomerService {
         customerLinkedList.add(new Customer("Thảo",25,"Nữ",200458854));
     }
 
-
+    public String select(Integer pick){
+        String customerInformation = null;
+//        for (int i = 0; i < customerLinkedList.size(); i++) {
+//            if(pick==i){
+//                customerInformation = customerLinkedList.get(i).toString();
+//            }
+//        }
+        for(Customer customer: customerLinkedList){
+            if(customer.getIdCitizen().equals(pick)){
+                customerInformation = customer.toString();
+            }
+        }
+        return customerInformation;
+    }
     @Override
     public void add() {
         System.out.print("Add Customer name: ");
@@ -34,8 +47,8 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public void display() {
-        for(Customer customer: customerLinkedList){
-            System.out.println(customer);
+        for (int i = 0; i < customerLinkedList.size(); i++) {
+            System.out.println((i+1)+". "+customerLinkedList.get(i).toString());
         }
     }
 

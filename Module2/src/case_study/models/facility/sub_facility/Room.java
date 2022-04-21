@@ -14,8 +14,8 @@ public class Room extends AbsFacility {
         this.direction = direction;
     }
 
-    public Room(Integer idFacility, String area, Integer numberOfRooms, String extraService, String direction) {
-        super(idFacility, area, numberOfRooms, extraService);
+    public Room(Integer idFacility, String area, Integer price, String extraService, String direction) {
+        super(idFacility, area, price, extraService);
         this.direction = direction;
     }
 
@@ -30,6 +30,6 @@ public class Room extends AbsFacility {
     @Override
     public String toString() {
         return super.toString() +
-                ", direction: " + direction;
+                ", direction: " + direction+". ";
     }
 }
