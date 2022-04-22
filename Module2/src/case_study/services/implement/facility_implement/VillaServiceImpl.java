@@ -1,6 +1,7 @@
 package case_study.services.implement.facility_implement;
 
 import case_study.models.facility.sub_facility.House;
+import case_study.models.facility.sub_facility.Room;
 import case_study.models.facility.sub_facility.Villa;
 import case_study.services.IFacilityService;
 
@@ -21,6 +22,16 @@ public class VillaServiceImpl implements IFacilityService {
         villaServiceList.put(new Villa(1,"80 mét vuông",3000000,"Hồ bơi","Cạnh khu vui chơi"),usedVilla1);
         villaServiceList.put(new Villa(2,"100 mét vuông",4000000,"Hồ bơi, sân vườn","Gần biển Mỹ Khê"),usedVilla2);
         villaServiceList.put(new Villa(3,"150 mét vuông",5000000,"Hồ bơi, sân vườn hoa có BBQ nướng","Trên dốc núi, phía dưới có biển"),usedVilla3);
+    }
+
+    public Integer checkPriceVilla(String informationFacility){
+        Integer price = 0;
+        for(Map.Entry<Villa,Integer> entry : villaServiceList.entrySet()){
+            if(entry.getKey().toString().equals(informationFacility)){
+                price =  entry.getKey().getPrice();
+            }
+        }
+        return price;
     }
 
     public String select(Integer pick){

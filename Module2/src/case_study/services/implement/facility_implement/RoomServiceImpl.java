@@ -25,6 +25,16 @@ public class RoomServiceImpl implements IFacilityService {
     }
 
 
+    public Integer checkPriceRoom(String informationFacility){
+        Integer price = 0;
+        for(Map.Entry<Room,Integer> entry : roomServiceList.entrySet()){
+            if(entry.getKey().toString().equals(informationFacility)){
+                price =  entry.getKey().getPrice();
+            }
+        }
+        return price;
+    }
+
     public String select(Integer pick){
         String roomInformation = null;
         for(Map.Entry<Room,Integer> entry : roomServiceList.entrySet()){

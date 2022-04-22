@@ -1,4 +1,4 @@
-package case_study.services.implement.booking;
+package case_study.services.implement.booking_implement;
 
 import case_study.models.Booking;
 

@@ -9,7 +9,6 @@ public class Room extends AbsFacility {
 
     }
 
-
     public Room(String direction) {
         this.direction = direction;
     }

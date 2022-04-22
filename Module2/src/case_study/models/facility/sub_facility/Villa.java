@@ -8,13 +8,11 @@ public class Villa extends AbsFacility {
     public Villa(){
     }
 
-
-
     public Villa(String location) {
         this.location = location;
     }
 
-    public Villa(Integer idFacility, String area, Integer price, String extraService, String location) {
+    public Villa(Integer idFacility,String area, Integer price, String extraService, String location) {
         super(idFacility, area, price, extraService);
         this.location = location;
     }

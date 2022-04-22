@@ -16,7 +16,7 @@ public class Customer extends AbsPerson {
         this.typeCustomer = typeCustomer;
     }
 
-    public Customer(String name, Integer ege, String gender, Integer idCitizen, Integer phoneNumber, Integer idCustomer, String typeCustomer) {
+    public Customer(String name, Integer ege, String gender, Integer idCitizen, String phoneNumber, Integer idCustomer, String typeCustomer) {
         super(name, ege, gender, idCitizen, phoneNumber);
         this.idCustomer = idCustomer;
         this.typeCustomer = typeCustomer;

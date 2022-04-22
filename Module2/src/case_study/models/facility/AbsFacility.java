@@ -1,7 +1,7 @@
 package case_study.models.facility;
 
 public abstract class AbsFacility {
-    protected Integer idFacility;
+    protected Integer idFacility = 0;
     protected String area;
     protected Integer price;
     protected String extraService;
@@ -9,8 +9,8 @@ public abstract class AbsFacility {
     public AbsFacility() {
     }
 
-    public AbsFacility(Integer idFacility, String area, Integer price, String extraService) {
-        this.idFacility =idFacility;
+    public AbsFacility(Integer idFacility,String area, Integer price, String extraService) {
+        this.idFacility = idFacility;
         this.area = area;
         this.price = price;
         this.extraService = extraService;

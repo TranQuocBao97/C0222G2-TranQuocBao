@@ -1,7 +1,7 @@
 package case_study.controllers.managementController;
 
 import case_study.controllers.FuramaController;
-import case_study.services.implement.booking.BookingServiceImpl;
+import case_study.services.implement.booking_implement.BookingServiceImpl;
 
 import java.util.Scanner;
 
@@ -27,10 +27,13 @@ public class BookingController {
                     bookingService.display();
                     break;
                 case 3:
+                    bookingService.addContract();
                     break;
                 case 4:
+                    bookingService.displayContract();
                     break;
                 case 5:
+                    bookingService.editContract();
                     break;
                 case 6:
                     FuramaController.displayMainMenu();

@@ -4,6 +4,7 @@ import case_study.models.facility.AbsFacility;
 import case_study.models.facility.sub_facility.House;
 import case_study.services.IFacilityService;
 import case_study.services.IService;
+import javafx.geometry.HPos;
 
 import java.util.*;
 
@@ -18,6 +19,16 @@ public class HouseServiceImpl implements IFacilityService {
         houseServicesList.put(new House(4,"80 mét vuông",1000000,"Có Nhà Bếp",1),usedHouse1);
         houseServicesList.put(new House(5,"100 mét vuông",1200000,"Có Nhà Bếp, Sân Vườn",2),usedHouse2);
         houseServicesList.put(new House(6,"150 mét vuông",1500000,"Có Nhà Bếp, Sân Vườn, Nhiều cây cảnh",2),usedHouse3);
+    }
+
+    public Integer checkPriceHouse(String informationFacility){
+        Integer price = 0;
+        for(Map.Entry<House,Integer> entry : houseServicesList.entrySet()){
+            if(entry.getKey().toString().equals(informationFacility)){
+                price =  entry.getKey().getPrice();
+            }
+        }
+        return price;
     }
 
     public String select(Integer pick){
@@ -53,17 +64,17 @@ public class HouseServiceImpl implements IFacilityService {
             int addHouse = Integer.parseInt(scanner.nextLine());
             switch (addHouse){
                 case 1:
-                    houseServicesList.put(new House(1,"80 mét vuông",4,"Có Nhà Bếp",1),++usedHouse1);
+                    houseServicesList.put(new House(4,"80 mét vuông",4,"Có Nhà Bếp",1),++usedHouse1);
                     display();
                     facilityService.add();
                     break;
                 case 2:
-                    houseServicesList.put(new House(2,"100 mét vuông",6,"Có Nhà Bếp, Sân Vườn",2),++usedHouse2);
+                    houseServicesList.put(new House(5,"100 mét vuông",6,"Có Nhà Bếp, Sân Vườn",2),++usedHouse2);
                     display();
                     facilityService.add();
                     break;
                 case 3:
-                    houseServicesList.put(new House(3,"150 mét vuông",8,"Có Nhà Bếp, Sân Vườn, Nhiều cây cảnh",2),++usedHouse3);
+                    houseServicesList.put(new House(6,"150 mét vuông",8,"Có Nhà Bếp, Sân Vườn, Nhiều cây cảnh",2),++usedHouse3);
                     display();
                     facilityService.add();
                     break;

@@ -1,11 +1,14 @@
 package case_study.controllers.managementController;
 
 import case_study.controllers.FuramaController;
+import case_study.models.person.sub_person.Customer;
+import case_study.services.implement.person_implement.CustomerServiceImpl;
 
 import java.util.Scanner;
 
 public class CustomerController {
     static Scanner scanner = new Scanner(System.in);
+    static CustomerServiceImpl customerService = new CustomerServiceImpl();
     public static void customerMenu(){
         while (true){
             System.out.println("-------Customer Menu------");
@@ -17,10 +20,13 @@ public class CustomerController {
             int pickCustomerMenu = Integer.parseInt(scanner.nextLine());
             switch (pickCustomerMenu){
                 case 1:
+                    customerService.display();
                     break;
                 case 2:
+                    customerService.add();
                     break;
                 case 3:
+                    customerService.edit();
                     break;
                 case 4:
                     FuramaController.displayMainMenu();

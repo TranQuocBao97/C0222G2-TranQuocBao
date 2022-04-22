@@ -18,6 +18,20 @@ public class FacilityServiceImpl implements IFacilityService {
     private static VillaServiceImpl villaService = new VillaServiceImpl();
 
 
+    public Integer checkPriceFacility(String informationFacility){
+        Integer price = 0;
+        if(villaService.checkPriceVilla(informationFacility)!=0){
+            price = villaService.checkPriceVilla(informationFacility);
+        }
+        if(houseService.checkPriceHouse(informationFacility)!=0){
+            price = houseService.checkPriceHouse(informationFacility);
+        }
+        if(roomService.checkPriceRoom(informationFacility)!=0){
+            price = houseService.checkPriceHouse(informationFacility);
+        }
+        return price;
+    }
+
     public String select(Integer pick){
         String facilityInformation = null;
         if(villaService.select(pick)!=null){

@@ -3,6 +3,7 @@ package case_study.models;
 import java.util.Objects;
 
 public class Booking {
+    private Integer idBooking;
     private String informationCustomerBooking;
     private String informationFacilityBooking;
     private Integer startDate;
@@ -11,11 +12,20 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(String informationCustomerBooking, String informationFacilityBooking, Integer startDate, Integer endDate) {
+    public Booking(Integer idBooking, String informationCustomerBooking, String informationFacilityBooking, Integer startDate, Integer endDate) {
+        this.idBooking = idBooking;
         this.informationCustomerBooking = informationCustomerBooking;
         this.informationFacilityBooking = informationFacilityBooking;
         this.startDate = startDate;
         this.endDate = endDate;
+    }
+
+    public Integer getIdBooking() {
+        return idBooking;
+    }
+
+    public void setIdBooking(Integer idBooking) {
+        this.idBooking = idBooking;
     }
 
     public String getInformationCustomerBooking() {
@@ -52,7 +62,8 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Information Customer Booking: " + informationCustomerBooking +
+        return  "Id Booking: " + idBooking +
+                ", Information Customer Booking: " + informationCustomerBooking +
                 ", InformationFacilityBooking: " + informationFacilityBooking +
                 ", startDate: " + startDate +
                 ", endDate: " + endDate + ".";

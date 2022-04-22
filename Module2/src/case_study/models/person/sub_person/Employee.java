@@ -40,6 +40,14 @@ public class Employee extends AbsPerson {
         this.idEmployee = idEmployee;
     }
 
+    public Integer getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Integer salary) {
+        this.salary = salary;
+    }
+
     @Override
     public String toString() {
         return super.toString() +
