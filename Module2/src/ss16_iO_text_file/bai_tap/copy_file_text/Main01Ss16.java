@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main02Ss16 {
+public class Main01Ss16 {
     private static final String FILE_ORIGINAL = "src/ss16_iO_text_file/bai_tap/copy_file_text/originalFileSs16.txt";
     private static final String FILE_COPY = "src/ss16_iO_text_file/bai_tap/copy_file_text/copyFileSs16.txt";
 
