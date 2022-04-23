@@ -9,7 +9,7 @@ public class Main01Ss16 {
     private static final String FILE_COPY = "src/ss16_iO_text_file/bai_tap/copy_file_text/copyFileSs16.txt";
 
     public static void main(String[] args) {
-        writeFile(readFile(FILE_ORIGINAL),FILE_COPY);
+        writeFile(FILE_ORIGINAL,FILE_COPY);
     }
 
     public static List<String> readFile(String originFile) {
@@ -29,7 +29,8 @@ public class Main01Ss16 {
         return originDataList;
     }
 
-    public static void writeFile(List<String> dataList, String copyFile) {
+    public static void writeFile(String originFile, String copyFile) {
+        List<String> dataList = readFile(originFile);
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(copyFile, false));
             for (String string : dataList) {
