@@ -14,7 +14,7 @@ public class EmployeeController {
     static IService employeeService = new EmployeeServiceImpl();
     public static void bookingMenu(){
         while (true){
-            System.out.println("-------Booking Menu-------");
+            System.out.println("-------Employee Menu-------");
             System.out.println("1. Display list employees");
             System.out.println("2. Add new employee");
             System.out.println("3. Edit employee");

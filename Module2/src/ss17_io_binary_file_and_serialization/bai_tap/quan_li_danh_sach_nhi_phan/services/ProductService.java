@@ -29,7 +29,9 @@ public class ProductService {
                 Integer price = Integer.parseInt(scanner.nextLine());
                 System.out.print("Add information: ");
                 String information = scanner.nextLine();
+
                 productList.add(new ProductSs17(id,name,company,price,information));
+
                 ReadAndWriteFile.writeFileProduct(FILE_DATA_PRODUCT,productList);
                 MenuControllers.mainDisplay();
             }catch (Exception e){
