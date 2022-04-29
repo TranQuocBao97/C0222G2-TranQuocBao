@@ -9,7 +9,7 @@ public class Room extends Facility {
         this.bonus = bonus;
     }
 
-    public Room(Integer idFacility, String name, Double area, Double pricePerDay, Double pricePerHour, String typeRent, String bonus) {
+    public Room(String idFacility, String name, Double area, Double pricePerDay, Double pricePerHour, String typeRent, String bonus) {
         super(idFacility, name, area, pricePerDay, pricePerHour, typeRent);
         this.bonus = bonus;
     }
@@ -26,5 +26,9 @@ public class Room extends Facility {
     public String toString() {
         return super.toString()+
                 "bonus: " + bonus;
+    }
+    public String propertiesToCsv(){
+        return getIdFacility()+","+getName()+","+getArea()+","+getPricePerDay()+","+getPricePerHour()+","
+                +getTypeRent()+","+bonus;
     }
 }

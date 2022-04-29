@@ -10,7 +10,7 @@ public class FuramaController {
 
     public static void displayMainMenu() {
         while (true) {
-            System.out.println("-------Welcome-------");
+            System.out.println("-------Welcome To Main Menu-------");
             System.out.println("1. Employee Management");
             System.out.println("2. Customer Management");
             System.out.println("3. Facility Management");

@@ -8,7 +8,8 @@ public class Villa extends House{
         this.areaPool = areaPool;
     }
 
-    public Villa(Integer idFacility, String name, Double area, Double pricePerDay, Double pricePerHour, String typeRent, String typeFacility, Integer numberFloors, String areaPool) {
+    public Villa(String idFacility, String name, Double area, Double pricePerDay, Double pricePerHour, String typeRent
+            , String typeFacility, Integer numberFloors, String areaPool) {
         super(idFacility, name, area, pricePerDay, pricePerHour, typeRent, typeFacility, numberFloors);
         this.areaPool = areaPool;
     }
@@ -25,5 +26,10 @@ public class Villa extends House{
     public String toString() {
         return super.toString()+
                 "areaPool: " + areaPool;
+    }
+
+    public String propertiesToCsv(){
+        return getIdFacility()+","+getName()+","+getArea()+","+getPricePerDay()+","+getPricePerHour()+","
+                +getTypeRent()+","+getTypeFacility()+","+getNumberFloors()+","+areaPool;
     }
 }

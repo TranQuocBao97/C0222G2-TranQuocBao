@@ -24,11 +24,6 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
-    public String propertiesToCsv(){
-        return getName()+","+getBirth()+","+getGender()+","+getIdCitizen()+","+getPhoneNumber()+","+getEmail()+
-                ","+idEmployee+","+job+","+educationLevel+","+salary;
-    }
-
     public Integer getIdEmployee() {
         return idEmployee;
     }
@@ -64,10 +59,15 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return "idEmployee: " + idEmployee +
+        return super.toString()+
+                "idEmployee: " + idEmployee +
                 ", job: " + job +
                 ", educationLevel: " + educationLevel +
-                ", salary: "  + String.format ("%.0f",salary) + "(VND)"+
-                super.toString();
+                ", salary: "  + String.format ("%.0f",salary) + "(VND)";
+    }
+
+    public String propertiesToCsv(){
+        return getName()+","+getBirth()+","+getGender()+","+getIdCitizen()+","+getPhoneNumber()+","+getEmail()+
+                ","+idEmployee+","+job+","+educationLevel+","+salary;
     }
 }

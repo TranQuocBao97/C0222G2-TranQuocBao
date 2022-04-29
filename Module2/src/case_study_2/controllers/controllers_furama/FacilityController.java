@@ -18,7 +18,7 @@ public class FacilityController {
             System.out.println("2. Add new facility");
             System.out.println("3. Display list facility maintenance");
             System.out.println("4. Return main menu");
-            System.out.println("Enter your function: ");
+            System.out.print("Enter your function: ");
             int pickFacilityMenu = Integer.parseInt(scanner.nextLine());
             switch (pickFacilityMenu){
                 case 1:

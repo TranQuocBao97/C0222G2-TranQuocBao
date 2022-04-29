@@ -1,4 +1,6 @@
 package case_study_2.services;
 
-public interface IContractService extends IService{
+import case_study_2.models.Contract;
+
+public interface IContractService extends IService<Contract>{
 }

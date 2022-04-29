@@ -1,4 +1,6 @@
 package case_study_2.services;
 
-public interface IEmployeeService extends IService{
+import case_study_2.models.person.sub_person.Employee;
+
+public interface IEmployeeService extends IService<Employee>{
 }

@@ -4,17 +4,17 @@ import case_study_2.models.person.Person;
 
 public class Customer extends Person {
     private String idCustomer;
-    private String levelCustomer;
+    private String customerLevel;
 
-    public Customer(String idCustomer, String levelCustomer) {
+    public Customer(String idCustomer, String customerLevel) {
         this.idCustomer = idCustomer;
-        this.levelCustomer = levelCustomer;
+        this.customerLevel = customerLevel;
     }
 
-    public Customer(String name, String birth, String gender, String idCitizen, String phoneNumber, String email, String idCustomer, String levelCustomer) {
+    public Customer(String name, String birth, String gender, String idCitizen, String phoneNumber, String email, String idCustomer, String customerLevel) {
         super(name, birth, gender, idCitizen, phoneNumber, email);
         this.idCustomer = idCustomer;
-        this.levelCustomer = levelCustomer;
+        this.customerLevel = customerLevel;
     }
 
     public String getIdCustomer() {
@@ -25,18 +25,23 @@ public class Customer extends Person {
         this.idCustomer = idCustomer;
     }
 
-    public String getLevelCustomer() {
-        return levelCustomer;
+    public String getCustomerLevel() {
+        return customerLevel;
     }
 
-    public void setLevelCustomer(String levelCustomer) {
-        this.levelCustomer = levelCustomer;
+    public void setCustomerLevel(String customerLevel) {
+        this.customerLevel = customerLevel;
     }
 
     @Override
     public String toString() {
-        return ", idCustomer: " + idCustomer +
-                ", levelCustomer: " + levelCustomer +
-                super.toString();
+        return super.toString()+
+                "idCustomer: " + idCustomer +
+                ", customerLevel: " + customerLevel;
+    }
+
+    public String propertiesToCsv(){
+        return getName()+","+getBirth()+","+getGender()+","+getIdCitizen()+","+getPhoneNumber()+","+getEmail()+
+                ","+idCustomer+","+customerLevel;
     }
 }

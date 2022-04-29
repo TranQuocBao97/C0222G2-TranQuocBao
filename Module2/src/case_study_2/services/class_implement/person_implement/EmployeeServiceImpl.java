@@ -1,27 +1,34 @@
 package case_study_2.services.class_implement.person_implement;
 
+
 import case_study_2.models.person.sub_person.Employee;
 import case_study_2.services.IEmployeeService;
 import case_study_2.utils.ReadFile;
 import case_study_2.utils.WriteFile;
+import case_study_2.utils.take_data_input_by_condition.BirthdayOver18Under100;
+import case_study_2.utils.select_property_value.EducationLevel;
+import case_study_2.utils.select_property_value.Job;
 
-import java.util.ArrayList;
+
+
 import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements IEmployeeService {
-    private static final String FILE_DATA_EMPLOYEE = "src/case_study_2/data/File_Data_Empoyee.csv";
     static Scanner scanner = new Scanner(System.in);
-    private static ReadFile readFile = new ReadFile();
-    private static WriteFile writeFile = new WriteFile();
+    private static final String FILE_DATA_EMPLOYEE = "src/case_study_2/data/File_Data_Employee.csv";
+    private static final List<Employee> employeeList;
+    static {
+        employeeList = ReadFile.employeeListFromFileData(FILE_DATA_EMPLOYEE);
+    }
+
 
 
     @Override
     public void add() {
         System.out.print("Add name: ");
         String name = scanner.nextLine();
-        System.out.print("Add birth: ");
-        String birth = scanner.nextLine();
+        String birth = BirthdayOver18Under100.takeBirthDay();
         System.out.print("Add gender: ");
         String gender = scanner.nextLine();
         System.out.print("Add id citizen: ");
@@ -30,10 +37,11 @@ public class EmployeeServiceImpl implements IEmployeeService {
         String phoneNumber = scanner.nextLine();
         System.out.print("Add email: ");
         String email = scanner.nextLine();
-        System.out.print("Add job: ");
-        String job = scanner.nextLine();
-        System.out.print("Add education level: ");
-        String educationLevel = scanner.nextLine();
+
+        String job = Job.selectJob();
+
+        String educationLevel = EducationLevel.selectEducationLevel();
+
         Double salary = null;
         while (salary == null) {
             try {
@@ -43,28 +51,28 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 System.out.println("Please Enter Type-Number To Add Salary!");
             }
         }
-        List<Employee> employeeList = new ArrayList<>();
         Integer idEmployee = checkIdEmployee();
         employeeList.add(new Employee(name, birth, gender, idCitizen, phoneNumber, email, ++idEmployee, job, educationLevel, salary));
-        writeFile.writeEmployeeListToCsv(FILE_DATA_EMPLOYEE, employeeList, true);
+        WriteFile.writeEmployeeListToCsv(FILE_DATA_EMPLOYEE, employeeList, false);
 
     }
 
     private Integer checkIdEmployee() {
-        List<Employee> employeeList = readFile.employeeListFromFileData(FILE_DATA_EMPLOYEE);
         Integer maxId = employeeList.get(0).getIdEmployee();
-        for (int i = 0; i < employeeList.size(); i++) {
-            if (maxId < employeeList.get(i).getIdEmployee()) {
-                maxId = employeeList.get(i).getIdEmployee();
+        for (Employee employee : employeeList) {
+            if (maxId < employee.getIdEmployee()) {
+                maxId = employee.getIdEmployee();
             }
+        }
+        if(maxId==null){
+            return 1;
         }
         return maxId;
     }
 
     @Override
     public void display() {
-        Integer stt = 0;
-        List<Employee> employeeList = readFile.employeeListFromFileData(FILE_DATA_EMPLOYEE);
+        int stt = 0;
         for (Employee employee : employeeList) {
             System.out.println("STT. " + (++stt) + ": "  +employee);
         }
@@ -73,16 +81,14 @@ public class EmployeeServiceImpl implements IEmployeeService {
     @Override
     public void edit() {
         display();
-        List<Employee> employeeList = readFile.employeeListFromFileData(FILE_DATA_EMPLOYEE);
         System.out.print("Select STT to Edit Employee: ");
-        Integer checkStt = Integer.parseInt(scanner.nextLine());
+        int checkStt = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < employeeList.size(); i++) {
             if (checkStt == i + 1) {
-                System.out.println(employeeList.get(i));
                 System.out.print("Edit name: ");
                 String name = scanner.nextLine();
-                System.out.print("Edit birth: ");
-                String birth = scanner.nextLine();
+                System.out.print("Edit birth");
+                String birth = BirthdayOver18Under100.takeBirthDay();
                 System.out.print("Edit gender: ");
                 String gender = scanner.nextLine();
                 System.out.print("Edit id citizen: ");
@@ -91,10 +97,11 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 String phoneNumber = scanner.nextLine();
                 System.out.print("Edit email: ");
                 String email = scanner.nextLine();
-                System.out.print("Edit job: ");
-                String job = scanner.nextLine();
-                System.out.print("Edit education level: ");
-                String educationLevel = scanner.nextLine();
+
+                String job = Job.selectJob();
+
+                String educationLevel = EducationLevel.selectEducationLevel();
+
                 Double salary = null;
                 while (salary == null) {
                     try {
@@ -117,6 +124,6 @@ public class EmployeeServiceImpl implements IEmployeeService {
             }
 
         }
-        writeFile.writeEmployeeListToCsv(FILE_DATA_EMPLOYEE,employeeList,false);
+        WriteFile.writeEmployeeListToCsv(FILE_DATA_EMPLOYEE,employeeList,false);
     }
 }

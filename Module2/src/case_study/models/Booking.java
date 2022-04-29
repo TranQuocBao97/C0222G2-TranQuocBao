@@ -9,7 +9,7 @@ public class Booking {
     private Integer startDate;
     private Integer endDate;
 
-    public Booking() {
+    public Booking(){
     }
 
     public Booking(Integer idBooking, String informationCustomerBooking, String informationFacilityBooking, Integer startDate, Integer endDate) {
