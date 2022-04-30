@@ -31,8 +31,7 @@ public class FacilityController {
                     ((FacilityServiceImpl) facilityService).displayMaintenance();
                     break;
                 case 4:
-                    FuramaController.displayMainMenu();
-                    break;
+                    return;
                 default:
                     System.out.println("Please enter your right number on menu.");
             }

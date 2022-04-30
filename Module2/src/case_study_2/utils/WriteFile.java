@@ -1,6 +1,7 @@
 package case_study_2.utils;
 
 import case_study_2.models.Booking;
+import case_study_2.models.Contract;
 import case_study_2.models.facility.sub_facility.House;
 import case_study_2.models.facility.sub_facility.Room;
 import case_study_2.models.facility.sub_facility.Villa;
@@ -79,6 +80,24 @@ public class WriteFile {
 
         for (Booking booking : bookingList){
             dataList.add(booking.propertiesToCsv());
+        }
+        writeToCsvFile(fileTakeData,dataList,flag);
+    }
+
+    public static void writeBookingQueueListToCsv (String fileTakeData, Queue<Booking> bookingQueueList, boolean flag){
+        List<String> dataList = new LinkedList<>();
+
+        for (Booking bookingQueue : bookingQueueList){
+            dataList.add(bookingQueue.propertiesToCsv());
+        }
+        writeToCsvFile(fileTakeData,dataList,flag);
+    }
+
+    public static void writeContractListToCsv (String fileTakeData, List<Contract> contractList, boolean flag){
+        List<String> dataList = new ArrayList<>();
+
+        for (Contract contract : contractList){
+            dataList.add(contract.propertiesToCsv());
         }
         writeToCsvFile(fileTakeData,dataList,flag);
     }

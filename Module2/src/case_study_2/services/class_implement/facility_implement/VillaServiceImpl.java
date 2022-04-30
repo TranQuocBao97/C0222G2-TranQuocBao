@@ -1,5 +1,6 @@
 package case_study_2.services.class_implement.facility_implement;
 
+import case_study_2.models.facility.sub_facility.House;
 import case_study_2.models.facility.sub_facility.Villa;
 import case_study_2.services.IFacilityId;
 import case_study_2.services.IMaintenance;
@@ -11,6 +12,7 @@ import case_study_2.utils.take_data_input_by_condition.DataInputWithCondition;
 import case_study_2.utils.take_data_input_by_regex.RegexService;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class VillaServiceImpl implements IVillaService, IMaintenance, IFacilityId {
@@ -21,17 +23,31 @@ public class VillaServiceImpl implements IVillaService, IMaintenance, IFacilityI
         villaList = ReadFile.villaListFromFileData(FILE_DATA_VILLA);
     }
 
+
+
+    public static void countUseInMonth(String idFacilityForCheck, Integer useTime){
+        for(Map.Entry<Villa,Integer> entry : villaList.entrySet()){
+            if(Objects.equals(entry.getKey().getIdFacility(), idFacilityForCheck)){
+                entry.setValue(useTime);
+                WriteFile.writeVillaListToCsv(FILE_DATA_VILLA,villaList,false);
+            }
+        }
+    }
+
+
     @Override
     public String selectIdFacility() {
        while (true){
            try{
-               display();
+               int stt = 0;
+               for (Map.Entry<Villa,Integer> entry : villaList.entrySet()){
+                   System.out.println("STT. "+(++stt)+": "+entry.getKey().toString()+". Time used: "+entry.getValue().toString());
+               }
                System.out.print("Select Id facility by STT: ");
                int select = Integer.parseInt(scanner.nextLine());
                int checkSelect = 1;
                for(Map.Entry<Villa,Integer> entry : villaList.entrySet()){
                    if(select==(checkSelect++)){
-                       entry.setValue(entry.getValue()+1);
                        return entry.getKey().getIdFacility();
                    }
                }
@@ -72,9 +88,8 @@ public class VillaServiceImpl implements IVillaService, IMaintenance, IFacilityI
 
     @Override
     public void display() {
-        int stt = 0;
         for (Map.Entry<Villa,Integer> entry : villaList.entrySet()){
-            System.out.println("STT. "+(++stt)+": "+entry.getKey().toString()+". Time used: "+entry.getValue().toString());
+            System.out.println("STT. "+(++FacilityServiceImpl.stt)+": "+entry.getKey().toString()+". Time used: "+entry.getValue().toString());
         }
     }
 

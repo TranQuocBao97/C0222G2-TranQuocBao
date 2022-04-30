@@ -30,8 +30,7 @@ public class CustomerController {
                     customerService.edit();
                     break;
                 case 4:
-                    FuramaController.displayMainMenu();
-                    break;
+                    return;
                 default:
                     System.out.println("Please enter the right number on menu.");
             }

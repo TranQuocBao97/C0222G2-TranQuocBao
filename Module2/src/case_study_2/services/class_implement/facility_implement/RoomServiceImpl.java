@@ -1,6 +1,8 @@
 package case_study_2.services.class_implement.facility_implement;
 
+import case_study_2.models.facility.sub_facility.House;
 import case_study_2.models.facility.sub_facility.Room;
+import case_study_2.models.facility.sub_facility.Villa;
 import case_study_2.services.IFacilityId;
 import case_study_2.services.IMaintenance;
 import case_study_2.services.IRoomService;
@@ -11,6 +13,7 @@ import case_study_2.utils.take_data_input_by_condition.DataInputWithCondition;
 import case_study_2.utils.take_data_input_by_regex.RegexService;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class RoomServiceImpl implements IRoomService, IMaintenance, IFacilityId {
@@ -21,9 +24,37 @@ public class RoomServiceImpl implements IRoomService, IMaintenance, IFacilityId 
         roomList = ReadFile.roomListFromFileData(FILE_DATA_ROOM);
     }
 
+
+
+    public static void countUseInMonth(String idFacilityForCheck ,Integer useTime){
+        for(Map.Entry<Room,Integer> entry : roomList.entrySet()){
+            if(entry.getKey().getIdFacility().equals(idFacilityForCheck)){
+                entry.setValue(useTime);
+                WriteFile.writeRoomListToCsv(FILE_DATA_ROOM,roomList,false);
+            }
+        }
+    }
+
     @Override
     public String selectIdFacility() {
-        return null;
+        while (true){
+            try{
+                int stt = 0;
+                for (Map.Entry<Room,Integer> entry : roomList.entrySet()){
+                    System.out.println("STT. "+(++stt)+": "+entry.getKey().toString()+". Time used: "+entry.getValue().toString());
+                }
+                System.out.print("Select Id room by STT: ");
+                int select = Integer.parseInt(scanner.nextLine());
+                int checkSelect = 1;
+                for(Map.Entry<Room,Integer> entry : roomList.entrySet()){
+                    if(select==(checkSelect++)){
+                        return entry.getKey().getIdFacility();
+                    }
+                }
+            }catch (Exception e){
+                System.out.println("Please Enter right number to select");
+            }
+        }
     }
 
     @Override
@@ -55,7 +86,7 @@ public class RoomServiceImpl implements IRoomService, IMaintenance, IFacilityId 
     @Override
     public void display() {
         for(Map.Entry<Room,Integer> entry: roomList.entrySet()){
-            System.out.println(entry.getKey().toString()+". Time used: "+entry.getValue().toString());
+            System.out.println("STT. "+(++FacilityServiceImpl.stt)+": "+entry.getKey().toString()+". Time used: "+entry.getValue().toString());
         }
     }
 

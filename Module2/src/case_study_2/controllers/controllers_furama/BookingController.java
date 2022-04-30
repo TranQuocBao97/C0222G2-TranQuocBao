@@ -41,8 +41,7 @@ public class BookingController {
                         contractService.edit();
                         break;
                     case 6:
-                        FuramaController.displayMainMenu();
-                        break;
+                        return;
                     default:
                         throw new Exception();
                 }

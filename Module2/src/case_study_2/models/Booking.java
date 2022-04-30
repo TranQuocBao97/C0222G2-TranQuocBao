@@ -1,6 +1,10 @@
 package case_study_2.models;
 
-import java.util.Objects;
+import case_study_2.utils.compareTime.BookingTimeCompare;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class Booking {
     private String dayStart;
@@ -66,14 +70,12 @@ public class Booking {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
         Booking booking = (Booking) o;
-        return Objects.equals(dayStart, booking.dayStart) && Objects.equals(dayEnd, booking.dayEnd) && Objects.equals(idCustomer, booking.idCustomer) && Objects.equals(idFacility, booking.idFacility);
+        return Objects.equals(this.idFacility, booking.idFacility);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idCustomer);
+        return 0;
     }
 }

@@ -33,8 +33,7 @@ public class EmployeeController {
                         employeeService.edit();
                         break;
                     case 4:
-                        FuramaController.displayMainMenu();
-                        break;
+                        return;
                     default:
                         throw new Exception();
                 }

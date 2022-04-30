@@ -22,8 +22,7 @@ public class PromotionController {
                 case 2:
                     break;
                 case 3:
-                    FuramaController.displayMainMenu();
-                    break;
+                    return;
                 default:
                     System.out.println("Please enter your right number on menu.");
             }

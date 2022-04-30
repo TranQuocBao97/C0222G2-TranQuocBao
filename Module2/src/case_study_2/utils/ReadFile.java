@@ -1,12 +1,14 @@
 package case_study_2.utils;
 
 import case_study_2.models.Booking;
+import case_study_2.models.Contract;
 import case_study_2.models.facility.Facility;
 import case_study_2.models.facility.sub_facility.House;
 import case_study_2.models.facility.sub_facility.Room;
 import case_study_2.models.facility.sub_facility.Villa;
 import case_study_2.models.person.sub_person.Customer;
 import case_study_2.models.person.sub_person.Employee;
+import case_study_2.utils.comparator_booking.ComparatorBooking;
 
 import java.io.*;
 import java.util.*;
@@ -91,13 +93,33 @@ public class ReadFile {
     }
 
     public static Set<Booking> bookingListFromFileData (String fileBooking){
-        Set<Booking> bookingList = new TreeSet<>();
+        Set<Booking> bookingList = new TreeSet<>(new ComparatorBooking());
         List<String> stringDataBookingList = readFile(fileBooking);
         for(String bookingProperties : stringDataBookingList){
             String[] array = bookingProperties.split(",");
             bookingList.add(new Booking(array[0],array[1],array[2],array[3]));
         }
         return bookingList;
+    }
+
+    public static Queue<Booking> bookingQueueListFromFileData (String fileBookingQueue){
+        Queue<Booking> bookingQueueList = new LinkedList<>();
+        List<String> stringDataBookingQueueList = readFile(fileBookingQueue);
+        for(String bookingQueueProperties : stringDataBookingQueueList){
+            String[] array = bookingQueueProperties.split(",");
+            bookingQueueList.add(new Booking(array[0],array[1],array[2],array[3]));
+        }
+        return bookingQueueList;
+    }
+
+    public static List<Contract> contractListFromFileDate (String fileContract){
+        List<Contract> contractList = new ArrayList<>();
+        List<String> stringDataContractList = readFile(fileContract);
+        for (String contractProperties : stringDataContractList){
+            String[] array = contractProperties.split(",");
+            contractList.add(new Contract(array[0],array[1],Double.parseDouble(array[2]),Double.parseDouble(array[3])));
+        }
+        return contractList;
     }
 
 

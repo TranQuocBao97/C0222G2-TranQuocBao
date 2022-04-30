@@ -1,6 +1,7 @@
 package case_study_2.services.class_implement.facility_implement;
 
 import case_study_2.models.facility.sub_facility.House;
+import case_study_2.models.facility.sub_facility.Room;
 import case_study_2.services.IFacilityId;
 import case_study_2.services.IHouseService;
 import case_study_2.services.IMaintenance;
@@ -11,6 +12,7 @@ import case_study_2.utils.take_data_input_by_condition.DataInputWithCondition;
 import case_study_2.utils.take_data_input_by_regex.RegexService;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class HouseServiceImpl implements IHouseService, IMaintenance, IFacilityId {
@@ -18,13 +20,44 @@ public class HouseServiceImpl implements IHouseService, IMaintenance, IFacilityI
     private static final String FILE_DATA_HOUSE  = "src/case_study_2/data/File_Data_House.csv";
     private static final Map<House,Integer> houseList;
 
+
     static {
         houseList = ReadFile.houseListFromFileData(FILE_DATA_HOUSE);
     }
 
+
+
+
+    public static void countUseInMonth(String idFacilityForCheck, Integer useTime){
+        for(Map.Entry<House,Integer> entry : houseList.entrySet()){
+            if(entry.getKey().getIdFacility().equals(idFacilityForCheck)){
+                entry.setValue(useTime);
+                WriteFile.writeHouseListToCsv(FILE_DATA_HOUSE,houseList,false);
+            }
+        }
+
+    }
+
     @Override
     public String selectIdFacility() {
-        return null;
+        while (true){
+            try{
+                int stt = 0;
+                for (Map.Entry<House,Integer> entry : houseList.entrySet()){
+                    System.out.println("STT. "+(++stt)+": "+entry.getKey().toString()+". Time used: "+entry.getValue().toString());
+                }
+                System.out.print("Select Id house by STT: ");
+                int select = Integer.parseInt(scanner.nextLine());
+                int checkSelect = 1;
+                for(Map.Entry<House,Integer> entry : houseList.entrySet()){
+                    if(select==(checkSelect++)){
+                        return entry.getKey().getIdFacility();
+                    }
+                }
+            }catch (Exception e){
+                System.out.println("Please Enter right number to select");
+            }
+        }
     }
 
 
@@ -58,7 +91,7 @@ public class HouseServiceImpl implements IHouseService, IMaintenance, IFacilityI
     @Override
     public void display() {
         for (Map.Entry<House,Integer> entry : houseList.entrySet()){
-            System.out.println(entry.getKey().toString()+". Time used: "+entry.getValue().toString());
+            System.out.println("STT. "+(++FacilityServiceImpl.stt)+": "+entry.getKey().toString()+". Time used: "+entry.getValue().toString());
         }
     }
 
