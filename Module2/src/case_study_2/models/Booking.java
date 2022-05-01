@@ -1,6 +1,7 @@
 package case_study_2.models;
 
 import case_study_2.utils.compareTime.BookingTimeCompare;
+import case_study_2.utils.compareTime.DateString;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -56,12 +57,11 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Booking{" +
-                "dayStart='" + dayStart + '\'' +
-                ", dayEnd='" + dayEnd + '\'' +
-                ", idCustomer='" + idCustomer + '\'' +
-                ", idFacility='" + idFacility + '\'' +
-                '}';
+        return "[Booking: " +
+                "dayStart: " + dayStart +
+                " - dayEnd: " + dayEnd +
+                " - idCustomer: " + idCustomer +
+                " - idFacility: " + idFacility + "] ";
     }
 
     public String propertiesToCsv() {
@@ -71,11 +71,22 @@ public class Booking {
     @Override
     public boolean equals(Object o) {
         Booking booking = (Booking) o;
-        return Objects.equals(this.idFacility, booking.idFacility);
+        Integer dayStart1 =  DateString.swapToIntegerDay(getDayStart());
+        Integer dayEnd1 = DateString.swapToIntegerDay(getDayEnd());
+        Integer dayStart2 = DateString.swapToIntegerDay(booking.getDayStart());
+        Integer dayEnd2 = DateString.swapToIntegerDay(booking.getDayEnd());
+        if(idFacility.equals(booking.getIdFacility())){
+            if(dayStart1.equals(dayStart2)){
+                return true;
+            }else if(dayStart2>=dayStart1 && dayStart2<dayEnd1){
+                return true;
+            }else return dayStart1 >= dayStart2 && dayStart1 < dayEnd2;
+        }
+        return false;
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        return Objects.hash(idFacility);
     }
 }

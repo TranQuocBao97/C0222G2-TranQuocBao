@@ -31,6 +31,20 @@ public class BookingServiceImpl implements IBookingService {
         checkBookingUseByMonth();
     }
 
+
+
+    public static List<String> getListUserForPromo(String monthStr){
+        List<String> idCustomerList = new Stack<>();
+        for(Booking booking : bookingList){
+            String[] bookingArray = booking.getDayStart().split("/");
+            if(bookingArray[1].equals(monthStr)){
+                idCustomerList.add(booking.getIdCustomer());
+            }
+        }
+        return idCustomerList;
+    }
+
+
     public Booking addToContractList() {
         Booking booking = bookingQueueList.poll();
         updateBookingQueue();

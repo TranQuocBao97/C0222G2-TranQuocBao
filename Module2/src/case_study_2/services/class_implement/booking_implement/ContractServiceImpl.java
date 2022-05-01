@@ -38,7 +38,7 @@ public class ContractServiceImpl implements IContractService {
                 switch (select) {
                     case 1:
                         booking = bookingService.addToContractList();
-                        String bookingInformation = booking.getIdFacility();
+                        String bookingInformation = booking.toString().replace(",","-");
                         Integer dayUseService =  DateString.swapToIntegerDay(booking.getDayEnd()) - DateString.swapToIntegerDay(booking.getDayStart());
                         Double pricePerDay = FacilityServiceImpl.checkPricePerDay(booking.getIdFacility());
                         Double depositMoney = (pricePerDay*dayUseService)/2;

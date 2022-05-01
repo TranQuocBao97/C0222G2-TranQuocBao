@@ -50,12 +50,11 @@ public class Contract {
 
     @Override
     public String toString() {
-        return "Contract{" +
-                "idContract='" + idContract + '\'' +
-                ", bookingInformation='" + bookingInformation + '\'' +
-                ", depositMoney=" + depositMoney +
-                ", totalMoney=" + totalMoney +
-                '}';
+        return "[Contract: " +
+                "idContract: " + idContract +
+                ", bookingInformation: " + bookingInformation +
+                ", depositMoney: " + String.format("%.0f",depositMoney) +
+                ", totalMoney: " + String.format("%.0f",totalMoney)+"]";
     }
 
     public String propertiesToCsv(){
