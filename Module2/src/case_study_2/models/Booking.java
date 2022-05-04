@@ -7,7 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class Booking {
+public class Booking implements Comparable<Booking> {
     private String dayStart;
     private String dayEnd;
     private String idCustomer;
@@ -71,22 +71,63 @@ public class Booking {
     @Override
     public boolean equals(Object o) {
         Booking booking = (Booking) o;
-        Integer dayStart1 =  DateString.swapToIntegerDay(getDayStart());
-        Integer dayEnd1 = DateString.swapToIntegerDay(getDayEnd());
-        Integer dayStart2 = DateString.swapToIntegerDay(booking.getDayStart());
-        Integer dayEnd2 = DateString.swapToIntegerDay(booking.getDayEnd());
-        if(idFacility.equals(booking.getIdFacility())){
-            if(dayStart1.equals(dayStart2)){
+        int dayStart1 = DateString.swapToIntegerDay(getDayStart());
+        int dayEnd1 = DateString.swapToIntegerDay(getDayEnd());
+        int dayStart2 = DateString.swapToIntegerDay(booking.getDayStart());
+        int dayEnd2 = DateString.swapToIntegerDay(booking.getDayEnd());
+        if (idFacility.equals(booking.getIdFacility())) {
+            if (dayStart1 == dayStart2) {
                 return true;
-            }else if(dayStart2>=dayStart1 && dayStart2<dayEnd1){
+            } else if (dayStart2 > dayStart1 && dayStart2 < dayEnd1) {
                 return true;
-            }else return dayStart1 >= dayStart2 && dayStart1 < dayEnd2;
+            } else if (dayStart1 > dayStart2 && dayStart1 < dayEnd2){
+                return true;
+            }
         }
-        return false;
+        return true;
     }
+
 
     @Override
     public int hashCode() {
         return Objects.hash(idFacility);
+    }
+
+    @Override
+    public int compareTo(Booking o) {
+        int daysStart1 = DateString.swapToIntegerDay(getDayStart());
+        int daysEnd1 = DateString.swapToIntegerDay(getDayEnd());
+        int daysStart2 = DateString.swapToIntegerDay(o.getDayStart());
+        int daysEnd2 = DateString.swapToIntegerDay(o.getDayEnd());
+
+        if (getIdFacility().equals(o.getIdFacility())) {
+            if (daysStart1 == daysStart2) {
+                return 0;
+            } else if (daysStart2 > daysStart1 && daysStart2 < daysEnd1) {
+                return 0;
+            } else if (daysStart1 > daysStart2 && daysStart1 < daysEnd2) {
+                return 0;
+            } else if (daysStart1 < daysStart2) {
+                return -1;
+            } else if (daysStart1 > daysStart2) {
+                return 1;
+            } else if (daysEnd1 < daysEnd2) {
+                return -1;
+            } else if (daysEnd1 > daysEnd2) {
+                return 1;
+            }else {
+                return -1;
+            }
+        } else if (daysStart1 < daysStart2) {
+            return -1;
+        } else if (daysStart1 > daysStart2) {
+            return 1;
+        } else if (daysEnd1 < daysEnd2) {
+            return -1;
+        } else if (daysEnd1 > daysEnd2) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 }

@@ -10,9 +10,9 @@ import java.util.Date;
 public class DateString {
     private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-    public static Integer swapToIntegerDay(String dateString) {
+    public static int swapToIntegerDay(String dateString) {
         Date date = null;
-        Integer numberOfDay = null;
+        int numberOfDay = 0;
         try {
             date = simpleDateFormat.parse(dateString);
             numberOfDay = Math.toIntExact(date.getTime() / (1000 * 60 * 60 * 24));

@@ -2,7 +2,6 @@ package case_study_2.utils;
 
 import case_study_2.models.Booking;
 import case_study_2.models.Contract;
-import case_study_2.models.facility.Facility;
 import case_study_2.models.facility.sub_facility.House;
 import case_study_2.models.facility.sub_facility.Room;
 import case_study_2.models.facility.sub_facility.Villa;
@@ -93,7 +92,7 @@ public class ReadFile {
     }
 
     public static Set<Booking> bookingListFromFileData (String fileBooking){
-        Set<Booking> bookingList = new TreeSet<>(new ComparatorBooking());
+        Set<Booking> bookingList = new TreeSet<>();
         List<String> stringDataBookingList = readFile(fileBooking);
         for(String bookingProperties : stringDataBookingList){
             String[] array = bookingProperties.split(",");
