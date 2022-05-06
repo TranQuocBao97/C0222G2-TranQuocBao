@@ -30,10 +30,9 @@ public class Film {
 
     @Override
     public String toString() {
-        return "Film{" +
-                "name='" + name + '\'' +
-                ", timeFilm=" + timeFilm +
-                '}';
+        return "[Film = " +
+                "name: " + name +
+                "; timeFilm: " + timeFilm +"]";
     }
 
     public String toStringCsv(){

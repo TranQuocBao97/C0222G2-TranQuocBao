@@ -1,20 +1,28 @@
 package bai_tap_lam_them_rap_chieu_phim.models;
 
 public class FilmShowtime {
-    private String filmInformation;
-    private String cinemaRoomInformation;
-    private String dateShowtime;
-    private String timeShowtime;
     private String showtimeCode;
+    private String filmInformation;
+    private String roomInformation;
+    private String timeStart;
+    private String timeEnd;
 
     public FilmShowtime() {
     }
 
-    public FilmShowtime(String filmInformation, String cinemaRoomInformation, String dateShowtime, String timeShowtime, String showtimeCode) {
+    public FilmShowtime(String showtimeCode, String filmInformation, String roomInformation, String timeStart, String timeEnd) {
+        this.showtimeCode = showtimeCode;
         this.filmInformation = filmInformation;
-        this.cinemaRoomInformation = cinemaRoomInformation;
-        this.dateShowtime = dateShowtime;
-        this.timeShowtime = timeShowtime;
+        this.roomInformation = roomInformation;
+        this.timeStart = timeStart;
+        this.timeEnd = timeEnd;
+    }
+
+    public String getShowtimeCode() {
+        return showtimeCode;
+    }
+
+    public void setShowtimeCode(String showtimeCode) {
         this.showtimeCode = showtimeCode;
     }
 
@@ -26,50 +34,41 @@ public class FilmShowtime {
         this.filmInformation = filmInformation;
     }
 
-    public String getCinemaRoomInformation() {
-        return cinemaRoomInformation;
+    public String getRoomInformation() {
+        return roomInformation;
     }
 
-    public void setCinemaRoomInformation(String cinemaRoomInformation) {
-        this.cinemaRoomInformation = cinemaRoomInformation;
+    public void setRoomInformation(String roomInformation) {
+        this.roomInformation = roomInformation;
     }
 
-    public String getDateShowtime() {
-        return dateShowtime;
+    public String getTimeStart() {
+        return timeStart;
     }
 
-    public void setDateShowtime(String dateShowtime) {
-        this.dateShowtime = dateShowtime;
+    public void setTimeStart(String timeStart) {
+        this.timeStart = timeStart;
     }
 
-    public String getTimeShowtime() {
-        return timeShowtime;
+    public String getTimeEnd() {
+        return timeEnd;
     }
 
-    public void setTimeShowtime(String timeShowtime) {
-        this.timeShowtime = timeShowtime;
-    }
-
-    public String getShowtimeCode() {
-        return showtimeCode;
-    }
-
-    public void setShowtimeCode(String showtimeCode) {
-        this.showtimeCode = showtimeCode;
+    public void setTimeEnd(String timeEnd) {
+        this.timeEnd = timeEnd;
     }
 
     @Override
     public String toString() {
-        return "FilmShowtime{" +
-                "filmInformation='" + filmInformation + '\'' +
-                ", cinemaRoomInformation='" + cinemaRoomInformation + '\'' +
-                ", dateShowtime='" + dateShowtime + '\'' +
-                ", timeShowtime='" + timeShowtime + '\'' +
-                ", showtimeCode='" + showtimeCode + '\'' +
-                '}';
+        return "FilmShowtime[" +
+                "showtimeCode: " + showtimeCode +
+                ", filmInformation: " + filmInformation +
+                ", roomInformation: " + roomInformation +
+                ", timeStart: " + timeStart +
+                ", timeEnd: " + timeEnd+"]";
     }
 
     public String toStringCsv(){
-        return filmInformation+","+cinemaRoomInformation+","+dateShowtime+","+timeShowtime+","+showtimeCode;
+        return showtimeCode+","+filmInformation+","+roomInformation+","+timeStart+","+timeEnd;
     }
 }

@@ -5,7 +5,6 @@ import bai_tap_lam_them_rap_chieu_phim.models.Film;
 import bai_tap_lam_them_rap_chieu_phim.models.FilmShowtime;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +41,7 @@ public class ReadFile {
         List<CinemaRoom> roomList = new ArrayList<>();
         for (String dataLine : listData){
             String[] array = dataLine.split(",");
-            roomList.add(new CinemaRoom(array[0],array[1]));
+            roomList.add(new CinemaRoom(array[0],Integer.parseInt(array[1])));
         }
         return roomList;
     }

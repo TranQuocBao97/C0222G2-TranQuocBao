@@ -11,7 +11,7 @@ public class IntegerInput {
                 numberInput = Integer.parseInt(scanner.nextLine());
                 return numberInput;
             }catch (Exception e){
-                System.out.println("Please Enter Number Type");
+                System.out.print("Please Enter Number Type Again: ");
             }
         }
     }

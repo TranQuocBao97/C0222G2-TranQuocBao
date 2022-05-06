@@ -1,9 +1,12 @@
 package bai_tap_lam_them_rap_chieu_phim.controllers;
 
+import bai_tap_lam_them_rap_chieu_phim.services.CinemaRoomService;
 import bai_tap_lam_them_rap_chieu_phim.services.FilmService;
+import bai_tap_lam_them_rap_chieu_phim.services.FilmShowtimeService;
 import bai_tap_lam_them_rap_chieu_phim.utils.get_data_input.IntegerInput;
 
 public class CinemaShowTimeController {
+    private static FilmShowtimeService filmShowtimeService = new FilmShowtimeService();
     public static void displayCinemaShowTime(){
         while (true){
             System.out.println("-----Cinema Showtime Menu-----");
@@ -16,10 +19,13 @@ public class CinemaShowTimeController {
             Integer select = IntegerInput.getIntegerInput();
             switch (select){
                 case 1:
+                    filmShowtimeService.displayAllFilmShowtime();
                     break;
                 case 2:
+                    filmShowtimeService.addFilmShowtime();
                     break;
                 case 3:
+                    filmShowtimeService.delete();
                     break;
                 case 4:
                     FilmService.addFilm();
