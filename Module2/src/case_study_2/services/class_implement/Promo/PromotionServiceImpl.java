@@ -29,7 +29,7 @@ public class PromotionServiceImpl {
         System.out.println("voucher 20% give 40% customers");
         Integer voucher20 = Integer.parseInt(String.valueOf(count*4/10));
         System.out.println("20%: "+voucher20);
-        System.out.println("voucher 50% give total - voucher10%and20%");
+        System.out.println("voucher 50% give total - (voucher10%and20%)");
         Integer voucher50 = count-voucher20-voucher10;
         System.out.println("50%: "+voucher50);
         List<String> listVoucher = new ArrayList<>();

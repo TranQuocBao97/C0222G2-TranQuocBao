@@ -31,7 +31,5 @@ public class PromotionController {
                     System.out.println("Please enter your right number on menu.");
             }
         }
-
-
     }
 }

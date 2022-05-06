@@ -70,23 +70,38 @@ public class Booking implements Comparable<Booking> {
 
     @Override
     public boolean equals(Object o) {
-        Booking booking = (Booking) o;
-        int dayStart1 = DateString.swapToIntegerDay(getDayStart());
-        int dayEnd1 = DateString.swapToIntegerDay(getDayEnd());
-        int dayStart2 = DateString.swapToIntegerDay(booking.getDayStart());
-        int dayEnd2 = DateString.swapToIntegerDay(booking.getDayEnd());
-        if (idFacility.equals(booking.getIdFacility())) {
-            if (dayStart1 == dayStart2) {
-                return true;
-            } else if (dayStart2 > dayStart1 && dayStart2 < dayEnd1) {
-                return true;
-            } else if (dayStart1 > dayStart2 && dayStart1 < dayEnd2){
-                return true;
-            }
-        }
+//        Booking booking = (Booking) o;
+//        int dayStart1 = DateString.swapToIntegerDay(getDayStart());
+//        int dayEnd1 = DateString.swapToIntegerDay(getDayEnd());
+//        int dayStart2 = DateString.swapToIntegerDay(booking.getDayStart());
+//        int dayEnd2 = DateString.swapToIntegerDay(booking.getDayEnd());
+////        if (idFacility.equals(booking.getIdFacility())) {
+////            if (dayStart1 == dayStart2) {
+////                return true;
+////            } else if (dayStart2 > dayStart1 && dayStart2 < dayEnd1) {
+////                return true;
+////            } else if (dayStart1 > dayStart2 && dayStart1 < dayEnd2) {
+////                return true;
+////            }
+////        }
         return true;
     }
 
+//    public static void main(String[] args) {
+//        Booking booking1 = new Booking("11/05/2022","15/05/2022","15","SVVL-0001");
+//        Booking booking2 = new Booking("13/05/2022","14/05/2022","16","SVVL-0002");
+//        Booking booking3 = new Booking("12/05/2022","14/05/2022","16","SVVL-0001");
+//        Booking booking4 = new Booking("10/05/2022","12/05/2022","16","SVVL-0001");
+//        System.out.println(booking1.equals(booking2));
+//        Set<Booking> bookingSet = new TreeSet<>();
+//        bookingSet.add(booking1);
+//        bookingSet.add(booking2);
+//        bookingSet.add(booking3);
+//        bookingSet.add(booking4);
+//        for(Booking booking : bookingSet){
+//            System.out.println(booking);
+//        }
+//    }
 
     @Override
     public int hashCode() {
@@ -115,7 +130,7 @@ public class Booking implements Comparable<Booking> {
                 return -1;
             } else if (daysEnd1 > daysEnd2) {
                 return 1;
-            }else {
+            } else {
                 return -1;
             }
         } else if (daysStart1 < daysStart2) {
