@@ -4,7 +4,9 @@ import case_study_lam_them.models.sub_person.Student;
 import case_study_lam_them.models.sub_person.Teacher;
 
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,8 +20,10 @@ public class WriteFile {
                 bufferedWriter.newLine();
             }
             bufferedWriter.close();
-        }catch (Exception e){
-            System.out.println("The File has problem");
+        }catch (FileNotFoundException e){
+            System.out.println("The File is not found");
+        }catch (IOException e){
+            System.out.println("Cant write to the file");
         }
     }
 

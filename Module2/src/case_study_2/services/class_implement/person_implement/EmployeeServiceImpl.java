@@ -8,7 +8,7 @@ import case_study_2.utils.WriteFile;
 import case_study_2.utils.take_data_input_by_condition.BirthdayOver18Under100;
 import case_study_2.utils.select_property_value.EducationLevel;
 import case_study_2.utils.select_property_value.Job;
-
+import case_study_2.utils.take_data_input_by_condition.BirthdayOver18Under100Ver2;
 
 
 import java.util.List;
@@ -28,7 +28,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
     public void add() {
         System.out.print("Add name: ");
         String name = scanner.nextLine();
-        String birth = BirthdayOver18Under100.takeBirthDay();
+        String birth = BirthdayOver18Under100Ver2.takeBirthdayAvailable();
         System.out.print("Add gender: ");
         String gender = scanner.nextLine();
         System.out.print("Add id citizen: ");
@@ -88,7 +88,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 System.out.print("Edit name: ");
                 String name = scanner.nextLine();
                 System.out.print("Edit birth");
-                String birth = BirthdayOver18Under100.takeBirthDay();
+                String birth = BirthdayOver18Under100Ver2.takeBirthdayAvailable();
                 System.out.print("Edit gender: ");
                 String gender = scanner.nextLine();
                 System.out.print("Edit id citizen: ");

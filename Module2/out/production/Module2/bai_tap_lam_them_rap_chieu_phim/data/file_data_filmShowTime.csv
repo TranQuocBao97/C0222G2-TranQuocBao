@@ -5,4 +5,3 @@ CI-0012,[Film = name: Doctor Stranger; timeFilm: 120],[CinemaRoom = nameRoom: Ro
 CI-0018,[Film = name: Bubble; timeFilm: 70],[CinemaRoom = nameRoom: Room4; chairNumber: 200],11:10 11/05/2022,12:20 11/05/2022
 CI-0003,[Film = name: Doctor Stranger; timeFilm: 120],[CinemaRoom = nameRoom: Room3; chairNumber: 200],20:00 25/05/2022,22:00 25/05/2022
 CI-0010,[Film = name: Harry Bọt Bèo; timeFilm: 90],[CinemaRoom = nameRoom: Room4; chairNumber: 200],15:00 15/08/2022,16:30 15/08/2022
-CI-0011,[Film = name: Doctor Stranger; timeFilm: 120],[CinemaRoom = nameRoom: Room4; chairNumber: 200],20:00 18/11/2022,22:00 18/11/2022

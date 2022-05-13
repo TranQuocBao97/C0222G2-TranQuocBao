@@ -3,9 +3,7 @@ package case_study_lam_them.utils.read_and_write;
 import case_study_lam_them.models.sub_person.Student;
 import case_study_lam_them.models.sub_person.Teacher;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +18,10 @@ public class ReadFile {
                 listData.add(line);
             }
             bufferedReader.close();
-        }catch (Exception e){
-            System.out.println("The File has problem");
+        }catch (FileNotFoundException e){
+            System.out.println("File not fault");
+        }catch (IOException e){
+            System.out.println("Cant read file");
         }
         return listData;
     }
@@ -42,7 +42,12 @@ public class ReadFile {
         List<String> listData = readFile(fileDataUrl);
         for(String dataStringLine : listData){
             String[] dataArray = dataStringLine.split(",");
-            teacherList.add(new Teacher(dataArray[0],dataArray[1],dataArray[2],dataArray[3],dataArray[4]));
+            try{
+                teacherList.add(new Teacher(dataArray[0],dataArray[1],dataArray[2],dataArray[3],dataArray[4]));
+            }catch (Exception e){
+                System.out.println("Cant read the data on file to Object, need to fix this");
+            }
+
         }
         return teacherList;
     }

@@ -28,7 +28,7 @@ public class TeacherService implements ITeacher {
         do {
             System.out.print("Add Id (GV-xxxx => x=0-9): ");
             id = scanner.nextLine();
-        } while (!IdRegex.checkStudentId(id));
+        } while (!IdRegex.checkTeacherID(id));
 
         System.out.print("Add name: ");
         String name = scanner.nextLine();
@@ -45,6 +45,7 @@ public class TeacherService implements ITeacher {
             gender = scanner.nextLine();
         } while (!GenderRegex.checkGender(gender));
 
+        System.out.println("Add expertise: ");
         String expertise = scanner.nextLine();
 
 

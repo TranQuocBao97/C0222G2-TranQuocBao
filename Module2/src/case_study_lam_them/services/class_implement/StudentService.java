@@ -2,6 +2,7 @@ package case_study_lam_them.services.class_implement;
 
 import case_study_lam_them.models.sub_person.Student;
 import case_study_lam_them.services.IStudent;
+import case_study_lam_them.utils.check_id_avaiable.IdAvailable;
 import case_study_lam_them.utils.my_exception.NotFoundSavingException;
 import case_study_lam_them.utils.read_and_write.ReadFile;
 import case_study_lam_them.utils.read_and_write.WriteFile;
@@ -23,11 +24,19 @@ public class StudentService implements IStudent {
 
     @Override
     public void add() {
-        String id;
-        do {
+        String id = "";
+
+        boolean flag = false;
+        while (!flag){
             System.out.print("Add Id (SV-xxxx => x=0-9): ");
             id = scanner.nextLine();
-        } while (!IdRegex.checkStudentId(id));
+            while (!IdRegex.checkStudentId(id)){
+                System.out.print("This student id not right, Add Id again (SV-xxxx => x=0-9): ");
+                id = scanner.nextLine();
+            }
+            flag = !IdAvailable.checkListStudent(id,studentList);
+        }
+
 
         System.out.print("Add name: ");
         String name = scanner.nextLine();
@@ -46,13 +55,13 @@ public class StudentService implements IStudent {
 
         System.out.print("Add className: ");
         String className = scanner.nextLine();
-        boolean flag = false;
+        boolean flag2 = false;
         Integer mark = null;
-        while (!flag) {
+        while (!flag2) {
             try {
                 System.out.print("Add mark (number): ");
                 mark = Integer.parseInt(scanner.nextLine());
-                flag = true;
+                flag2 = true;
             } catch (Exception e) {
                 System.out.println("Enter mark by number");
             }

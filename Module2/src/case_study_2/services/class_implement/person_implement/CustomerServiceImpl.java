@@ -6,6 +6,7 @@ import case_study_2.utils.ReadFile;
 import case_study_2.utils.WriteFile;
 import case_study_2.utils.take_data_input_by_condition.BirthdayOver18Under100;
 import case_study_2.utils.select_property_value.CustomerLevel;
+import case_study_2.utils.take_data_input_by_condition.BirthdayOver18Under100Ver2;
 
 import java.util.List;
 import java.util.Scanner;
@@ -50,7 +51,7 @@ public class CustomerServiceImpl implements ICustomerService {
         System.out.print("Add name: ");
         String name = scanner.nextLine();
 
-        String birth = BirthdayOver18Under100.takeBirthDay();
+        String birth = BirthdayOver18Under100Ver2.takeBirthdayAvailable();
         System.out.print("Add gender: ");
         String gender = scanner.nextLine();
         System.out.print("Add id citizen: ");
@@ -87,7 +88,7 @@ public class CustomerServiceImpl implements ICustomerService {
                 String name = scanner.nextLine();
 
                 System.out.print("Add birth: ");
-                String birth = BirthdayOver18Under100.takeBirthDay();
+                String birth = BirthdayOver18Under100Ver2.takeBirthdayAvailable();
 
 
                 System.out.print("Edit gender");
