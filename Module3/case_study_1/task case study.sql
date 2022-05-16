@@ -122,4 +122,97 @@ select hop_dong.ma_hop_dong, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_ket_thuc,
 from hop_dong left join hop_dong_chi_tiet on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
 group by hop_dong.ma_hop_dong;
 
+-- câu 11:
+
+select dich_vu_di_kem.ma_dich_vu_di_kem, dich_vu_di_kem.ten_dich_vu_di_kem
+from
+((loai_khach inner join khach_hang on loai_khach.ma_loai_khach = khach_hang.ma_loai_khach)
+inner join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang)
+inner join
+(dich_vu_di_kem inner join hop_dong_chi_tiet on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem)
+on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+where instr(khach_hang.dia_chi, 'Vinh') or instr(khach_hang.dia_chi, 'Quảng Ngãi');
+
+-- câu 12:
+
+create or replace view dich_vu_3_thang_cuoi_2020 as
+select hop_dong.ma_hop_dong, dich_vu.ten_dich_vu
+from
+dich_vu inner join hop_dong on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+where year(hop_dong.ngay_lam_hop_dong) = 2020
+and (month(hop_dong.ngay_lam_hop_dong) = 10 
+or month(hop_dong.ngay_lam_hop_dong) = 11 
+or month(hop_dong.ngay_lam_hop_dong) = 12);
+
+create or replace view dich_vu_6_thang_dau_2021 as
+select hop_dong.ma_hop_dong, dich_vu.ten_dich_vu
+from
+dich_vu inner join hop_dong on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+where year(hop_dong.ngay_lam_hop_dong) = 2021
+and (month(hop_dong.ngay_lam_hop_dong) = 1 
+or month(hop_dong.ngay_lam_hop_dong) = 2 
+or month(hop_dong.ngay_lam_hop_dong) = 3
+or month(hop_dong.ngay_lam_hop_dong) = 4
+or month(hop_dong.ngay_lam_hop_dong) = 5
+or month(hop_dong.ngay_lam_hop_dong) = 6
+);
+
+create or replace view dich_vu_only_3_thang_cuoi_2020 as
+select dich_vu_3_thang_cuoi_2020.ma_hop_dong, dich_vu_3_thang_cuoi_2020.ten_dich_vu
+from dich_vu_3_thang_cuoi_2020 left join dich_vu_6_thang_dau_2021
+on dich_vu_3_thang_cuoi_2020.ten_dich_vu = dich_vu_6_thang_dau_2021.ten_dich_vu
+where dich_vu_6_thang_dau_2021.ma_hop_dong is null;
+
+create or replace view table_12 as
+select hop_dong.ma_hop_dong, nhan_vien.ho_va_ten, khach_hang.ho_ten
+, khach_hang.so_dien_thoai,dich_vu.ma_dich_vu , dich_vu.ten_dich_vu, sum(so_luong) as so_luong_dich_vu_di_kem, hop_dong.tien_dat_coc
+from 
+(dich_vu inner join (nhan_vien inner join (khach_hang inner join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang)
+on nhan_vien.ma_nhan_vien = hop_dong.ma_nhan_vien) on dich_vu.ma_dich_vu=hop_dong.ma_dich_vu )
+left join (dich_vu_di_kem inner join hop_dong_chi_tiet on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem)
+on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+group by hop_dong.ma_hop_dong
+order by ma_hop_dong;
+
+select table_12.ma_hop_dong, table_12.ho_va_ten as ho_ten_nhan_vien , table_12.ho_ten as ho_ten_khach_hang , table_12.so_dien_thoai as sdt_nhan_vien
+, table_12.ma_dich_vu, table_12.ten_dich_vu, table_12.so_luong_dich_vu_di_kem, table_12.tien_dat_coc
+from dich_vu_only_3_thang_cuoi_2020 inner join table_12 on dich_vu_only_3_thang_cuoi_2020.ma_hop_dong = table_12.ma_hop_dong;
+
+
+-- câu 13:
+
+create or replace view tong_so_luong_dich_vu_di_kem as
+select table_13.ma_hop_dong, table_13.ma_dich_vu_di_kem, table_13.ten_dich_vu_di_kem, sum(table_13.so_luong) as so_luong_dich_vu_di_kem
+from
+(select hop_dong_chi_tiet.ma_hop_dong, dich_vu_di_kem.ma_dich_vu_di_kem, dich_vu_di_kem.ten_dich_vu_di_kem, hop_dong_chi_tiet.so_luong
+from dich_vu_di_kem inner join hop_dong_chi_tiet on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem) as table_13
+group by table_13.ma_dich_vu_di_kem;
+
+select tong_so_luong_dich_vu_di_kem.ma_dich_vu_di_kem, tong_so_luong_dich_vu_di_kem.ten_dich_vu_di_kem, tong_so_luong_dich_vu_di_kem.so_luong_dich_vu_di_kem
+from
+tong_so_luong_dich_vu_di_kem inner join
+(select max(tong_so_luong_dich_vu_di_kem.so_luong_dich_vu_di_kem) as so_luong_dich_vu_di_kem_max
+from tong_so_luong_dich_vu_di_kem) as max on tong_so_luong_dich_vu_di_kem.so_luong_dich_vu_di_kem = max.so_luong_dich_vu_di_kem_max;
+
+
+-- câu 14:
+
+create or replace view dich_vu_di_kem_chi_duoc_dung_1_lan as
+select *
+from tong_so_luong_dich_vu_di_kem
+where tong_so_luong_dich_vu_di_kem.so_luong_dich_vu_di_kem = 1;
+
+create or replace view table_14 as
+select hop_dong.ma_hop_dong, loai_dich_vu.ten_loai_dich_vu, dich_vu_di_kem.ten_dich_vu_di_kem, dich_vu_di_kem.ma_dich_vu_di_kem
+from
+((kieu_thue inner join (loai_dich_vu inner join dich_vu on loai_dich_vu.ma_loai_dich_vu = dich_vu.ma_loai_dich_vu) on kieu_thue.ma_kieu_thue = dich_vu.ma_kieu_thue)
+right join (hop_dong inner join (dich_vu_di_kem inner join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem) on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong)
+on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu);
+
+select dich_vu_di_kem_chi_duoc_dung_1_lan.ma_hop_dong, table_14.ten_loai_dich_vu, table_14.ten_dich_vu_di_kem, dich_vu_di_kem_chi_duoc_dung_1_lan.so_luong_dich_vu_di_kem as so_lan_su_dung
+from dich_vu_di_kem_chi_duoc_dung_1_lan inner join table_14 on dich_vu_di_kem_chi_duoc_dung_1_lan.ma_hop_dong = table_14.ma_hop_dong
+where dich_vu_di_kem_chi_duoc_dung_1_lan.ten_dich_vu_di_kem = table_14.ten_dich_vu_di_kem
+group by ten_dich_vu_di_kem;
+
+
 
