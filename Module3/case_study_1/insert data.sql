@@ -35,6 +35,7 @@ VALUES
 (10, 'Nguyễn Công Đạo', '1994-01-08', '755434343', 8000000, '988767111', 'nguyencongdao12@gmail.com', '6 Hoà Khánh, Đồng Nai', 2, 3, 2);
 
 
+
 INSERT INTO loai_khach 
 VALUES 
 ('1', 'Diamond'),

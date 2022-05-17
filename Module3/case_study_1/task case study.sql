@@ -215,4 +215,52 @@ where dich_vu_di_kem_chi_duoc_dung_1_lan.ten_dich_vu_di_kem = table_14.ten_dich_
 group by ten_dich_vu_di_kem;
 
 
+-- câu 15:
 
+select nhan_vien.ma_nhan_vien, nhan_vien.ho_va_ten, trinh_do.ten_trinh_do, bo_phan.ten_bo_phan, nhan_vien.so_dien_thoai,
+nhan_vien.dia_chi, count(nhan_vien.ma_nhan_vien) as so_luong_hop_dong
+from 
+(trinh_do inner join (bo_phan inner join nhan_vien on bo_phan.ma_bo_phan = nhan_vien.ma_bo_phan)
+on trinh_do.ma_trinh_do = nhan_vien.ma_trinh_do) 
+inner join hop_dong on nhan_vien.ma_nhan_vien = hop_dong.ma_nhan_vien
+where year(hop_dong.ngay_lam_hop_dong) = 2020 or year(hop_dong.ngay_lam_hop_dong) = 2021
+group by ma_nhan_vien
+having so_luong_hop_dong <=3;
+
+-- câu 16:
+
+select nhan_vien.ma_nhan_vien from nhan_vien
+where nhan_vien.ma_nhan_vien not in (select * from
+(select nhan_vien.ma_nhan_vien
+from 
+nhan_vien left join hop_dong on nhan_vien.ma_nhan_vien = hop_dong.ma_nhan_vien
+where year(hop_dong.ngay_lam_hop_dong) >= 2019
+|| year(hop_dong.ngay_lam_hop_dong) <= 2021
+group by nhan_vien.ma_nhan_vien) year_table);	
+
+-- xóa :
+set sql_safe_updates = 0;
+delete from nhan_vien
+where 
+nhan_vien.ma_nhan_vien not in 
+(select * from
+(select nhan_vien.ma_nhan_vien
+from 
+nhan_vien left join hop_dong on nhan_vien.ma_nhan_vien = hop_dong.ma_nhan_vien
+where year(hop_dong.ngay_lam_hop_dong) >= 2019
+|| year(hop_dong.ngay_lam_hop_dong) <= 2021
+group by nhan_vien.ma_nhan_vien) nhan_vien_co_hop_dong_tu_2019_den_2021);
+set sql_safe_updates = 1;
+
+-- bài 17:
+
+select khach_hang.ma_khach_hang, hop_dong.ma_hop_dong, hop_dong.ngay_lam_hop_dong
+, hop_dong.ngay_ket_thuc, dich_vu_di_kem.ten_dich_vu_di_kem, hop_dong_chi_tiet.so_luong, dich_vu_di_kem.gia
+from
+(khach_hang inner join 
+(dich_vu inner join hop_dong on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu)
+on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang)
+left join
+(dich_vu_di_kem inner join hop_dong_chi_tiet on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem)
+on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+order by ma_khach_hang
