@@ -263,4 +263,8 @@ on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang)
 left join
 (dich_vu_di_kem inner join hop_dong_chi_tiet on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem)
 on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
-order by ma_khach_hang
+order by ma_khach_hang;
+
+select (to_days(hop_dong.ngay_ket_thuc) - to_days(hop_dong.ngay_lam_hop_dong)) as so_ngay_thue
+from hop_dong
+having to_days(hop_dong.ngay_ket_thuc) - to_days(hop_dong.ngay_lam_hop_dong) = 0 
