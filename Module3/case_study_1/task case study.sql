@@ -22,7 +22,8 @@ AND (INSTR(dia_chi, 'Đà Nẵng') || INSTR(dia_chi, 'Quảng Trị'));
 -- câu 4:
 
 SELECT khach_hang.ma_khach_hang, khach_hang.ho_ten, COUNT(hop_dong.ma_khach_hang) AS so_lan_dat_phong 
-FROM hop_dong INNER JOIN khach_hang ON hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
+FROM hop_dong 
+INNER JOIN khach_hang ON hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
 WHERE khach_hang.ma_loai_khach = 1
 GROUP BY ma_khach_hang
 ORDER BY so_lan_dat_phong ASC;
@@ -43,9 +44,8 @@ ORDER BY ma_khach_hang ASC;
 create view full_ma_dich_vu_quy_1 as
 select dich_vu.ma_dich_vu
 FROM dich_vu INNER JOIN hop_dong ON dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
-where month(hop_dong.ngay_lam_hop_dong)	= 1
-|| month(hop_dong.ngay_lam_hop_dong)	= 2
-|| month(hop_dong.ngay_lam_hop_dong)	= 3;
+where month(hop_dong.ngay_lam_hop_dong)	<=3
+and year(hop_dong.ngay_lam_hop_dong) = 2021;
 
 create view ma_dich_vu_quy_1 as
 select *
@@ -98,6 +98,9 @@ select khach_hang.ho_ten
 from khach_hang left join ho_ten_khong_trung on khach_hang.ma_khach_hang = ho_ten_khong_trung.ma_khach_hang
 where ho_ten_khong_trung.ma_khach_hang is null;
 
+-- cách 2 làm lại :
+select DISTINCT ho_ten
+from khach_hang;
 
 -- câu 8 cách 3:
 
@@ -108,6 +111,11 @@ from khach_hang inner join (select ho_ten, ma_khach_hang from khach_hang) as key
 where khach_hang.ho_ten = key_with_ho_ten.ho_ten && khach_hang.ma_khach_hang != key_with_ho_ten.ma_khach_hang) as bang_trung_ten_khac_ma_khach_hang
 group by ho_ten;
 
+-- cách 3 làm lại:
+
+select ho_ten from khach_hang
+union
+select ho_ten from khach_hang;
 
 -- câu 9:
 select month(hop_dong.ngay_lam_hop_dong) as thang, count(hop_dong.ma_khach_hang) as so_luong_khach_hang
@@ -140,22 +148,14 @@ select hop_dong.ma_hop_dong, dich_vu.ten_dich_vu
 from
 dich_vu inner join hop_dong on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
 where year(hop_dong.ngay_lam_hop_dong) = 2020
-and (month(hop_dong.ngay_lam_hop_dong) = 10 
-or month(hop_dong.ngay_lam_hop_dong) = 11 
-or month(hop_dong.ngay_lam_hop_dong) = 12);
+and (month(hop_dong.ngay_lam_hop_dong) >=10);
 
 create or replace view dich_vu_6_thang_dau_2021 as
 select hop_dong.ma_hop_dong, dich_vu.ten_dich_vu
 from
 dich_vu inner join hop_dong on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
 where year(hop_dong.ngay_lam_hop_dong) = 2021
-and (month(hop_dong.ngay_lam_hop_dong) = 1 
-or month(hop_dong.ngay_lam_hop_dong) = 2 
-or month(hop_dong.ngay_lam_hop_dong) = 3
-or month(hop_dong.ngay_lam_hop_dong) = 4
-or month(hop_dong.ngay_lam_hop_dong) = 5
-or month(hop_dong.ngay_lam_hop_dong) = 6
-);
+and (month(hop_dong.ngay_lam_hop_dong) <= 6);
 
 create or replace view dich_vu_only_3_thang_cuoi_2020 as
 select dich_vu_3_thang_cuoi_2020.ma_hop_dong, dich_vu_3_thang_cuoi_2020.ten_dich_vu
@@ -252,10 +252,19 @@ where year(hop_dong.ngay_lam_hop_dong) >= 2019
 group by nhan_vien.ma_nhan_vien) nhan_vien_co_hop_dong_tu_2019_den_2021);
 set sql_safe_updates = 1;
 
--- bài 17:
+-- bài 17 (nâng mỗi mã khách hàng lên 1 cấp):
 
-select khach_hang.ma_khach_hang, hop_dong.ma_hop_dong, hop_dong.ngay_lam_hop_dong
-, hop_dong.ngay_ket_thuc, dich_vu_di_kem.ten_dich_vu_di_kem, hop_dong_chi_tiet.so_luong, dich_vu_di_kem.gia
+
+
+update khach_hang
+set khach_hang.ma_loai_khach = (khach_hang.ma_loai_khach-1)
+where (khach_hang.ma_loai_khach > 1) 
+and (khach_hang.ma_khach_hang in ( select abc.ma_khach_hang from
+(select table_17.ma_khach_hang, sum(tong_tien_cua_mot_dich_vu_di_kem)+((to_days(table_17.ngay_ket_thuc) - to_days(table_17.ngay_lam_hop_dong)+1)*table_17.chi_phi_thue) as tong_tien
+from
+(select khach_hang.ma_khach_hang, hop_dong.ma_hop_dong, hop_dong.ngay_lam_hop_dong
+, hop_dong.ngay_ket_thuc, dich_vu_di_kem.ten_dich_vu_di_kem, hop_dong_chi_tiet.so_luong, dich_vu_di_kem.gia, (ifnull(so_luong,0)*ifnull(gia,0)) as tong_tien_cua_mot_dich_vu_di_kem
+, dich_vu.chi_phi_thue
 from
 (khach_hang inner join 
 (dich_vu inner join hop_dong on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu)
@@ -263,8 +272,39 @@ on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang)
 left join
 (dich_vu_di_kem inner join hop_dong_chi_tiet on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem)
 on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
-order by ma_khach_hang;
+order by ma_khach_hang) as table_17
+group by table_17.ma_khach_hang
+having tong_tien >= 10000000
+order by table_17.ma_khach_hang) abc));
 
-select (to_days(hop_dong.ngay_ket_thuc) - to_days(hop_dong.ngay_lam_hop_dong)) as so_ngay_thue
-from hop_dong
-having to_days(hop_dong.ngay_ket_thuc) - to_days(hop_dong.ngay_lam_hop_dong) = 0 
+
+
+-- bài 18:
+
+delete from khach_hang
+where khach_hang.ma_khach_hang in 
+(select table_18.ma_khach_hang from (select khach_hang.ma_khach_hang, khach_hang.ho_ten
+from khach_hang
+inner join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+where year(hop_dong.ngay_lam_hop_dong) < 2021) as table_18);
+
+-- bài 19:
+set sql_safe_updates = 0;
+update dich_vu_di_kem
+set dich_vu_di_kem.gia = dich_vu_di_kem.gia*2
+where dich_vu_di_kem.ma_dich_vu_di_kem in
+(select table_19.ma_dich_vu_di_kem from (select dich_vu_di_kem.ma_dich_vu_di_kem, dich_vu_di_kem.gia ,sum(so_luong) as tong_lan_su_dung_2020
+from dich_vu_di_kem inner join
+hop_dong_chi_tiet on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
+inner join hop_dong on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
+where year(hop_dong.ngay_lam_hop_dong) = 2020
+group by ma_dich_vu_di_kem
+having tong_lan_su_dung_2020 > 10) as table_19);
+set sql_safe_updates = 1;
+
+
+-- bài 20:
+
+select khach_hang.ma_khach_hang as id, khach_hang.ho_ten, khach_hang.email, khach_hang.so_dien_thoai, khach_hang.ngay_sinh, khach_hang.dia_chi from khach_hang
+union all
+select nhan_vien.ma_nhan_vien, nhan_vien.ho_va_ten, nhan_vien.email, nhan_vien.so_dien_thoai, nhan_vien.ngay_sinh, nhan_vien.dia_chi  from nhan_vien
