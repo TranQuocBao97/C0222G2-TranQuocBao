@@ -10,8 +10,12 @@ from subject inner join
 mark on subject.subid = mark.SubId
 where mark.mark = (select max(mark) from mark);
 
+
+create or replace view table_04 as
 select Student.*, avg(mark) as diem_trung_binh
 from student inner join mark
 on student.StudentId = mark.StudentId
 group by student.StudentId
 order by diem_trung_binh desc;
+
+

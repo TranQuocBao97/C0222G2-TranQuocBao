@@ -307,4 +307,16 @@ set sql_safe_updates = 1;
 
 select khach_hang.ma_khach_hang as id, khach_hang.ho_ten, khach_hang.email, khach_hang.so_dien_thoai, khach_hang.ngay_sinh, khach_hang.dia_chi from khach_hang
 union all
-select nhan_vien.ma_nhan_vien, nhan_vien.ho_va_ten, nhan_vien.email, nhan_vien.so_dien_thoai, nhan_vien.ngay_sinh, nhan_vien.dia_chi  from nhan_vien
+select nhan_vien.ma_nhan_vien, nhan_vien.ho_va_ten, nhan_vien.email, nhan_vien.so_dien_thoai, nhan_vien.ngay_sinh, nhan_vien.dia_chi  from nhan_vien;
+
+
+-- bài 21:
+
+create or replace view v_nhan_vien as
+select nhan_vien.*, hop_dong.ngay_lam_hop_dong from nhan_vien
+inner join hop_dong on nhan_vien.ma_nhan_vien = hop_dong.ma_nhan_vien
+where year(hop_dong.ngay_lam_hop_dong) = '2021'
+and nhan_vien.dia_chi like '%Yên Bái%'
+group by ma_nhan_vien;
+
+
