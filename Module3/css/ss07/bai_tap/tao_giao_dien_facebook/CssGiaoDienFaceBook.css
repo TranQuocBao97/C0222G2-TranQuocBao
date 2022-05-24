@@ -2,8 +2,13 @@
     width: 100%;
     height: 70px;
     background: #33373b;
-    position: relative;
+    position: fixed;
 }
 #header__left {
-    width: 80%;
+    position: absolute;
+
+}
+#logo-facebook {
+    display: block;
+    width: 50px;
 }

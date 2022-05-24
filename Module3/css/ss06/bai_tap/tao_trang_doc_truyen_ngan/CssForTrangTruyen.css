@@ -48,8 +48,8 @@ li {
     border-bottom-left-radius: 10px;
 }
 #onePunch {
-    width: 90%;
-    margin: 10px auto;
+    width: 600px;
+    margin: 40px auto;
     border-radius: 100px;
     padding: 30px;
     display: flex;
