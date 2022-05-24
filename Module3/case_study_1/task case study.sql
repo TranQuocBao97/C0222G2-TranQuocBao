@@ -39,6 +39,16 @@ ON hop_dong.ma_hop_dong=hop_dong_chi_tiet.ma_hop_dong)
 GROUP BY ma_hop_dong_with_null
 ORDER BY ma_khach_hang ASC;
 
+-- cách 2:
+SELECT khach_hang.ma_khach_hang,khach_hang.ho_ten,loai_khach.ten_loai_khach, hop_dong.ma_hop_dong
+, dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_ket_thuc, (IFNULL(dich_vu.chi_phi_thue,0)+(IFNULL(hop_dong_chi_tiet.so_luong,0)*IFNULL(dich_vu_di_kem.gia,0))) as tong_tien
+FROM (((loai_khach INNER JOIN khach_hang ON loai_khach.ma_loai_khach = khach_hang.ma_loai_khach) 
+LEFT JOIN (dich_vu INNER JOIN hop_dong ON dich_vu.ma_dich_vu=hop_dong.ma_dich_vu)
+ON khach_hang.ma_khach_hang=hop_dong.ma_khach_hang)
+LEFT JOIN (dich_vu_di_kem INNER JOIN hop_dong_chi_tiet ON dich_vu_di_kem.ma_dich_vu_di_kem=hop_dong_chi_tiet.ma_hop_dong_chi_tiet)
+ON hop_dong.ma_hop_dong=hop_dong_chi_tiet.ma_hop_dong)
+GROUP BY khach_hang.ma_khach_hang, hop_dong.ma_hop_dong
+ORDER BY ma_khach_hang ASC;
 -- câu 6:
 
 create view full_ma_dich_vu_quy_1 as
@@ -252,13 +262,13 @@ where year(hop_dong.ngay_lam_hop_dong) >= 2019
 group by nhan_vien.ma_nhan_vien) nhan_vien_co_hop_dong_tu_2019_den_2021);
 set sql_safe_updates = 1;
 
--- bài 17 (nâng mỗi mã khách hàng lên 1 cấp):
+-- bài 17 (nâng mã khách hàng từ Platinum lên 1 cấp là Diamond):
 
 
 
 update khach_hang
 set khach_hang.ma_loai_khach = (khach_hang.ma_loai_khach-1)
-where (khach_hang.ma_loai_khach > 1) 
+where (khach_hang.ma_loai_khach = 2) 
 and (khach_hang.ma_khach_hang in ( select abc.ma_khach_hang from
 (select table_17.ma_khach_hang, sum(tong_tien_cua_mot_dich_vu_di_kem)+((to_days(table_17.ngay_ket_thuc) - to_days(table_17.ngay_lam_hop_dong)+1)*table_17.chi_phi_thue) as tong_tien
 from
@@ -276,7 +286,6 @@ order by ma_khach_hang) as table_17
 group by table_17.ma_khach_hang
 having tong_tien >= 10000000
 order by table_17.ma_khach_hang) abc));
-
 
 
 -- bài 18:
@@ -318,5 +327,3 @@ inner join hop_dong on nhan_vien.ma_nhan_vien = hop_dong.ma_nhan_vien
 where year(hop_dong.ngay_lam_hop_dong) = '2021'
 and nhan_vien.dia_chi like '%Yên Bái%'
 group by ma_nhan_vien;
-
-

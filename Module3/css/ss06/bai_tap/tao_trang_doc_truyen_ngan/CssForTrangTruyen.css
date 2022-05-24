@@ -1,0 +1,114 @@
+body {
+    font-family: "Montserrat";
+}
+a:hover {
+    color: chocolate;
+}
+#header {
+    background: #82DBD8;
+    height: 100px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+nav {
+    height: 50px;
+    width: 100%;
+    background: #cdc8b0;
+    border-radius: 5px;
+}
+li {
+    margin-left: 200px;
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    height: 50px;
+    width: 150px;
+    padding: 15px;
+    font-weight: bold;
+}
+#main {
+    margin-top: 10px;
+    position: relative;
+}
+#leftSide {
+    background: white;
+    height: 700px;
+    width: 15%;
+    float: left;
+}
+#leftMain {
+    background: #B3E8E5;
+    height: 700px;
+    width: 35%;
+    float: left;
+    text-align: center;
+    overflow: visible;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#onePunch {
+    width: 90%;
+    margin: 10px auto;
+    border-radius: 100px;
+    padding: 30px;
+    display: flex;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.2), 2px 6px 20px 2px rgba(0, 0, 0, 0.19);
+}
+#rightMain {
+    background: #B3E8E5;
+    height: 700px;
+    width: 35%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+#information {
+    background: #6D8B74;
+    width: 90%;
+    height: 90%;
+    padding: 10px;
+    display: flex;
+    box-sizing: border-box;
+    justify-items: center;
+    border-radius: 10px;
+    margin: auto;
+}
+#nameChapter {
+    background: white;
+    width: 70%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#datePost {
+    background: cornsilk;
+    width: 30%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+#footer {
+    margin-top: 720px;
+    background: #E8F9FD;
+    height: 100px;
+    width: 100%;
+    border-radius: 10px;
+    clear: both;
+}
+p {
+    font-size: 120%;
+}
+a{
+    text-decoration: none;
+}
