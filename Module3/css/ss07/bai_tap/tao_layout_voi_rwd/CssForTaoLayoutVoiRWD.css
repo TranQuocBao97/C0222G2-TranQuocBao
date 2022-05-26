@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+}
+* {
+    box-sizing: border-box;
+}
+[class*=col-] {
+    float: left;
+}
+.col-1 {
+    width: 8.33%
+}
+
+.col-2 {
+    width: 16.66%
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.3%
+}
+
+.col-5 {
+    width: 41.66%
+}
+
+.col-6 {
+    width: 50%
+}
+
+.col-7 {
+    width: 58.33%
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.row {
+    display: block;
+}
+
+header .row {
+    height: 50px;
+    background: #222222;
+}
+
+header .col-3 {
+    background: #222222;
+    height: 50px;
+}
+header .col-3:hover {
+    background: #080808;
+    color: white;
+}
+header .col-6 {
+    background: #222222;
+    height: 50px;
+}
+#login {
+    background: #222222;
+    height: 50px;
+}
+#login:hover {
+    background: #080808;
+    color: white;
+}
+header p {
+    color: #8f9194;
+    text-align: center;
+}
+#login div{
+    position: relative;
+    height: 100%;
+    width: 50%;
+    float: left;
+    display: flex;
+    color: #8f9194;
+    align-items: center;
+}
+#icon-login {
+    height: 100%;
+    width: 100%;
+}
+header {
+    z-index: 2;
+}
+main .col-2 {
+    min-height: 820px;
+    background: #f1f1f1;
+}
+
+#ads div {
+    height: 100px;
+}
+main #ads .col-10{
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px #ada9a9;
+}
+#ads .row {
+    margin-top: 15px;
+}
+
+footer .col-12 {
+    height: 80px;
+    background: #555555;
+}
+footer p{
+    text-align: center;
+    font-size: 150%;
+}
+main #main-content {
+    position: relative;
+    min-height: 820px;
+    background: white;
+}
+
+#main-content .row{
+    height: 350px;
+}
+#main-content p{
+    font-size: 300%;
+    font-weight: bold;
+    margin-left: 10px;
+}
+#main-content #line {
+    width: 90%;
+}
+#link p {
+    text-align: center;
+}
