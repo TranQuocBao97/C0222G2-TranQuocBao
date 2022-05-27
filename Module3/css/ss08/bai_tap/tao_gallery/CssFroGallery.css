@@ -1,0 +1,23 @@
+body {
+    display: inline-block;
+    margin: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+.gallery {
+    padding: 10px;
+}
+img {
+    height: auto;
+    width: 100%;
+    align-items: center;
+}
+.text-for-gallery {
+    padding: 10px;
+    text-align: center;
+}
+.picture {
+    float: left;
+}
