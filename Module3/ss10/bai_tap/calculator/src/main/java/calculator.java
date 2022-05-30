@@ -2,13 +2,29 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "calculator", urlPatterns = "/calculator")
 public class calculator extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Double firstNumber = Double.parseDouble(request.getParameter("firstNumber"));
-        Double secondNumber = Double.parseDouble(request.getParameter("secondNumber"));
+        PrintWriter printWriter = response.getWriter();
+        printWriter.write("<html>");
+        Double firstNumber = null;
+        try{
+            firstNumber = Double.parseDouble(request.getParameter("firstNumber"));
+        }catch (Exception e){
+            printWriter.write("cant find the first number");
+            printWriter.write("<br>");
+        }
+        Double secondNumber = null;
+        try {
+            secondNumber = Double.parseDouble(request.getParameter("secondNumber"));
+        }catch (Exception e){
+            printWriter.write("cant find the second number number");
+            printWriter.write("<br>");
+        }
+
         int operator = Integer.parseInt(request.getParameter("operator"));
         Double result = null;
         int exception = 0;
@@ -28,6 +44,7 @@ public class calculator extends HttpServlet {
         request.setAttribute("cantDivision", exception);
         request.setAttribute("lastResult", result);
         request.getRequestDispatcher("result_page.jsp").forward(request, response);
+        printWriter.write("<html>");
     }
 
     @Override
