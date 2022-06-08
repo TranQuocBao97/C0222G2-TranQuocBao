@@ -1,7 +1,7 @@
 use control_furama;
 
 
-INSERT INTO employer_position (employer_position_name)
+INSERT INTO employee_position (employee_position_name)
 VALUES
 ('Lễ tân'),
 ('Phục Vụ'),
@@ -26,7 +26,7 @@ VALUES
 ('Quản lý');
 
 INSERT INTO employee (employee_name,employee_birthday,employee_id_card,employee_salary,
-employee_phone,employee_email,employee_address,employer_position_id,education_degree_id,
+employee_phone,employee_email,employee_address,employee_position_id,education_degree_id,
 division_id)
 VALUES 
 ('Nguyễn Văn An', '1970-11-07', '456231786', 10000000, '901234121', 'annguyen@gmail.com', '295 Nguyễn Tất Thành, Đà Nẵng', 1, 3, 1),
@@ -45,79 +45,77 @@ VALUES
 INSERT INTO customer_type (customer_type_name)
 VALUES 
 ('Diamond'),
-('Platinium'),
+('Platinum'),
 ('Gold'),
 ('Silver'),
 ('Member');
 
 INSERT INTO customer (customer_name,customer_birthday,customer_gender,customer_id_card,customer_phone,customer_email,customer_address,customer_type_id)
 VALUES 
-('Nguyễn Thị Hào', '1970-11-07', 0, '643431213', '945423362', 'thihao07@gmail.com', '23 Nguyễn Hoàng, Đà Nẵng', 5),
-('Phạm Xuân Diệu', '1992-08-08', 1, '865342123', '954333333', 'xuandieu92@gmail.com', 'K77/22 Thái Phiên, Quảng Trị', 3),
-('Trương Đình Nghệ', '1990-02-27', 1, '488645199', '373213122', 'nghenhan2702@gmail.com', 'K323/12 Ông Ích Khiêm, Vinh', 1),
-('Dương Văn Quan', '1981-07-08', 1, '543432111', '490039241', 'duongquan@gmail.com', 'K453/12 Lê Lợi, Đà Nẵng', 1),
-('Hoàng Trần Nhi Nhi', '1995-12-09', 0, '795453345', '312345678', 'nhinhi123@gmail.com', '224 Lý Thái Tổ, Gia Lai', 4),
-('Tôn Nữ Mộc Châu', '2005-12-06', 0, '732434215', '988888844', 'tonnuchau@gmail.com', '37 Yên Thế, Đà Nẵng', 4),
-('Nguyễn Mỹ Kim', '1984-04-08', 0, '856453123', '912345698', 'kimcuong84@gmail.com', 'K123/45 Lê Lợi, Hồ Chí Minh', 1),
-('Nguyễn Thị Hào', '1999-04-08', 0, '965656433', '763212345', 'haohao99@gmail.com', '55 Nguyễn Văn Linh, Kon Tum', 3),
-('Trần Đại Danh', '1994-07-01', 1, '432341235', '643343433', 'danhhai99@gmail.com', '24 Lý Thường Kiệt, Quảng Ngãi', 1),
-('Nguyễn Tâm Đắc', '1989-07-01', 1, '344343432', '987654321', 'dactam@gmail.com', '22 Ngô Quyền, Đà Nẵng', 2);
+('Nguyễn Thị Hào', '1970-11-07', 0, '643431213', '0945423362', 'thihao07@gmail.com', '23 Nguyễn Hoàng, Đà Nẵng', 5),
+('Phạm Xuân Diệu', '1992-08-08', 1, '865342123', '0954333333', 'xuandieu92@gmail.com', 'K77/22 Thái Phiên, Quảng Trị', 3),
+('Trương Đình Nghệ', '1990-02-27', 1, '488645199', '0373213122', 'nghenhan2702@gmail.com', 'K323/12 Ông Ích Khiêm, Vinh', 1),
+('Dương Văn Quan', '1981-07-08', 1, '543432111', '0490039241', 'duongquan@gmail.com', 'K453/12 Lê Lợi, Đà Nẵng', 1),
+('Hoàng Trần Nhi Nhi', '1995-12-09', 0, '795453345', '0312345678', 'nhinhi123@gmail.com', '224 Lý Thái Tổ, Gia Lai', 4),
+('Tôn Nữ Mộc Châu', '2005-12-06', 0, '732434215', '0988888844', 'tonnuchau@gmail.com', '37 Yên Thế, Đà Nẵng', 4),
+('Nguyễn Mỹ Kim', '1984-04-08', 0, '856453123', '0912345698', 'kimcuong84@gmail.com', 'K123/45 Lê Lợi, Hồ Chí Minh', 1),
+('Nguyễn Thị Hào', '1999-04-08', 0, '965656433', '0763212345', 'haohao99@gmail.com', '55 Nguyễn Văn Linh, Kon Tum', 3),
+('Trần Đại Danh', '1994-07-01', 1, '432341235', '0643343433', 'danhhai99@gmail.com', '24 Lý Thường Kiệt, Quảng Ngãi', 1),
+('Nguyễn Tâm Đắc', '1989-07-01', 1, '344343432', '0987654321', 'dactam@gmail.com', '22 Ngô Quyền, Đà Nẵng', 2);
 
 
-INSERT INTO rent_type 
+INSERT INTO rent_type (rent_type_name)
 VALUES
-(1, 'year'),
-(2, 'month'),
-(3, 'day'),
-(4, 'hour');
+('day'),
+('hour');
 
-INSERT INTO loai_dich_vu 
+INSERT INTO service_type (service_type_name)
 VALUES 
-(1, 'Villa'),
-(2, 'House'),
-(3, 'Room');
+('Villa'),
+('House'),
+('Room');
 
-INSERT INTO dich_vu 
+INSERT INTO service (service_name,service_area,service_cost,service_max_people,standard_room,description_other_convenience,pool_area,number_of_floors,rent_type_id,service_type_id)
 VALUES 
-(1, 'Villa Beach Front', 25000, 10000000, 10, 'vip', 'Có hồ bơi', 500, 4, 3, 1),
-(2, 'House Princess 01', 14000, 5000000, 7, 'vip', 'Có thêm bếp nướng', null, 3, 2, 2),
-(3, 'Room Twin 01', 5000, 1000000, 2, 'normal', 'Có tivi', null, null, 4, 3),
-(4, 'Villa No Beach Front', 22000, 9000000, 8, 'normal', 'Có hồ bơi', 300, 3, 3, 1),
-(5, 'House Princess 02', 10000, 4000000, 5, 'normal', 'Có thêm bếp nướng', null, 2, 3, 2),
-(6, 'Room Twin 02', 3000, 900000, 2, 'normal', 'Có tivi', null, null, 4, 3);
+('Villa Beach Front', 25000, 10000000, 10, 'vip', 'Có hồ bơi', 500, 4, 1, 1),
+('House Princess 01', 14000, 5000000, 7, 'vip', 'Có thêm bếp nướng', null, 3, 1, 2),
+('Room Twin 01', 5000, 1000000, 2, 'normal', 'Có tivi', null, null, 1, 3),
+('Villa No Beach Front', 22000, 9000000, 8, 'normal', 'Có hồ bơi', 300, 3, 1, 1),
+('House Princess 02', 10000, 4000000, 5, 'normal', 'Có thêm bếp nướng', null, 2, 1, 2),
+('Room Twin 02', 3000, 900000, 2, 'normal', 'Có tivi', null, null, 1, 3);
 
-INSERT INTO dich_vu_di_kem
+INSERT INTO attach_service (attach_service_name,attach_service_cost,attach_service_unit,attach_service_status)
 VALUES 
-(1, 'Karaoke', 10000, 'giờ', 'tiện nghi, hiện tại'),
-(2, 'Thuê xe máy', 10000, 'chiếc', 'hỏng 1 xe'),
-(3, 'Thuê xe đạp', 20000, 'chiếc', 'tốt'),
-(4, 'Buffet buổi sáng', 15000, 'suất', 'đầy đủ đồ ăn, tráng miệng'),
-(5, 'Buffet buổi trưa', 90000, 'suất', 'đầy đủ đồ ăn, tráng miệng'),
-(6, 'Buffet buổi tối', 16000, 'suất', 'đầy đủ đồ ăn, tráng miệng');
+('Karaoke', 10000, 1, 'tiện nghi, hiện tại'),
+('Thuê xe máy', 10000, 1, 'hỏng 1 xe'),
+('Thuê xe đạp', 20000, 1, 'tốt'),
+('Buffet buổi sáng', 15000, 1, 'đầy đủ đồ ăn, tráng miệng'),
+('Buffet buổi trưa', 90000, 1, 'đầy đủ đồ ăn, tráng miệng'),
+('Buffet buổi tối', 16000, 1, 'đầy đủ đồ ăn, tráng miệng');
 
 
-INSERT INTO hop_dong
+INSERT INTO contract (contract_start_date,contract_end_date,contract_deposit,employee_id,customer_id,service_id)
 VALUES
-(1, '2020-12-08', '2020-12-08', 0, 3, 1, 3),
-(2, '2020-07-14', '2020-07-21', 200000, 7, 3, 1),
-(3, '2021-03-15', '2021-03-17', 50000, 3, 4, 2),
-(4, '2021-01-14', '2021-01-18', 100000, 7, 5, 5),
-(5, '2021-07-14', '2021-07-15', 0, 7, 2, 6),
-(6, '2021-06-01', '2021-06-03', 0, 7, 7, 6),
-(7, '2021-09-02', '2021-09-05', 100000, 7, 4, 4),
-(8, '2021-06-17', '2021-06-18', 150000, 3, 4, 1),
-(9, '2020-11-19', '2020-11-19', 0, 3, 4, 3),
-(10, '2021-04-12', '2021-04-14', 0, 10, 3, 5),
-(11, '2021-04-25', '2021-04-25', 0, 2, 2, 1),
-(12, '2021-05-25', '2021-05-27', 0, 7, 10, 1);
+('2020-12-08', '2020-12-09', 0, 3, 1, 3),
+('2020-07-14', '2020-07-21', 200000, 7, 3, 1),
+('2021-03-15', '2021-03-17', 50000, 3, 4, 2),
+('2021-01-14', '2021-01-18', 100000, 7, 5, 5),
+('2021-07-14', '2021-07-15', 0, 7, 2, 6),
+('2021-06-01', '2021-06-03', 0, 7, 7, 6),
+('2021-09-02', '2021-09-05', 100000, 7, 4, 4),
+('2021-06-17', '2021-06-18', 150000, 3, 4, 1),
+('2020-11-19', '2020-11-19', 0, 3, 4, 3),
+('2021-04-12', '2021-04-14', 0, 10, 3, 5),
+('2021-04-25', '2021-04-26', 0, 2, 2, 1),
+('2021-05-25', '2021-05-27', 0, 7, 10, 1);
 
-INSERT INTO hop_dong_chi_tiet
+INSERT INTO contract_detail (quantity,contract_id,attach_service_id)
 VALUES 
-(1,5,2,4),
-(2,8,2,5),
-(3,15,2,6),
-(4,1,3,1),
-(5,11,3,2),
-(6,1,1,3),
-(7,2,1,2),
-(8,2,12,2);
+(5,2,4),
+(8,2,5),
+(15,2,6),
+(1,3,1),
+(11,3,2),
+(1,1,3),
+(2,1,2),
+(2,12,2);

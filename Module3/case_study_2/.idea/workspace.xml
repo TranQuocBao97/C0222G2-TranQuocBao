@@ -5,25 +5,68 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="abc08ec7-34c1-427d-8ce2-496b1c54c817" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ss12/bai_tap/src/main/java/com/codegym/controller/UserServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/bai_tap/src/main/java/com/codegym/dao/IUserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/bai_tap/src/main/java/com/codegym/dao/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/bai_tap/src/main/java/com/codegym/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/bai_tap/src/main/webapp/user/create.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/bai_tap/src/main/webapp/user/edit.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/bai_tap/src/main/webapp/user/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/bai_tap/src/main/webapp/user/listOrderByName.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/bai_tap/src/main/webapp/user/search.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/thuc_hanh/src/main/java/controller/UserServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/thuc_hanh/src/main/java/dao/IUserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/thuc_hanh/src/main/java/dao/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/thuc_hanh/src/main/java/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/thuc_hanh/src/main/webapp/user/create.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/thuc_hanh/src/main/webapp/user/edit.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/thuc_hanh/src/main/webapp/user/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ss11/bai_tap/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ss11/bai_tap/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ss11/bai_tap/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ss11/bai_tap/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ss11/bai_tap/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ss11/bai_tap/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Furama.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/ServiceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/CustomerType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/RentType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/ServiceType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/ConnectionSQL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/CustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/RentTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/ServiceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/ServiceTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/interface_customer_repository/ICustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/interface_customer_repository/IRentTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/interface_customer_repository/IServiceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/interface_customer_repository/IServiceTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/RentTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/ServiceTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/interface_service/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/interface_service/IRentType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/interface_service/IService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/interface_service/IServiceType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/cssForFurama.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/customer/customerAdd.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/customer/customerList.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/employee/employeeAdd.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/employee/employeeList.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/scriptForCustomer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/service/serviceAdd.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module2/src/test/out/test/test/test/tuan3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module2/src/test/out/test/test/test/tuan3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module2/src/test/tuan3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module2/src/test/tuan3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../create_database_case_study_2/create database and table for case study 2 module 3.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../create_database_case_study_2/create database and table for case study 2 module 3.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../create_database_case_study_2/insert data case study module 3.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../create_database_case_study_2/insert data case study module 3.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../servlet_module3/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../servlet_module3/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/thuc_hanh/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/thuc_hanh/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/thuc_hanh/.gradle/6.7/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/thuc_hanh/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/thuc_hanh/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/thuc_hanh/.gradle/6.7/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/thuc_hanh/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/thuc_hanh/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/thuc_hanh/.gradle/6.7/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/thuc_hanh/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12/thuc_hanh/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/thuc_hanh/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12/thuc_hanh/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/thuc_hanh/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12/thuc_hanh/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +78,35 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Jsp File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="29xsja01SNiejtuIJvNDjDUz8xs" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -45,8 +115,21 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Module2/src/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Code Gym\C0222G2_Tran_Quoc_Bao\Module3\case_study_2\src\main\java" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.63" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.63" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
@@ -148,10 +231,34 @@
       <workItem from="1654066208647" duration="667000" />
       <workItem from="1654072057330" duration="762000" />
       <workItem from="1654073174956" duration="1215000" />
+      <workItem from="1654116249792" duration="7917000" />
+      <workItem from="1654132035832" duration="30668000" />
+      <workItem from="1654202854699" duration="25885000" />
+      <workItem from="1654282491968" duration="47388000" />
+      <workItem from="1654346928064" duration="11087000" />
+      <workItem from="1654431735826" duration="2758000" />
+      <workItem from="1654436752228" duration="21631000" />
+      <workItem from="1654491809622" duration="250000" />
+      <workItem from="1654492098025" duration="729000" />
+      <workItem from="1654493200795" duration="229000" />
+      <workItem from="1654493512836" duration="52000" />
+      <workItem from="1654493747023" duration="313000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

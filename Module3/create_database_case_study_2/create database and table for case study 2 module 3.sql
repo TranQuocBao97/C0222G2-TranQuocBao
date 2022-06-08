@@ -2,10 +2,10 @@ drop database if exists control_furama;
 create database if not exists control_furama;
 use control_furama;
 
-create table employer_position(
- employer_position_id int not null auto_increment,
- employer_position_name varchar(45) not null,
- primary key (employer_position_id)
+create table employee_position(
+ employee_position_id int not null auto_increment,
+ employee_position_name varchar(45) not null,
+ primary key (employee_position_id)
 );
 
 create table education_degree(
@@ -48,11 +48,11 @@ employee_salary double not null,
 employee_phone varchar(45) not null,
 employee_email varchar(45) not null,
 employee_address varchar(45) not null,
-employer_position_id int,
+employee_position_id int,
 education_degree_id int,
 division_id int,
 username varchar(255) unique,
-foreign key (employer_position_id) references employer_position(employer_position_id),
+foreign key (employee_position_id) references employee_position(employee_position_id),
 foreign key (education_degree_id) references education_degree(education_degree_id),
 foreign key (division_id) references division(division_id),
 foreign key (username) references user(username)
@@ -78,8 +78,7 @@ foreign key (customer_type_id) references customer_type(customer_type_id)
 
 create table rent_type(
 rent_type_id int primary key auto_increment,
-rent_type_name varchar(45) not null,
-rent_type_cost double not null
+rent_type_name varchar(45) not null
 );
 
 create table service_type(

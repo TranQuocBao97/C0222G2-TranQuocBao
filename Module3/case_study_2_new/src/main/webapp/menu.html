@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+
+
+<header id="header" >
+    <div id="header-bar-first" class="p-3">
+        <div class="d-flex flex-wrap align-items-center justify-content-between">
+            <div>
+                <a href="furama"><img src="img/logo.png" alt="logo"></a>
+            </div>
+            <div class="text-end my-2 my-lg-0">
+                <button type="button" class="btn btn-outline-primary">Login</button>
+            </div>
+        </div>
+    </div>
+    <div id="header-bar-second" class="p-3 bg-secondary text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="furama" class="nav-link px-2 text-white">Home</a></li>
+                    <li>
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                            Employee
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="employee">List employee</a>
+                            </li>
+                            <li><a class="dropdown-item" href="employee?action=add">Add new employee</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                            Customer
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="customer">List customer</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="customer?action=add">Add new customer</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                            Service
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="service">List service</a></li>
+                            <li><a class="dropdown-item" href="service?action=add">Add new service</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                            Contract
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="">List contract</a></li>
+                            <li><a class="dropdown-item" href="">Add new contract</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+</body>
+
+</html>
