@@ -1,12 +1,9 @@
 package service;
 
-import model.Dictionary;
 import org.springframework.stereotype.Service;
 import service.interface_service.IDictionaryService;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -22,8 +19,6 @@ public class DictionaryServiceImpl implements IDictionaryService {
         mapList.put("ball","bóng");
         mapList.put("fix","Sữa");
     }
-
-
     @Override
     public String findEnglishWord(String english) {
         if(mapList.containsKey(english)){
