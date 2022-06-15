@@ -11,10 +11,13 @@ import repository.EmployeePositionRepository;
 import service.EmployeeService;
 import service.interface_service.IEmployeeService;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -112,7 +115,10 @@ public class EmployeeController extends HttpServlet {
         request.setAttribute("employeePositionList", employeePositionList);
         request.setAttribute("educationDegreeList", educationDegreeList);
         request.setAttribute("divisionList", divisionList);
-
+        request.setAttribute("searchId",searchId);
+        request.setAttribute("searchName",searchName);
+        request.setAttribute("searchPosition",searchPosition);
+        request.setAttribute("searchDivision",searchDivision);
         try {
             request.getRequestDispatcher("employee/employeeList.jsp").forward(request, response);
         } catch (ServletException e) {
@@ -123,40 +129,107 @@ public class EmployeeController extends HttpServlet {
     }
 
     private void editEmployee(HttpServletRequest request, HttpServletResponse response) {
-        Integer id = Integer.valueOf(request.getParameter("id"));
+        Integer id = null;
+        try{
+            id = Integer.valueOf(request.getParameter("id"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         String name = request.getParameter("name");
         String birthday = request.getParameter("birthday");
         String idCard = request.getParameter("idCard");
-        Double salary = Double.parseDouble(request.getParameter("salary"));
+        Double salary = null;
+        try{
+            salary = Double.parseDouble(request.getParameter("salary"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        Integer positionId = Integer.valueOf(request.getParameter("position"));
-        EmployeePosition employeePosition = new EmployeePosition(positionId);
-        Integer educationId = Integer.valueOf(request.getParameter("education"));
+        Integer positionId = null;
+        try {
+            positionId = Integer.valueOf(request.getParameter("position"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        EmployeePosition employeePosition = null;
+        try{
+            employeePosition = new EmployeePosition(positionId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        Integer educationId = null;
+        try{
+            educationId = Integer.valueOf(request.getParameter("education"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         EducationDegree educationDegree = new EducationDegree(educationId);
         Integer divisionId = Integer.valueOf(request.getParameter("division"));
         Division division = new Division(divisionId);
-
         Employee employee = new Employee(id, name, birthday, idCard, salary, phone, email, address, employeePosition, educationDegree, division);
 
-        boolean checkEdit = iEmployeeService.editEmployee(employee);
-        List<EmployeePosition> employeePositionList = new EmployeePositionRepository().getListEmployeePosition();
-        List<EducationDegree> educationDegreeList = new EducationDegreeRepository().getListEducationDegree();
-        List<Division> divisionList = new DivisionRepository().getListDivision();
-        List<EmployeeDTO> employeeList = iEmployeeService.getAllEmployeeDTO();
-        request.setAttribute("employeeList", employeeList);
-        request.setAttribute("employeePositionList", employeePositionList);
-        request.setAttribute("educationDegreeList", educationDegreeList);
-        request.setAttribute("divisionList", divisionList);
-        request.setAttribute("checkEdit", checkEdit);
-        try {
-            request.getRequestDispatcher("employee/employeeList.jsp").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        Map<String,String> messMapEdit = iEmployeeService.editEmployee(employee);
+        request.setAttribute("messMapEdit",messMapEdit);
+
+        if(messMapEdit.containsKey("mess")){
+            List<EmployeePosition> employeePositionList = new EmployeePositionRepository().getListEmployeePosition();
+            List<EducationDegree> educationDegreeList = new EducationDegreeRepository().getListEducationDegree();
+            List<Division> divisionList = new DivisionRepository().getListDivision();
+            List<EmployeeDTO> employeeList = iEmployeeService.getAllEmployeeDTO();
+            request.setAttribute("employeeList", employeeList);
+            request.setAttribute("employeePositionList", employeePositionList);
+            request.setAttribute("educationDegreeList", educationDegreeList);
+            request.setAttribute("divisionList", divisionList);
+
+            try {
+                request.getRequestDispatcher("employee/employeeList.jsp").forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else {
+            List<EmployeeDTO> employeeList = iEmployeeService.getAllEmployeeDTO();
+            request.setAttribute("employeeList", employeeList);
+            String positionName =null;
+            String EducationName =null;
+            String DivisionName = null;
+
+            for(EmployeeDTO employeeDTO : employeeList){
+                if(employeeDTO.getId().equals(id)){
+                    positionName = employeeDTO.getPositionName();
+                    EducationName =employeeDTO.getEducationName();
+                    DivisionName = employeeDTO.getDivisionName();
+                }
+            }
+            EmployeeDTO employeeDTO = new EmployeeDTO (id, name, birthday, idCard, salary, phone, email, address, positionName, EducationName, DivisionName);
+
+            request.setAttribute("employeeEdit", employeeDTO);
+            messMapEdit.put("validate","false");
+
+            List<EmployeePosition> employeePositionList = new EmployeePositionRepository().getListEmployeePosition();
+            List<EducationDegree> educationDegreeList = new EducationDegreeRepository().getListEducationDegree();
+            List<Division> divisionList = new DivisionRepository().getListDivision();
+            request.setAttribute("employeePositionList", employeePositionList);
+            request.setAttribute("educationDegreeList", educationDegreeList);
+            request.setAttribute("divisionList", divisionList);
+
+
+            try {
+                request.getRequestDispatcher("employee/employeeList.jsp").forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
 
     }
 
@@ -183,22 +256,53 @@ public class EmployeeController extends HttpServlet {
     }
 
     private void addEmployee(HttpServletRequest request, HttpServletResponse response) {
+        Map<String,String> messMap = new HashMap<>();
         Integer id = null;
         String name = request.getParameter("name");
         String birthday = request.getParameter("birthday");
         String idCard = request.getParameter("idCard");
-        Double salary = Double.valueOf(request.getParameter("salary"));
+        Double salary = null;
+        if(!request.getParameter("salary").isEmpty()){
+            try {
+                salary = Double.valueOf(request.getParameter("salary"));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        Integer employeePositionId = Integer.valueOf(request.getParameter("position"));
-        Integer educationDegreeId = Integer.valueOf(request.getParameter("educationDegree"));
-        Integer divisionId = Integer.valueOf(request.getParameter("division"));
+        Integer employeePositionId = null;
+        try {
+            employeePositionId = Integer.valueOf(request.getParameter("position"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        Integer educationDegreeId = null;
+        try {
+            educationDegreeId = Integer.valueOf(request.getParameter("educationDegree"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        Integer divisionId = null;
+        try {
+            divisionId = Integer.valueOf(request.getParameter("division"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         Employee employee = new Employee(id, name, birthday, idCard, salary, phone, email, address,
                 new EmployeePosition(employeePositionId), new EducationDegree(educationDegreeId),
                 new Division(divisionId));
-        Map<String, String> messMap = iEmployeeService.addEmployee(employee);
+
+        messMap = iEmployeeService.addEmployee(employee);
         request.setAttribute("messMap", messMap);
+
+
+
         if (messMap.containsKey("mess")) {
             List<EmployeePosition> employeePositionList = new EmployeePositionRepository().getListEmployeePosition();
             List<EducationDegree> educationDegreeList = new EducationDegreeRepository().getListEducationDegree();
@@ -210,12 +314,13 @@ public class EmployeeController extends HttpServlet {
             request.setAttribute("divisionList", divisionList);
             try {
                 request.getRequestDispatcher("employee/employeeList.jsp").forward(request, response);
+
             } catch (ServletException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else {
+        } else {
             request.setAttribute("employee", employee);
             List<EmployeePosition> employeePositionList = new EmployeePositionRepository().getListEmployeePosition();
             List<EducationDegree> educationDegreeList = new EducationDegreeRepository().getListEducationDegree();
@@ -231,27 +336,6 @@ public class EmployeeController extends HttpServlet {
                 e.printStackTrace();
             }
         }
-        ;
-//        for (String str : messMap.keySet()){
-//            if(str.equals("mess")){
-//                List<EmployeePosition> employeePositionList = new EmployeePositionRepository().getListEmployeePosition();
-//                List<EducationDegree> educationDegreeList = new EducationDegreeRepository().getListEducationDegree();
-//                List<Division> divisionList = new DivisionRepository().getListDivision();
-//                List<EmployeeDTO> employeeList = iEmployeeService.getAllEmployeeDTO();
-//                request.setAttribute("employeeList", employeeList);
-//                request.setAttribute("employeePositionList", employeePositionList);
-//                request.setAttribute("educationDegreeList", educationDegreeList);
-//                request.setAttribute("divisionList", divisionList);
-//                try {
-//                    request.getRequestDispatcher("employee/employeeList.jsp").forward(request, response);
-//                } catch (ServletException e) {
-//                    e.printStackTrace();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//                break;
-//            }
-//        }
 
 
     }

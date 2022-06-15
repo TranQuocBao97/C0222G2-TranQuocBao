@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="../bootstrap_5_file/css/bootstrap.css">
     <link rel="stylesheet" href="../datatables/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" href="../css/cssForFurama.css">
+    <style>
+        small {
+            position: absolute;
+            margin-top: -30px;
+        }
+    </style>
 </head>
 <body>
 <div>
@@ -35,43 +41,51 @@
                 <tr>
                     <td>Employee Name</td>
                     <td>
-                        <input type="text" class="form-control" name="name" value="">
+                        <input type="text" class="form-control" name="name" value="${employee.name}">
+                        <small style="color: crimson">${messMap.name}</small>
                     </td>
                 </tr>
                 <tr>
                     <td>Employee Birthday</td>
                     <td>
-                        <input type="text" class="form-control" name="birthday">
+                        <input type="date" class="form-control" name="birthday" value="${employee.birthday}">
+                        <small style="color: crimson">${messMap.birthday}</small>
                     </td>
                 </tr>
                 <tr>
                     <td>Employee IdCard</td>
                     <td>
-                        <input type="text" class="form-control" name="idCard">
+                        <input type="text" class="form-control" name="idCard" value="${employee.idCard}">
+                        <small style="color: crimson">${messMap.idCard}</small>
                     </td>
                 </tr>
                 <tr>
                     <td>Employee Salary</td>
                     <td>
-                        <input type="text" class="form-control" name="salary">
+                        <input type="number" class="form-control" name="salary" value="${employee.salary}">
+                        <small style="color: crimson">${messMap.salary}</small>
                     </td>
                 </tr>
                 <tr>
                     <td>Employee Phone</td>
                     <td>
-                        <input type="text" class="form-control" name="phone">
+                        <input type="text" class="form-control" name="phone" value="${employee.phone}">
+                        <small style="color: crimson">${messMap.phone}</small>
                     </td>
                 </tr>
                 <tr>
                     <td>Employee Email</td>
                     <td>
-                        <input type="text" class="form-control" name="email">
+                        <input type="text" class="form-control" name="email" value="${employee.email}">
+                        <small style="color: crimson">${messMap.email}</small>
                     </td>
                 </tr>
                 <tr>
                     <td>Employee Address</td>
                     <td>
-                        <input type="text" class="form-control" name="address">
+                        <input type="text" class="form-control" name="address" value="${employee.address}">
+                        <small style="color: crimson"></small>
+                        <small style="color: crimson">${messMap.address}</small>
                     </td>
                 </tr>
                 <tr>
@@ -82,6 +96,7 @@
                                 <option value="${temp.positionId}">${temp.name}</option>
                             </c:forEach>
                         </select>
+                        <small style="color: crimson">${messMap.position}</small>
                     </td>
                 </tr>
                 <tr>
@@ -92,6 +107,7 @@
                                 <option value="${temp.educationDegreeId}">${temp.educationDegreeName}</option>
                             </c:forEach>
                         </select>
+                        <small style="color: crimson">${messMap.education}</small>
                     </td>
                 </tr>
                 <tr>
@@ -102,6 +118,7 @@
                                 <option value="${temp.divisionId}">${temp.divisionName}</option>
                             </c:forEach>
                         </select>
+                        <small style="color: crimson">${messMap.division}</small>
                     </td>
                 </tr>
                 <tr>
@@ -126,7 +143,7 @@
 <script src="../script/scriptForCustomer.js"></script>
 <script src="../includeHTML/jquery.includeHTML.js"></script>
 <script>
-    $(document).ready(function (){
+    $(document).ready(function () {
         $('header').loadHTML('menu.html');
     })
 </script>

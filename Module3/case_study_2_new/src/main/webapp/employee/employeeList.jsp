@@ -16,6 +16,12 @@
             height: auto;
             margin: 0;
         }
+        #falseValidate .modal-dialog {
+            width: 100%;
+            max-width: none;
+            height: auto;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -36,26 +42,40 @@
         <form class="row container-fluid align-items-end" action="employee" method="post">
             <input type="hidden" name="action" value="search">
             <div class="col-2">
+                <div>Search Id: </div>
                 <input type="text" class="form-control form-control-dark" placeholder="Search by id..."
-                       aria-label="Search" name="searchId">
+                       aria-label="Search" name="searchId" value="${searchId}">
             </div>
             <div class="col-3">
+                <div>Search Name: </div>
                 <input type="text" class="form-control form-control-dark" placeholder="Search by name..."
-                       aria-label="Search" name="searchName">
+                       aria-label="Search" name="searchName" value="${searchName}">
             </div>
             <div class="col-3">
+                <div>Search Position: </div>
                 <select class="form-select" name="searchPosition">
                     <option selected value="">None</option>
                     <c:forEach items="${employeePositionList}" var="position">
+                        <c:if test="${position.positionId == searchPosition}">
+                            <option selected value="${position.positionId}">${position.name}</option>
+                        </c:if>
+                        <c:if test="${position.positionId != searchPosition}">
                             <option value="${position.positionId}">${position.name}</option>
+                        </c:if>
                     </c:forEach>
                 </select>
             </div>
             <div class="col-3">
+                <div>Search Division: </div>
                 <select class="form-select" name="searchDivision">
                     <option selected value="">None</option>
                     <c:forEach items="${divisionList}" var="division">
+                        <c:if test="${division.divisionId == searchDivision}">
+                            <option selected value="${division.divisionId}">${division.divisionName}</option>
+                        </c:if>
+                        <c:if test="${division.divisionId != searchDivision}">
                             <option value="${division.divisionId}">${division.divisionName}</option>
+                        </c:if>
                     </c:forEach>
                 </select>
             </div>
@@ -102,6 +122,8 @@
                 <td>${employee.positionName}</td>
                 <td>${employee.educationName}</td>
                 <td>${employee.divisionName}</td>
+
+
                     <%--BEGIN EDIT BUTTON AREA--%>
                 <td id="editTable">
                     <button class="btn btn-primary" data-bs-toggle="modal"
@@ -144,7 +166,7 @@
                                                 </td>
                                                 <td><input class="form-control" type="text" name="name"
                                                            value="${employee.name}"></td>
-                                                <td><input class="form-control" type="text" name="birthday"
+                                                <td><input class="form-control" type="date" name="birthday"
                                                            value="${employee.birthday}">
                                                 </td>
                                                 <td><input class="form-control" type="text" name="idCard"
@@ -219,6 +241,7 @@
                         <%--END EDIT MODAL--%>
                 </td>
                     <%--END EDIT BUTTON AREA--%>
+
 
 
                     <%--BEGIN DELETE BUTTON AREA--%>
@@ -346,7 +369,7 @@
 
 <%-- begin Modal check edit--%>
 <div>
-    <c:if test="${checkEdit == true}">
+    <c:if test="${messMapEdit.mess == 'true'}">
         <div class="modal fade" id="trueModal" style="top: 20%">
             <div class="modal-dialog overflow-hidden">
                 <div class="modal-content">
@@ -367,7 +390,7 @@
             </div>
         </div>
     </c:if>
-    <c:if test="${checkEdit == false}">
+    <c:if test="${messMapEdit.mess =='false'}">
         <div class="modal fade" id="falseModal" style="top: 20%">
             <div class="modal-dialog overflow-hidden">
                 <div class="modal-content">
@@ -433,12 +456,169 @@
 </div>
 <%--end modal added status--%>
 
+<div id="falseValidate">
+<%--BEGIN FALSE VALIDATE EDIT MODAL--%>
+<c:if test="${messMapEdit.validate == 'false'}">
+    <div class="modal fade" id="editFalseValidateEmployeeModal" style="top: 20%">
+        <div class="modal-dialog w-100 modal-xl overflow-hidden" style="width: 100%">
+            <form action="employee" method="post">
+                <input type="hidden" name="action" value="edit">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit form</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <table class="table table-bordered table-hover text-center table-success align-items-center">
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Birthday</th>
+                                <th>Id Card</th>
+                                <th>Salary</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Position</th>
+                                <th>Education</th>
+                                <th>Division</th>
+                            </tr>
+                            <tr>
+                                <td style="width: 5%">
+                                    <input class="form-control" type="hidden" name="id"
+                                           value="${employeeEdit.id}">
+                                        ${employeeEdit.id}
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" name="name"
+                                           value="${employeeEdit.name}">
+                                    <small style="color: crimson">${messMapEdit.name}</small>
+                                </td>
+
+                                <td>
+                                    <input class="form-control" type="date" name="birthday"
+                                           value="${employeeEdit.birthday}">
+                                    <small style="color: crimson">${messMapEdit.birthday}</small>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" name="idCard"
+                                           value="${employeeEdit.idCard}">
+                                    <small style="color: crimson">${messMapEdit.idCard}</small>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" name="salary"
+                                           value="<fmt:formatNumber pattern="#" value="${employeeEdit.salary}"/>">
+                                    <small style="color: crimson">${messMapEdit.salary}</small>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" name="phone"
+                                           value="${employeeEdit.phone}">
+                                    <small style="color: crimson">${messMapEdit.phone}</small>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" name="email"
+                                           value="${employeeEdit.email}">
+                                    <small style="color: crimson">${messMapEdit.email}</small>
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" name="address"
+                                           value="${employeeEdit.address}">
+                                    <small style="color: crimson">${messMapEdit.address}</small>
+                                </td>
+
+                                <td>
+                                    <select class="form-select" name="position">
+                                        <c:forEach items="${employeePositionList}" var="position">
+                                            <c:if test="${position.name == employeeEdit.positionName}">
+                                                <option selected
+                                                        value="${position.positionId}">${position.name}</option>
+                                            </c:if>
+                                            <c:if test="${position.name != employeeEdit.positionName}">
+                                                <option value="${position.positionId}">${position.name}</option>
+                                            </c:if>
+                                        </c:forEach>
+                                    </select>
+                                    <small style="color: crimson">${messMapEdit.position}</small>
+                                </td>
+                                <td>
+                                    <select class="form-select" name="education">
+                                        <c:forEach items="${educationDegreeList}" var="education">
+                                            <c:if test="${education.educationDegreeName == employeeEdit.educationName}">
+                                                <option selected
+                                                        value="${education.educationDegreeId}">${education.educationDegreeName}</option>
+                                            </c:if>
+                                            <c:if test="${education.educationDegreeName != employeeEdit.educationName}">
+                                                <option value="${education.educationDegreeId}">${education.educationDegreeName}</option>
+                                            </c:if>
+                                        </c:forEach>
+                                    </select>
+                                    <small style="color: crimson">${messMapEdit.education}</small>
+                                </td>
+                                <td>
+                                    <select class="form-select" name="division">
+                                        <c:forEach items="${divisionList}" var="division">
+                                            <c:if test="${division.divisionName == employeeEdit.divisionName}">
+                                                <option selected
+                                                        value="${division.divisionId}">${division.divisionName}</option>
+                                            </c:if>
+                                            <c:if test="${division.divisionName != employeeEdit.divisionName}">
+                                                <option value="${division.divisionId}">${division.divisionName}</option>
+                                            </c:if>
+                                        </c:forEach>
+                                    </select>
+                                    <small style="color: crimson">${messMapEdit.division}</small>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                            No
+                        </button>
+                        <button type="submit" class="btn btn-danger d-flex flex-row-reverse"
+                                data-bs-dismiss="modal">
+                            Yes
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</c:if>
+<%--END FALSE VALIDATE EDIT MODAL--%>
+</div>
+
+
+<c:if test="${messMapEdit.validate =='false'}">
+    <div class="modal fade" id="falseModal" style="top: 20%">
+        <div class="modal-dialog overflow-hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">False</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Sửa thất bại
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</c:if>
+
 
 </body>
-<script src="../jquery/jquery-3.6.0.min.js"></script>
+<script src="../bootstrap_5_file/js/bootstrap.bundle.js"></script>
+<script src="../jquery/jquery-3.6.0.js"></script>
 <script src="../datatables/js/jquery.dataTables.js"></script>
 <script src="../datatables/js/dataTables.bootstrap5.js"></script>
-<script src="../bootstrap_5_file/js/bootstrap.bundle.js"></script>
 <script src="../script/scriptForCustomer.js"></script>
 <script>
     $(document).ready(function () {
@@ -454,13 +634,14 @@
     $(document).ready(function () {
         $('header').loadHTML('menu.html');
     })
-</script>
-<script>
     $(function () {
         $('#trueModal').modal('show');
     });
     $(function () {
         $('#falseModal').modal('show');
+    });
+    $(function () {
+        $('#editFalseValidateEmployeeModal').modal('show');
     });
 </script>
 </html>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2f21eceb-b6b5-48a0-9fde-d22074c764e1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/java/controller/ContractController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/java/model/TotalPrice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/java/modelDTO/ContractDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/java/repository/ContractRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/java/repository/TotalPriceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/java/repository/interface_customer_repository/IContractRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/java/repository/interface_customer_repository/ITotalPriceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/java/service/ContractService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/java/service/interface_service/IContractService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/webapp/contractJSP/contractAdd.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/webapp/contractJSP/contractList.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/controller/SachController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/controller/TheMuonSachController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/modal/HocSinh.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/modal/Sach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/modal/TheMuonSach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/repository/ConnectionSQL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/repository/HocSinhRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/repository/SachRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/repository/TheMuonSachRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/repository/interface_repository/IHocSinhRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/repository/interface_repository/ISachRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/repository/interface_repository/ITheMuonSachRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/service/SachService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/service/TheMuonSachService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/service/interface_Service/ISachService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/service/interface_Service/ITheMuonSachService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/util/CheckSoLuong.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/util/GetTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/java/validate/Validate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/webapp/menu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/webapp/menu.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/webapp/sach_jsp/sachList.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/webapp/sach_jsp/sachRent.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_1_quan ly benh an/src/main/webapp/theMuonSach_jsp/theMuonSachList.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_thi/src/main/java/config/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_thi/src/main/java/connection/ConnectionSQL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_thi/src/main/java/controller/Servlet1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_thi/src/main/java/controller/Servlet2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_thi/src/main/java/controller/Servlet3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_thi/src/main/java/controller/Servlet4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_thi/src/main/java/repository/FirstRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_thi/src/main/java/service/FirstService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_thi/src/main/java/util/GetStringDateNow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_thi/src/main/java/util/Validate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_thi/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_thi/src/main/webapp/menu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_thi/src/main/webapp/model_jsp/model.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/build/classes/java/main/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/build/classes/java/main/controller/EmployeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/build/classes/java/main/service/EmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/build/classes/java/main/service/EmployeeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/build/classes/java/main/service/interface_service/IEmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/build/classes/java/main/service/interface_service/IEmployeeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/build/classes/java/main/validate/Validate.class" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/build/classes/java/main/validate/Validate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/build/libs/case_study_2_new-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/build/libs/case_study_2_new-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/src/main/java/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/java/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/src/main/java/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/java/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/src/main/java/repository/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/java/repository/EmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/src/main/java/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/java/service/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/src/main/java/service/interface_service/IEmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/java/service/interface_service/IEmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/src/main/java/validate/Validate.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/java/validate/Validate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/src/main/webapp/employee/employeeAdd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/webapp/employee/employeeAdd.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/src/main/webapp/employee/employeeList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/webapp/employee/employeeList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case_study_2_new/src/main/webapp/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case_study_2_new/src/main/webapp/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../create_database_case_study_2/create database and table for case study 2 module 3.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../create_database_case_study_2/create database and table for case study 2 module 3.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../create_database_case_study_2/insert data case study module 3.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../create_database_case_study_2/insert data case study module 3.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2AU1QR6MnfEoGi7xzZgpMDBp2YB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2f21eceb-b6b5-48a0-9fde-d22074c764e1" name="Changes" comment="" />
+      <created>1655049333007</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655049333007</updated>
+      <workItem from="1655049334144" duration="102000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

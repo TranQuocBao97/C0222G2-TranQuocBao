@@ -1,14 +1,14 @@
 package controller;
 
 import model.Customer;
-import repository.CustomerRepository;
-import repository.interface_customer_repository.ICustomerRepository;
 import service.CustomerService;
 import service.interface_service.ICustomerService;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 

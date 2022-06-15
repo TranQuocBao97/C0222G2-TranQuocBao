@@ -13,7 +13,7 @@ public interface IEmployeeService {
 
     boolean deleteEmployeeById(Integer id);
 
-    boolean editEmployee(Employee employee);
+    Map<String,String> editEmployee(Employee employee);
 
     List<EmployeeDTO> searchAllEmployeeDTO(String searchId, String searchName, String searchPosition, String searchDivision);
 }

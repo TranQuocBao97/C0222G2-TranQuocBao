@@ -1,0 +1,5 @@
+<script src="../includeHTML/jquery.includeHTML.js"></script>
+<script>
+    $(document).ready(function (){
+        $('header').loadHTML('menu.html');
+    })

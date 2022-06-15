@@ -1,0 +1,45 @@
+<search>
+    <form
+            class="row container-fluid align-items-end"
+            action=""
+            method="post"
+    >
+        <input type="hidden" name="" value="">
+        <div class="col-2">
+            <div>
+                Search 1:
+            </div>
+            <input type="text" class="form-control form-control-dark" placeholder="Search..."
+                   aria-label="Search" name="" value="">
+        </div>
+        <div class="col-3">
+            <div>
+                Search 2:
+            </div>
+            <input type="text" class="form-control form-control-dark" placeholder="Search..."
+                   aria-label="Search" name="" value="">
+        </div>
+        <div class="col-3">
+            <div>
+                Search 3:
+            </div>
+            <select class="form-select" name="">
+                <option selected value="">None</option>
+            </select>
+        </div>
+        <div class="col-3">
+            <div>
+                Search 4:
+            </div>
+            <select class="form-select" name="">
+                <option selected value="">None</option>
+            </select>
+        </div>
+        <div class="col-1">
+            <button class="btn btn-outline-primary text-black" type="submit">
+                Search
+            </button>
+        </div>
+    </form>
+    </div>
+</search>

@@ -1,0 +1,6 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../bootstrap_5_file/css/bootstrap.css">
+
+
+<script src="../bootstrap_5_file/js/bootstrap.js"></script>
+<script src="../bootstrap_5_file/js/bootstrap.bundle.js"></script>

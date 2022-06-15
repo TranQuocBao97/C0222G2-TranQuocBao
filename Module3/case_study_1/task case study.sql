@@ -18,7 +18,9 @@ WHERE UNIX_TIMESTAMP(DATE_SUB(curdate(), INTERVAL 18 YEAR))>UNIX_TIMESTAMP(ngay_
 AND UNIX_TIMESTAMP(DATE_SUB(curdate(), INTERVAL 50 YEAR))<UNIX_TIMESTAMP(ngay_sinh)
 AND (INSTR(dia_chi, 'Đà Nẵng') || INSTR(dia_chi, 'Quảng Trị'));
 
-
+select year(current_date());
+select datediff(year(current_date()),year('2022-05-18'));
+SELECT TIMESTAMPDIFF(YEAR, '1997-06-15', CURDATE()) AS age;
 -- câu 4:
 
 SELECT khach_hang.ma_khach_hang, khach_hang.ho_ten, COUNT(hop_dong.ma_khach_hang) AS so_lan_dat_phong 
