@@ -31,6 +31,7 @@ public class HealthReport {
         this.citiesLast14days = citiesLast14days;
     }
 
+
     public String getName() {
         return name;
     }

@@ -27,10 +27,7 @@ public class SettingController {
     @PostMapping(value = "/saveSetting")
     public String saveSetting(@ModelAttribute EmailSetting emailSetting,
                               ModelMap modelMap){
-        modelMap.addAttribute("language",emailSetting.getLanguage());
-        modelMap.addAttribute("pageSize",emailSetting.getPageSize());
-        modelMap.addAttribute("spamFilter",emailSetting.getSpamFilter());
-        modelMap.addAttribute("signature",emailSetting.getSignature());
+        modelMap.addAttribute("emailSetting",emailSetting);
 
         return "user-setting";
     }

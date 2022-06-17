@@ -18,31 +18,31 @@
     <h1 class="text-center">TỜ KHAI Y TẾ</h1>
 
 
-    <form:form action="" modelAttribute="healthReport" method="post">
+    <form:form action="add-form" modelAttribute="healthReport" method="post">
         <div>
-            <p>Họ và tên (ghi chữ IN HOA)(*):</p>
-            <form:input path="name" class="form-control"/>
+            <p>Họ và tên (ghi chữ IN HOA)<span style="color: red">(*)</span>:</p>
+            <form:input path="name" class="form-control" required="required"/>
         </div>
         <div>
             <table style="width: 100%; padding: 20px">
                 <tr>
-                    <td>Năm sinh(*)</td>
-                    <td>Giới tính(*)</td>
-                    <td>Quốc tịch(*)</td>
+                    <td>Năm sinh<span style="color: red">(*)</span></td>
+                    <td>Giới tính<span style="color: red">(*)</span></td>
+                    <td>Quốc tịch<span style="color: red">(*)</span></td>
                 </tr>
                 <tr>
                     <td>
-                        <form:input type="date" path="birth" class="form-control"/>
+                        <form:input type="date" path="birth" class="form-control" required="required"/>
                     </td>
                     <td>
-                        <form:select path="gender" class="form-control">
+                        <form:select path="gender" class="form-control" required="required">
                             <form:option value="Nam">Nam</form:option>
                             <form:option value="Nữ">Nữ</form:option>
                             <form:option value="Khác">Khác</form:option>
                         </form:select>
                     </td>
                     <td>
-                        <form:select path="country" class="form-control">
+                        <form:select path="country" class="form-control" required="required">
                             <form:option value="Việt Nam">Việt Nam</form:option>
                             <form:option value="Mỹ">Mỹ</form:option>
                             <form:option value="Trung Quốc">Trung Quốc</form:option>
@@ -53,19 +53,19 @@
             </table>
         </div>
         <div>
-            <div>Số hộ chiếu hoặc số CMND hoặc giấy thông hành hợp pháp khác(*)</div>
+            <div>Số hộ chiếu hoặc số CMND hoặc giấy thông hành hợp pháp khác<span style="color: red">(*)</span></div>
             <div>
-                <form:input path="idCard" class="form-control"/>
+                <form:input path="idCard" class="form-control" required="required"/>
             </div>
         </div>
 
         <div>
-            <div>Thông tin đi lại</div>
+            <div>Thông tin đi lại<span style="color: red">(*)</span></div>
             <div>
-                <form:radiobutton path="vehicleName" value="Tàu bay"/>Tàu bay
-                <form:radiobutton path="vehicleName" value="Tàu thuyền"/>Tàu thuyền
-                <form:radiobutton path="vehicleName" value="Ô tô"/>Ô tô
-                <form:radiobutton path="vehicleName"/>Khác(ghi rõ)
+                <form:radiobutton path="vehicleName" value="Tàu bay" required="required"/>Tàu bay
+                <form:radiobutton path="vehicleName" value="Tàu thuyền" required="required"/>Tàu thuyền
+                <form:radiobutton path="vehicleName" value="Ô tô" required="required"/>Ô tô
+                <form:radiobutton path="vehicleName" required="required" onclick="getVehicleFunction()" id="enterVehicle"/>Khác(ghi rõ)<input id="vehicleName"/>
             </div>
         </div>
 
@@ -73,34 +73,37 @@
             <div>
                 <div>Số hiệu phương tiện:</div>
                 <div>
-                    <form:input path="vehicleId" class="form-control"/>
+                    <form:input path="vehicleId" class="form-control" />
                 </div>
             </div>
             <div>
                 <div>Số ghế:</div>
                 <div>
-                    <form:input path="vehicleInformation" class="form-control"/>
+                    <form:input path="vehicleInformation" class="form-control" />
                 </div>
             </div>
         </div>
         <div>
             <table style="width: 100%">
                 <tr>
-                    <td>Ngày khởi hành(*)</td>
-                    <td>Ngày kết thúc(*)</td>
+                    <td>Ngày khởi hành<span style="color: red">(*)</span></td>
+                    <td>Ngày kết thúc<span style="color: red">(*)</span></td>
                 </tr>
                 <tr>
-                    <td><form:input type="date" path="dateStart" class="form-control"/></td>
-                    <td><form:input type="date" path="dateEnd" class="form-control"/></td>
+                    <td><form:input type="date" path="dateStart" class="form-control" required="required"/></td>
+                    <td><form:input type="date" path="dateEnd" class="form-control" required="required"/></td>
 
                 </tr>
             </table>
         </div>
         <div>
-            <div>Trong 14 ngày qua anh/chị có đi đến tỉnh/thành phố nào?(*0)</div>
+            <div>Trong 14 ngày qua anh/chị có đi đến tỉnh/thành phố nào?<span style="color: red">(*)</span></div>
             <div>
-                <form:input path="citiesLast14days" class="form-control"/>
+                <form:input path="citiesLast14days" class="form-control" required="required"/>
             </div>
+        </div>
+        <div class="text-center">
+        <button type="submit" class="btn btn-primary">Gửi tờ khai</button>
         </div>
     </form:form>
 
@@ -117,4 +120,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+<script>
+    function getVehicleFunction() {
+        let x = document.getElementById("vehicleName").value;
+        document.getElementById("enterVehicle").innerHTML = x;
+    }
+</script>
 </html>

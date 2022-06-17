@@ -8,19 +8,19 @@
 <table>
     <tr>
         <th>Language</th>
-        <td>${language}</td>
+        <td>${emailSetting.language}</td>
     </tr>
     <tr>
         <th>PageSize</th>
-        <td>${pageSize}</td>
+        <td>${emailSetting.pageSize}</td>
     </tr>
     <tr>
         <th>SpamFilter</th>
-        <td>${spamFilter}</td>
+        <td>${emailSetting.spamFilter}</td>
     </tr>
     <tr>
         <th>Signature</th>
-        <td>${signature}</td>
+        <td>${emailSetting.signature}</td>
     </tr>
 
 </table>
