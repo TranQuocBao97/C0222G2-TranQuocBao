@@ -1,5 +1,6 @@
 package program.service.service_implement;
 
+import org.springframework.stereotype.Service;
 import program.model.Product;
 import program.service.IProductService;
 
@@ -8,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+@Service
 public class ProductServiceImpl implements IProductService {
 
 
