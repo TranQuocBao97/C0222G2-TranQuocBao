@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/header-and-footer :: head">
+    <meta charset="UTF-8">
+    <title>Delete</title>
+</head>
+<body>
+<header th:replace="/header-and-footer :: header"></header>
+<div>
+    <a th:href="@{/product/list}">
+        <button type="button">
+            Back to product list
+        </button>
+    </a>
+</div>
+
+
+<div>
+    <form th:action="@{/product/delete}" th:object="${product}" method="post">
+        <table class="container table table-hover">
+            <tr>
+                <td>Id</td>
+                <td>
+                    <div th:text="*{id}" ></div>
+                    <input type="hidden" th:field="*{id}">
+                </td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>
+                    <div th:text="*{name}" ></div>
+                    <input type="hidden" th:field="*{name}">
+                </td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>
+                    <div th:text="*{price}" ></div>
+                    <input type="hidden" th:field="*{price}">
+                </td>
+            </tr>
+            <tr>
+                <td>Information</td>
+                <td>
+                    <div th:text="*{information}" ></div>
+                    <input type="hidden" th:field="*{information}">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+
+
+</body>
+</html>

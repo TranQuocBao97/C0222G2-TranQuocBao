@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/header-and-footer :: head">
+    <meta charset="UTF-8">
+    <title>welcome</title>
+</head>
+<body>
+<header th:replace="/header-and-footer :: header"></header>
+
+
+<div>
+    <a th:href="@{/product/list}">
+        <button type="button">
+            Back to product list
+        </button>
+    </a>
+</div>
+
+<div>
+    <form th:action="@{/product/add}" th:object="${product}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <table class="container table table-hover">
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input class="form-control" type="text" th:field="*{name}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>
+                    <input class="form-control" type="text" th:field="*{price}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Information</td>
+                <td>
+                    <input class="form-control" type="text" th:field="*{information}"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Yes</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+
+
+</body>
+</html>

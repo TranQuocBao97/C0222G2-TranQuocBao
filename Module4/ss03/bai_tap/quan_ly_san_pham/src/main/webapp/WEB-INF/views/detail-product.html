@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/header-and-footer :: head">
+    <meta charset="UTF-8">
+    <title>Delete</title>
+</head>
+<body>
+<header th:replace="/header-and-footer :: header"></header>
+
+<div th:object="${product}">
+    <table class="container table table-hover">
+        <tr>
+            <td>Id</td>
+            <td th:text="*{id}"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td th:text="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td th:text="*{price}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td th:text="*{information}"></td>
+        </tr>
+
+    </table>
+</div>
+
+
+
+
+</body>
+</html>
