@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import program.model.Product;
 import program.service.IProductService;
-import program.service.service_implement.ProductServiceImpl;
 
 import java.util.List;
 
@@ -16,7 +15,7 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    IProductService iProductService;
+    private IProductService iProductService;
 
     @GetMapping("")
     public String indexTest() {
@@ -73,7 +72,6 @@ public class ProductController {
     @GetMapping("/search-by-name")
     public String searchProduct(@RequestParam String name,
                                 Model model) {
-        System.out.println(name);
         List<Product> productList = iProductService.findByName(name);
         model.addAttribute("nameSearch",name);
         model.addAttribute("productList", productList);

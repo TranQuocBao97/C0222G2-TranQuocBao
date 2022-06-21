@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ListMusic</title>
+    <th:block th:replace="/layout :: boostrapCss">
+    </th:block>
+</head>
+<body>
+
+
+
+<div>
+    <a th:href="@{/music/add-page}">
+        <button type="button" class="btn">
+            Add new music
+        </button>
+    </a>
+</div>
+
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Singer</th>
+        <th scope="col">Type</th>
+        <th scope="col">Link</th>
+        <th>Listen</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+    </tr>
+    <tr th:each="music : ${musicList}">
+        <td th:text="${music.getId}"></td>
+        <td th:text="${music.getName}"></td>
+        <td th:text="${music.getSinger}"></td>
+        <td th:text="${music.getType}"></td>
+        <td th:text="${music.getLink}"></td>
+        <td>
+            <a th:href="${music.getLink}" target="_blank">
+                Link
+            </a>
+        </td>
+        <td>
+            <a th:href="@{/music/edit-page/{id}(id=${music.getId})}">
+                <button type="button" class="btn btn-secondary">
+                    Edit
+                </button>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{/music/delete/{id}(id=${music.getId})}">
+                <button type="button" class="btn btn-secondary">
+                    Delete
+                </button>
+            </a>
+        </td>
+    </tr>
+    </thead>
+</table>
+
+
+</body>
+<th:block th:replace="/layout :: boostrapScript">
+</th:block>
+</html>

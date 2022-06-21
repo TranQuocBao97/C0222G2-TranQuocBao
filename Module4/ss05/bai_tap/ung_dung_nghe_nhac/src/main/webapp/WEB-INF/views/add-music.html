@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Music</title>
+</head>
+<body>
+
+<div th:replace="/layout :: back"></div>
+
+<form th:action="@{/music/add}" th:object="${music}" method="post">
+<table border="1px">
+    <tr>
+        <th>Name</th>
+        <td>
+            <input type="text" th:field="*{name}">
+        </td>
+    </tr>
+    <tr>
+        <th>Singer</th>
+        <td>
+            <input type="text" th:field="*{singer}">
+        </td>
+    </tr>
+    <tr>
+        <th>Type</th>
+        <td>
+            <input type="text" th:field="*{type}">
+        </td>
+    </tr>
+    <tr>
+        <th>Link</th>
+        <td>
+            <input type="text" th:field="*{link}">
+        </td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>
+            <input type="submit" value="Create Music">
+        </td>
+    </tr>
+
+</table>
+</form>
+
+
+</body>
+</html>

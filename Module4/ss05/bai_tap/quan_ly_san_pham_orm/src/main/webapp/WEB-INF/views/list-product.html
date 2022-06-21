@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/header-and-footer :: head">
+    <meta charset="UTF-8">
+    <title>welcome</title>
+</head>
+<body>
+
+
+<header th:replace="/header-and-footer :: header"></header>
+
+
+<main>
+
+    <div>
+        <a th:href="@{/product/add-page}">
+            <button type="button" class="btn btn-primary">Add new product</button>
+        </a>
+        <div>
+            <form th:action="@{/product/search-by-name}">
+                <input class="form-control" name="name"  th:value="${nameSearch}" style="width: 25%">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </div>
+    <table border="1px solid" class="table table-hover">
+        <tr>
+            <thead class="thead-success">
+            <td>Id</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Information</td>
+            <td>Edit</td>
+            <td>Delete</td>
+            </thead>
+        </tr>
+        <tr th:each="product :${productList}">
+            <td th:text="${product.getId()}"></td>
+            <td>
+                <a th:text="${product.getName()}"
+                   th:href="@{/product/detail-page/{id}(id=${product.getId()})}">
+                </a>
+            </td>
+            <td th:text="${product.getPrice()}"></td>
+            <td th:text="${product.getInformation()}"></td>
+            <td>
+                <a th:href="@{/product/edit-page/{id}(id=${product.getId()})}">
+                    <button type="button" class="btn btn-primary">Edit</button>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{/product/delete-page/(id=${product.getId()})}">
+                    <button type="button" class="btn btn-primary">Delete</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+</main>
+
+
+<footer th:replace="/header-and-footer ::footer"></footer>
+
+
+</body>
+</html>

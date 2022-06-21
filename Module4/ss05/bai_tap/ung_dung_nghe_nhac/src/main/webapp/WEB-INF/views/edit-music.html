@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Music</title>
+</head>
+<body>
+
+<div th:replace="/layout :: back"></div>
+
+    <form th:action="@{/music/edit}" th:object="${music}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <table border="1px">
+        <tr>
+            <th>Name</th>
+            <td>
+                <input th:field="*{name}" type="text"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Singer</th>
+            <td>
+                <input th:field="*{singer}" type="text"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <td>
+                <input th:field="*{type}" type="text"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Link</th>
+            <td>
+                <input th:field="*{link}" type="text"/>
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td>
+                <button type="submit">Edit</button>
+            </td>
+        </tr>
+        </table>
+    </form>
+
+
+</body>
+</html>
