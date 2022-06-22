@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{layout :: css}"></th:block>
+</head>
+<body class="container">
+<div th:replace="~{layout :: backToList}"></div>
+
+<form th:action="@{/blog/add}" th:object="${blog}" method="post">
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <td>
+            <textarea th:field="*{name}" class="form-control"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <th>Content</th>
+        <td>
+            <textarea th:field="*{content}" class="form-control"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>
+            <button type="submit">
+                Add new
+            </button>
+        </td>
+    </tr>
+</table>
+</form>
+
+</body>
+<th:block th:replace="~{layout :: js}"></th:block>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{layout :: css}"></th:block>
+</head>
+<body class="container">
+<div th:replace="~{layout :: backToList}"></div>
+
+<div th:object="${blog}">
+    <h1 th:text="*{name}"></h1>
+    <p th:text="*{content}"></p>
+</div>
+
+</body>
+<th:block th:replace="~{layout :: js}"></th:block>
+</html>

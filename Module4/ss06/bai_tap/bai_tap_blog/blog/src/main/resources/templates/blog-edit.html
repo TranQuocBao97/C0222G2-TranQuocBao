@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{layout :: css}"></th:block>
+</head>
+<body class="container">
+<div th:replace="~{layout :: backToList}"></div>
+
+<form th:action="@{/blog/edit}" method="post" th:object="${blog}">
+    <input type="hidden" th:field="*{id}"/>
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Content</th>
+        </tr>
+        <tr>
+            <td th:text="*{id}"></td>
+            <td>
+                <textarea th:field="*{name}" class="form-control">
+                </textarea>
+            </td>
+            <td>
+                <textarea th:field="*{content}" class="form-control">
+                </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <button type="submit">
+                    Yes, edit
+                </button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+<th:block th:replace="~{layout :: js}"></th:block>
+</html>
