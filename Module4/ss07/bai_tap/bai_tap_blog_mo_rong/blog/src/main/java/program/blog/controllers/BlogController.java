@@ -30,12 +30,6 @@ public class BlogController {
         return "hello";
     }
 
-//    @GetMapping("/list")
-//    public String showList(Model model){
-//        List<Blog> blogList = iBlogService.getAll();
-//        model.addAttribute("blogList",blogList);
-//        return "blog-list";
-//    }
 
     @GetMapping("/list")
     public String showListWithPage(Model model,

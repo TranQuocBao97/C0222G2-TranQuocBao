@@ -40,7 +40,6 @@ public class BlogServiceImpl implements IBlogService {
 
     @Override
     public void editBlog(Blog blog) {
-//        iBlogRepository.updateBlog(blog.getName(),blog.getContent(),blog.getId());
         iBlogRepository.save(blog);
     }
 
