@@ -1,0 +1,74 @@
+package com.example.ung_dung_quan_ly_san_pham.controller;
+
+import com.example.ung_dung_quan_ly_san_pham.dto.ProductDTO;
+import com.example.ung_dung_quan_ly_san_pham.model.Product;
+import com.example.ung_dung_quan_ly_san_pham.service.IProductService;
+import com.example.ung_dung_quan_ly_san_pham.service.ITypeService;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.Valid;
+import java.util.Optional;
+
+@Controller
+@RequestMapping("/product")
+public class ProductController {
+
+    @Autowired
+    IProductService iProductService;
+
+    @Autowired
+    ITypeService iTypeService;
+
+    @GetMapping("/list-product")
+    public String displayListProduct(@PageableDefault(value = 2) Pageable pageable,
+                                     @RequestParam("nameSearch") Optional<String> nameSearch,
+                                     @RequestParam("nameTypeSearch") Optional<String> nameTypeSearch,
+                                     Model model) {
+        String nameSearchValue = nameSearch.orElse("");
+        String nameTypeSearchValue = nameTypeSearch.orElse("");
+        Page<Product> productList = iProductService.getAllProductByNameAndByNameType(nameSearchValue, nameTypeSearchValue, pageable);
+        model.addAttribute("productList", productList);
+        model.addAttribute("nameSearchValue", nameSearchValue);
+        model.addAttribute("nameTypeSearchValue", nameTypeSearchValue);
+
+        return "product-list";
+    }
+
+    @GetMapping("/add-product")
+    public String displayAddForm(Model model){
+        model.addAttribute("productDTO",new ProductDTO());
+        model.addAttribute("typeList",iTypeService.getAllType());
+        return "product-add";
+    }
+
+    @PostMapping("/creat-product")
+    public String createProduct(@ModelAttribute("productDTO") @Valid ProductDTO productDTO,
+                                BindingResult bindingResult,
+                                Model model){
+        new ProductDTO().validate(productDTO, bindingResult);
+        if(bindingResult.hasErrors()){
+            model.addAttribute("typeList",iTypeService.getAllType());
+            return "product-add";
+        }
+        Product product = new Product();
+        BeanUtils.copyProperties(productDTO,product);
+        iProductService.createProduct(product);
+        return "redirect:/product/list-product";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable Integer id){
+        iProductService.deleteProduct(id);
+        return "redirect:/product/list-product";
+    }
+
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{layout :: cssTableList}"></th:block>
+    <th:block th:replace="~{layout :: cssBootstrap}"></th:block>
+    <th:block th:replace="~{layout :: cssMenu}"></th:block>
+</head>
+<body>
+
+
+<div th:replace="~{layout :: menu}"></div>
+
+
+<div class="container" >
+    <div style="padding-top: 100px">
+    <h1 style="color: white">Table header</h1>
+    </div>
+    <nav class="navbar navbar-light bg-transparent">
+        <form class="form-inline" action="/product/list-product">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"
+            name="nameSearch" th:value="${nameSearchValue}">
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+    <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>PRICE</th>
+                <th>TYPE</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+            </tr>
+            </thead>
+            <tr th:each="product :${productList}">
+                <td th:text="${product.id}"></td>
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.price}"></td>
+                <td th:text="${product.getType().name}"></td>
+                <td>
+                    <a th:href="@{/product/edit-product/}">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{/product/delete}">
+
+                    </a>
+                    <div class="container" style="color: black">
+                        <!-- Button to Open the Modal -->
+                        <a href="" data-toggle="modal" th:data-target="'#deleteModal'+${product.id}">
+                            Delete
+                        </a>
+<!--                        begin-->
+                        <!-- The Modal -->
+                        <div class="modal fade" th:id="'deleteModal'+${product.id}">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">DELETE</h4>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        Are you sure for delete: <span th:text="${product.name}"></span>
+                                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                        <form th:action="@{/product/delete/{id}(id=${product.getId()})}" method="post">
+                                            <button type="submit" class="btn btn-danger">Yes</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<!--                    end-->
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" th:if="${productList.hasPrevious()}"
+                       th:href="@{/product/list-product(page=${productList.number - 1}, nameSearchValue=${nameSearchValue})}">
+                        Previous
+                    </a>
+                </li>
+                <li class="page-item" th:each="pageNo : ${#numbers.sequence(0, productList.totalPages - 1)}">
+                    <a class="page-link" th:href="@{/product/list-product(page=${pageNo}, nameSearchValue=${nameSearchValue})}">
+                        <span  th:text="${pageNo+1}"></span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" th:if="${productList.hasNext()}"
+                       th:href="@{/product/list-product(page=${productList.number + 1}, nameSearchValue=${nameSearchValue})}">
+                        Next
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+</div>
+
+
+
+
+</body>
+<th:block th:replace="~{layout :: jsBootstrap}"></th:block>
+<th:block th:replace="~{layout :: jsMenu}"></th:block>
+
+</html>
