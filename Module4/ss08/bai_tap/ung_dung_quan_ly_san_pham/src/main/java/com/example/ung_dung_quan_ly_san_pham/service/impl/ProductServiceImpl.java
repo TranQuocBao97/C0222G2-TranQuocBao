@@ -7,6 +7,7 @@ import com.example.ung_dung_quan_ly_san_pham.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,6 +22,9 @@ public class ProductServiceImpl implements IProductService {
         return iProductRepository.findAllByNameContainingAndTypeNameContaining(name,nameType,pageable);
     }
 
+
+
+
     @Override
     public void createProduct(Product product) {
         iProductRepository.save(product);
@@ -30,6 +34,13 @@ public class ProductServiceImpl implements IProductService {
     public void deleteProduct(Integer id) {
         iProductRepository.deleteProductById(id);
     }
+
+    @Override
+    public Product getProductById(Integer id) {
+        return iProductRepository.findProductById(id);
+    }
+
+
 
 
 }

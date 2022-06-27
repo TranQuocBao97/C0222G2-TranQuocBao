@@ -1,5 +1,6 @@
 package com.example.ung_dung_quan_ly_san_pham.service.impl;
 
+import com.example.ung_dung_quan_ly_san_pham.model.Product;
 import com.example.ung_dung_quan_ly_san_pham.model.Type;
 import com.example.ung_dung_quan_ly_san_pham.repository.ITypeRepository;
 import com.example.ung_dung_quan_ly_san_pham.service.ITypeService;
@@ -32,4 +33,5 @@ public class TypeServiceImpl implements ITypeService {
     public boolean checkIdAvailable(Integer id) {
         return iTypeRepository.existsById(id);
     }
+
 }

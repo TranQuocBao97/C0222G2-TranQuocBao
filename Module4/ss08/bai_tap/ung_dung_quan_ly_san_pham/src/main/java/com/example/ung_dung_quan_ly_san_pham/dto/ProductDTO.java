@@ -1,16 +1,11 @@
 package com.example.ung_dung_quan_ly_san_pham.dto;
 
 import com.example.ung_dung_quan_ly_san_pham.model.Type;
-import com.example.ung_dung_quan_ly_san_pham.repository.ITypeRepository;
-import com.example.ung_dung_quan_ly_san_pham.service.ITypeService;
-import com.example.ung_dung_quan_ly_san_pham.service.impl.TypeServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import java.util.List;
 
 public class ProductDTO implements Validator {
 

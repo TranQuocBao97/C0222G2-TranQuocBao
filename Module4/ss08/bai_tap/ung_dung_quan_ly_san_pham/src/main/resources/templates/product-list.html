@@ -42,7 +42,7 @@
                 <td th:text="${product.price}"></td>
                 <td th:text="${product.getType().name}"></td>
                 <td>
-                    <a th:href="@{/product/edit-product/}">
+                    <a th:href="@{/product/edit-product/{id}(id=${product.id})}">
                         Edit
                     </a>
                 </td>

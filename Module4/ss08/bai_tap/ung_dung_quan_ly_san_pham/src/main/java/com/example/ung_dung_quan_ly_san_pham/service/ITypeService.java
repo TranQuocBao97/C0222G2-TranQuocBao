@@ -1,5 +1,6 @@
 package com.example.ung_dung_quan_ly_san_pham.service;
 
+import com.example.ung_dung_quan_ly_san_pham.model.Product;
 import com.example.ung_dung_quan_ly_san_pham.model.Type;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

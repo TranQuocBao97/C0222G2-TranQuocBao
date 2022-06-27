@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -70,5 +69,33 @@ public class ProductController {
         iProductService.deleteProduct(id);
         return "redirect:/product/list-product";
     }
+
+
+    @GetMapping("/edit-product/{id}")
+    public String displayEdit(@PathVariable Integer id,
+                              Model model){
+        Product product = iProductService.getProductById(id);
+        ProductDTO productDTO = new ProductDTO();
+        BeanUtils.copyProperties(product,productDTO);
+        model.addAttribute("productDTO",productDTO);
+        model.addAttribute("typeList",iTypeService.getAllType());
+        return "product-edit";
+    }
+
+    @PostMapping("/edit")
+    public String editProduct(@ModelAttribute("productDTO") @Valid ProductDTO productDTO,
+                                BindingResult bindingResult,
+                                Model model){
+        new ProductDTO().validate(productDTO, bindingResult);
+        if(bindingResult.hasErrors()){
+            model.addAttribute("typeList",iTypeService.getAllType());
+            return "product-edit";
+        }
+        Product product = new Product();
+        BeanUtils.copyProperties(productDTO,product);
+        iProductService.createProduct(product);
+        return "redirect:/product/list-product";
+    }
+
 
 }
