@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{home-page :: css}"></th:block>
+</head>
+<body style="background-color: black">
+
+<div th:replace="~{home-page :: header}"></div>
+
+<div th:insert="~{layout :: background}">
+    <div style="color: black">ASdaosiydqw</div>
+</div>
+</body>
+<th:block th:replace="~{home-page :: js}"></th:block>
+</html>

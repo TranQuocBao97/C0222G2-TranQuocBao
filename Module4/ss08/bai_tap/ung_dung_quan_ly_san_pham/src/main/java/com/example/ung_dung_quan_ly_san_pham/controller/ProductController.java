@@ -1,17 +1,22 @@
 package com.example.ung_dung_quan_ly_san_pham.controller;
 
+import com.example.ung_dung_quan_ly_san_pham.dto.FirstGroup;
 import com.example.ung_dung_quan_ly_san_pham.dto.ProductDTO;
 import com.example.ung_dung_quan_ly_san_pham.model.Product;
+import com.example.ung_dung_quan_ly_san_pham.repository.IProductRepository;
 import com.example.ung_dung_quan_ly_san_pham.service.IProductService;
 import com.example.ung_dung_quan_ly_san_pham.service.ITypeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -28,7 +33,7 @@ public class ProductController {
     ITypeService iTypeService;
 
     @GetMapping("/list-product")
-    public String displayListProduct(@PageableDefault(value = 2) Pageable pageable,
+    public String displayListProduct(@PageableDefault(value = 5) Pageable pageable,
                                      @RequestParam("nameSearch") Optional<String> nameSearch,
                                      @RequestParam("nameTypeSearch") Optional<String> nameTypeSearch,
                                      Model model) {
@@ -38,7 +43,6 @@ public class ProductController {
         model.addAttribute("productList", productList);
         model.addAttribute("nameSearchValue", nameSearchValue);
         model.addAttribute("nameTypeSearchValue", nameTypeSearchValue);
-
         return "product-list";
     }
 
@@ -50,7 +54,7 @@ public class ProductController {
     }
 
     @PostMapping("/creat-product")
-    public String createProduct(@ModelAttribute("productDTO") @Valid ProductDTO productDTO,
+    public String createProduct(@ModelAttribute("productDTO") @Validated() ProductDTO productDTO,
                                 BindingResult bindingResult,
                                 Model model){
         new ProductDTO().validate(productDTO, bindingResult);
@@ -97,5 +101,18 @@ public class ProductController {
         return "redirect:/product/list-product";
     }
 
+
+    @Autowired
+    IProductRepository iProductRepository;
+
+    @GetMapping("/test")
+    public String test(@RequestParam Optional<Integer> page,
+                       @RequestParam Optional<String> sortBy,
+                       Model model){
+        Page<Product> productPage = iProductRepository.findAll(PageRequest.of(page.orElse(0),2,
+                Sort.Direction.ASC,sortBy.orElse("id")));
+        model.addAttribute("productPage",productPage);
+        return "test-table";
+    }
 
 }

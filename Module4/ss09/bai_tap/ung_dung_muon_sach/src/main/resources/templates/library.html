@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{layout :: css}"></th:block>
+</head>
+<body>
+<div th:replace="~{layout :: menu}"></div>
+<table class="table table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Amount available</th>
+        <th>Go Rent</th>
+        <th>Return</th>
+    </tr>
+    <tr th:each="book :${bookList}">
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.name}"></td>
+        <td th:text="${book.amount}"></td>
+        <td>
+            <a th:href="@{/book/detail-list/{bookId}(bookId=${book.id})}">
+                Select book to rent
+            </a>
+        </td>
+        <td>
+            <a th:href="@{/book/display-return/{bookId}(bookId=${book.id})}">
+                Return this book
+            </a>
+        </td>
+    </tr>
+</table>
+
+</body>
+<th:block th:replace="~{layout :: js}"></th:block>
+</html>

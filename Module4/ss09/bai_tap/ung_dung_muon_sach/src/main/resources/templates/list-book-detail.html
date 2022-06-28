@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{layout :: css}"></th:block>
+</head>
+<body>
+<div th:replace="~{layout :: menu}"></div>
+<th:block th:replace="~{layout :: backToList}"></th:block>
+
+<table class="table table-hover">
+    <tr>
+        <th>Id rent</th>
+        <th>name</th>
+        <th>Rent</th>
+    </tr>
+    <tr th:each="detail :${detailList}" th:if="${detail.status == false}">
+        <td th:text="${detail.id}"></td>
+        <td th:text="${detail.book.name}"></td>
+        <td>
+            <form th:action="@{/book/rent/{detailId}(detailId=${detail.id})}" method="post">
+                <button type="submit">Rent this book</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+<th:block th:replace="~{layout :: js}"></th:block>
+</html>

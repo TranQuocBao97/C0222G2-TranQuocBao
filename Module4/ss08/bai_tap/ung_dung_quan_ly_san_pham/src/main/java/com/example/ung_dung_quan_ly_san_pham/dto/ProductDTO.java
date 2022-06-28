@@ -1,22 +1,30 @@
 package com.example.ung_dung_quan_ly_san_pham.dto;
 
+import com.example.ung_dung_quan_ly_san_pham.annotation_validate.ValidateProduct;
 import com.example.ung_dung_quan_ly_san_pham.model.Type;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import javax.validation.GroupSequence;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
+
+@GroupSequence({ProductDTO.class,FirstGroup.class,SecondGroup.class,ThirdGroup.class})
 public class ProductDTO implements Validator {
 
 
 
     private Integer id;
 
-    @NotBlank(message = "không được để trống hay để khoảng trắng dư")
+    @NotBlank(message = "không được để trống hay để khoảng trắng dư", groups = FirstGroup.class)
+    @Pattern(regexp = "^a$",message = "phải là a", groups = SecondGroup.class)
+    @ValidateProduct
     private String name;
 
-    @Min(value = 500, message = "Sản phẩm có giá 500 đồng trở lên")
+    @NotBlank(message = "không được để trống hay để khoảng trắng dư", groups = FirstGroup.class)
+    @Min(value = 500, message = "Sản phẩm có giá 500 đồng trở lên", groups = SecondGroup.class)
     private String price;
 
 

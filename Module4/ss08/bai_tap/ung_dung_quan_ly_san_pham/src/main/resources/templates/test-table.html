@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>PRICE</th>
+        <th>TYPE</th>
+    </tr>
+    <tr th:each="product :${productPage}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.type.name}"></td>
+    </tr>
+</table>
+<div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" th:if="${productPage.hasPrevious()}"
+                   th:href="@{/product/test(page=${productPage.number - 1})}">
+                    Previous
+                </a>
+            </li>
+            <li class="page-item" th:each="pageNo : ${#numbers.sequence(0, productPage.totalPages - 1)}">
+                <a class="page-link" th:href="@{/product/list-product(page=${pageNo})}">
+                    <span  th:text="${pageNo+1}"></span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" th:if="${productPage.hasNext()}"
+                   th:href="@{/product/test(page=${productPage.number + 1})}">
+                    Next
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+
+</body>
+</html>

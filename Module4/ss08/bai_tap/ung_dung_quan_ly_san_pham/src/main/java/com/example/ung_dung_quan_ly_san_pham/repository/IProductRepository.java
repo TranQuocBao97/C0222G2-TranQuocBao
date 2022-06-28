@@ -8,11 +8,14 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Repository
 public interface IProductRepository extends JpaRepository<Product,Integer> {
 
     Page<Product> findAllByNameContainingAndTypeNameContaining(String name, String typeName, Pageable pageable);
+
+    List<Product> findAll();
 
     Product save(Product product);
 

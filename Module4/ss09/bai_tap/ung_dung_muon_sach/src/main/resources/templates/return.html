@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{layout :: css}"></th:block>
+</head>
+<body>
+<div th:replace="~{layout :: menu}"></div>
+<th:block th:replace="~{layout :: backToList}"></th:block>
+
+
+<table th:object="${book}" class="table table-hover">
+    <tr>
+        <th>Name</th>
+        <td th:text="${book.name}"></td>
+        <td></td>
+    </tr>
+    <form th:action="@{/book/return/{bookId}(bookId=${book.id})}" method="post">
+    <tr>
+        <th>Nhập Id sách đã mượn</th>
+        <td>
+            <input type="text" placeholder="ID sách" name="detailId">
+        </td>
+        <td>
+            <button>Return book</button>
+        </td>
+    </tr>
+    </form>
+</table>
+</body>
+<th:block th:replace="~{layout :: js}"></th:block>
+</html>
