@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <th:block th:replace="~{layout :: css}"></th:block>
+</head>
+<body class="container">
+<div th:replace="~{layout :: backToList}"></div>
+
+<div>
+    <a th:href="@{/blog/addPage}">
+        <button>
+            Thêm mới
+        </button>
+    </a>
+</div>
+
+<div>
+    <form action="/blog/list/">
+        <input type="text" name="searchByName" th:value="${searchNameValue}">
+        <button type="submit">SEARCH</button>
+    </form>
+</div>
+
+<div>
+    <a href="/blog/list?sort=name,asc">
+        <button type="submit">SORT BY NAME</button>
+    </a>
+</div>
+
+
+<div>
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="blog :${blogList}">
+            <td th:text="${blog.getId()}"></td>
+            <td>
+                <a th:href="@{/blog/detail/{id}(id=${blog.getId})}" th:text="${blog.getName()}"></a>
+            </td>
+            <td th:text="${blog.getTypeBlog().name}"></td>
+            <td>
+                <a th:href="@{/blog/editPage/{id}(id=${blog.getId()})}">
+                    <button>
+                        Edit
+                    </button>
+                </a>
+            </td>
+            <td>
+                <!-- Button trigger modal -->
+                <button type="button" data-toggle="modal" th:data-target="'#exampleModal' +${blog.getId()}">
+                    Delete
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" th:id="'exampleModal' +${blog.getId()} " tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"
+                                    th:text="'Confirm Delete -> ' + ${blog.getName()} "></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Sure?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal">Close</button>
+                                <a th:href="@{/blog/delete/{id}(id=${blog.getId()})}">
+                                    <button>
+                                        Delete
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <a th:if="${blogList.hasPrevious()}"
+           th:href="@{/blog/list(page=${blogList.number - 1}, searchByName=${searchNameValue})}">
+            Previous
+        </a>
+        <span th:text="${blogList.number + 1}"></span>
+        /
+        <span th:text="${blogList.totalPages}"></span>
+        <a th:if="${blogList.hasNext()}"
+           th:href="@{/blog/list(page=${blogList.number + 1}, searchByName=${searchNameValue})}">
+            Next
+        </a>
+    </div>
+</div>
+
+
+</body>
+<th:block th:replace="~{layout :: js}"></th:block>
+</html>

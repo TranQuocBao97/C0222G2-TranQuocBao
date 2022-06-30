@@ -38,7 +38,6 @@ public class ProductController {
                             @SessionAttribute Cart cartProduct,
                             RedirectAttributes redirectAttributes) {
         Product product = iProductService.getProductById(id);
-        System.out.println(product.getName());
         if(action.equals("add")){
             cartProduct.addProduct(product);
             return "redirect:/cart/list";
