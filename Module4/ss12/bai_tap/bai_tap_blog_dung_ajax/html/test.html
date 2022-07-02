@@ -12,7 +12,7 @@
     <a class="navbar-brand">Navbar</a>
     <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchBlog">
-        <button class="btn btn-outline-success my-2 my-sm-0" >Search</button>
+        <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
     </form>
 </nav>
 <br>
@@ -26,7 +26,7 @@
     <tbody id="blogPage">
 
     </tbody>
-    <tbody id="loadMorePage">
+    <tbody id="loadMorePageArea">
 
     </tbody>
 </table>
@@ -37,25 +37,31 @@
     </ul>
 </nav>
 
-
-
 <button id="loadMore" class="btn">
     Load Per Page
 </button>
+
+<select id="selectLoad" class="btn">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+</select>
 
 </body>
 <script src="js/jquery-3.6.0.min.js"></script>
 <script>
     let totalPage = 0;
+    let linkWebServer = "http://localhost:8080/api/blogs/list5?page=";
 
-    function getPageBlog(pageNumber,name) {
+
+    function getPageBlog(pageNumber, name) {
         $.ajax({
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             type: "GET",
-            url: "http://localhost:8080/api/blogs/list?page="+pageNumber+"&name="+name,
+            url: linkWebServer + pageNumber + "&name=" + name,
             success: function (blogPage) {
                 console.log(blogPage);
                 totalPage = blogPage.totalPages;
@@ -73,20 +79,22 @@
             },
             error: function (resultError) {
                 let blogPageHTML = "";
-                blogPageHTML +=`<tr></tr>`;
+                blogPageHTML += `<tr></tr>`;
                 $("#blogPage").html(blogPageHTML)
             }
         });
     }
+
     let blogLoadPageHTML = "";
-    function getLoadMorePageBlog(pageNumber,name) {
+
+    function getLoadMorePageBlog(pageNumber, name) {
         $.ajax({
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             type: "GET",
-            url: "http://localhost:8080/api/blogs/list?page="+pageNumber+"&name="+name,
+            url: "http://localhost:8080/api/blogs/list?page=" + pageNumber + "&name=" + name,
             success: function (blogPage) {
                 console.log(blogPage);
                 totalPage = blogPage.totalPages;
@@ -99,27 +107,28 @@
                     <td>${blogPage.content[i].typeBlog.name}</td>
                 <tr>`;
                 }
-                $("#loadMorePage").html(blogLoadPageHTML)
+                $("#loadMorePageArea").html(blogLoadPageHTML)
             },
             error: function (resultError) {
                 console.log("over")
             }
         });
     }
-    let nameSearch ="";
+
+    let nameSearch = "";
     let currentPage = 0;
 
-    getPageBlog(currentPage,nameSearch);
+    getPageBlog(currentPage, nameSearch);
 
-    $(document).ready(function(){
-        $("#searchBlog").on("keyup", function() {
+    $(document).ready(function () {
+        $("#searchBlog").on("keyup", function () {
             nameSearch = $(this).val();
             currentPage = 0;
-            getPageBlog(currentPage,nameSearch);
+            getPageBlog(currentPage, nameSearch);
         });
         $("#backBlogPage").click(function () {
             if (currentPage > 0) {
-                getPageBlog(--currentPage,nameSearch);
+                getPageBlog(--currentPage, nameSearch);
             } else {
                 alert("Bạn đang ở trang đầu");
             }
@@ -127,15 +136,30 @@
 
         $("#nextBlogPage").click(function () {
             if (currentPage < totalPage - 1) {
-                getPageBlog(++currentPage,nameSearch);
+                getPageBlog(++currentPage, nameSearch);
             } else {
                 alert("Bạn đang ở cuối trang")
             }
         });
 
         $("#loadMore").click(function () {
-            getLoadMorePageBlog(++currentPage,nameSearch)
+            getLoadMorePageBlog(++currentPage, nameSearch)
         });
+
+        $("#selectLoad").on("change", function () {
+            let numberItemOnPage = $(this).val();
+            console.log(numberItemOnPage);
+            switch (numberItemOnPage) {
+                case "10":
+                    linkWebServer = "http://localhost:8080/api/blogs/list10?page=";
+                    break;
+                case "15":
+                    linkWebServer = "http://localhost:8080/api/blogs/list15?page=";
+                    break;
+            }
+            getPageBlog(currentPage, nameSearch);
+        });
+
     });
 
 

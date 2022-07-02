@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Thêm mới phone</h1>
+    <div>
+        <span>Producer:</span>
+        <input class="form-control" id="product">
+    </div>
+    <div>
+        Model:
+        <input class="form-control" id="model">
+    </div>
+    <div>
+        Price:
+        <input class="form-control" id="price">
+    </div>
+    <br>
+    <button class="btn" id="creatNewPhone">Add Phone</button>
+</div>
+
+<div class="container">
+    <h1>List Phone</h1>
+    <table class="table table-bordered-sm">
+        <tr>
+            <th>Id</th>
+            <th>Product</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tbody id="phoneList">
+
+        </tbody>
+    </table>
+</div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script>
+    function addNewSmartPhone(phoneObj) {
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "POST",
+            url: "http://localhost:8080/smartphones",
+            data: JSON.stringify(phoneObj),
+            success: function (resultSuccess) {
+                console.log(resultSuccess);
+                alert("Thêm mới thành công")
+                getPhoneList();
+            },
+            error: function (resultError) {
+                alert("Thêm mới thất bại");
+            }
+        });
+    };
+
+
+
+
+    function deletePhone(idPhone) {
+        console.log(idPhone);
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "DELETE",
+            url: "http://localhost:8080/smartphones/" + idPhone,
+            success: function (resultSuccess) {
+                alert("xóa thành công");
+                getPhoneList();
+            },
+            error: function (resultError) {
+                alert("xóa thất bại");
+            },
+
+        });
+    }
+
+    function showEditPhone(idPhoneEdit) {
+        let i = idPhoneEdit;
+        let editArea = "";
+        editArea =
+              `<td id="id${phoneListForAll[i].id}">${phoneListForAll[i].id}</td>
+              <td><input class="form-control" id="producer${phoneListForAll[i].id}" value="${phoneListForAll[i].producer}"</td>
+              <td><input class="form-control" id="model${phoneListForAll[i].id}" value="${phoneListForAll[i].model}"</td>
+              <td><input class="form-control" id="price${phoneListForAll[i].id}" value="${phoneListForAll[i].price}"</td>
+              <td>
+              <button onclick="getPhoneList()">No</button>
+              </td>
+              <td>
+              <button onclick="UpdateSmartPhone(${phoneListForAll[i].id})">Yes</button>
+              </td>`;
+        $("#row" + `${phoneListForAll[i].id}`).html(editArea);
+    };
+
+    function UpdateSmartPhone(id) {
+        let idVal = id;
+        let producerVal = $("#producer"+`${id}`).val();
+        let modelVal = $("#model"+`${id}`).val();
+        let priceVal = $("#price"+`${id}`).val();
+        let phoneObj = {
+            id: idVal,
+            producer: producerVal,
+            model: modelVal,
+            price: priceVal
+        };
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "PUT",
+            url: "http://localhost:8080/smartphones",
+            data: JSON.stringify(phoneObj),
+            success: function (resultSuccess) {
+                console.log(resultSuccess);
+                alert("Edit thành công")
+                getPhoneList();
+            },
+            error: function (resultError) {
+                alert("Edit thất bại");
+            }
+        });
+    };
+
+    let phoneListForAll = [];
+
+    function getPhoneList() {
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET",
+            url: "http://localhost:8080/smartphones/list",
+            success: function (phoneList) {
+                console.log(phoneList);
+                phoneListForAll = phoneList;
+                let phoneListHTML = "";
+                for (let i = 0; i < phoneList.length; i++) {
+                    phoneListHTML +=
+                        `<tr id="row${phoneList[i].id}">
+                            <td>${phoneList[i].id}</td>
+                            <td>${phoneList[i].producer}</td>
+                            <td>${phoneList[i].model}</td>
+                            <td>${phoneList[i].price}</td>
+                            <td>
+                                <button class="deletePhone" onclick="deletePhone(${phoneList[i].id})">Delete</button>
+                            </td>
+                            <td>
+                                <button class="editPhone" onclick="showEditPhone(${i})">Edit</button>
+                            </td>
+                        </tr>`;
+                }
+                $("#phoneList").html(phoneListHTML);
+            },
+            error: function (resultError) {
+                let blogPageHTML = "";
+                blogPageHTML += `<tr></tr>`;
+                $("#phoneList").html(phoneList);
+            }
+        })
+    };
+
+    getPhoneList();
+
+    $("document").ready(function () {
+        $("#creatNewPhone").click(function () {
+            let productVal = $("#product").val();
+            let modelVal = $("#model").val();
+            let priceVal = $("#price").val();
+
+            console.log(productVal + " " + modelVal + " " + priceVal);
+            let phoneObj = {
+                producer: productVal,
+                model: modelVal,
+                price: priceVal
+            };
+            console.log(phoneObj);
+            addNewSmartPhone(phoneObj);
+        });
+
+    })
+
+
+</script>
+</html>

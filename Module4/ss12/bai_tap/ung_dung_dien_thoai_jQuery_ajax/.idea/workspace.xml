@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2a7d5fa9-840d-49c7-b4ac-85f95c73b586" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/phone.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss05/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss05/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss09/thuc_hanh/aspect_log_quan_ly_khach_hang/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss09/thuc_hanh/aspect_log_quan_ly_khach_hang/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss09/thuc_hanh/exceptionHandler_quan_ly_khach_hang/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss09/thuc_hanh/exceptionHandler_quan_ly_khach_hang/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss09/thuc_hanh/new/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss09/thuc_hanh/new/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_tap_blog_dung_ajax/blog/src/main/java/program/blog/controllers/BlogRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_tap_blog_dung_ajax/blog/src/main/java/program/blog/controllers/BlogRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_tap_blog_dung_ajax/html/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_tap_blog_dung_ajax/html/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/program/ung_dung_dien_thoai/UngDungDienThoaiApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/program/ung_dung_dien_thoai/controller/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/program/ung_dung_dien_thoai/controller/SmartphoneController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/program/ung_dung_dien_thoai/model/Smartphone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/program/ung_dung_dien_thoai/repository/ISmartphoneRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/program/ung_dung_dien_thoai/service/ISmartphoneService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/program/ung_dung_dien_thoai/service/SmartphoneService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/phones/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/program/ung_dung_dien_thoai/UngDungDienThoaiApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2BK72l5ihsgn2rZ8soiuwlz0CNY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/CodeGym/C0222G2-TranQuocBao/Module4/ss12/bai_tap/ung_dung_dien_thoai_jQuery_ajax/ung_dung_dien_thoai",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "943f174e2718a09f0ebb15d68c6f5c52",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\CodeGym\C0222G2-TranQuocBao\Module4\ss12\thuc_hanh\ung_dung_dien_thoai\src\main\resources\templates\phone" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="ung_dung_dien_thoai" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="ung_dung_dien_thoai" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UngDungDienThoaiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="ung_dung_dien_thoai" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="program.ung_dung_dien_thoai.UngDungDienThoaiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2a7d5fa9-840d-49c7-b4ac-85f95c73b586" name="Changes" comment="" />
+      <created>1656642718908</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656642718908</updated>
+      <workItem from="1656642720079" duration="3977000" />
+      <workItem from="1656766637565" duration="341000" />
+      <workItem from="1656768965397" duration="18311000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

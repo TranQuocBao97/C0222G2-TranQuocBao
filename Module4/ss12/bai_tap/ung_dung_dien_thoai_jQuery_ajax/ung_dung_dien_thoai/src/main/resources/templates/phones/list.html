@@ -57,8 +57,14 @@
         }
 
         function getSmartphone(smartphone) {
-            return `<tr><td >${smartphone.producer}</td><td >${smartphone.model}</td><td >${smartphone.price}</td>` +
-                `<td><a class="deleteSmartphone" href="${smartphone.id}">Delete</a></td></tr>`;
+            return `<tr>
+                        <td >${smartphone.producer}</td>
+                        <td >${smartphone.model}</td>
+                        <td >${smartphone.price}</td>
+                        <td>
+                        <a class="deleteSmartphone" href="${smartphone.id}">Delete</a>
+                        </td>
+                     </tr>`;
         }
 
         $(document).ready(function () {

@@ -24,15 +24,6 @@ public class BlogRestController {
     @Autowired
     private IBlogService iBlogService;
 
-//    @GetMapping("/list")
-//    public ResponseEntity<Page<Blog>> getPageBlog(@PageableDefault(value = 5) Pageable pageable) {
-//        Page<Blog> blogPage = iBlogService.getAllBlog(pageable);
-//        if (!blogPage.hasContent()) {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//        return new ResponseEntity<>(blogPage, HttpStatus.OK);
-//    }
-
     @GetMapping("/list")
     public ResponseEntity<Page<Blog>> showListWithPage(@PageableDefault(value = 5) Pageable pageable,
                                                        @RequestParam Optional<String> name) {
@@ -43,6 +34,37 @@ public class BlogRestController {
         }
         return new ResponseEntity<>(blogPage, HttpStatus.OK);
     }
+    @GetMapping("/list5")
+    public ResponseEntity<Page<Blog>> show5ListWithPage(@PageableDefault(value = 5) Pageable pageable,
+                                                       @RequestParam Optional<String> name) {
+        String searchNameValue = name.orElse("");
+        Page<Blog> blogPage = this.iBlogService.getAllBlogByName("%" + searchNameValue + "%", pageable);
+        if (!blogPage.hasContent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(blogPage, HttpStatus.OK);
+    }
+    @GetMapping("/list10")
+    public ResponseEntity<Page<Blog>> show10ListWithPage(@PageableDefault(value = 10) Pageable pageable,
+                                                        @RequestParam Optional<String> name) {
+        String searchNameValue = name.orElse("");
+        Page<Blog> blogPage = this.iBlogService.getAllBlogByName("%" + searchNameValue + "%", pageable);
+        if (!blogPage.hasContent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(blogPage, HttpStatus.OK);
+    }
+    @GetMapping("/list15")
+    public ResponseEntity<Page<Blog>> show15ListWithPage(@PageableDefault(value = 15) Pageable pageable,
+                                                         @RequestParam Optional<String> name) {
+        String searchNameValue = name.orElse("");
+        Page<Blog> blogPage = this.iBlogService.getAllBlogByName("%" + searchNameValue + "%", pageable);
+        if (!blogPage.hasContent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(blogPage, HttpStatus.OK);
+    }
+
 
     @GetMapping("/blog/{id}")
     public ResponseEntity<Blog> getPageById(@PathVariable("id") Integer id) {
