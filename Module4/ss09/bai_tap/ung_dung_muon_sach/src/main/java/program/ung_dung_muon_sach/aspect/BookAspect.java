@@ -25,30 +25,31 @@ public class BookAspect {
         System.err.println("Đã vô method : " + methodName + " .Thuộc class " + className);
     }
 
-    @Before("execution(public * program.ung_dung_muon_sach.controller.BookController.displayListBook(..))")
+    @Before("execution(public * program.ung_dung_muon_sach.controller.BookController.displayListBook(..)) ||" +
+            " execution(public * program.ung_dung_muon_sach.controller.BookController.displayListBookDetail(..)) ||" +
+            " execution(public * program.ung_dung_muon_sach.controller.BookController.displayReturnPage(..))")
     public void CountViewByDisplayListBook(JoinPoint joinPoint){
         String methodName = joinPoint.getSignature().getName();
         String className = joinPoint.getTarget().getClass().getSimpleName();
         iCountViewRepository.add1view();
-        System.err.println("Đã có ngưởi ghé thăm library thông qua method "  + methodName + " .Thuộc class " + className);
-    }
-    @Before("execution(public * program.ung_dung_muon_sach.controller.BookController.displayListBookDetail(..))")
-    public void CountViewByDisplayRent(JoinPoint joinPoint){
-        String methodName = joinPoint.getSignature().getName();
-        String className = joinPoint.getTarget().getClass().getSimpleName();
-        iCountViewRepository.add1view();
-        System.err.println("Đã có ngưởi ghé thăm rent thông qua method "  + methodName + " .Thuộc class " + className);
+        System.err.println("Đã có ngưởi ghé thăm thông qua method "  + methodName + " .Thuộc class " + className);
     }
 
-    @Before("execution(public * program.ung_dung_muon_sach.controller.BookController.displayReturnPage(..))")
-    public void displayReturnPage(JoinPoint joinPoint){
-        String methodName = joinPoint.getSignature().getName();
-        String className = joinPoint.getTarget().getClass().getSimpleName();
-        iCountViewRepository.add1view();
-        System.err.println("Đã có ngưởi ghé thăm return thông qua method "  + methodName + " .Thuộc class " + className);
-    }
-
-
+//    @Before("execution(public * program.ung_dung_muon_sach.controller.BookController.displayListBookDetail(..))")
+//    public void CountViewByDisplayRent(JoinPoint joinPoint){
+//        String methodName = joinPoint.getSignature().getName();
+//        String className = joinPoint.getTarget().getClass().getSimpleName();
+//        iCountViewRepository.add1view();
+//        System.err.println("Đã có ngưởi ghé thăm rent thông qua method "  + methodName + " .Thuộc class " + className);
+//    }
+//
+//    @Before("execution(public * program.ung_dung_muon_sach.controller.BookController.displayReturnPage(..))")
+//    public void displayReturnPage(JoinPoint joinPoint){
+//        String methodName = joinPoint.getSignature().getName();
+//        String className = joinPoint.getTarget().getClass().getSimpleName();
+//        iCountViewRepository.add1view();
+//        System.err.println("Đã có ngưởi ghé thăm return thông qua method "  + methodName + " .Thuộc class " + className);
+//    }
 
     @AfterReturning(pointcut = "execution(public * program.ung_dung_muon_sach.controller.BookController.*(..))")
     public void logBookAfterReturningHistory(JoinPoint joinPoint){

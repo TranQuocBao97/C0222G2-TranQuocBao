@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand">Navbar</a>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchBlog">
+        <button class="btn btn-outline-success my-2 my-sm-0" >Search</button>
+    </form>
+</nav>
+<br>
+<table class="table table-hover table-sm table-success">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Content</th>
+        <th>Type Block</th>
+    </tr>
+    <tbody id="blogPage">
+
+    </tbody>
+    <tbody id="loadMorePage">
+
+    </tbody>
+</table>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" id="backBlogPage">Previous</a></li>
+        <li class="page-item"><a class="page-link" id="nextBlogPage">Next</a></li>
+    </ul>
+</nav>
+
+
+
+<button id="loadMore" class="btn">
+    Load Per Page
+</button>
+
+</body>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+    let totalPage = 0;
+
+    function getPageBlog(pageNumber,name) {
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET",
+            url: "http://localhost:8080/api/blogs/list?page="+pageNumber+"&name="+name,
+            success: function (blogPage) {
+                console.log(blogPage);
+                totalPage = blogPage.totalPages;
+                let blogPageHTML = "";
+                for (let i = 0; i < (blogPage.content.length); i++) {
+                    blogPageHTML +=
+                        `<tr>
+                    <td>${blogPage.content[i].id}</td>
+                    <td>${blogPage.content[i].name}</td>
+                    <td>${blogPage.content[i].content}</td>
+                    <td>${blogPage.content[i].typeBlog.name}</td>
+                <tr>`;
+                }
+                $("#blogPage").html(blogPageHTML)
+            },
+            error: function (resultError) {
+                let blogPageHTML = "";
+                blogPageHTML +=`<tr></tr>`;
+                $("#blogPage").html(blogPageHTML)
+            }
+        });
+    }
+    let blogLoadPageHTML = "";
+    function getLoadMorePageBlog(pageNumber,name) {
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET",
+            url: "http://localhost:8080/api/blogs/list?page="+pageNumber+"&name="+name,
+            success: function (blogPage) {
+                console.log(blogPage);
+                totalPage = blogPage.totalPages;
+                for (let i = 0; i < (blogPage.content.length); i++) {
+                    blogLoadPageHTML +=
+                        `<tr>
+                    <td>${blogPage.content[i].id}</td>
+                    <td>${blogPage.content[i].name}</td>
+                    <td>${blogPage.content[i].content}</td>
+                    <td>${blogPage.content[i].typeBlog.name}</td>
+                <tr>`;
+                }
+                $("#loadMorePage").html(blogLoadPageHTML)
+            },
+            error: function (resultError) {
+                console.log("over")
+            }
+        });
+    }
+    let nameSearch ="";
+    let currentPage = 0;
+
+    getPageBlog(currentPage,nameSearch);
+
+    $(document).ready(function(){
+        $("#searchBlog").on("keyup", function() {
+            nameSearch = $(this).val();
+            currentPage = 0;
+            getPageBlog(currentPage,nameSearch);
+        });
+        $("#backBlogPage").click(function () {
+            if (currentPage > 0) {
+                getPageBlog(--currentPage,nameSearch);
+            } else {
+                alert("Bạn đang ở trang đầu");
+            }
+        });
+
+        $("#nextBlogPage").click(function () {
+            if (currentPage < totalPage - 1) {
+                getPageBlog(++currentPage,nameSearch);
+            } else {
+                alert("Bạn đang ở cuối trang")
+            }
+        });
+
+        $("#loadMore").click(function () {
+            getLoadMorePageBlog(++currentPage,nameSearch)
+        });
+    });
+
+
+</script>
+</body>
+</html>

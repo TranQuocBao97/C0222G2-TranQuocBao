@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<p>click "hide" to hide, "show" to show</p>
+<button id="hide">
+    hide
+</button>
+<button id="show">
+    show
+</button>
+
+</body>
+<script>
+    $(document).ready(function (){
+        $("#hide").click(function (){
+            $("p").hide();
+        });
+        $("#show").click(function (){
+            $("P").show();
+        });
+    });
+</script>
+</html>
