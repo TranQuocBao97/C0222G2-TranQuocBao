@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="46625066-7849-4852-b84a-cb6ae7ec39c4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/java/program/security/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/java/program/security/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/java/program/security/controller/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/java/program/security/model/AppRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/java/program/security/model/AppUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/java/program/security/model/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/java/program/security/repository/AppUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/java/program/security/repository/UserRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/java/program/security/service/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/java/program/security/util/WebUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/resources/templates/403Page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/resources/templates/_menu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/resources/templates/adminPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/resources/templates/loginPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/resources/templates/logoutSuccessfulPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/resources/templates/userInfoPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security/security/src/main/resources/templates/welcomePage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss14/thuc_hanh/thuc_hanh_spring_security/src/main/java/program/thuc_hanh_spring_security/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss14/thuc_hanh/thuc_hanh_spring_security/src/main/java/program/thuc_hanh_spring_security/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss14/thuc_hanh/thuc_hanh_spring_security/src/main/java/program/thuc_hanh_spring_security/security/SecurityInit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss14/thuc_hanh/thuc_hanh_spring_security/src/main/resources/templates/admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss14/thuc_hanh/thuc_hanh_spring_security/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss14/thuc_hanh/thuc_hanh_spring_security/src/main/resources/templates/user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/java/com/example/phan_quyen_vai_tro/configuration/CustomSuccessHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/java/com/example/phan_quyen_vai_tro/controller/SecurityController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/java/com/example/phan_quyen_vai_tro/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/java/com/example/phan_quyen_vai_tro/security/SecurityInit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/resources/templates/access-denied.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/resources/templates/admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/resources/templates/dba.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/resources/templates/welcome.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/spring_security_jSON_web_token/src/main/java/com/example/spring_security_json_web_token/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/spring_security_jSON_web_token/src/main/java/com/example/spring_security_json_web_token/config/SecurityInit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/spring_security_jSON_web_token/src/main/java/com/example/spring_security_json_web_token/controller/BaseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/spring_security_jSON_web_token/src/main/java/com/example/spring_security_json_web_token/controller/UserRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/spring_security_jSON_web_token/src/main/java/com/example/spring_security_json_web_token/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/spring_security_jSON_web_token/src/main/java/com/example/spring_security_json_web_token/rest/CustomAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/spring_security_jSON_web_token/src/main/java/com/example/spring_security_json_web_token/rest/JwtAuthenticationTokenFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/spring_security_jSON_web_token/src/main/java/com/example/spring_security_json_web_token/rest/RestAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/spring_security_jSON_web_token/src/main/java/com/example/spring_security_json_web_token/service/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/spring_security_jSON_web_token/src/main/java/com/example/spring_security_json_web_token/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/configuration/CustomAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/configuration/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/configuration/RestAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/configuration/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/configuration/SecurityInit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/model/JwtResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/model/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/model/UserPrinciple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/repository/IRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/repository/IUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/service/IGeneralService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/service/jwt/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/service/role/IRoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/service/role/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/service/user/IUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/java/program/xay_dung_jwt/service/user/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss15/thuc_hanh/xay_dung_jwt/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss05/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../ss05/thuc_hanh/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss09/thuc_hanh/aspect_log_quan_ly_khach_hang/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../ss09/thuc_hanh/aspect_log_quan_ly_khach_hang/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss09/thuc_hanh/exceptionHandler_quan_ly_khach_hang/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../ss09/thuc_hanh/exceptionHandler_quan_ly_khach_hang/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss09/thuc_hanh/new/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../ss09/thuc_hanh/new/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/bai_tap/bai_tap_blog_dung_ajax/blog/src/main/java/program/blog/model/Blog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12/bai_tap/bai_tap_blog_dung_ajax/blog/src/main/java/program/blog/model/Blog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/bai_tap/ung_dung_dien_thoai_jQuery_ajax/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12/bai_tap/ung_dung_dien_thoai_jQuery_ajax/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12/bai_tap/ung_dung_dien_thoai_jQuery_ajax/html/phone.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12/bai_tap/ung_dung_dien_thoai_jQuery_ajax/html/phone.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/ung_dung_khach_san">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/ung_dung_khach_san">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ung_dung_khach_san" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ung_dung_khach_san" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ung_dung_khach_san" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2BUZQAT673F6yC8l4iRChmE2ejR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/CodeGym/C0222G2-TranQuocBao/Module4/case study/ung_dung_khach_san"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="46625066-7849-4852-b84a-cb6ae7ec39c4" name="Changes" comment="" />
+      <created>1656962605620</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656962605620</updated>
+      <workItem from="1656962606797" duration="75000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

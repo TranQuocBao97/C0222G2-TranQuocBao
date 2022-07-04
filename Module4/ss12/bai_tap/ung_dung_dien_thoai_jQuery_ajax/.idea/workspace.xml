@@ -5,32 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a7d5fa9-840d-49c7-b4ac-85f95c73b586" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/phone.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/java/program/security/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/java/program/security/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/java/program/security/controller/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/java/program/security/model/AppRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/java/program/security/model/AppUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/java/program/security/model/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/java/program/security/repository/AppUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/java/program/security/repository/UserRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/java/program/security/service/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/java/program/security/util/WebUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/resources/templates/403Page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/resources/templates/_menu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/resources/templates/adminPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/resources/templates/loginPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/resources/templates/logoutSuccessfulPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/resources/templates/userInfoPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../spring_security/security/src/main/resources/templates/welcomePage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss14/thuc_hanh/thuc_hanh_spring_security/src/main/java/program/thuc_hanh_spring_security/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss14/thuc_hanh/thuc_hanh_spring_security/src/main/java/program/thuc_hanh_spring_security/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss14/thuc_hanh/thuc_hanh_spring_security/src/main/java/program/thuc_hanh_spring_security/security/SecurityInit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss14/thuc_hanh/thuc_hanh_spring_security/src/main/resources/templates/admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss14/thuc_hanh/thuc_hanh_spring_security/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss14/thuc_hanh/thuc_hanh_spring_security/src/main/resources/templates/user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/java/com/example/phan_quyen_vai_tro/configuration/CustomSuccessHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/java/com/example/phan_quyen_vai_tro/controller/SecurityController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/java/com/example/phan_quyen_vai_tro/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/java/com/example/phan_quyen_vai_tro/security/SecurityInit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/resources/templates/access-denied.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/resources/templates/admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/resources/templates/dba.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss15/thuc_hanh/phan_quyen_vai_tro/src/main/resources/templates/welcome.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss15/thuc_hanh/spring_security_jSON_web_token/src/main/java/com/example/spring_security_json_web_token/controller/BaseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss15/thuc_hanh/spring_security_jSON_web_token/src/main/java/com/example/spring_security_json_web_token/controller/UserRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss15/thuc_hanh/spring_security_jSON_web_token/src/main/java/com/example/spring_security_json_web_token/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss15/thuc_hanh/spring_security_jSON_web_token/src/main/java/com/example/spring_security_json_web_token/service/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss15/thuc_hanh/spring_security_jSON_web_token/src/main/java/com/example/spring_security_json_web_token/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss05/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss05/thuc_hanh/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss09/thuc_hanh/aspect_log_quan_ly_khach_hang/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss09/thuc_hanh/aspect_log_quan_ly_khach_hang/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss09/thuc_hanh/exceptionHandler_quan_ly_khach_hang/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss09/thuc_hanh/exceptionHandler_quan_ly_khach_hang/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss09/thuc_hanh/new/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss09/thuc_hanh/new/customer-management" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bai_tap_blog_dung_ajax/blog/src/main/java/program/blog/controllers/BlogRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_tap_blog_dung_ajax/blog/src/main/java/program/blog/controllers/BlogRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bai_tap_blog_dung_ajax/html/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_tap_blog_dung_ajax/html/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/program/ung_dung_dien_thoai/UngDungDienThoaiApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/program/ung_dung_dien_thoai/controller/HomeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/program/ung_dung_dien_thoai/controller/SmartphoneController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/program/ung_dung_dien_thoai/model/Smartphone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/program/ung_dung_dien_thoai/repository/ISmartphoneRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/program/ung_dung_dien_thoai/service/ISmartphoneService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/program/ung_dung_dien_thoai/service/SmartphoneService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/phones/list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/program/ung_dung_dien_thoai/UngDungDienThoaiApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_tap_blog_dung_ajax/blog/src/main/java/program/blog/model/Blog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_tap_blog_dung_ajax/blog/src/main/java/program/blog/model/Blog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/phone.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/phone.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,22 +89,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/CodeGym/C0222G2-TranQuocBao/Module4/ss12/bai_tap/ung_dung_dien_thoai_jQuery_ajax/ung_dung_dien_thoai",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "943f174e2718a09f0ebb15d68c6f5c52",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/CodeGym/C0222G2-TranQuocBao/Module4/ss12/bai_tap/ung_dung_dien_thoai_jQuery_ajax/ung_dung_dien_thoai&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;943f174e2718a09f0ebb15d68c6f5c52&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\CodeGym\C0222G2-TranQuocBao\Module4\ss12\thuc_hanh\ung_dung_dien_thoai\src\main\resources\templates\phone" />
@@ -108,7 +125,10 @@
       </method>
     </configuration>
     <configuration name="UngDungDienThoaiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="ung_dung_dien_thoai" />
+      <option name="ACTIVE_PROFILES" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="ung_dung_dien_thoai_jQuery_ajax" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="program.ung_dung_dien_thoai.UngDungDienThoaiApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -126,6 +146,8 @@
       <workItem from="1656642720079" duration="3977000" />
       <workItem from="1656766637565" duration="341000" />
       <workItem from="1656768965397" duration="18311000" />
+      <workItem from="1656897464020" duration="106000" />
+      <workItem from="1656921853682" duration="173000" />
     </task>
     <servers />
   </component>

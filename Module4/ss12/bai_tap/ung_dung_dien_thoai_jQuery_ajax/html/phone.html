@@ -72,8 +72,6 @@
     };
 
 
-
-
     function deletePhone(idPhone) {
         console.log(idPhone);
         $.ajax({
@@ -94,22 +92,7 @@
         });
     }
 
-    function showEditPhone(idPhoneEdit) {
-        let i = idPhoneEdit;
-        let editArea = "";
-        editArea =
-              `<td id="id${phoneListForAll[i].id}">${phoneListForAll[i].id}</td>
-              <td><input class="form-control" id="producer${phoneListForAll[i].id}" value="${phoneListForAll[i].producer}"</td>
-              <td><input class="form-control" id="model${phoneListForAll[i].id}" value="${phoneListForAll[i].model}"</td>
-              <td><input class="form-control" id="price${phoneListForAll[i].id}" value="${phoneListForAll[i].price}"</td>
-              <td>
-              <button onclick="getPhoneList()">No</button>
-              </td>
-              <td>
-              <button onclick="UpdateSmartPhone(${phoneListForAll[i].id})">Yes</button>
-              </td>`;
-        $("#row" + `${phoneListForAll[i].id}`).html(editArea);
-    };
+
 
     function UpdateSmartPhone(id) {
         let idVal = id;
@@ -178,6 +161,23 @@
                 $("#phoneList").html(phoneList);
             }
         })
+    };
+
+    function showEditPhone(idPhoneEdit) {
+        let i = idPhoneEdit;
+        let editArea = "";
+        editArea =
+            `<td id="id${phoneListForAll[i].id}">${phoneListForAll[i].id}</td>
+              <td><input class="form-control" id="producer${phoneListForAll[i].id}" value="${phoneListForAll[i].producer}"</td>
+              <td><input class="form-control" id="model${phoneListForAll[i].id}" value="${phoneListForAll[i].model}"</td>
+              <td><input class="form-control" id="price${phoneListForAll[i].id}" value="${phoneListForAll[i].price}"</td>
+              <td>
+              <button onclick="getPhoneList()">No</button>
+              </td>
+              <td>
+              <button onclick="UpdateSmartPhone(${phoneListForAll[i].id})">Yes</button>
+              </td>`;
+        $("#row" + `${phoneListForAll[i].id}`).html(editArea);
     };
 
     getPhoneList();
