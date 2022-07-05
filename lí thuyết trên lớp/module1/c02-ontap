@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    // <!--    abcdabcd-->
+    // let str = prompt("Nhập chuỗi str: ");
+    // let arr = str.split("");
+    // console.log(arr);
+    //
+    // function isPalindrome(array) {
+    //     // [ a, b, c, a] -> [b , c]
+    //     // Nếu mảng có độ dài < 2 -> return true tức là mảng đối xứng.
+    //     if (array.length < 2) {
+    //         console.log("Đúng")
+    //         return true;
+    //     } else {
+    //         // Nếu phần tử đầu và cuối = nhau thì xóa cả 2 và gọi lại hàm.
+    //         if (array[0] === array[array.length - 1]) {
+    //             array.pop();
+    //             array.shift();
+    //             console.log("Mảng sau mỗi lần so sánh: " + array)
+    //             // Khi gọi lại hàm thì phải có return để dừng hàm cũ.
+    //             return isPalindrome(array);
+    //         } else {
+    //             console.log("Test");
+    //             return false;
+    //         }
+    //     }
+    // }
+    // console.log("Kết quả:" + isPalindrome(arr));
+
+    // let arr = [1,4,3,5,4,6,7,8,9];
+    //
+    // // forEach: Dùng dể duyệt mảng ~ tương tự for of
+    // arr.forEach( x => {
+    //     console.log(x);
+    // } ) ;
+    //
+    // // Trả về 1 mảng mới, có thể thay đổi giá trị của các phần tử
+    // let newArr =  arr.map( x => {
+    //     x = x * 2;
+    //     return x ;
+    // })
+    // console.log(newArr);
+    //
+    // // Trả về mảng mới, có thể lọc các phần tử theo điều kiện
+    // let newArr2 = arr.filter( x => {
+    //     return x > 5;
+    // });
+    // console.log(newArr2);
+    //
+    // function a() {
+    //     console.log("a");
+    // }
+    // function b(){
+    //     console.log("b");
+    // }
+    // // Hàm setTimout : Trì hoãn hàm hoạt động 1 khoảng thời gian truyền vào.
+    // setTimeout( a , 3000 );
+    // b();
+    // // Hàm setInterval : GỌi hàm lặp đi lặp lại mỗi 1 khoảng thời gian truyền vào .
+    // setInterval( a , 1000) ;
+
+
+
+
+
+</script>
+</html>

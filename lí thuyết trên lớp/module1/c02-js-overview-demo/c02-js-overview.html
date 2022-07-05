@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<!-Viết mã JS ngay trong ther html&ndash;&gt;-->
+<!--    <button onclick="alert('Hello World!')">Click</button>-->
+<label>Nhập tên: </label><input type="text" id="name" >
+<button onclick="hello()">Click me</button>
+<div id="result1"> Kết quả innerText: </div>
+<div id="result2"> Kết quả innerHTML: </div>
+
+
+<script>
+    // Hàm xuất
+    // alert()          :  Hiển thị thông báo cho người dùng theo dạng popup.
+    // document.write() :
+    // console.log()    : Hiển thị ở cửa sổ console .
+    // innerText        : Hiển thị thông tin theo định dạng là Text
+    // innerHTML        : Hiển thị thông tin theo định dạng là HTML
+
+    // Hàm nhập
+    // prompt()         : Hiển thị 1 popup cho người dùng nhập dữ liệu vào.
+    // document.getElementById("id của thẻ html").value ;
+    // confirm()        : Trả về giá trị là True / False
+
+
+    function xacNhan() {
+        let check = confirm("Bạn có chắc không?");
+        document.write(check);
+    }
+
+
+    function hi() {
+        let ten = document.getElementById("name").value ;
+
+        document.getElementById("result1").innerText = "<h1> Xin chào " + ten + "</h1>";
+        document.getElementById("result2").innerHTML = "<h1> Xin chào " + ten + "</h1>";
+
+        // document.write("Xin chào " + ten);
+        // console.log(ten);
+    }
+
+    // Break point
+    function hello() {
+        let math = prompt("Nhập điểm toán: ");
+        let physical = prompt("Nhập điểm lý: ");
+        let chemistry = prompt("Nhập điểm hóa: ");
+        document.write("<h1>" + math + "</h1>");
+        document.write("<br>");
+        document.write(physical);
+        document.write("<br>");
+        document.write(chemistry);
+    }
+
+
+</script>
+<!--<script src="c02-js.js">-->
+<!--</script>-->
+</body>
+</html>

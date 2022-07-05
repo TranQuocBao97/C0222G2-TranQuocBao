@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <input id="motorId" placeholder="Nhập số ID :" >
+    <input id="motorName" placeholder="Nhập tên xe :">
+    <input id="motorPrice" placeholder="Nhập giá xe :">
+    <input id="motorCc" placeholder="Nhập phân khối xe :">
+    <input type="button" onclick="addMotor()" value="Thêm">
+</div>
+<div id="showScreen"></div>
+<script>
+    class MotorList {
+        constructor(id, motorName, price, cc) {
+            this.id = id;
+            this.motorName = motorName;
+            this.price = price;
+            this.cc = cc;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        getMotorName() {
+            return this.motorName;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        getCc() {
+            return this.cc;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        setMotorName(motorName) {
+            this.motorName = motorName;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+
+        setCc(cc) {
+            this.cc = cc;
+        }
+
+    }
+
+    let motor = [];
+    motor[0] = new MotorList(1242, "Honda Air Black", 40, 125);
+    motor[1] = new MotorList(2353, "Yamaha 135 KSK", 20, 100);
+    motor[2] = new MotorList(5364, "Suzuki 175 GLM", 50, 170);
+
+    //hiển thị bảng
+    display();
+    function display() {
+        let screen = '';
+        screen += '<table border="1" style="border-collapse: collapse;table-layout: fixed">\n' +
+            '    <tr>\n' +
+            '        <td>STT</td>\n' +
+            '        <td>ID</td>\n' +
+            '        <td>Tên Xe</td>\n' +
+            '        <td>Giá(triệu đồng)</td>\n' +
+            '        <td>Phân Khối(cc)</td>\n' +
+            '        <td></td>\n' +
+            '        <td></td>\n' +
+            '    </tr>'
+        for (let i = 0; i < motor.length; i++) {
+            screen += '<div id="forFix'+i+'">' +
+                '<tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td id="fixId'+i+'">' + motor[i].getId() + '</td>\n' +
+                '        <td id="fixMotorName'+i+'">' + motor[i].getMotorName() + '</td>\n' +
+                '        <td id="fixPrice'+i+'">' + motor[i].getPrice() + '</td>\n' +
+                '        <td id="fixCc'+i+'">' + motor[i].getCc() + '</td>\n' +
+                '        <td id="buttonFix'+i+'"><input onclick="fixMotor('+i+')" type="button" value="Sửa"></td>\n' +
+                '        <td id="buttonRemove'+i+'"><input onclick="removeMotor('+i+')" type="button" value="Xóa" ></td>\n' +
+                '    </tr>'+
+                    '</div>'
+        }
+        screen += '</table>'
+        document.getElementById('showScreen').innerHTML=screen;
+    }
+
+    function addMotor() {
+
+        let motorId = document.getElementById('motorId').value;
+        let motorName = document.getElementById('motorName').value;
+        let motorPrice = document.getElementById('motorPrice').value;
+        let motorCc = document.getElementById('motorCc').value;
+        let motorNew = new MotorList(motorId,motorName,motorPrice,motorCc);
+        if(checkValue(motorId,motorName,motorPrice,motorCc)===false){
+            return;
+        }
+        motor.push(motorNew);
+        document.getElementById('motorId').value="";
+        document.getElementById('motorName').value="";
+        document.getElementById('motorPrice').value="";
+        document.getElementById('motorCc').value="";
+        display();
+    }
+
+    function removeMotor(value) {
+        if(confirm('Bạn có muốn xóa giữ liệu của xe có ID là: ')){
+            motor.splice(value,1);
+            display();
+        }
+    }
+    
+    function fixMotor(value) {
+
+        let change1 = '<input id="id" type=\"text\" value=\"' + motor[value].getId() + '\" >'
+        document.getElementById('fixId'+value+'').innerHTML=change1;
+        let change2 = '<input id="name" type=\"text\" value=\"' + motor[value].getMotorName() + '\" >'
+        document.getElementById('fixMotorName'+value+'').innerHTML=change2;
+        let change3 = '<input id="price" type=\"text\" value=\"' + motor[value].getPrice() + '\" >'
+        document.getElementById('fixPrice'+value+'').innerHTML=change3;
+        let change4 = '<input id="cc" type=\"text\" value=\"' + motor[value].getCc() + '\" >'
+        document.getElementById('fixCc'+value+'').innerHTML=change4;
+        let change5 = '<input onclick="confirmChange('+value+')" type="button" value="Đồng ý">'
+        document.getElementById('buttonFix'+value+'').innerHTML=change5;
+        let change6 = '<input onclick="cancelChange('+value+')" type="button" value="Hủy">'
+        document.getElementById('buttonRemove'+value+'').innerHTML=change6;
+
+                //   <td id="id"><input type="text" value="' + motor[value].getId() + '" ></td>\n
+                // <td id="name"><input type="text" value="' + motor[value].getMotorName() + '" ></td>\n' +
+                // <td id="price"><input type="text" value="' + motor[value].getPrice() + '" ></td>\n' +
+                // <td id="cc"><input type="text" value="' + motor[value].getCc() + '" ></td>\n' +
+
+
+    }
+
+    function cancelChange() {
+        display()
+    }
+
+    function confirmChange(value) {
+        let conf = confirm('bạn có đồng ý thay đổi số liệu của xe có id là '+motor[value].getId());
+        if(conf){
+            let newIdChange = document.getElementById('id').value;
+            let newMotorNameChange = document.getElementById('name').value;
+            let newPriceChange = document.getElementById('price').value;
+            let newCcChange = document.getElementById('cc').value;
+            if(checkValue(newIdChange,newMotorNameChange,newPriceChange,newCcChange)){
+                motor[value].setId(newIdChange);
+                motor[value].setMotorName(newMotorNameChange);
+                motor[value].setPrice(newPriceChange);
+                motor[value].setCc(newCcChange);
+                display();
+            }else{
+                display();
+            }
+        }else{
+            display();
+        }
+    }
+
+    function checkValue(motorId,motorName,motorPrice,motorCc) {
+        if(motorId==="" || motorName==="" || motorPrice==="" || motorCc===""){
+            alert('vui lòng nhập đủ giá trị');
+            return false;
+        }
+        if(isNaN(motorId) || motorId<1000 || motorId>10000){
+            alert('vui lòng nhập số ở mục ID (1000->10000)');
+            return false;
+        }
+        if(isNaN(motorPrice || motorPrice>10 || motorPrice<1000)){
+            alert('vui lòng nhập số ở mục giá xe (10tr->1000tr)');
+            return false;
+        }
+        if(isNaN(motorCc) || motorCc<75 || motorCc>1000){
+            alert('vui lòng nhập số ở mục phân khối (75->1000)');
+            return false;
+        }
+        return true;
+    }
+
+</script>
+</body>
+</html>

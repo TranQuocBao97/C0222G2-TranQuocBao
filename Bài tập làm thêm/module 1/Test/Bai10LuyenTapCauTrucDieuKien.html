@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let earning = parseFloat(prompt('Thu nhập của bạn là (K-vnđ): '));
+    let tex = '';
+    if (earning<10000){
+        tex=earning*0.1;
+        alert('Thuế bạn phải trả là 10% =  ' + tex);
+    }else if(earning<20000){
+        tex=earning*0.2;
+        alert('Thuế bạn phải trả là 20% =  ' + tex);
+    }else{
+        tex=earning*0.25;
+        alert('Thuế bạn phải trả là 25% =  ' + tex);
+    }
+</script>
+</body>
+</html>

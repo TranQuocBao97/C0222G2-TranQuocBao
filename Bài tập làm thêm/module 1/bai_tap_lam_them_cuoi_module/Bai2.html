@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str1 = 'object     Oriented     programming ';
+    let str2 = 'ObjectOriented';
+    document.write(changeString(str1));
+    document.write('<br>');
+    document.write(changeString(str2));
+
+    function changeString(str) {
+        let arr1 = str.toLowerCase().split(" ");
+        let arr2 = [];
+        let j = 0;
+        console.log(arr1)
+        if (arr1.length === 1) {
+            return 'chuỗi này chỉ có 1 từ, nên ko cần viết tắt'
+        } else {
+            for (let i = 0; i < arr1.length; i++) {
+                if (arr1[i] === "") {
+                    continue;
+                }
+                arr2[j] = arr1[i];
+                j++
+            }
+            console.log(arr2);
+            for (let i = 0; i < arr2.length; i++) {
+                arr2[i] = arr2[i][0].toUpperCase();
+            }
+            console.log(arr2 + ' checked')
+            let string = '';
+            for (let i = 0; i < arr2.length; i++) {
+                string += arr2[i] + '';
+            }
+            console.log(string);
+            return string;
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

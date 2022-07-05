@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+
+      let english =["hello","you","he"];
+      let france =["bongsua","you1","he1"];
+      let vietnames =["xin chào","bạn","cậu ấy"];
+
+      traTu("bongsua",france,vietnames);
+
+      function traTu(word) {
+          let index=-1; // quy định cho cho nó
+          for (let i = 0; i <english.length ; i++) {
+              if (word==english[i]){
+                   index=i;
+                  break;
+              }
+          }
+          if (index==-1){
+              alert("không tìm thấy")
+          }else {
+              alert("Nghĩa của từ "+ word + "là : " + vietnames[index]);
+          }
+      }
+
+
+      function traTu(word,tuDienGoc,tuDienNghia) {
+          let index= tuDienGoc.indexOf(word);
+          if (index==-1){
+              alert("không tìm thấy")
+          }else {
+              alert("Nghĩa của từ "+ word + "là : " + tuDienNghia[index]);
+          }
+      }
+
+      // mảng 2 chiều
+      // mảng bất kỳ
+      // viết hàm có tham số truyền vào là một cái mảng 1 chiều
+      // function sum(arr){
+      //
+      // }
+      // hàm sẽ trả về một mảng => return arr1 ( arr1 chứa tất cả các số là fibonaci chưa trong mảng arr).
+
+  </script>
+</body>
+</html>

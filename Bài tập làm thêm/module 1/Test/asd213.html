@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            background-color: #e1e5e1;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12" style="text-align: center;font-size: 50px">
+            Quản Lí Danh Sách Laptop
+        </div>
+    </div>
+    <br>
+    <div class="row">
+
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-1"><label for="addId"></label><input class="form-control" type="text" id="addId"
+                                                             placeholder="Nhập ID"
+                                                             style="width: 100%"></div>
+        <div class="col-2"><label for="addName"></label><input class="form-control" type="text" id="addName"
+                                                               placeholder="Nhập tên sản phẩm"
+                                                               style="width: 100%"></div>
+        <div class="col-2"><label for="addFactory"></label><input class="form-control" type="text" id="addFactory"
+                                                                  placeholder="Nhập Hãng sản phẩm"
+                                                                  style="width: 100%"></div>
+        <div class="col-2"><label for="addPrice"></label><input class="form-control" type="text" id="addPrice"
+                                                                placeholder="Nhập giá sản phẩm (ngàn đồng)"
+                                                                style="width: 100%"></div>
+        <div class="col-2">
+            <button type="button" class="btn btn-primary btn-sm" onclick="addProduct()">Thêm</button>
+            <button type="button" class="btn btn-primary btn-sm" onclick="sortPrice()">Sắp xếp</button>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row" style="height: 40px">
+        <div class="col-1"><strong>STT</strong></div>
+        <div class="col-1"><strong>ID</strong></div>
+        <div class="col-2"><strong>Tên sản phẩm</strong></div>
+        <div class="col-2"><strong>Hãng</strong></div>
+        <div class="col-2"><strong>Giá (Ngàn đồng)</strong></div>
+        <div class="col-2"><strong>Sửa</strong></div>
+        <div class="col-2"><strong>Xóa</strong></div>
+    </div>
+    <div id="screen">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-3"></div>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+
+</div>
+<script>
+    class Laptop {
+        constructor(id, nameLaptop, factory, price) {
+            this.id = id;
+            this.nameLaptop = nameLaptop;
+            this.factory = factory;
+            this.price = price;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        getName() {
+            return this.nameLaptop;
+        }
+
+        getFactory() {
+            return this.factory;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        setName(nameLaptop) {
+            this.nameLaptop = nameLaptop;
+        }
+
+        setFactory(factory) {
+            this.factory = factory;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+    }
+
+
+    let laptop = [];
+    laptop[0] = new Laptop('T7848', 'TUF', 'Asus', 30100);
+    laptop[1] = new Laptop('L9486', 'Legion', 'Lenovo', 25000);
+    laptop[2] = new Laptop('A5879', 'Macbook', 'Apple', 20000);
+    laptop[3] = new Laptop('M5879', 'KaTaNa', 'MSI', 10000);
+    laptop[4] = new Laptop('H5879', 'Alia', 'HP', 14999);
+
+    function addProduct() {
+        let idLaptop = document.getElementById('addId').value;
+        let nameLaptop = document.getElementById('addName').value;
+        let factoryLaptop = document.getElementById('addFactory').value;
+        let priceLaptop = document.getElementById('addPrice').value;
+        if (confirmInformation(idLaptop, nameLaptop, factoryLaptop, priceLaptop)) {
+            laptop[laptop.length] = new Laptop(idLaptop, nameLaptop, factoryLaptop, priceLaptop);
+        } else {
+            alert('Vui lòng nhập đủ thông tin sản phẩm, không để trống, giá phải là số');
+        }
+        document.getElementById('addId').value = "";
+        document.getElementById('addName').value = "";
+        document.getElementById('addFactory').value = "";
+        document.getElementById('addPrice').value = "";
+        display();
+    }
+
+    display();
+
+    function display(laptop,index) {
+        if (index === undefined) {
+            index = 0;
+        }
+        index *= 3;
+        let countPage = index + 3;
+        if (countPage > laptop.length) {
+            countPage = laptop.length;
+        }
+        let screen = "";
+        screen += "";
+
+        for (let i = index; i < countPage; i++) {
+            screen += "<div id='change" + i + "' style='height: 40px'>" +
+                "<div class=\"row\">\n" +
+                "        <div class=\"col-1\">" + (i + 1) + "</div>\n" +
+                "        <div class=\"col-1\" id='colID" + i + "'>" + laptop[i].getId() + "</div>\n" +
+                "        <div class=\"col-2\" id='colNameID" + i + "'>" + laptop[i].getName() + "</div>\n" +
+                "        <div class=\"col-2\" id='colFactoryID" + i + "'>" + laptop[i].getFactory() + "</div>\n" +
+                "        <div class=\"col-2\" id='colPriceID" + i + "'>" + laptop[i].getPrice() + " </div>\n" +
+                "        <div class=\"col-2\"><button type=\"button\" class=\"btn btn-warning btn-sm \" onclick='editProduct(" + i + ")'>Sửa</button></div>\n" +
+                "        <div class=\"col-2\"><button type=\"button\" class=\"btn btn-danger btn-sm \" onclick='deleteProduct(" + i + ")'>Xóa</button></div>\n" +
+                "    </div>" +
+                "</div>"
+        }
+        screen+="<div id='pagination'></div>"
+
+        document.getElementById('screen').innerHTML = screen;
+    }
+
+
+    function editProduct(id) {
+
+        document.getElementById('change' + id + '').innerHTML = "<div class=\"row\">\n" +
+            "        <div class=\"col-1\">" + (id + 1) + "</div>\n" +
+            "        <div class=\"col-1\" id='colID" + id + "'><input id='newId" + id + "' value='" + laptop[id].getId() + "'></div>\n" +
+            "        <div class=\"col-2\" id='colNameID" + id + "'><input id='newName" + id + "' value='" + laptop[id].getName() + "'></div>\n" +
+            "        <div class=\"col-2\" id='colFactoryID" + id + "'><input id='newFactory" + id + "' value='" + laptop[id].getFactory() + "'></div>\n" +
+            "        <div class=\"col-2\" id='colPriceID" + id + "'><input id='newPrice" + id + "' value='" + laptop[id].getPrice() + "'></div>\n" +
+            "        <div class=\"col-2\"><button type=\"button\" class=\"btn btn-success btn-sm\" onclick='confirmChange(" + id + ")'>Xác Nhận</button></div>\n" +
+            "        <div class=\"col-2\"><button type=\"button\" class=\"btn btn-secondary btn-sm\" onclick='cancelChange(" + id + ")'>Hủy</button></div>\n" +
+            "    </div>";
+
+    }
+
+    function confirmChange(id) {
+        let newId = document.getElementById('newId' + id + '').value;
+        let newName = document.getElementById('newName' + id + '').value;
+        let newFactory = document.getElementById('newFactory' + id + '').value;
+        let newPrice = document.getElementById('newPrice' + id + '').value;
+        if (confirmInformation(newId, newName, newFactory, newPrice)) {
+            laptop[id].setId(newId);
+            laptop[id].setName(newName);
+            laptop[id].setFactory(newFactory);
+            laptop[id].setPrice(newPrice);
+            display();
+        } else {
+            alert('ko được để trống thông tin, giá phải là số')
+            display();
+        }
+
+    }
+
+    function cancelChange() {
+        display();
+    }
+
+    function deleteProduct(id) {
+        if (confirm('xóa sản phẩm: ' + laptop[id].getName())) {
+            laptop.splice(id, 1);
+        }
+        display();
+    }
+
+    function confirmInformation(id, name, factory, price) {
+        return !(id === '' || name === '' || factory === '' || price === '' || isNaN(price));
+    }
+
+    function sortPrice() {
+        let arrShortLaptop = [];
+        for (let i = 0; i < laptop.length; i++) {
+            arrShortLaptop[i] = laptop[i];
+        }
+
+        let arrPrice = [];
+        for (let i = 0; i < laptop.length; i++) {
+            arrPrice[i] = laptop[i].getPrice();
+        }
+        arrPrice.sort(function (a, b) {
+            return a - b;
+        })
+        for (let i = 0; i < arrPrice.length; i++) {
+            for (let j = 0; j < arrShortLaptop.length; j++) {
+                if (arrPrice[i] === arrShortLaptop[j].getPrice()) {
+                    laptop[i] = arrShortLaptop[j];
+                }
+            }
+        }
+        display();
+    }
+    displayPagination()
+    function displayPagination() {
+        let count = laptop.length / 3;
+        if (laptop.length % 3 !== 0) {
+            count++;
+        }
+        count = parseInt(count);
+
+        let paginationTable = "<ul class=\"pagination\">";
+        paginationTable += "<li><a href=\"#\">Previous</a></li>";
+        for (let i = 0; i < count; i++) {
+            paginationTable += "<li><a id=\"paginationTable\" href=\"#\" onclick=\"display(laptop, " + i + ")\">" + (i + 1) + "</a></li>";
+        }
+        paginationTable += "<li><a href=\"#\" >Next</a></li>";
+        paginationTable += "</ul>";
+
+        document.getElementById("pagination").innerHTML = paginationTable;
+
+        return count;
+    }
+
+
+</script>
+</body>
+</html>

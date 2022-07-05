@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let tu1=parseInt(prompt('Nhập tử số 1'));
+    let mau1 ='';
+    do{
+        mau1=parseInt(prompt('Nhập mẫu số 1'));
+    }while (mau1<=0)
+    let tu2=parseInt(prompt('Nhập tử số 2'));
+    let mau2='';
+    do{
+        mau2=parseInt(prompt('Nhập mẫu số 2'));
+    }while (mau2<=0)
+
+    if(tu1*mau2===mau1*tu2){
+        alert('bằng nhau')
+    }else {
+        alert('ko bằng nhau')
+    }
+
+</script>
+</body>
+</html>

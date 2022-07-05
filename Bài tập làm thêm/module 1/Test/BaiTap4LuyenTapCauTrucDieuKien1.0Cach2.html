@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt('Nhap so nguyen a'));
+    let b = parseInt(prompt('Nhap so nguyen b'));
+    let c = parseInt(prompt('Nhap so nguyen c'));
+
+    if (a===b && b===c ){
+        alert('3 so bang nhau');
+    }
+    else if (a>b){
+        if(b>=c){
+            alert('a lon nhat');
+        }
+        if(c>b){
+            if(c>a){
+                alert('c lon nhat');
+            }
+            else if(c===a){
+                alert('c va a bang nhau va deu lon nhat');
+            }
+
+        }
+    }
+    else if (b>a){
+        if(a>=c){
+            alert('b lon nhat');
+        }
+        if(c>a){
+            if(c>b){
+                alert('c lon nhat');
+            }
+            else if(c===a){
+                alert('c va a bang nhau va deu lon nhat');
+            }
+        }
+    }
+    else if(a===b){
+        if (a>c){
+            alert('a va b bang nhau va deu lon nhat');
+        }
+        if (c>a){
+            alert('c lon nhat');
+        }
+    }
+    else if(c>a){
+        if (a>=b){
+            alert('c lon nhat');
+        }
+        if (b>a){
+            if (b>c){
+                alert('b lon nhat');
+            }
+            else if(c===b){
+                alert('c va b deu bang nhau va deu lon nhat');
+            }
+        }
+    }
+    else if (a>c){
+        if (c>=b){
+            alert('a lon nhat')
+        }
+        if (b>c){
+            if (b>a){
+                alert('b lon nhat')
+            }
+            else if(b===a){
+                alert('a va b bang nhau va deu lon nhat')
+            }
+        }
+    }
+    else if (c===a)
+    {
+        if (c>b){
+            alert('a va c deu bang nhau va lon nhat')
+        }
+        if (c<b){
+            alert('b lon nhat')
+        }
+    }
+    else if (b===c)
+    {
+        if (b>a){
+            alert('b va c deu bang nhau va lon nhat')
+        }
+        if(b<a){
+            alert('a lon nhat')
+        }
+    }
+
+</script>
+</body>
+</html>

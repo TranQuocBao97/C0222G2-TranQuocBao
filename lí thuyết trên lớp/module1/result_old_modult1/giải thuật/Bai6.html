@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n =11;
+    result1=1;
+    for (let i = 1; i <= n; i++) {
+        if(n%2===0){
+            if(i%2===0){
+                result1*=i;
+            }
+        }else {
+            if(i%2!==0){
+                result1*=i;
+            }
+        }
+    }
+    console.log(result1);
+</script>
+</body>
+</html>

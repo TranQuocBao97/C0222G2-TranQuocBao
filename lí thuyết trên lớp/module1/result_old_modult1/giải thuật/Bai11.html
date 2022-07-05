@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array =[1,10,11,42,53,100,1041,2,3,4,5,6,7,8];
+    n = array.length
+    function sumVer1(arr) {
+        let sum1 = 0;
+        for (let i = 0; i < arr.length ; i++) {
+            if(arr[i]>0 && arr[i]%2!==0){
+                sum1+=arr[i];
+            }
+        }
+        return sum1;
+    }
+    function sumVer2(arr) {
+        let sum2 =0;
+        for (let i = 0; i < arr.length ; i++) {
+            let flag = true;
+            if(i<2){
+                console.log(i)
+                flag=false;
+            }
+            for (let j = 2; j < arr[i] ; j++) {
+                if(arr[i]<2 || arr[i]%j===0 || i%2!==0){
+                    flag=false;
+                    break;
+                }
+            }
+            if(flag===true && i%2===0 ){
+                sum2 +=arr[i];
+            }
+        }
+        return sum2;
+    }
+
+
+    console.log(sumVer1(array))
+    console.log(sumVer2(array))
+    console.log(array.sort(function (a,b){return a-b}));
+
+</script>
+</body>
+</html>

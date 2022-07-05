@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // -	Cú pháp: let/var variableName = value ;
+    // -	variableName : tên biến
+    // -	= : gán giá trị cho biến.
+    // -	value : giá trị được gán cho biến.
+
+    // Biến toàn cục: Phạm vi sử dụng toàn bộ chương trình.
+    // Biến cục bộ: Phạm vi sử dụng chỉ trong Block scope, Function Scope.
+    // let global = 10;
+
+    // Block Scope
+    // if (1 === 1){
+    //     var a = 10;
+    //     let b = 50;
+    // }
+
+    // Function Scope => phạm vi sử dụng chỉ trong function
+    // function testScope(){
+    //         var a = 10;
+    //         let b = 50;
+    // }
+    // testScope();
+    // console.log("var: " + a);
+    // console.log("let: " + b);
+
+    // a = 10;
+    // console.log(a);
+    // var a = 20;
+
+    //Cơ chế Hoisting: Đưa dòng khai báo biến lên đầu ctrinh.
+    // Đoạn mã sau khi chạy.
+    // var a ;
+    // a = 10;
+    // console.log(a);
+    // a = 20;
+
+    // -	Kiểu nguyễn thủy: number, string, boolean, null, undefined, Symbol .
+    // -	Kiểu đối tượng (Object): Array (mảng), Date, …
+    // let a = '10';
+    // let b = 10;
+    // let c = true;
+    // // undefined: Giá trị mặc định khi khai báo biến nhưng không được gán giá trị.
+    // let d ;
+    // d = null;
+    // console.log(d);
+
+
+    // let a = Number(prompt("Nhập a: "));
+    // let b = Number(prompt("Nhập b"));
+    //Toán tử so sánh
+    // let a = 10;
+    // let b = "10";
+    // console.log(a == b);
+    // console.log(a === b);
+    //Toán tử Logic
+    // Và && : Cả 2 vế trái phải đúng -> biểu thức mới trả về true.
+    // Hoặc || : Chỉ cần 1 vế trái phải đúng -> biểu thức trả về true.
+    // Phủ định ! : Trả về kết quả ngược lại.
+    // console.log( !(a > 5) );
+    // console.log( typeof b);
+
+    let a = 5;
+    let b = a++ + ++a;
+    //       5  +   7 = 12
+    let c = a++ + b-- + ++b + ++a - b--;
+    //       7     12 +   12    9  -  12 = 28
+
+    let str = "1 + 2 + 5 * 10";
+    console.log(eval(str))
+
+
+
+</script>
+</body>
+</html>

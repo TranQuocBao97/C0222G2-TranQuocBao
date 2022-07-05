@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+    </style>
+</head>
+<body>
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-sm-2 p-3 bg-info text-black">
+            <div class="row">
+                <div class="col-sm-12 bg-warning">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-success" onclick="changeChannel(1)">1</button>
+                        <button type="submit" class="btn btn-success" onclick="changeChannel(2)">2</button>
+                        <button type="submit" class="btn btn-success" onclick="changeChannel(3)">3</button>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="col-sm-12 bg-warning"></div>
+                <div class="col-sm-12 bg-warning">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-success" onclick="changeChannel(4)">4</button>
+                        <button type="submit" class="btn btn-success" onclick="changeChannel(5)">5</button>
+                        <button type="submit" class="btn btn-success" onclick="changeChannel(6)">6</button>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="col-sm-12 bg-warning"></div>
+                <div class="col-sm-12 bg-warning">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-success" onclick="changeChannel(7)">7</button>
+                        <button type="submit" class="btn btn-success" onclick="changeChannel(8)">8</button>
+                        <button type="submit" class="btn btn-success" onclick="changeChannel(9)">9</button>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="col-sm-12 bg-warning"></div>
+                <div class="col-sm-12 bg-warning">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-success" onclick="changeChannel(0)">0</button>
+                        <button type="submit" class="btn btn-success" onclick="decrease()"><</button>
+                        <button type="submit" class="btn btn-success" onclick="increase()">></button>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <input type="hidden" id="showID">
+            </div>
+        </div>
+        <!--TV container-->
+        <div class="col-sm-10 p-3 bg-light text-white" style="border: 5px solid aqua; height: 910px">
+            <div class="container-fluid mt-3" style="display: block" id="containerGame">
+                <div class="embed-responsive embed-responsive-16by9" id="displayTV">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    class Remote {
+        constructor(id, volume) {
+            this.id = id;
+            this.volume = volume;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        getVolume() {
+            return this.volume;
+        }
+
+        setVolume(volume) {
+            this.volume = volume;
+        }
+    }
+
+    let id = [];
+    id[0] = "<iframe width=\"1904\" height=\"760\" src=\"https://www.youtube.com/embed/fcAB4XQXfdE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
+    id[1] = "<iframe width=\"1904\" height=\"760\" src=\"https://www.youtube.com/embed/Kvog7YStzpM\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
+    id[2] = "<iframe width=\"1904\" height=\"760\" src=\"https://www.youtube.com/embed/43aRnxZe8eA\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
+    id[3] = "<iframe width=\"1904\" height=\"760\" src=\"https://www.youtube.com/embed/dDi7ni39X4U\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
+    id[4] = "<iframe width=\"1904\" height=\"760\" src=\"https://www.youtube.com/embed/0QmSH7Qmo9k\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
+    id[5] = "<iframe width=\"1904\" height=\"760\" src=\"https://www.youtube.com/embed/_x31sDLWQuU\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
+    id[6] = "<iframe width=\"1904\" height=\"760\" src=\"https://www.youtube.com/embed/QWU6MaDViGg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
+    id[7] = "<iframe width=\"1904\" height=\"760\" src=\"https://www.youtube.com/embed/oA7asFEgYfc\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
+    id[8] = "<iframe width=\"1904\" height=\"760\" src=\"https://www.youtube.com/embed/vWL-ku2d0LI\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
+    id[9] = "<iframe width=\"1904\" height=\"760\" src=\"https://www.youtube.com/embed/Qm4iZFbKq48\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
+
+
+    let volume = 100;
+    let remote = new Remote(id, volume);
+
+    displayTV();
+
+    function displayTV() {
+        document.getElementById("displayTV").innerHTML = remote.getId()[0];
+        document.getElementById("showID").value = 0;
+    }
+
+    function changeChannel(id) {
+        let value;
+        switch (id) {
+            case 0:
+                value = remote.getId()[0];
+                break;
+            case 1:
+                value = remote.getId()[1];
+                break;
+            case 2:
+                value = remote.getId()[2];
+                break;
+            case 3:
+                value = remote.getId()[3];
+                break;
+            case 4:
+                value = remote.getId()[4];
+                break;
+            case 5:
+                value = remote.getId()[5];
+                break;
+            case 6:
+                value = remote.getId()[6];
+                break;
+            case 7:
+                value = remote.getId()[7];
+                break;
+            case 8:
+                value = remote.getId()[8];
+                break;
+            case 9:
+                value = remote.getId()[9];
+                break;
+        }
+        document.getElementById("displayTV").innerHTML = value;
+        document.getElementById("showID").value = id;
+    }
+
+    function increase() {
+        let id = parseInt(document.getElementById("showID").value);
+        id = id + 1;
+        if (id <= 9) {
+            changeChannel(id)
+        } else {
+            id = 0;
+            changeChannel(id);
+        }
+    }
+
+    function decrease() {
+        let id = parseInt(document.getElementById("showID").value);
+        id = id - 1;
+        if (id >= 0) {
+            changeChannel(id)
+        } else {
+            id = 9;
+            changeChannel(id);
+        }
+    }
+</script>

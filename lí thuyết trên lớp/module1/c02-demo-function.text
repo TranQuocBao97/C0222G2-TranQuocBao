@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // -	function functionName( thamSo1, thamSo2,… ) {
+    //     // Khối lệnh thực thi
+    // }
+
+    // function sumNumber( a , b ) {
+    //     let sum = a + b;
+    //     if ( sum > 100){
+    //         return "Số có 3 chữ số";
+    //     } else {
+    //         return ( "Bé hơn 100: " +  sum );
+    //     }
+    // }
+    //
+    // let result = sumNumber(1, 5) ;
+
+
+    // function passByValue( number ) {
+    //
+    //     number = 100;
+    //
+    // }
+    // let number = 10;
+    // passByValue(number);
+    // console.log(number);
+    //
+    // function passByReference( param ){
+    //     param[0] = 100;
+    //     param[1] = 100;
+    //     param[2] = 100;
+    //     param[3] = 100;
+    //     param[4] = 100;
+    // }
+    //
+    // let arr = [1,2,3,4,5];
+    // passByReference( arr );
+    // console.log(arr);
+
+   //  function callBack() {
+   //      let a = this ;
+   //      console.log(a);
+   //  }
+   // callBack();
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

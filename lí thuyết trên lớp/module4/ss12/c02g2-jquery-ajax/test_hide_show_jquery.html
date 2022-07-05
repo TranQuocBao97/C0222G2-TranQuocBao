@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="pText" style="color: red">If you click on the "Hide" button, I will disappear.</p>
+<button id="btnHide">Hide</button>
+<button id="btnShow">Show</button>
+<br>
+<input type="text" id="inputName">
+<button id="btnGet">Get value</button>
+<button id="btnChangeColor">Change color violet</button>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#btnHide").click(function() {
+            $("#pText").hide();
+        });
+
+        $("#btnShow").click(function() {
+            $("#pText").show();
+        });
+
+        $("#btnGet").click(function () {
+            console.log("Da click!");
+            // document.getElementById("inputName")
+            console.log($("#inputName").val());
+        });
+
+        $("#btnChangeColor").click(function() {
+            $("#pText")
+                .css("color", "violet")
+                .css("font-size", "50pt");
+            $("button").css("background-color", "blue");
+        });
+
+    })
+</script>
+
+</body>
+</html>

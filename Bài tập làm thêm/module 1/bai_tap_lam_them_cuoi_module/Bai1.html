@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let n = [];
+    // Nhập tay:
+
+    alert('nhập -1 để dừng nhập thêm phần tử');
+    for (let i = 0; i < 50; i++) {
+        n[i] = parseInt(prompt('nhập phần tử thứ :' + i));
+        if (n[i] === -1) {
+            n.pop();
+            break;
+        }
+    }
+
+    //nhập tự động:
+    // function randomValueArray(){
+    //     let arr =[];
+    //     for (let i = 0; i <= Math.floor(Math.random()*50) ; i++) {
+    //         arr[i]=Math.floor(Math.random()*100);
+    //     }
+    // //     return arr;
+    // // }
+    // n=randomValueArray();
+    document.write('mảng:' + n);
+    console.log('độ dài mảng: ' + n.length)
+    document.write('<br>');
+    document.write(avg(n));
+
+
+    function avg(array) {
+        let sum = 0;
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (i % 3 === 0 && array[i] % 5 === 0) {
+                sum += array[i];
+                count++;
+                console.log('số đủ điều kiện' + array[i])
+            }
+        }
+        if (sum === 0) {
+            return 'ko có giá trị thỏa mãn'
+        }
+        console.log(sum);
+        console.log(count);
+        return sum / count;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td {
+            width: 196px;
+            height: 196px;
+        }
+
+        button {
+            width: 100%;
+            height: 195px;
+            font-size: 170px;
+        }
+    </style>
+</head>
+<body>
+<table border="1px" style="border-collapse: collapse; margin-left: 600px">
+    <tr>
+        <td>
+            <button id="0" onclick="test('0')" value="0"></button>
+        </td>
+        <td>
+            <button id="1" onclick="test('1')" value="1"></button>
+        </td>
+        <td>
+            <button id="2" onclick="test('2')" value="2"></button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button id="3" onclick="test('3')" value="3"></button>
+        </td>
+        <td>
+            <button id="4" onclick="test('4')" value="4"></button>
+        </td>
+        <td>
+            <button id="5" onclick="test('5')" value="5"></button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button id="6" onclick="test('6')" value="6"></button>
+        </td>
+        <td>
+            <button id="7" onclick="test('7')" value="7"></button>
+        </td>
+        <td>
+            <button id="8" onclick="test('8')" value="8"></button>
+        </td>
+    </tr>
+</table>
+
+
+<script>
+    let pick = true
+    data = '';
+    let cellValue = '';
+    let draw = '';
+    let arr = ['', '', '', '', '', '', '', '', '', ''];
+
+    function test(value) {
+        if (pick === true) {
+            draw = document.getElementById(value).innerHTML = 'X';
+            cellValue = document.getElementById(value).value;
+            arr[value] = draw;
+            console.log(arr[value])
+            console.log(cellValue);
+            pick = false;
+        } else {
+            draw = document.getElementById(value).innerHTML = 'O';
+            cellValue = document.getElementById(value).value;
+            arr[value] = draw;
+            console.log(arr[value])
+            console.log(cellValue);
+            pick = true;
+        }
+
+        // for (let i = 0; i < arr.length; i++){
+        //     if( i === 0 || i === 1 || i === 2 ){
+        //         if (arr[i] === arr[i + 3] && arr[i] === arr[i + 6] && arr[i] !== ""){
+        //             alert(arr[0] + ' win');
+        //         }
+        //     }
+        //     if (i === 0 || i === 3 || i === 6 ){
+        //         if (arr[i] === arr[i + 1] && arr[i] === arr[i + 2] && arr[i] !== ""){
+        //             alert(arr[0] + ' win');
+        //         }
+        //     }
+        // }
+
+
+        if (arr[0] === arr[1] && arr[0] === arr[2] && arr[0] !== '') {
+            alert(arr[0] + ' win');
+            location.reload();
+        } else if (arr[3] === arr[4] && arr[3] === arr[5] && arr[3] !== '') {
+            alert(arr[3] + ' win');
+            location.reload();
+        } else if (arr[6] === arr[7] && arr[6] === arr[8] && arr[6] !== '') {
+            alert(arr[6] + ' win');
+            location.reload();
+        } else if (arr[0] === arr[3] && arr[0] === arr[6] && arr[0] !== '') {
+            alert(arr[0] + ' win');
+            location.reload();
+        } else if (arr[1] === arr[4] && arr[1] === arr[7] && arr[1] !== '') {
+            alert(arr[1] + ' win');
+            location.reload();
+        } else if (arr[2] === arr[5] && arr[2] === arr[8] && arr[2] !== '') {
+            alert(arr[5] + ' win');
+            location.reload();
+        } else if (arr[0] === arr[4] && arr[0] === arr[8] && arr[0] !== '') {
+            alert(arr[0] + ' win');
+            location.reload();
+        } else if (arr[6] === arr[4] && arr[6] === arr[2] && arr[6] !== '') {
+            alert(arr[6] + ' win');
+            location.reload();
+        }
+        else  if (arr[0]!==''&& arr[1]!==''&& arr[2]!==''&& arr[3]!==''&& arr[4]!==''&& arr[5]!==''&& arr[6]!==''&& arr[7]!==''&& arr[8]!==''){
+            alert('draw');
+            location.reload();
+        }
+
+
+        console.log('mãng' + arr);
+    }
+
+
+</script>
+</body>
+</html>

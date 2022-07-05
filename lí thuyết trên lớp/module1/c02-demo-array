@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // let arrayName = [ element1, element2,.... ] ;
+    // let arr1 = [1, 2, 3, true, "Hello"];
+
+    //  let arrayName = new Array( element1, element2,....) ;
+    // Khi khai báo mảng bằng từ khóa Array,
+    // Nếu đưa vào 1 giá trị số khi khai báo -> Kích thước của mảng.
+    // let arr2 = new Array(5);
+    //   let arrayName = Array( element1, element2,.... ) ;
+    // let arr3 = Array();
+    // arr1[4] = "Xin chào";
+
+    // let numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // for (let i = 0; i < numArr.length; i++) {
+    //     // numArr[i] = "None" ;
+    //     if (numArr[i] % 2 === 1) {
+    //         console.log("Tại vị trí index: " + i + " Mang giá trị là: " + numArr[i]);
+    //     }
+    // }
+    // console.log(numArr);
+    // for (let i = numArr.length - 1 ; i >= 0 ; i--) {
+    //     console.log("Tại vị trí index: " + i + " Mang giá trị là: " + numArr[i]) ;
+    // }
+    // document.write("For in: ");
+    //
+    // for (let item in numArr) {
+    //     document.write(item);
+    // }
+    //
+    // document.write("<br>");
+    // document.write("For of: ");
+    //
+    // for (let item of numArr) {
+    //     document.write(item);
+    // }
+
+
+    // push()       : Thêm phần tử vào cuối mảng
+    // unshift()    : Thêm phần tử vào đầu mảng
+    // pop()        : Xóa phần tử cuối mảng
+    // shift()      : Xóa phần tử đầu mảng
+    // indexOf( phần tử muốn tìm)    : Trả về index của phần tử nếu tìm thấy. Ko tìm thấy trả về -1.
+    // splice ( vị trí muốn xóa, số phần tử muốn xóa): Xóa phần tử khỏi mảng. Hoặc có thể thêm...
+    // concat()     : Gộp 2 mảng và trả về 1 mảng mới.
+    // join()       : Thay đổi ký tự phân cách giữa các phần tử khi in ra mảng.
+    // sort()       : Dùng để sắp xếp mảng( mặc định từ bé -> lớn). Có thể custom.
+    // let methodArr = [1, 4, 3, 2, 5, 10];
+    // let methodArr2 = [6, 7, 8, 9, 10];
+    // methodArr.splice(2, 0, 10)
+    // let arrReceived = methodArr.concat(methodArr2);
+
+    // methodArr.sort( function ( a, b ) {
+    //     return b - a;
+    // } );
+
+    // document.write(methodArr);
+
+    let array2D = [[1, 2, 3], [4, 5, 6, 7], [8, 9]];
+    for (let i = 0; i < array2D.length; i++) {
+        for (let j = 0; j < array2D[i].length; j++) {
+            console.log("Vị trí i = " + i + " j = " + j + " Có value= " + array2D[i][j]);
+        }
+    }
+    console.log(Array.isArray(array2D)
+    );
+
+    console.log(array2D instanceof Array)
+
+    // Cách 2:
+    // let array2d = Array(3);
+    // for (let i = 0; i < array2d.length; i++){
+    //     array2d[i] = Array(3);
+    // }
+
+
+</script>
+</html>

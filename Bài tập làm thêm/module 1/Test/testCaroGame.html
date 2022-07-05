@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    for (let i = 0; i < 15 ; i++) {
+        for (let j = 0; j < 15 ; j++) {
+            arr[i][j] = "&nbsp&nbsp";
+        }
+    }
+    let tab ='';
+    tab = "<table border='1' style='border-collapse: collapse; width: 800px;height: 800px; text-align: center; margin-left: 500px'>"
+    for (let i=1;i<15;i++){
+        tab= tab + '<tr>';
+        for(let j=0;j<15;j++){
+            tab = tab + '<td onclick=' + '"location(' + i + ',' + j + ')">' + arr[i][j] + '</td>'
+        }
+        tab=tab+"</tr>";
+    }
+    tab=tab+"</table>";
+    document.write(tab);
+
+    // let confirm = true;
+    // function location(x,y) {
+    //
+    // }
+</script>
+
+</body>
+</html>

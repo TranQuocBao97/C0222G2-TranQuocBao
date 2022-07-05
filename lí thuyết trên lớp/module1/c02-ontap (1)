@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<h1 id="title"> MU vô địch!</h1>-->
+<!--<button onclick="sayYes()">No</button>-->
+<!--<button id="btn" onmouseover="changePos()" style="position: relative">Yes</button>-->
+<img src="image/Hinh1a.png" width="200px" height="600px" id="A" onclick="changeImg1()">
+<img src="image/Hinh2b.png" width="200px" height="600px" id="B" onclick="changeImg2()">
+<img src="image/Hinh3c.png" width="200px" height="600px" id="C" onclick="changeImg3()">
+<img src="image/Hinh3d.png" width="200px" height="600px" id="D" onclick="changeImg4()">
+<img src="image/Hinh1e.png" width="200px" height="600px" id="E" onclick="changeImg5()">
+
+<script>
+    function changeImg2() {
+        // Truy cập tới phần tử img và lấy gí trị thuộc tính src.
+        console.log(document.getElementById("B").getAttribute("src"));
+        let imgA = document.getElementById("B").getAttribute("src") ;
+        if ( imgA === "image/Hinh1b.png" ){
+            document.getElementById("B").src = "image/Hinh2b.png";
+        } else if (imgA === "image/Hinh2b.png"){
+            document.getElementById("B").src = "image/Hinh3b.png";
+        } else {
+            document.getElementById("B").src = "image/Hinh1b.png";
+        }
+        // Gọi lại function check() để kiểm tra 5 bức hình có đúng 1 bộ ko
+        check();
+    }
+    function changeImg1() {
+        // Truy cập tới phần tử img và lấy gí trị thuộc tính src.
+        console.log(document.getElementById("A").getAttribute("src"));
+
+        let imgA = document.getElementById("A").getAttribute("src") ;
+        if ( imgA === "image/Hinh1a.png" ){
+            document.getElementById("A").src = "image/Hinh2a.png";
+        } else if (imgA === "image/Hinh2a.png"){
+            document.getElementById("A").src = "image/Hinh3a.png";
+        } else {
+            document.getElementById("A").src = "image/Hinh1a.png";
+        }
+
+        // Gọi lại function check() để kiểm tra 5 bức hình có đúng 1 bộ ko
+        check();
+
+    }
+    function changeImg3() {
+        // Truy cập tới phần tử img và lấy gí trị thuộc tính src.
+        console.log(document.getElementById("C").getAttribute("src"));
+
+        let imgA = document.getElementById("C").getAttribute("src") ;
+        if ( imgA === "image/Hinh1c.png" ){
+            document.getElementById("C").src = "image/Hinh2c.png";
+        } else if (imgA === "image/Hinh2c.png"){
+            document.getElementById("C").src = "image/Hinh3c.png";
+        } else {
+            document.getElementById("C").src = "image/Hinh1c.png";
+        }
+        // Gọi lại function check() để kiểm tra 5 bức hình có đúng 1 bộ ko
+        check();
+    }
+    function changeImg4() {
+        // Truy cập tới phần tử img và lấy gí trị thuộc tính src.
+        console.log(document.getElementById("D").getAttribute("src"));
+
+        let imgA = document.getElementById("D").getAttribute("src") ;
+        if ( imgA === "image/Hinh1d.png" ){
+            document.getElementById("D").src = "image/Hinh2d.png";
+        } else if (imgA === "image/Hinh2d.png"){
+            document.getElementById("D").src = "image/Hinh3d.png";
+        } else {
+            document.getElementById("D").src = "image/Hinh1d.png";
+        }
+        // Gọi lại function check() để kiểm tra 5 bức hình có đúng 1 bộ ko
+        check();
+    }
+    function changeImg5() {
+        // Truy cập tới phần tử img và lấy gí trị thuộc tính src.
+        console.log(document.getElementById("E").getAttribute("src"));
+
+        let imgA = document.getElementById("E").getAttribute("src") ;
+        if ( imgA === "image/Hinh1e.png" ){
+            document.getElementById("E").src = "image/Hinh2e.png";
+        } else if (imgA === "image/Hinh2e.png"){
+            document.getElementById("E").src = "image/Hinh3e.png";
+        } else {
+            document.getElementById("E").src = "image/Hinh1e.png";
+        }
+        // Gọi lại function check() để kiểm tra 5 bức hình có đúng 1 bộ ko
+        check();
+    }
+
+    function check() {
+        let img1 = document.getElementById("A").getAttribute("src");
+        let img2 = document.getElementById("B").getAttribute("src");
+        let img3 = document.getElementById("C").getAttribute("src");
+        let img4 = document.getElementById("D").getAttribute("src");
+        let img5 = document.getElementById("E").getAttribute("src");
+        if (   img1 === "image/Hinh1a.png"
+            && img2 === "image/Hinh1b.png"
+            && img3 === "image/Hinh1c.png"
+            && img4 === "image/Hinh1d.png"
+            && img5 === "image/Hinh1e.png"
+        ) {
+            console.log("Lắp được hình 1;")
+        }
+    }
+
+    // function sayYes() {
+    //     alert("Đúng rồi!")
+    // }
+    //
+    // let width = window.innerWidth;
+    // let height = window.innerHeight;
+    //
+    // function changePos() {
+    //     console.log( Math.random() );
+    //     document.getElementById("btn").style.top = Math.random() * height + "px" ;
+    //     document.getElementById("btn").style.left = Math.random() * width + "px" ;
+    // }
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    day = new date(2010,20,10);
+
+    let isDate = function(date) {
+        return (new Date(date) !== "Invalid Date") && !isNaN(new Date(date));
+    }
+    isDate(day);
+    console.log(isDate(day))
+
+</script>
+</body>
+</html>

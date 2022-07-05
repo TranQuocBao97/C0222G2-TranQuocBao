@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = [];
+    alert('nhập -1 để dừng nhập thêm phần tử vào mảng a');
+    for (let i = 0; i < 50; i++) {
+        a[i] = parseInt(prompt('nhập phần tử thứ :' + i));
+        if (a[i] === -1) {
+            a.pop();
+            break;
+        }
+    }
+
+
+    document.write('Mảng a : '+a);
+    document.write('<br>');
+    let b = taoMangSoNguyenTo(a);
+    document.write('Mảng b : '+b);
+
+
+
+
+    function taoMangSoNguyenTo(array) {
+        let newArray=[];
+        for (let i = 0; i < array.length ; i++) {
+            if(kiemTraSoNguyenTo(array[i])){
+                newArray.push(array[i]);
+            }
+        }
+        return newArray;
+    }
+
+    function kiemTraSoNguyenTo(number) {
+        if(number===2){
+            return true;
+        }else if(number<2){
+            return false;
+        } else {
+            for (let i = 2; i < number; i++) {
+                if(number%i===0){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+    }
+
+</script>
+</body>
+</html>

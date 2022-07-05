@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title></title>
+    <style>
+        .row {
+            height: 100px;
+        }
+
+        #row {
+            text-align: center;
+            font-size: 30px;
+            align-items: center;
+            background-color: #c6b7aa;
+        }
+
+        #row2 {
+            height: 600px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row"></div>
+    <div class="row" id="row">
+        <div class="col-2"></div>
+        <div class="col-2" id="villaTag">Villa</div>
+        <div class="col-2" id="houseTag">House</div>
+        <div class="col-2" id="roomTag">Room</div>
+        <div class="col-2" id="servesTag">Dịch Vụ Khác</div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row" id="row2">
+        <div class="col-2"></div>
+        <div class="col-2" id="divId0" style="background-color: #dbe3ef"></div>
+        <div class="col-2" id="divId1" style="background-color: #bdd7d9"></div>
+        <div class="col-2" id="divId2" style="background-color: #dbe3ef"></div>
+        <div class="col-2" id="anotherServes" style="background-color: #bdd7d9"></div>
+        <div class="col-2" id="totalPrice"></div>
+    </div>
+    <div class="row" style="align-items: center;justify-content: center" id="showPickTime"></div>
+</div>
+
+
+<script>
+    class Resort {
+        constructor(name, area, peopleMax, serves, price) {
+            this.name = name;
+            this.area = area;
+            this.peopleMax = peopleMax;
+            this.serves = serves;
+            this.price = price;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getArea() {
+            return this.area;
+        }
+
+        getPeopleMax() {
+            return this.peopleMax;
+        }
+
+        getServes() {
+            return this.serves;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setArea(area) {
+            this.area = area;
+        }
+
+        setPeopleMax(peopleMax) {
+            this.peopleMax = peopleMax;
+        }
+
+        setServes(serves) {
+            this.serves = serves;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+    }
+
+    let servesVilla = 'Hồ bơi riêng, xe đưa đón, sân nướng BBQ, view nhìn ra biển'
+    let servesHouse = 'xe đưa đón, phòng bếp, view vườn'
+    let servesRoom = 'nước uống chào mừng, dọn phòng, giặt sấy đồ'
+    let resortList = [];
+    resortList[0] = new Resort('Villa Mountain', 500, 15, servesVilla, 5000);
+    resortList[1] = new Resort('House Blue Sea', 300, 10, servesHouse, 2500);
+    resortList[2] = new Resort('Room Of Chill', 80, 4, servesRoom, 1100);
+
+
+    class Serves {
+        constructor(nameServes, price) {
+            this.nameServes = nameServes
+            this.price = price;
+        }
+
+        getNameServes() {
+            return this.nameServes;
+        }
+
+        getPriceServes() {
+            return this.price;
+        }
+    }
+
+    let servesList = [];
+    servesList[0] = new Serves('1 ngày thuê xe', 1000);
+    servesList[1] = new Serves('1 vé Massage', 500);
+    servesList[2] = new Serves('1h sân golf', 2000)
+
+    display()
+
+    function display() {
+        let screen = '';
+        for (let i = 0; i < resortList.length; i++) {
+            screen = '<div class="row" style="justify-content: center;align-content: center;font-weight: bolder; font-size: 30px;color: #123593">' + resortList[i].getName() + '</div>\n' +
+                '            <div class="row" style="padding: 20px">Diện tích: ' + resortList[i].getArea() + ' (mét vuông)</div>\n' +
+                '            <div class="row" style="padding: 20px">Số người tối đa: ' + resortList[i].getPeopleMax() + '</div>\n' +
+                '            <div class="row" style="padding: 20px">Dịch vụ bao gồm: ' + resortList[i].getServes() + '</div>\n' +
+                '            <div class="row" style="padding: 20px">Giá phòng: ' + resortList[i].getPrice() + ' (K VND)</div>' +
+                '        <div class="row" style="justify-content: center;align-content: center"><input type="button" style="width: 50%;height: 50px" value="Chọn" onclick="addResortPrice(' + i + ')"></div>'
+            document.getElementById('divId' + i + '').innerHTML = screen;
+        }
+        let screen2 = '';
+        screen2 += '<table>' +
+            '    <tr>' +
+            '<th style="width: 150px;height: 60px">Dịch Vụ</th>' +
+            '<th style="width: 50px;height: 60px">Giá</th>' +
+            '<th style="width: 50px;height: 60px"></th>' +
+            '</tr>'
+        for (let i = 0; i < servesList.length; i++) {
+            screen2 += '<tr>' +
+                '<td style="width: 50px;height: 60px">' + servesList[i].getNameServes() + ' </td>' +
+                '<td style="width: 50px;height: 60px">' + servesList[i].getPriceServes() + 'k</td>' +
+                '<td><input type="button" onclick="addServesPrice(' + i + ')" value="Thêm"></td>' +
+                '</tr>'
+        }
+        screen2 += '</table>'
+        document.getElementById('anotherServes').innerHTML = screen2
+    }
+
+    let totalPrice = [];
+    let totalName = [];
+
+    function addResortPrice(valueResort) {
+        let priceResort = resortList[valueResort].getPrice();
+        let nameResort = resortList[valueResort].getName()
+        if (totalName.includes(nameResort)) {
+            return;
+        }
+        for (let i = 0; i < totalName.length; i++) {
+            for (let j = 0; j < resortList.length; j++) {
+                if (totalName[i] === resortList[j].getName()) {
+                    return;
+                }
+            }
+        }
+        totalPrice.push(priceResort);
+        totalName.push(nameResort);
+        console.log(totalPrice);
+        console.log(totalName);
+        displayPickTime()
+        displayAdded()
+    }
+
+    function addServesPrice(valueServes) {
+        let priceServes = servesList[valueServes].getPriceServes();
+        let name = servesList[valueServes].getNameServes();
+        totalPrice.push(priceServes);
+        totalName.push(name);
+        console.log(totalPrice);
+        console.log(totalName);
+        displayAdded();
+    }
+
+
+    function displayAdded() {
+        let newTotalPrice = [...(new Set(totalPrice))];
+        let newTotalName = [...(new Set(totalName))];
+        let count = [];
+        for (let i = 0; i < newTotalName.length; i++) {
+            count[i] = 0;
+            for (let j = 0; j < totalName.length; j++) {
+                if (newTotalName[i] === totalName[j]) {
+                    count[i]++;
+                }
+            }
+        }
+        console.log(count)
+        let screen = '';
+        let total = 0;
+        for (let i = 0; i < totalPrice.length; i++) {
+            total += parseInt(totalPrice[i]);
+        }
+        screen += '<table width="100%" style="table-layout: fixed">'
+        for (let i = 0; i < newTotalName.length; i++) {
+            screen +=
+                '<tr>' +
+                '<td style="width: 40%">' + newTotalName[i] + '</td>' +
+                '<td style="width: 20%">' + newTotalPrice[i] + '</td>' +
+                '<td style="width: 20%"> X ' + count[i] + '</td>' +
+                '<td style="width: 20%"><input type="button" onclick="removeEach(' + i +')" value="Xóa"></td>' +
+                '</tr>'
+        }
+        screen +=
+            '<tr>' +
+            '<td>Tổng: </td>' +
+            '<td>' + total + '</td>' +
+            '<td></td>' +
+            '<td><input type="button" onclick="payTheBill()" value="Done"></td>' +
+            '</tr>'
+
+        screen += '</table>'
+        document.getElementById('totalPrice').innerHTML = screen;
+    }
+
+    function removeEach(value) {
+        let newTotalPrice = [...(new Set(totalPrice))];
+        let newTotalName = [...(new Set(totalName))];
+        let a = totalPrice.indexOf(newTotalPrice[value])
+        totalPrice.splice(a,1);
+        let b = totalName.indexOf(newTotalName[value])
+        totalName.splice(b,1);
+        displayAdded()
+    }
+
+    function getTime() {
+        let day1 = document.getElementById('getDay1').value
+        let dayStay = new Date(day1)
+        let day2 = document.getElementById('getDay2').value
+        let dayLeave = new Date(day2)
+        let yourDay = (dayLeave-dayStay)/(1000*60*60*24);
+        console.log('số ngày : '+yourDay)
+
+        if(yourDay>0) {
+            for (let i = 0; i < totalName.length; i++) {
+                for (let j = 0; j < resortList.length; j++) {
+                    if (totalName[i] === resortList[j].getName()) {
+                        for (let k = 0; k < yourDay-1; k++) {
+                            totalName.push(resortList[j].getName());
+                            totalPrice.push(resortList[j].getPrice());
+                        }
+                        displayAdded();
+                        return;
+                    }
+                }
+            }
+        }else {
+            alert('số ngày ở cần lớn hơn 1')
+            displayAdded();
+        }
+
+    }
+    function payTheBill() {
+        alert('chưa làm :D')
+    }
+
+    function displayPickTime() {
+        let screen = '<div class="col-2"></div>\n' +
+            '        <div class="col-2" style="background-color: #fffdec; font-weight: bold" onchange="getTime()" >Ngày nhận phòng :</div>\n' +
+            '        <div class="col-2"><input type="date" id="getDay1"></div>\n' +
+            '        <div class="col-2" style="background-color: #fffdec; font-weight: bold" >Ngày trả phòng: </div>\n' +
+            '        <div class="col-2"><input type="date" id="getDay2"><input type="button" value="Chọn" style="margin-left: 50px" onclick="getTime()"></div>\n' +
+            '        <div class="col-2"></div>'
+        document.getElementById('showPickTime').innerHTML=screen;
+    }
+</script>
+</body>
+</html>

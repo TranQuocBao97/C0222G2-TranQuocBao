@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    // class ClassName {
+    //     constructor ( tham số 1, tham số 2,…  ) {
+    //     this.tên thuộc tính 1 =  tham số 1;
+    //     this.tên thuộc tính 2 =  tham số 2;
+    //     }
+    //     hành vi 1(){
+    //     }
+    //     hành vi 2(){
+    //     }
+    // }
+
+    class Student {
+        // Hàm đặc biệt, dùng dể khai báo thuộc tính. Được gọi khi khởi tạo đối tượng.
+        constructor( name, age, gender ) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+        // getter : Trả về giá trị của thuộc tính.
+        getName(){
+            return this.name;
+        }
+        getAge(){
+            return this.age;
+        }
+        // Setter: Gán lại giá trị mới cho thuộc tính.
+        setName( name ){
+            this.name = name;
+        }
+        setAge( age ){
+            this.age = age;
+        }
+        study (){
+            console.log("Đang học bài!");
+        }
+        playSport( type ){
+            console.log("Đang chơi thể thao! : " + type);
+        }
+    }
+    let student1 = new Student( "Chiến", 18, "Nam" );
+    student1.setName(" Lĩnh ");
+    console.log( student1 );
+    // Student.prototype.phuong = "ABC";
+    let student2 = new Student( "Chiến", 18, "Nam" );
+    console.log(student2);
+
+
+    // class Person {
+    //     constructor( name, age, gender ) {
+    //         this.name = name;
+    //         this.age = age;
+    //         this.gender = gender;
+    //     }
+    //     getName(){
+    //         return this.name;
+    //     }
+    //     getAge(){
+    //         return this.age;
+    //     }
+    //     setName( name ){
+    //         this.name = name;
+    //     }
+    //     setAge( age ){
+    //         this.age = age;
+    //     }
+    //     study (){
+    //         console.log("Đang học bài!");
+    //     }
+    //     playSport( type ){
+    //         console.log("Đang chơi thể thao! : " + type);
+    //     }
+    // }
+    // class Tutor{
+    //     constructor() {
+    //         this.a = 10;
+    //     }
+    // }
+    // class Student extends Person {
+    //     constructor(name, age, gender, score) {
+    //         // Gọi tới constructor của class Cha để khởi tạo.
+    //         // từ khóa super: Đại diện cho lớp cha.
+    //         super( name , age , gender );
+    //         this.score = score;
+    //     }
+    //     playSport( type ){
+    //         console.log("Không muốn chơi :" + type);
+    //     }
+    // }
+    // //
+    // let hocsinh = new Student("Bảo", 20, "Nam", 10);
+
+
+
+
+
+
+
+</script>
+</html>

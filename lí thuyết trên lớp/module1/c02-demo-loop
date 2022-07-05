@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    
+    // for (let i  = 1; i <= 100 ; i++ ){
+    //     if ( i % 2 === 0){
+    //         document.write(i + " : Số chẵn");
+    //     } else {
+    //         document.write(i + " : Số lẻ");
+    //     }
+    //     document.write("<br>");
+    // }
+
+    // Đếm người dùng nhấp ai bao nhiều lần.
+    // let count = 0;
+    // // Biến flag kiểm tra xem người dùng nhập đúng hay ko.
+    // // Nếu nhập sai quá 3 lần thì đổi giá trị thành false.
+    // let flag = true;
+    // let password = prompt("Nhập mật khẩu: ");
+    // while (password !== "123") {
+    //     // Xét xem người dùng đã nhập sai quá 3 lần chưa -> gán flag = false.
+    //     if (count === 3){
+    //         flag = false;
+    //         break;
+    //     }
+    //     password = prompt("Nhập sai mật khẩu rồi, nhập lai: ");
+    //     count++;
+    // }
+    // // Kiểm tra biến flag -> Nếu = true thì người dùng nhập đúng
+    // if (flag === true){
+    //     alert("Nhập đúng");
+    // } else {
+    //     alert("Bạn nhập sai quá 3 lần!");
+    // }
+
+
+    // let password;
+    // do {
+    //     password = prompt("Nhập password: ");
+    // } while ( password !== "123") ;
+
+
+    // let height = prompt("Nhập chiều cao");
+    // let width = prompt("Nhập chiều rộng");
+
+
+    // for (let i = 0; i < height; i++){
+    //     for ( let j = 0 ; j < width ; j++){
+    //         if ( i === 0 || i === height - 1 || j === 0 || j === width - 1){
+    //             document.write("*");
+    //         } else {
+    //             // In khoảng trắng
+    //             document.write("&nbsp&nbsp");
+    //         }
+    //     }
+    //     document.write("<br>")
+    // }
+
+    // for (let i = 0; i < height; i++){
+    //
+    //     for ( let j = 0 ; j <= i ; j++){
+    //         document.write("*");
+    //     }
+    //
+    //     document.write("<br>")
+    // }
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

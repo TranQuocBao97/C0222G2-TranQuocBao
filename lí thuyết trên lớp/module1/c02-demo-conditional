@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    // Nhập điểm từ bàn phím.
+    // Nếu score > 90 => Hiển thị là "Loại giỏi!" -> score == 100 -> "Xuất sắc"
+    // Nếu score > 75 => Hiển thị là "Loại Khá"
+    // Nếu score > 50 => Hiển thị là "Loại Trung bình"
+    // Nếu score < 50 => Hiển thị là "Loại Yếu"
+    //     let score = parseInt(prompt("Nhập điểm: ")) ;
+    //     if (score > 90 ) {
+    //
+    //         if (score === 100){
+    //             alert("Xuất sắc");
+    //         } else {
+    //             alert("Loại giỏi") ;
+    //         }
+    //
+    //     } else if (score > 75){
+    //
+    //         alert("Loại khá") ;
+    //
+    //     } else if (score > 50){
+    //
+    //         alert("Loại Trung bình");
+    //
+    //     } else {
+    //         alert("Loại yếu")
+    //     }
+
+    // Cho nhập từ bàn phím 1 số.
+    // let day = parseInt(prompt("Nhập ngày: "));
+    //
+    // switch (day) {
+    //     case 1:
+    //         alert("Chủ nhật");
+    //         break;
+    //     case 2:
+    //         alert(" Thứ 2 ");
+    //         break;
+    //     case 3:
+    //         alert(" Thứ 3 ");
+    //         break;
+    //     case 4:
+    //         alert(" Thứ 4 ");
+    //         break;
+    //     case 5:
+    //         alert(" Thứ 5 ");
+    //         break;
+    //     case 6:
+    //         alert(" Thứ 6 ");
+    //         break;
+    //     case 7:
+    //         alert(" Thứ 7 ");
+    //         break;
+    //     default:
+    //         alert("Bạn nhập sai");
+    //         break;
+    // }
+
+    // Toán tử 3 ngôi
+    // Conditional ? biểu thức thực thi khi DK true : biểu thức thực thi khi DK false
+    // let score = parseInt(prompt("Nhập điểm: "));
+    //
+    // (score > 75) ? alert("Loại giỏi") :
+    //     (score > 50) ? alert("Loại TB") : alert("Loại Yếu");
+
+
+</script>
+</body>
+</html>

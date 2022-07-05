@@ -1,0 +1,5 @@
+Cách sử dụng thymeleaf để tạo link cho mỗi trang:
+th:each="pageNo : ${#numbers.sequence(0, studentList.totalPages - 1)}"
+
+
+https://stackoverflow.com/questions/18490820/spring-thymeleaf-how-to-implement-pagination-for-a-list

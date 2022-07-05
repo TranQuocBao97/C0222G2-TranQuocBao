@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [1, 5, 6, 46368, 13, 9, 12, 317811, 8, 0, 5, 1, 317811];
+
+
+    document.write(fibonacci(array));
+
+    function fibonacci(arr1) {
+        let arr2 = [];
+        for (let i = 0; i < arr1.length; i++) {
+            if (checkFibonacci(arr1[i])) {
+                arr2.push(arr1[i]);
+            }
+        }
+        arr2.sort(function (a, b) {
+            return a - b;
+        })
+        return arr2;
+    }
+
+    function checkFibonacci(number) {
+        let n1 = 0;
+        let n2 = 1;
+        let n = 0;
+        while (n2 <= number) {
+            n = n1 + n2;
+            n1 = n2;
+            n2 = n;
+            if (number === n2) {
+                return true;
+            }
+        }
+        return false;
+    }
+</script>
+</body>
+</html>

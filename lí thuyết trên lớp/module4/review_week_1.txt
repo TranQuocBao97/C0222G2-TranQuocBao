@@ -1,0 +1,4 @@
++ Bean, Component
+https://shareprogramming.net/dung-lau-nhung-ban-co-phan-biet-duoc-component-va-bean-trong-spring-khong/
++ BeanFactory & ApplicationContext
+https://stackoverflow.com/questions/243385/beanfactory-vs-applicationcontext

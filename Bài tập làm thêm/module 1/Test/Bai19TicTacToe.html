@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+        .container {
+            width: 400px;
+            margin: 0px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 style="text-align: center">Caro Game Simple</h2>
+    <p id="carogame"></p>
+</div>
+
+<script>
+    let width = 8;
+    let myArray = new Array(width);
+    let a = 2;
+
+    for (let i = 0; i < width; i++) {
+        myArray[i] = new Array(width);
+    }
+    for (let i = 0; i < myArray.length; i++) {
+        for (let j = 0; j < myArray[i].length; j++) {
+            myArray[i][j] = "&nbsp&nbsp";
+        }
+    }
+
+    let arrayTable = '<table border="1" cellpadding="5px">';
+    for (let i = 0; i < myArray.length; i++) {
+        arrayTable += '<tr>';
+        for (let j = 0; j < myArray[i].length; j++) {
+            arrayTable += '<td onclick=' + '"changeValue(' + i + "," + j + ')" style="padding: 30px; font-size: 30px; font-weight: bold;">' + myArray[i][j] + '</td>';
+        }
+        arrayTable += '</tr>';
+    }
+    arrayTable += '<table border="1">';
+    document.getElementById('carogame').innerHTML = arrayTable;
+
+    /* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+    function changeValue(positionX, positionY) {
+        if (a % 2 === 0) {
+            if (myArray[positionX][positionY] !== 'o') {
+                myArray[positionX][positionY] = 'x';
+                a++;
+            } else {
+                alert('Vi tri da ton tai');
+            }
+        } else {
+            if (myArray[positionX][positionY] !== 'x') {
+                myArray[positionX][positionY] = 'o';
+                a++;
+            } else {
+                alert('Vi tri da ton tai');
+            }
+        }
+        let arrayTable = '<table border="1" cellpadding="5px">';
+        for (let i = 0; i < myArray.length; i++) {
+
+            arrayTable += '<tr>';
+            for (let j = 0; j < myArray[i].length; j++) {
+
+                arrayTable += '<td onclick=' + '"changeValue(' + i + "," + j + ')" style="padding: 30px; font-size: 30px; font-weight: bold;">' + myArray[i][j] + '</td>';
+            }
+            arrayTable += '</tr>';
+
+        }
+        arrayTable += '<table border="1">';
+        document.getElementById('carogame').innerHTML = arrayTable;
+        checkA();
+        checkB();
+    }
+
+    function checkA() {
+        for (let i = 0; i < myArray.length; i++) {
+            for (let j = 0; j < myArray[i].length; j++) {
+                if (myArray[i][j] === 'x' && myArray[i - 1][j] === 'x' && myArray[i - 2][j] === 'x' && myArray[i - 3][j] === 'x' && myArray[i - 4][j] === 'x') {
+                    alert("A win");
+                }
+                if (myArray[i][j] === 'x' && myArray[i + 1][j] === 'x' && myArray[i + 2][j] === 'x' && myArray[i + 3][j] === 'x' && myArray[i + 4][j] === 'x') {
+                    alert("A win");
+                }
+                if (myArray[i][j] === 'x' && myArray[i][j + 1] === 'x' && myArray[i][j + 2] === 'x' && myArray[i][j + 3] === 'x' && myArray[i][j + 4] === 'x') {
+                    alert("A win");
+                }
+                if (myArray[i][j] === 'x' && myArray[i][j - 1] === 'x' && myArray[i][j - 2] === 'x' && myArray[i][j - 3] === 'x' && myArray[i][j - 4] === 'x') {
+                    alert("A win");
+                }
+                if (myArray[i][j] === 'x' && myArray[i + 1][j + 1] === 'x' && myArray[i + 2][j + 2] === 'x' && myArray[i + 3][j + 3] === 'x' && myArray[i + 4][j + 4] === 'x') {
+                    alert("A win");
+                }
+                if (myArray[i][j] === 'x' && myArray[i - 1][j - 1] === 'x' && myArray[i - 2][j - 2] === 'x' && myArray[i - 3][j - 3] === 'x' && myArray[i - 4][j - 4] === 'x') {
+                    alert("A win");
+                }
+                if (myArray[i][j] === 'x' && myArray[i - 1][j + 1] === 'x' && myArray[i - 2][j + 2] === 'x' && myArray[i - 3][j + 3] === 'x' && myArray[i - 4][j + 4] === 'x') {
+                    alert("A win");
+                }
+                if (myArray[i][j] === 'x' && myArray[i + 1][j - 1] === 'x' && myArray[i + 2][j - 2] === 'x' && myArray[i + 3][j - 3] === 'x' && myArray[i + 4][j - 4] === 'x') {
+                    alert("A win");
+                }
+            }
+        }
+    }
+
+    function checkB() {
+        for (let i = 0; i < myArray.length; i++) {
+            for (let j = 0; j < myArray[i].length; j++) {
+                if (myArray[i][j] === 'o' && myArray[i - 1][j] === 'o' && myArray[i - 2][j] === 'o' && myArray[i - 3][j] === 'o' && myArray[i - 4][j] === 'o') {
+                    alert("B win");
+                }
+                if (myArray[i][j] === 'o' && myArray[i + 1][j] === 'o' && myArray[i + 2][j] === 'o' && myArray[i + 3][j] === 'o' && myArray[i + 4][j] === 'o') {
+                    alert("B win");
+                }
+                if (myArray[i][j] === 'o' && myArray[i][j + 1] === 'o' && myArray[i][j + 2] === 'o' && myArray[i][j + 3] === 'o' && myArray[i][j + 4] === 'o') {
+                    alert("B win");
+                }
+                if (myArray[i][j] === 'o' && myArray[i][j - 1] === 'o' && myArray[i][j - 2] === 'o' && myArray[i][j - 3] === 'o' && myArray[i][j - 4] === 'o') {
+                    alert("B win");
+                }
+                if (myArray[i][j] === 'o' && myArray[i + 1][j + 1] === 'o' && myArray[i + 2][j + 2] === 'o' && myArray[i + 3][j + 3] === 'o' && myArray[i + 4][j + 4] === 'o') {
+                    alert("B win");
+                }
+                if (myArray[i][j] === 'o' && myArray[i - 1][j - 1] === 'o' && myArray[i - 2][j - 2] === 'o' && myArray[i - 3][j - 3] === 'o' && myArray[i - 4][j - 4] === 'o') {
+                    alert("B win");
+                }
+                if (myArray[i][j] === 'o' && myArray[i - 1][j + 1] === 'o' && myArray[i - 2][j + 2] === 'o' && myArray[i - 3][j + 3] === 'o' && myArray[i - 4][j + 4] === 'o') {
+                    alert("B win");
+                }
+                if (myArray[i][j] === 'o' && myArray[i + 1][j - 1] === 'o' && myArray[i + 2][j - 2] === 'o' && myArray[i + 3][j - 3] === 'o' && myArray[i + 4][j - 4] === 'o') {
+                    alert("B win");
+                }
+            }
+        }
+    }
+</script>
+</body>
+
+</html>

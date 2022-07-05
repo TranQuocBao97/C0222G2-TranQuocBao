@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="table"></div>
+
+<script>
+    let string = 'mot chuoi bat ki';
+    let count=1;
+    for (let i = 0; i < string.length ; i++) {
+        if(string[i]===" "){
+            document.write('<br>');
+            count++;
+        }else {
+            document.write(string[i]);
+        }
+
+    }
+    console.log(count)
+
+
+    let string2 = 'motchuoibatkiquakicuc'
+    console.log(string2)
+    display(string2);
+    function display(str) {
+        let arr = str.split("");
+        let arr2 = [...(new Set(str))]
+        let countArray = [];
+        for (let i = 0; i < arr2.length ; i++) {
+            countArray[i] = [];
+            for (let j = 0; j < arr.length; j++) {
+                if(arr2[i].includes(arr[j])){
+                    countArray[i]++;
+                }
+            }
+        }
+        let screen ='';
+        screen+='<table border="1" style="width: 300px">\n'
+        for (let i = 0; i < arr2.length ; i++) {
+            screen+= '<tr>\n' +
+                '            <td>'+arr2[i]+'</td>\n' +
+                '            <td>'+countArray[i]+'</td>\n' +
+                '        </tr>\n'
+        }
+        screen+= '</table>';
+        document.getElementById('table').innerHTML=screen;
+    }
+</script>
+</body>
+</html>

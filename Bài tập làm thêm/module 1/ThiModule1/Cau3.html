@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e1e5e1;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12" style="text-align: center;font-size: 50px">
+            Quản Lí Sổ Tiết Kiệm
+        </div>
+    </div>
+    <br>
+    <div class="row">
+
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-1"><input class="form-control" type="text" id="addId" placeholder="Nhập mã sổ"
+                                  style="width: 100%"></div>
+        <div class="col-1"><input class="form-control" type="text" id="addType" placeholder="Nhập loại tiết kiệm"
+                                  style="width: 100%"></div>
+        <div class="col-2"><input class="form-control" type="text" id="addName" placeholder="Nhập tên khách hàng"
+                                  style="width: 100%"></div>
+        <div class="col-1"><input class="form-control" type="text" id="addCmnd" placeholder="Nhập số chứng minh"
+                                  style="width: 100%"></div>
+        <div class="col-2"><input class="form-control" type="date" id="addDate" placeholder="Nhập ngày mở sổ"
+                                  style="width: 100%"></div>
+        <div class="col-2"><input class="form-control" type="text" id="addMoney"
+                                  placeholder="Nhập số tiền gửi"
+                                  style="width: 100%"></div>
+        <div class="col-1">
+            <button type="button" class="btn btn-primary btn-sm" onclick="addProduct()">Thêm</button>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row" style="height: 40px">
+        <div class="col-1"><strong>STT</strong></div>
+        <div class="col-1"><strong>Mã sổ</strong></div>
+        <div class="col-1"><strong>Loại tiết kiệm</strong></div>
+        <div class="col-2"><strong>Tên khách hàng</strong></div>
+        <div class="col-1"><strong>Số chứng minh</strong></div>
+        <div class="col-2"><strong>Ngày mở sổ (ngày,tháng,năm)</strong></div>
+        <div class="col-2"><strong>số tiền gửi (Ngàn đồng)</strong></div>
+        <div class="col-1"><strong>Sửa</strong></div>
+        <div class="col-1"><strong>Xóa</strong></div>
+    </div>
+    <div id="screen">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-3"></div>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+
+</div>
+<script>
+    class SoTietKiem {
+        constructor(id, type, name, cmnd, date, money) {
+            this.id = id;
+            this.type = type;
+            this.name = name;
+            this.cmnd = cmnd;
+            this.date = date;
+            this.money = money;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        getType() {
+            return this.type;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getCmnd() {
+            return this.cmnd;
+        }
+
+        getDate() {
+            return this.date;
+        }
+
+        getMoney() {
+            return this.money;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        setType(type) {
+            this.type = type;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setCmnd(cmnd) {
+            this.cmnd = cmnd;
+        }
+
+        setDate(date) {
+            this.date = date;
+        }
+
+        setMoney(money) {
+            this.money = money;
+        }
+
+
+    }
+
+
+    let tietKiem = [];
+    tietKiem[0] = new SoTietKiem('T7848', 'Mười hai tháng', 'Đinh Thị Lung', 745589, '2004-02-20', 100000);
+    tietKiem[1] = new SoTietKiem('L9486', 'Sáu tháng', 'Nguyễn Trỗi', 547854, '2016-07-15', 90000);
+    tietKiem[2] = new SoTietKiem('A5879', 'Hai mươi tháng', 'Trần Dần', 421587, '2020-11-03', 600000);
+    tietKiem[3] = new SoTietKiem('M5879', 'Ba Tháng', 'Nguyễn Hoàng Tuyền', 478541, '2011-08-12', 400000);
+    tietKiem[4] = new SoTietKiem('H5879', 'Mười hai tháng', 'Lê Thúc', 325458, '2012-10-16', 550000);
+
+    function addProduct() {
+        let idTietKiem = document.getElementById('addId').value;
+        let typeTietKiem = document.getElementById('addType').value;
+        let nameTietKiem = document.getElementById('addName').value;
+        let cmndTietKiem = document.getElementById('addCmnd').value;
+        let dateTietKiem = document.getElementById('addDate').value;
+        let moneyTietKiem = document.getElementById('addMoney').value;
+        for (let i = 0; i < tietKiem.length; i++) {
+            if(idTietKiem===tietKiem[i].getId()){
+                alert('trùng mã sổ')
+                return;
+            }
+        }
+        let confirm = confirmInformation(idTietKiem, typeTietKiem, nameTietKiem, cmndTietKiem, dateTietKiem, moneyTietKiem);
+        if (confirm) {
+            tietKiem[tietKiem.length] = new SoTietKiem(idTietKiem, typeTietKiem, nameTietKiem, cmndTietKiem, dateTietKiem, moneyTietKiem);
+            document.getElementById('addId').value = "";
+            document.getElementById('addType').value = "";
+            document.getElementById('addName').value = "";
+            document.getElementById('addCmnd').value = "";
+            document.getElementById('addDate').value = "";
+            document.getElementById('addMoney').value = "";
+            display();
+        } else {
+            alert('Vui lòng nhập đủ, không để trống, (Chứng minh và tiền phải là số)');
+        }
+    }
+
+    display();
+
+    function display() {
+        let screen = "";
+        screen += "";
+
+        for (let i = 0; i < tietKiem.length; i++) {
+            screen += "<div id='change" + i + "' style='height: 40px'>" +
+                "<div class=\"row\">\n" +
+                "        <div class=\"col-1\">" + (i + 1) + "</div>\n" +
+                "        <div class=\"col-1\" id='colID" + i + "'>" + tietKiem[i].getId() + "</div>\n" +
+                "        <div class=\"col-1\" id='colTypeID" + i + "'>" + tietKiem[i].getType() + "</div>\n" +
+                "        <div class=\"col-2\" id='colNameID" + i + "'>" + tietKiem[i].getName() + "</div>\n" +
+                "        <div class=\"col-1\" id='colCmndID" + i + "'>" + tietKiem[i].getCmnd() + "</div>\n" +
+                "        <div class=\"col-2\" id='colDateID" + i + "'>" + tietKiem[i].getDate() + "</div>\n" +
+                "        <div class=\"col-2\" id='colMoneyID" + i + "'>" + tietKiem[i].getMoney() + " </div>\n" +
+                "        <div class=\"col-1\"><button type=\"button\" class=\"btn btn-warning btn-sm \" onclick='editProduct(" + i + ")'>Sửa</button></div>\n" +
+                "        <div class=\"col-1\"><button type=\"button\" class=\"btn btn-danger btn-sm \" onclick='deleteProduct(" + i + ")'>Xóa</button></div>\n" +
+                "    </div>" +
+                "</div>"
+        }
+
+        document.getElementById('screen').innerHTML = screen;
+    }
+
+
+    function editProduct(id) {
+
+        document.getElementById('change' + id + '').innerHTML = "<div class=\"row\">\n" +
+            "        <div class=\"col-1\">" + (id + 1) + "</div>\n" +
+            "        <div class=\"col-1\" id='colID" + id + "'><input id='newId" + id + "' value='" + tietKiem[id].getId() + "'></div>\n" +
+            "        <div class=\"col-1\" id='colTypeID" + id + "'><input id='newType" + id + "' value='" + tietKiem[id].getType() + "'></div>\n" +
+            "        <div class=\"col-2\" id='colNameID" + id + "'><input id='newName" + id + "' value='" + tietKiem[id].getName() + "'></div>\n" +
+            "        <div class=\"col-1\" id='colCmndID" + id + "'><input id='newCmnd" + id + "' value='" + tietKiem[id].getCmnd() + "'></div>\n" +
+            "        <div class=\"col-2\" id='colDateID" + id + "'><input type='date' id='newDate" + id + "' value='" + tietKiem[id].getDate() + "'></div>\n" +
+            "        <div class=\"col-2\" id='colMoneyID" + id + "'><input id='newMoney" + id + "' value='" + tietKiem[id].getMoney() + "'></div>\n" +
+            "        <div class=\"col-1\"><button type=\"button\" class=\"btn btn-success btn-sm\" onclick='confirmChange(" + id + ")'>Xác Nhận</button></div>\n" +
+            "        <div class=\"col-1\"><button type=\"button\" class=\"btn btn-secondary btn-sm\" onclick='cancelChange(" + id + ")'>Hủy</button></div>\n" +
+            "    </div>";
+
+    }
+
+    function confirmChange(id) {
+        let newId = document.getElementById('newId' + id + '').value;
+        let newType = document.getElementById('newType' + id + '').value;
+        let newName = document.getElementById('newName' + id + '').value;
+        let newCmnd = document.getElementById('newCmnd' + id + '').value;
+        let newDate = document.getElementById('newDate' + id + '').value;
+        let newMoney = document.getElementById('newMoney' + id + '').value;
+        let confirm = confirmInformation(newId,newType,newName,newCmnd,newDate,newMoney);
+        if (confirm) {
+            tietKiem[id].setId(newId);
+            tietKiem[id].setType(newType);
+            tietKiem[id].setName(newName);
+            tietKiem[id].setCmnd(newCmnd);
+            tietKiem[id].setDate(newDate);
+            tietKiem[id].setMoney(newMoney);
+            display();
+        } else {
+            alert('ko được để trống thông tin, giá phải là số')
+            display();
+        }
+
+    }
+
+    function cancelChange() {
+        display();
+    }
+
+    function deleteProduct(id) {
+        if (confirm('xóa sản phẩm: ' + tietKiem[id].getName())) {
+            tietKiem.splice(id, 1);
+        }
+        display();
+    }
+
+    function confirmInformation(id, type, name, cmnd, date, money) {
+        if (id === "" || type === "" || name === "" || cmnd === "" || date === "" || money === "" || id.length > 5 || type.length > 15 || name.length > 30 || isNaN(cmnd) || isNaN(money)) {
+            return false;
+        }
+        return true;
+    }
+
+
+
+</script>
+</body>
+</html>

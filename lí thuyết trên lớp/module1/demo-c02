@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        th, td, caption {
+            border: 1px solid red;
+            /*border-right: 0px;*/
+        }
+
+        /* Khai báo Css cho thẻ có class buổi*/
+        .buoi {
+            color: #3CF9ED;
+        }
+
+    </style>
+    <!--    <link type="text/css" href="c02-css.css" rel="stylesheet">-->
+</head>
+<body>
+<!-- Có thể sử dụng các thuộc tính trong thẻ table để căn chỉnh
+     border (tạo viền), cellpadding(giãn khoảng cách),
+     colspan: Gộp cột
+     rowspan: gộp dòng -->
+<!-- div: Dùng để nhóm các phần tử html-->
+
+<div>
+    <table cellpadding="20px" style="border-collapse: collapse;">
+        <caption>TKB</caption>
+        <thead>
+        <tr>
+            <th> Buổi</th>
+            <th> Tiết</th>
+            <th> Thứ 2</th>
+            <th> Thứ 3</th>
+            <th> Thứ 4</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td rowspan="3" class="buoi">Sáng</td>
+            <td> 1</td>
+            <td> Toán</td>
+            <td> Văn</td>
+            <td> Thể dục</td>
+        </tr>
+        <tr>
+            <td> 2</td>
+            <td> Lý</td>
+            <td> Sử</td>
+            <td> Thể dục</td>
+        </tr>
+        <tr>
+            <td> 3</td>
+            <td> Hóa</td>
+            <td> Địa</td>
+            <td> Thể dục</td>
+        </tr>
+        <tr>
+            <td rowspan="3" class="buoi"> Chiều</td>
+            <td> 2</td>
+            <td> Lý</td>
+            <td> Sử</td>
+            <td> Thể dục</td>
+        </tr>
+        <tr>
+            <td> 3</td>
+            <td> Hóa</td>
+            <td> Địa</td>
+            <td> Thể dục</td>
+        </tr>
+        <tr>
+            <td> 3</td>
+            <td> Hóa</td>
+            <td> Địa</td>
+            <td> Thể dục</td>
+        </tr>
+        <tr>
+            <td colspan="5">Class C0222G2</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- action: Địa chỉ server, nới dữ liệu được gửi về -->
+<!-- method: Cách thức dữ liệu được gửi đi -->
+<!-- name (trong thẻ input) : Định danh (phân biệt) các ô input khi gửi về server-->
+<!--    <form action="abvnsdvhjdsbvhjdscsdc" >-->
+
+<!--        <label for="username">Tài khoản: </label>-->
+<!--        <input id="username" type="text" placeholder="Nhập tài khoản" name="username">-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <label>Mật khẩu: </label>-->
+<!--        <input type="password" placeholder="Nhập mật khẩu" name="password">-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <label>Căn cước: </label>-->
+<!--        <input type="number" name="idcard">-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <label>Ngày sinh: </label>-->
+<!--        <input type="date" name="dateOfBirth">-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <label>Giới tính: </label>-->
+<!--        <input type="radio" name="gender" value="male"> Nam-->
+<!--        <input type="radio" name="gender" value="female"> Nữ-->
+<!--        <input type="radio" name="gender" value="none"> Chưa xác định-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <label>Sở thích: </label>-->
+<!--        <input type="checkbox" name="hobbies" value="football"> Bóng đá-->
+<!--        <input type="checkbox" name="hobbies" value="song"> Nhạc-->
+<!--        <input type="checkbox" name="hobbies" value="game"> Chơi game-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <label>Quốc tịch: </label>-->
+<!--        <select name="country">-->
+<!--            <option> Việt Nam </option>-->
+<!--            <option> Lào </option>-->
+<!--            <option> Nga </option>-->
+<!--            <option> Anh </option>-->
+<!--        </select>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <label>Hình đại diện: </label>-->
+<!--        <input type="file">-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <button type="submit">Xác nhận</button>-->
+<!--        <button type="reset">Làm mới</button>-->
+<!--    </form>-->
+
+
+</body>
+</html>

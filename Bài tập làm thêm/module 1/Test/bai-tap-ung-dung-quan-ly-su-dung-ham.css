@@ -1,0 +1,36 @@
+
+table{
+    margin-top: 100px;
+    border-collapse: collapse;
+    width: 40%;
+}
+tr:nth-child(odd){
+    background-color: #e2e4ee;
+}
+tr:nth-child(even){
+    background-color: #e2eee9;
+}
+
+.stt{
+    height: 50px;
+    text-align: center;
+
+}
+button {
+    width: 80%;
+    height: 35px;
+    margin-left: 12px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid #949bc2;
+    background-color: #10c13b;
+    color: white;
+    font-weight: lighter;
+    font-family: "Courier New";
+}
+button:hover{
+    cursor: pointer;
+    background-color: #354144;
+}

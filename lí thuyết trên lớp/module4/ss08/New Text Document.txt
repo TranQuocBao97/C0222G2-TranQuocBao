@@ -1,0 +1,1 @@
+https://beanvalidation.org/proposals/BVAL-248/
