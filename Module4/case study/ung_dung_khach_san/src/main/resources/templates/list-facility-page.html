@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{home-page :: css}"></th:block>
+    <style>
+        #header {
+            position: relative;
+        }
+
+        #footer {
+            position: sticky;
+            margin-top: 10%;
+            background: #2c3e50;
+        }
+    </style>
+</head>
+<body style="background-color: black">
+
+
+<th:block th:insert="~{home-page :: header}"></th:block>
+
+<div style="padding: 10px">
+    <button class="btn btn-warning" data-toggle="modal" data-target="#addNewFacility">Add New Facility</button>
+    <!-- Button to Open the Modal -->
+
+    <!-- The Modal -->
+    <div class="modal fade" id="addNewFacility">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Add new facility</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <table class="table table-bordered" style="color: #000000">
+                        <tr >
+                            <th>Name</th>
+                            <td>
+                                <input class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Rent type</th>
+                            <td>
+                                <select>
+
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Facility type</th>
+                            <td>
+                                <select>
+
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Area</th>
+                            <td>
+                                <input class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Cost</th>
+                            <td>
+                                <input class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Max people</th>
+                            <td>
+                                <input class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Standard room</th>
+                            <td>
+                                <input class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Convenient</th>
+                            <td>
+                                <input class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Pool Area</th>
+                            <td>
+                                <input class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Number of floors</th>
+                            <td>
+                                <input class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Facility free</th>
+                            <td>
+                                <input class="form-control">
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Yes</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<table class="table table-bordered" style="color: #feb900">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Cost</th>
+        <th>Rent Type</th>
+        <th>Facility Type</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody th:each="facility :${facilityPage}">
+    <tr>
+        <td th:text="${facility.id}"></td>
+        <td th:text="${facility.name}"></td>
+        <td th:text="${#numbers.formatDecimal(facility.cost, 0, 'DEFAULT', 0, 'DEFAULT')}"></td>
+        <td th:text="${facility.rentType.name}"></td>
+        <td th:text="${facility.facilityType.name}"></td>
+        <td>
+            <button class="btn btn-outline-warning">
+                Edit
+            </button>
+        </td>
+        <td>
+            <button class="btn btn-outline-danger" data-toggle="modal" th:data-target="'#deleteModal'+${facility.id}">
+                Delete
+            </button>
+            <!-- Button to Open the Modal -->
+
+            <!-- The Modal -->
+            <div class="modal fade" th:id="'deleteModal'+${facility.id}">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Delete <span th:text="${facility.name}"></span></h4>
+                            <button class="close btn btn-warning" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            Bạn có chắc chắn muốn xóa không?
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" data-dismiss="modal">No</button>
+                            <form th:action="@{/facility/delete/{id}(id=${facility.id})}" method="post">
+                                <button type="submit" class="btn btn-danger">Yes</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+        <li class="page-item">
+            <a class="page-link" th:if="${facilityPage.hasPrevious()}"
+               th:href="@{/facility/list(page=${facilityPage.number - 1})}">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" th:if="${facilityPage.hasPrevious()}"
+                                 th:href="@{/facility/list(page=${facilityPage.number - 1})}"
+                                 th:text="${facilityPage.number}"></a></li>
+        <li class="page-item"><span class="page-link" th:text="${facilityPage.number + 1}"></span></li>
+        <li class="page-item"><a class="page-link" th:if="${facilityPage.hasNext()}"
+                                 th:href="@{/facility/list(page=${facilityPage.number + 1})}"
+                                 th:text="${facilityPage.number + 2}"></a></li>
+        <li class="page-item">
+            <a class="page-link" th:if="${facilityPage.hasNext()}"
+               th:href="@{/facility/list(page=${facilityPage.number + 1})}">Next</a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Small modal -->
+<!-- The Modal -->
+<div th:if="${mess!=null}" class="modal fade" id="deleteSuccessModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Mess</h4>
+            </div>
+            <div class="modal-body" th:text="${mess}">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<th:block th:replace="~{home-page :: footer}"></th:block>
+</body>
+<th:block th:replace="~{home-page :: js}"></th:block>
+<script>
+    $("document").ready(function () {
+        $("#deleteSuccessModal").modal('show');
+    });
+</script>
+</html>
