@@ -8,6 +8,8 @@ import program.ung_dung_khach_san.model.entities_facility.Facility;
 import program.ung_dung_khach_san.repository.repository_facility.IFacilityRepository;
 import program.ung_dung_khach_san.service.service_facility.IFacilityService;
 
+import java.util.Optional;
+
 @Service
 public class FacilityServiceImpl implements IFacilityService {
 
@@ -27,5 +29,15 @@ public class FacilityServiceImpl implements IFacilityService {
     @Override
     public boolean existsById(Integer id) {
         return iFacilityRepository.existsById(id);
+    }
+
+    @Override
+    public void save(Facility facility) {
+        iFacilityRepository.save(facility);
+    }
+
+    @Override
+    public Optional<Facility> findById(Integer id) {
+        return iFacilityRepository.findById(id);
     }
 }

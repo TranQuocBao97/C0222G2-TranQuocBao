@@ -1,5 +1,6 @@
 package program.ung_dung_khach_san.model.entities_facility;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import program.ung_dung_khach_san.model.Contract;
 
@@ -32,6 +33,7 @@ public class Facility {
 
 
     @OneToMany(mappedBy = "facility")
+    @JsonBackReference
     private List<Contract> contracts;
 
 }

@@ -1,6 +1,7 @@
 package program.ung_dung_khach_san.model.entities_facility;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -16,5 +17,6 @@ public class RentType {
     private String name;
 
     @OneToMany(mappedBy = "rentType")
+    @JsonBackReference
     private List<Facility> facilities;
 }

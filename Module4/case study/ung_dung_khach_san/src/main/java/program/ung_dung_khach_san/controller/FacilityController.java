@@ -6,10 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import program.ung_dung_khach_san.model.entities_facility.Facility;
 import program.ung_dung_khach_san.repository.repository_facility.IFacilityTypeRepository;
@@ -38,6 +35,14 @@ public class FacilityController {
         model.addAttribute("rentTypeList",iRentTypeRepository.findAll());
         model.addAttribute("facilityObj",new Facility());
         return "list-facility-page";
+    }
+
+    @PostMapping("/add")
+    public String addNewFacility(@ModelAttribute Facility facility,
+                                 RedirectAttributes redirectAttributes){
+        iFacilityService.save(facility);
+        redirectAttributes.addFlashAttribute("mess","Thêm mới thành công");
+        return "redirect:/facility/list";
     }
 
     @PostMapping("/delete/{id}")
