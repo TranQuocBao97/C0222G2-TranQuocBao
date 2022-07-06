@@ -1,19 +1,23 @@
 package program.ung_dung_khach_san.model.entities_customer;
 
-import lombok.Data;
+import lombok.*;
 import program.ung_dung_khach_san.model.Contract;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="customer_id")
     private Integer id;
     private String name;
+    @Column(columnDefinition = "DATE")
     private String dateOfBirth;
     private String idCard;
     private String phoneNumber;

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{home-page :: css}"></th:block>
+    <style>
+        #header {
+            position: relative;
+        }
+
+        #footer {
+            position: sticky;
+            margin-top: 10%;
+            background: #2c3e50;
+        }
+    </style>
+</head>
+<body style="background-color: black">
+<th:block th:insert="~{layout :: header}"></th:block>
+<main class="container">
+    <div style="padding: 30px">
+        <h1 style="color: #b8badc" class="text-center">Contract Management</h1>
+    </div>
+
+    <table class="table table-bordered" style="color: #feb900">
+        <thead>
+        <tr style="background: #1e1e1a">
+            <th>ST</th>
+            <th>Facility</th>
+            <th>Customer</th>
+            <th>Date start</th>
+            <th>Date end</th>
+            <th>Deposit</th>
+            <th>Total money</th>
+            <th colspan="2">Other service</th>
+        </tr>
+        </thead>
+        <tr th:each="contract :${contractPage}">
+            <td th:text="${customer.id}"></td>
+            <td th:text="${customer.name}"></td>
+            <td th:text="${customer.dateOfBirth}"></td>
+            <td th:text="${customer.idCard}"></td>
+            <td th:text="${customer.phoneNumber}"></td>
+            <td th:text="${customer.email}"></td>
+            <td th:text="${customer.address}"></td>
+            <td>
+                <button class="btn btn-outline-warning" data-toggle="modal" data-target="#editCustomerModal">
+                    Edit
+                </button>
+                <!-- Edit customer Modal -->
+                <div class="modal fade" id="editCustomerModal">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Modal Heading</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>Name</th>
+                                        <td>
+                                            <input>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date of Birth</th>
+                                        <td>
+                                            <input>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Id Card</th>
+                                        <td>
+                                            <input>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phone Number</th>
+                                        <td>
+                                            <input>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>
+                                            <input>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Address</th>
+                                        <td>
+                                            <input>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Gender</th>
+                                        <td>
+                                            <input>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Customer Type</th>
+                                        <td>
+                                            <input>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <!-- Button Open delete Modal -->
+                <button class="btn btn-outline-danger" data-toggle="modal"
+                        th:data-target="'#deleteModal'+${customer.id}">
+                    Delete
+                </button>
+
+
+                <!-- The delete Modal -->
+                <div class="modal fade" th:id="'deleteModal'+${customer.id}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Delete <span th:text="${customer.name}"></span></h4>
+                                <button class="close btn btn-warning" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                Bạn có chắc chắn muốn xóa không?
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-warning" data-dismiss="modal">No</button>
+                                <form th:action="@{/customer/delete/{id}(id=${customer.id})}" method="post">
+                                    <button type="submit" class="btn btn-danger">Yes</button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</main>
+<th:block th:replace="~{home-page :: footer}"></th:block>
+
+</body>
+<th:block th:replace="~{home-page :: js}"></th:block>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</html>

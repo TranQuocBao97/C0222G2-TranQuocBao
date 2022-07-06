@@ -16,12 +16,13 @@
         }
     </style>
 </head>
-<body style="background-color: black">
+<body style="background-color: #000000">
 
+<th:block th:insert="~{layout :: header}"></th:block>
 
-<th:block th:insert="~{home-page :: header}"></th:block>
-
-<div style="padding: 10px">
+<main class="container">
+<div style="padding: 30px">
+    <h1 style="color: #b8badc" class="text-center">Facility Management</h1>
     <!-- Button to Open the Modal -->
     <button class="btn btn-warning" id="addNew">Add New Facility</button>
     <select id="selectFacilityType" class="btn btn-warning">
@@ -55,7 +56,6 @@
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title">Add new Room facility</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">
@@ -78,7 +78,7 @@
                             <tr>
                                 <th>Rent type</th>
                                 <td>
-                                    <select th:field="*{rentType}">
+                                    <select th:field="*{rentType}" class="form-select">
                                         <option th:each="rentType :${rentTypeList}" th:value="${rentType.id}"
                                                 th:text="${rentType.name}"></option>
                                     </select>
@@ -125,13 +125,12 @@
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title">Add new House facility</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">
 
                         <table class="table table-bordered" style="color: #000000">
-                            <select hidden th:field="*{facilityType}">
+                            <select hidden th:field="*{facilityType}" class="form-control">
                                 <option th:each="facilityType :${facilityTypeList}" th:if="${facilityType.id == 2}"
                                         th:value="${facilityType.id}"></option>
                             </select>
@@ -144,7 +143,7 @@
                             <tr>
                                 <th>Rent type</th>
                                 <td>
-                                    <select th:field="*{rentType}">
+                                    <select th:field="*{rentType}" class="form-select">
                                         <option th:each="rentType :${rentTypeList}" th:value="${rentType.id}"
                                                 th:text="${rentType.name}"></option>
                                     </select>
@@ -202,14 +201,13 @@
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Add new House facility</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add new Villa facility</h4>
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">
 
                         <table class="table table-bordered" style="color: #000000">
-                            <select hidden th:field="*{facilityType}">
+                            <select hidden th:field="*{facilityType}" class="form-control">
                                 <option th:each="facilityType :${facilityTypeList}" th:if="${facilityType.id == 3}"
                                         th:value="${facilityType.id}"></option>
                             </select>
@@ -222,7 +220,7 @@
                             <tr>
                                 <th>Rent type</th>
                                 <td>
-                                    <select th:field="*{rentType}">
+                                    <select th:field="*{rentType}" class="form-select">
                                         <option th:each="rentType :${rentTypeList}" th:value="${rentType.id}"
                                                 th:text="${rentType.name}"></option>
                                     </select>
@@ -278,23 +276,23 @@
         </div>
     </form>
 
-</div>
-</div>
+</div></div>
+
 <table class="table table-bordered" style="color: #feb900">
     <thead>
-    <tr>
-        <th>Id</th>
+    <tr style="background: #1e1e1a">
+        <th>STT</th>
         <th>Name</th>
         <th>Cost</th>
         <th>Rent Type</th>
         <th>Facility Type</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th colspan="2" class="text-center">Action</th>
     </tr>
     </thead>
-    <tbody th:each="facility :${facilityPage}">
+    <tbody th:each="facility,loop :${facilityPage}">
     <tr>
-        <td th:text="${facility.id}"></td>
+<!--        <td th:text="${facility.id}"></td>-->
+        <td th:text="${loop.count}"></td>
         <td th:text="${facility.name}"></td>
         <td th:text="${#numbers.formatDecimal(facility.cost, 0, 'DEFAULT', 0, 'DEFAULT')}"></td>
         <td th:text="${facility.rentType.name}"></td>
@@ -363,7 +361,7 @@
     </ul>
 </nav>
 
-<!-- Small modal -->
+
 <!-- mess Modal -->
 <div th:if="${mess!=null}" class="modal fade" id="deleteSuccessModal">
     <div class="modal-dialog modal-sm">
@@ -391,14 +389,10 @@
 
             </div>
             <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" id="editFacility" class="btn btn-primary">Yes</button>
-            </div>
-
         </div>
     </div>
 </div>
-
+</main>
 
 <th:block th:replace="~{home-page :: footer}"></th:block>
 </body>
@@ -427,6 +421,62 @@
         })
     });
 
+    function getPageFacility() {
+
+    }
+
+
+    function confirmEditFacility(id) {
+        console.log(id)
+        let idVal = $("#facilityId" + `${id}`).val();
+        let nameVal = $("#facilityName" + `${id}`).val();
+        let areaVal = $("#facilityArea" + `${id}`).val();
+        let costVal = $("#facilityCost" + `${id}`).val();
+        let standardRoomVal = $("#facilityStandardRoom" + `${id}`).val();
+        let convenienceVal = $("#facilityConvenience" + `${id}`).val();
+        let poolAreaVal = $("#facilityPoolArea" + `${id}`).val();
+        let numberOfFloorsVal = $("#facilityNumberOfFloors" + `${id}`).val();
+        let facilityFreeVal = $("#facilityFree" + `${id}`).val();
+        let facilityTypeIdVal = $("#facilityType" + `${id}`).val();
+        let rentTypeIdVal = $("#facilityRentType" + `${id}`).val();
+        console.log(idVal, nameVal, areaVal, costVal, standardRoomVal, convenienceVal, poolAreaVal, numberOfFloorsVal,
+            facilityFreeVal, facilityTypeIdVal, rentTypeIdVal);
+        let FacilityObj = {
+            id: idVal,
+            name: nameVal,
+            area: areaVal,
+            cost: costVal,
+            standardRoom: standardRoomVal,
+            convenience: convenienceVal,
+            poolArea: poolAreaVal,
+            numberOfFloors: numberOfFloorsVal,
+            facilityFree: facilityFreeVal,
+            facilityType: {
+                id: facilityTypeIdVal
+            },
+            rentType: {
+                id: rentTypeIdVal
+            }
+        }
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "PUT",
+            url: "http://localhost:8080/api/facility",
+            data: JSON.stringify(FacilityObj),
+            success: function (resultSuccess) {
+                console.log(resultSuccess);
+                alert("sửa thành công")
+                location.reload();
+            },
+            error: function (resultError) {
+                alert("Edit thất bại");
+            }
+        });
+    }
+
 
     function getFacilityByIdThenOpenModal(id) {
         $.ajax({
@@ -445,46 +495,175 @@
                     <tr>
                         <th>Id facility</th>
                         <td>
-                            <input id="facilityId${id}" value="${facilityDTO.facility.id}">
+                            <input type="hidden" id="facilityId${id}" value="${facilityDTO.facility.id}">
+                            <div class="form-control bg-light">${facilityDTO.facility.id}</div>
                         </td>
                     </tr>
                     <tr>
                         <th>Facility Type</th>
                         <input type="hidden" id="facilityType${id}" value="${facilityDTO.facility.facilityType.id}">
-                        <td>${facilityDTO.facility.facilityType.name}</td>
+                        <td><div class="form-control bg-light">${facilityDTO.facility.facilityType.name}</div></td>
                     </tr>
                     <tr>
                         <th>Name</th>
-                        <td><input id="facilityName${id}" value="${facilityDTO.facility.name}"></td>
+                        <td><input id="facilityName${id}" value="${facilityDTO.facility.name}" class="form-control"></td>
                     </tr>
                     <tr>
                         <th>Area</th>
-                        <td><input id="facilityArea${id}" value="${facilityDTO.facility.area}"></td>
+                        <td><input id="facilityArea${id}" value="${facilityDTO.facility.area}" class="form-control"></td>
                     </tr>
                     <tr>
                         <th>Cost</th>
-                        <td><input id="facilityCost${id}" value="${facilityDTO.facility.cost}"></td>
+                        <td><input id="facilityCost${id}" value="${facilityDTO.facility.cost}" class="form-control"></td>
                     </tr>
                     <tr>
                         <th>Facility Free</th>
-                        <td><input id="facilityFree${id}" value="${facilityDTO.facility.facilityFree}"></td>
+                        <td><input id="facilityFree${id}" value="${facilityDTO.facility.facilityFree}" class="form-control"></td>
                     </tr>
                     <tr>
                         <th>Rent Type</th>
                         <td>
-                        <select id="facilityRentType${id}">`
+                        <select id="facilityRentType${id}" class="form-select">`
                     for (let i = 0; i < facilityDTO.rentTypeList.length; i++) {
-                        editTable += `<option value="${facilityDTO.rentTypeList[i].id}">${facilityDTO.rentTypeList[i].name}</option>`
+                        editTable += `<option value="${facilityDTO.rentTypeList[i].id}" >${facilityDTO.rentTypeList[i].name}</option>`
                     }
                     editTable +=
                         `</select>
                         </td>
                     </tr>
-                </table>`
+                </table>
+            <div class="modal-footer">
+                <button type="button" onclick="confirmEditFacility(${id})" class="btn btn-primary">Yes</button>
+            </div>`
 
                     $("#editFacilityTable").html(editTable);
                     $("#editFacilityModal").modal("show");
                 }
+
+                if (facilityDTO.facility.facilityType.id === 2) {
+                    let editTable = "";
+                    editTable +=
+                        `<table class="table table-bordered" style="color: #000000">
+                    <tr>
+                        <th>Id facility</th>
+                        <td>
+                            <input type="hidden" id="facilityId${id}" value="${facilityDTO.facility.id}" class="form-control">
+                            <div class="form-control bg-light">${facilityDTO.facility.id}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Facility Type</th>
+                        <input type="hidden" id="facilityType${id}" value="${facilityDTO.facility.facilityType.id}" class="form-control">
+                        <td><div class="form-control bg-light">${facilityDTO.facility.facilityType.name}</div></td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td><input id="facilityName${id}" value="${facilityDTO.facility.name}" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Area</th>
+                        <td><input id="facilityArea${id}" value="${facilityDTO.facility.area}" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Cost</th>
+                        <td><input id="facilityCost${id}" value="${facilityDTO.facility.cost}" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Stander room</th>
+                        <td><input id="facilityStanderRoom${id}" value="${facilityDTO.facility.standardRoom}" class="form-control"></td>
+                    </tr>
+                     <tr>
+                        <th>Convenience</th>
+                        <td><input id="facilityConvenience${id}" value="${facilityDTO.facility.convenience}" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Number of floors</th>
+                        <td><input id="facilityNumberOfFloors${id}" value="${facilityDTO.facility.numberOfFloors}" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Rent Type</th>
+                        <td>
+                        <select id="facilityRentType${id}" class="form-select">`
+                    for (let i = 0; i < facilityDTO.rentTypeList.length; i++) {
+                        editTable += `<option value="${facilityDTO.rentTypeList[i].id}" class="btn">${facilityDTO.rentTypeList[i].name}</option>`
+                    }
+                    editTable +=
+                        `</select>
+                        </td>
+                    </tr>
+                </table>
+            <div class="modal-footer">
+                <button type="button" onclick="confirmEditFacility(${id})" class="btn btn-primary">Yes</button>
+            </div>`
+
+                    $("#editFacilityTable").html(editTable);
+                    $("#editFacilityModal").modal("show");
+                }
+
+                if (facilityDTO.facility.facilityType.id === 3) {
+                    let editTable = "";
+                    editTable +=
+                        `<table class="table table-bordered" style="color: #000000">
+                    <tr>
+                        <th>Id facility</th>
+                        <td>
+                            <input type="hidden" id="facilityId${id}" value="${facilityDTO.facility.id}" class="form-control">
+                            <div class="form-control bg-light">${facilityDTO.facility.id}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Facility Type</th>
+                        <input type="hidden" id="facilityType${id}" value="${facilityDTO.facility.facilityType.id}" >
+                        <td><div class="form-control bg-light">${facilityDTO.facility.facilityType.name}</div></td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td><input id="facilityName${id}" value="${facilityDTO.facility.name}" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Area</th>
+                        <td><input id="facilityArea${id}" value="${facilityDTO.facility.area}" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Cost</th>
+                        <td><input id="facilityCost${id}" value="${facilityDTO.facility.cost}" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Stander room</th>
+                        <td><input id="facilityStanderRoom${id}" value="${facilityDTO.facility.standardRoom}" class="form-control"></td>
+                    </tr>
+                     <tr>
+                        <th>Convenience</th>
+                        <td><input id="facilityConvenience${id}" value="${facilityDTO.facility.convenience}" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Number of floors</th>
+                        <td><input id="facilityNumberOfFloors${id}" value="${facilityDTO.facility.numberOfFloors}" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Pool area</th>
+                        <td><input id="facilityPoolArea${id}" value="${facilityDTO.facility.poolArea}" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th>Rent Type</th>
+                        <td>
+                        <select id="facilityRentType${id}" class="form-select">`
+                    for (let i = 0; i < facilityDTO.rentTypeList.length; i++) {
+                        editTable += `<option value="${facilityDTO.rentTypeList[i].id}" class="btn">${facilityDTO.rentTypeList[i].name}</option>`
+                    }
+                    editTable +=
+                        `</select>
+                        </td>
+                    </tr>
+                </table>
+            <div class="modal-footer">
+                <button type="button" onclick="confirmEditFacility(${id})" class="btn btn-primary">Yes</button>
+            </div>`
+
+                    $("#editFacilityTable").html(editTable);
+                    $("#editFacilityModal").modal("show");
+                }
+
             },
             error: function (resultError) {
                 alert("Lấy facility thất bại")

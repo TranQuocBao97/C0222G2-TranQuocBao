@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>FURAMA</title>
-        <th:block th:fragment="css">
+    <th:block th:fragment="css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
@@ -17,29 +17,29 @@
         <link th:href="@{/assets/vendor/glightbox/css/glightbox.min.css}" rel="stylesheet">
         <link th:href="@{/assets/vendor/swiper/swiper-bundle.min.css}" rel="stylesheet">
         <link th:href="@{/assets/css/main.css}" rel="stylesheet">
-        </th:block>
+    </th:block>
 </head>
 
 <body>
 
 <!-- ======= Header ======= -->
-    <th:block th:fragment="header">
-    <header id="header" class="header d-flex align-items-center" >
+<th:block th:fragment="header">
+    <header id="header" class="header d-flex align-items-center">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-            <a href="" class="logo d-flex align-items-center">
+            <a href="/furama" class="logo d-flex align-items-center">
                 <h1>FURAMA<span>.</span></h1>
             </a>
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="" class="active">Home</a></li>
-                    <li><a href="">Employee</a></li>
-                    <li><a href="">Customer</a></li>
-                    <li><a href="">Service</a></li>
-                    <li><a href="">Contract</a></li>
-                    <li class="dropdown"><a href="#"><span>Dropdown</span> <i
+                    <li><a href="/furama" class="active">Home</a></li>
+                    <li><a href="" class="active">Employee</a></li>
+                    <li><a href="/customer/list" class="active">Customer</a></li>
+                    <li><a href="/facility/list" class="active">Facility</a></li>
+                    <li><a href="" class="active">Contract</a></li>
+                    <li class="dropdown"><a href="#" class="active"><span>Dropdown</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
                             <li><a href="#">Dropdown 1</a></li>
@@ -58,13 +58,13 @@
                             <li><a href="#">Dropdown 4</a></li>
                         </ul>
                     </li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="" class="active">Contact</a></li>
                 </ul>
             </nav><!-- .navbar -->
 
         </div>
     </header><!-- End Header -->
-    </th:block>
+</th:block>
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="hero">
@@ -76,9 +76,13 @@
                     <h2 data-aos="fade-down">Welcome to
                         <div>FURAMA RESORT</div>
                     </h2>
-                    <p data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p data-aos="fade-up">You are my sunshine,
+                        My only sunshine,
+                        You make me happy,
+                        When skies are gray,
+                        You'll never know, dear,
+                        How much I love you,
+                        Please don't take my sunshine away.</p>
                 </div>
             </div>
         </div>
@@ -107,90 +111,94 @@
 
 <!-- ======= Footer ======= -->
 <th:block th:fragment="footer">
-<footer id="footer" class="footer">
+    <footer id="footer" class="footer">
 
-    <div class="footer-content position-relative">
-        <div class="container">
-            <div class="row">
+        <div class="footer-content position-relative">
+            <div class="container">
+                <div class="row">
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-info">
-                        <h3>UpConstruction</h3>
-                        <p>
-                            A108 Adam Street <br>
-                            NY 535022, USA<br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
-                        </p>
-                        <div class="social-links d-flex mt-3">
-                            <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>
-                            <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
-                            <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-info">
+                            <h3>UpConstruction</h3>
+                            <p>
+                                Quan Ngu Hanh Son <br>
+                                Da Nang, VietNam<br><br>
+                                <strong>Phone:</strong> +343473038<br>
+                                <strong>Email:</strong> furama@gamil.com<br>
+                            </p>
+                            <div class="social-links d-flex mt-3">
+                                <a href="#" class="d-flex align-items-center justify-content-center"><i
+                                        class="bi bi-twitter"></i></a>
+                                <a href="#" class="d-flex align-items-center justify-content-center"><i
+                                        class="bi bi-facebook"></i></a>
+                                <a href="#" class="d-flex align-items-center justify-content-center"><i
+                                        class="bi bi-instagram"></i></a>
+                                <a href="#" class="d-flex align-items-center justify-content-center"><i
+                                        class="bi bi-linkedin"></i></a>
+                            </div>
                         </div>
-                    </div>
-                </div><!-- End footer info column-->
+                    </div><!-- End footer info column-->
 
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
-                    </ul>
-                </div><!-- End footer links column-->
+                    <div class="col-lg-2 col-md-3 footer-links">
+                        <h4>Furama</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Terms of service</a></li>
+                            <li><a href="#">Privacy policy</a></li>
+                        </ul>
+                    </div><!-- End footer links column-->
 
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Product Management</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Graphic Design</a></li>
-                    </ul>
-                </div><!-- End footer links column-->
+                    <div class="col-lg-2 col-md-3 footer-links">
+                        <h4>Our Services</h4>
+                        <ul>
+                            <li><a href="#">Web Design</a></li>
+                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">Product Management</a></li>
+                            <li><a href="#">Marketing</a></li>
+                            <li><a href="#">Graphic Design</a></li>
+                        </ul>
+                    </div><!-- End footer links column-->
 
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Hic solutasetp</h4>
-                    <ul>
-                        <li><a href="#">Molestiae accusamus iure</a></li>
-                        <li><a href="#">Excepturi dignissimos</a></li>
-                        <li><a href="#">Suscipit distinctio</a></li>
-                        <li><a href="#">Dilecta</a></li>
-                        <li><a href="#">Sit quas consectetur</a></li>
-                    </ul>
-                </div><!-- End footer links column-->
+                    <div class="col-lg-2 col-md-3 footer-links">
+                        <h4>Our History</h4>
+                        <ul>
+                            <li><a href="#">Molestiae accusamus iure</a></li>
+                            <li><a href="#">Excepturi dignissimos</a></li>
+                            <li><a href="#">Suscipit distinctio</a></li>
+                            <li><a href="#">Dilecta</a></li>
+                            <li><a href="#">Sit quas consectetur</a></li>
+                        </ul>
+                    </div><!-- End footer links column-->
 
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Nobis illum</h4>
-                    <ul>
-                        <li><a href="#">Ipsam</a></li>
-                        <li><a href="#">Laudantium dolorum</a></li>
-                        <li><a href="#">Dinera</a></li>
-                        <li><a href="#">Trodelas</a></li>
-                        <li><a href="#">Flexo</a></li>
-                    </ul>
-                </div><!-- End footer links column-->
+                    <div class="col-lg-2 col-md-3 footer-links">
+                        <h4>About Us</h4>
+                        <ul>
+                            <li><a href="#">Ipsam</a></li>
+                            <li><a href="#">Laudantium dolorum</a></li>
+                            <li><a href="#">Dinera</a></li>
+                            <li><a href="#">Trodelas</a></li>
+                            <li><a href="#">Flexo</a></li>
+                        </ul>
+                    </div><!-- End footer links column-->
 
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="footer-legal text-center position-relative">
-        <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong><span>UpConstruction</span></strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        <div class="footer-legal text-center position-relative">
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>UpConstruction</span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    Designed by <a href="/furama">Furama</a>
+                </div>
             </div>
         </div>
-    </div>
 
-</footer>
+    </footer>
 </th:block>
 <!-- End Footer -->
 

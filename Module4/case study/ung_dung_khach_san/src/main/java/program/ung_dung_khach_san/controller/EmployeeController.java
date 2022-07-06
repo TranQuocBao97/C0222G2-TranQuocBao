@@ -6,16 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/furama")
-public class FuramaController {
+@RequestMapping("/employee")
+public class EmployeeController {
 
-    @GetMapping
-    public String homePage() {
-        return "home-page";
+    @GetMapping("/list")
+    public String getListPageEmployee(){
+        return "/list-employee-page";
     }
 
-    @GetMapping("/test")
-    public String test() {
-        return "test";
-    }
 }

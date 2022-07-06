@@ -1,13 +1,16 @@
 package program.ung_dung_khach_san.model.entities_employee;
 
-import lombok.Data;
+import lombok.*;
 import program.ung_dung_khach_san.model.Contract;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

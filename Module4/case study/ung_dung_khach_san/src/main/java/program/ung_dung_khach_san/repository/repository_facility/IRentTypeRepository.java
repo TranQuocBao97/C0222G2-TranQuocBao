@@ -7,6 +7,6 @@ import program.ung_dung_khach_san.model.entities_facility.RentType;
 import java.util.List;
 
 @Repository
-public interface IRentTypeRepository extends JpaRepository<RentType,Integer> {
+public interface IRentTypeRepository extends JpaRepository<RentType, Integer> {
     List<RentType> findAll();
 }

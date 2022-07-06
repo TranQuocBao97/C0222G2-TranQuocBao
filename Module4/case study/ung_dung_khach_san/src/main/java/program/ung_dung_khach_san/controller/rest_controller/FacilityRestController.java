@@ -9,9 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import program.ung_dung_khach_san.dto.FacilityDTO;
 import program.ung_dung_khach_san.model.entities_facility.Facility;
-import program.ung_dung_khach_san.model.entities_facility.FacilityType;
 import program.ung_dung_khach_san.model.entities_facility.RentType;
-import program.ung_dung_khach_san.repository.repository_facility.IFacilityTypeRepository;
 import program.ung_dung_khach_san.repository.repository_facility.IRentTypeRepository;
 import program.ung_dung_khach_san.service.service_facility.IFacilityService;
 
@@ -40,6 +38,12 @@ public class FacilityRestController {
         facilityDTO.setRentTypeList(rentTypeList);
 //        return new ResponseEntity<>(facilityOptional.get(), HttpStatus.OK);
         return new ResponseEntity<>(facilityDTO, HttpStatus.OK);
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> editFacility(@RequestBody Facility facility){
+        iFacilityService.save(facility);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/list")

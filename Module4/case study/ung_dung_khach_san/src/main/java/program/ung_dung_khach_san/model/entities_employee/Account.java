@@ -1,12 +1,15 @@
 package program.ung_dung_khach_san.model.entities_employee;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 public class Account {
     @Id
     @Column(name="username")

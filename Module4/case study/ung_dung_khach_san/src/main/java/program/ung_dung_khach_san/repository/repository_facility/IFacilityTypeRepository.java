@@ -7,6 +7,6 @@ import program.ung_dung_khach_san.model.entities_facility.FacilityType;
 import java.util.List;
 
 @Repository
-public interface IFacilityTypeRepository  extends JpaRepository<FacilityType,Integer> {
+public interface IFacilityTypeRepository extends JpaRepository<FacilityType, Integer> {
     List<FacilityType> findAll();
 }

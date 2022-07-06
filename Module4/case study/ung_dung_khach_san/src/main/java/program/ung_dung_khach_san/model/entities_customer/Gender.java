@@ -6,7 +6,10 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 public class Gender {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

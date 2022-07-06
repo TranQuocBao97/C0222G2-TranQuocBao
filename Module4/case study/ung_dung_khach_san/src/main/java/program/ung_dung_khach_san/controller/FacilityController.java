@@ -25,40 +25,39 @@ public class FacilityController {
     private IRentTypeRepository iRentTypeRepository;
 
 
-
     @GetMapping("/list")
     public String getListPageFacility(Model model,
-                                      @PageableDefault(5) Pageable pageable){
+                                      @PageableDefault(5) Pageable pageable) {
         Page<Facility> facilityPage = iFacilityService.findAll(pageable);
-        model.addAttribute("facilityPage",facilityPage);
-        model.addAttribute("facilityTypeList",iFacilityTypeRepository.findAll());
-        model.addAttribute("rentTypeList",iRentTypeRepository.findAll());
-        model.addAttribute("facilityObj",new Facility());
+        model.addAttribute("facilityPage", facilityPage);
+        model.addAttribute("facilityTypeList", iFacilityTypeRepository.findAll());
+        model.addAttribute("rentTypeList", iRentTypeRepository.findAll());
+        model.addAttribute("facilityObj", new Facility());
         return "list-facility-page";
     }
 
     @PostMapping("/add")
     public String addNewFacility(@ModelAttribute Facility facility,
-                                 RedirectAttributes redirectAttributes){
+                                 RedirectAttributes redirectAttributes) {
         iFacilityService.save(facility);
-        redirectAttributes.addFlashAttribute("mess","Thêm mới thành công");
+        redirectAttributes.addFlashAttribute("mess", "Thêm mới thành công");
         return "redirect:/facility/list";
     }
 
     @PostMapping("/delete/{id}")
     public String deleteFacility(@PathVariable("id") Integer id,
-                                 RedirectAttributes redirectAttributes){
-        if(!iFacilityService.existsById(id)){
-            redirectAttributes.addFlashAttribute("mess","Xóa thất bại");
+                                 RedirectAttributes redirectAttributes) {
+        if (!iFacilityService.existsById(id)) {
+            redirectAttributes.addFlashAttribute("mess", "Xóa thất bại");
             return "redirect:/facility/list";
         }
         iFacilityService.deleteById(id);
-        redirectAttributes.addFlashAttribute("mess","Xóa thành công");
+        redirectAttributes.addFlashAttribute("mess", "Xóa thành công");
         return "redirect:/facility/list";
     }
 
     @GetMapping("/test")
-    public String test(){
+    public String test() {
         return "test";
     }
 

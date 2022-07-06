@@ -1,6 +1,6 @@
 package program.ung_dung_khach_san.model;
 
-import lombok.Data;
+import lombok.*;
 import program.ung_dung_khach_san.model.entities_customer.Customer;
 import program.ung_dung_khach_san.model.entities_employee.Employee;
 import program.ung_dung_khach_san.model.entities_facility.Facility;
@@ -9,7 +9,10 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
