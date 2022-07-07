@@ -8,8 +8,8 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@ToString
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class Account {
     @Id
     @Column(name="username")

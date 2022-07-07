@@ -25,8 +25,8 @@
 <!-- ======= Header ======= -->
 <th:block th:fragment="header">
     <header id="header" class="header d-flex align-items-center">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
+        <img th:src="@{/assets/img/logo2.png}" style="width:200px; height: auto;position: absolute; margin-left: 55px">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between" style="z-index: 1">
             <a href="/furama" class="logo d-flex align-items-center">
                 <h1>FURAMA<span>.</span></h1>
             </a>
@@ -35,10 +35,10 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a href="/furama" class="active">Home</a></li>
-                    <li><a href="" class="active">Employee</a></li>
+                    <li><a href="/employee/list" class="active">Employee</a></li>
                     <li><a href="/customer/list" class="active">Customer</a></li>
                     <li><a href="/facility/list" class="active">Facility</a></li>
-                    <li><a href="" class="active">Contract</a></li>
+                    <li><a href="/contract/list" class="active">Contract</a></li>
                     <li class="dropdown"><a href="#" class="active"><span>Dropdown</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
@@ -58,7 +58,7 @@
                             <li><a href="#">Dropdown 4</a></li>
                         </ul>
                     </li>
-                    <li><a href="" class="active">Contact</a></li>
+                    <li><a href="">Login</a></li>
                 </ul>
             </nav><!-- .navbar -->
 

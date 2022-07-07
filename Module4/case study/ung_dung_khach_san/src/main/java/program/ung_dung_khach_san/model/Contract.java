@@ -1,18 +1,21 @@
 package program.ung_dung_khach_san.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import program.ung_dung_khach_san.model.entities_customer.Customer;
 import program.ung_dung_khach_san.model.entities_employee.Employee;
 import program.ung_dung_khach_san.model.entities_facility.Facility;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
-@ToString
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,10 +38,13 @@ public class Contract {
     @JoinColumn(name="facility_id", nullable = false, referencedColumnName = "facility_id")
     private Facility facility;
 
-    @ManyToMany
-    @JoinTable(name="contract_otherService",
-            joinColumns = @JoinColumn(name="contract_id"),
-            inverseJoinColumns = @JoinColumn(name="other_service_id"))
-    private Set<OtherService> otherServices;
+//    @ManyToMany
+//    @JoinTable(name="contract_otherService",
+//            joinColumns = @JoinColumn(name="contract_id"),
+//            inverseJoinColumns = @JoinColumn(name="other_service_id"))
+//    private List<OtherService> otherServices;
 
+
+    @OneToMany(mappedBy = "contract")
+    private List<ContractOtherService> contractOtherServices;
 }

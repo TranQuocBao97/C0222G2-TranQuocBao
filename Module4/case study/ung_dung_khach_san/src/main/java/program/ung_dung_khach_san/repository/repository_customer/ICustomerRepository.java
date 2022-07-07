@@ -12,6 +12,7 @@ import java.util.Optional;
 @Repository
 public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
     Page<Customer> findAll(Pageable pageable);
+    Page<Customer> findAllByNameContaining(String name,Pageable pageable);
 
     void deleteById(Integer id);
 

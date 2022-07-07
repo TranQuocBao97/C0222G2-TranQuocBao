@@ -8,8 +8,8 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@ToString
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class Gender {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,9 +1,12 @@
 package program.ung_dung_khach_san.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,6 +24,9 @@ public class OtherService {
     private Double cost;
     private Integer amount;
 
-    @ManyToMany(mappedBy = "otherServices")
-    private Set<Contract> contracts;
+//    @ManyToMany(mappedBy = "otherServices")
+//    private List<Contract> contracts;
+
+    @OneToMany(mappedBy = "otherService")
+    private List<ContractOtherService> contractOtherServices;
 }

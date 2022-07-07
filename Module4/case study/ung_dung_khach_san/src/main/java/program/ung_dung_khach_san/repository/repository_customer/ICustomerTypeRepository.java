@@ -7,6 +7,6 @@ import program.ung_dung_khach_san.model.entities_customer.CustomerType;
 import java.util.List;
 
 @Repository
-public interface ICustomerType extends JpaRepository<CustomerType, Integer> {
+public interface ICustomerTypeRepository extends JpaRepository<CustomerType, Integer> {
     List<CustomerType> findAll();
 }

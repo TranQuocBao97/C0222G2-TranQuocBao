@@ -16,16 +16,16 @@
         }
     </style>
 </head>
-<body style="background-color: #000000">
+<body style="background-color: #EFFFFD">
 
 <th:block th:insert="~{layout :: header}"></th:block>
 
 <main class="container">
 <div style="padding: 30px">
-    <h1 style="color: #b8badc" class="text-center">Facility Management</h1>
+    <h1 style="color: #4E944F" class="text-center">Facility Management</h1>
     <!-- Button to Open the Modal -->
-    <button class="btn btn-warning" id="addNew">Add New Facility</button>
-    <select id="selectFacilityType" class="btn btn-warning">
+    <button class="btn btn-success" id="addNew">Add New Facility</button>
+    <select id="selectFacilityType" class="btn btn-success">
         <option selected value="0" class="form-control">None</option>
         <option th:each="facilityType :${facilityTypeList}"
                 th:value="${facilityType.id}"
@@ -38,7 +38,7 @@
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Mess</h4>
+                    <h4 class="modal-title" style="color: #4E944F">Mess</h4>
                 </div>
                 <div class="modal-body">
                     Vui lòng chọn facility
@@ -55,7 +55,7 @@
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Add new Room facility</h4>
+                        <h4 class="modal-title" style="color: #4E944F">Add new Room facility</h4>
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">
@@ -107,8 +107,8 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Yes</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Yes</button>
                     </div>
 
                 </div>
@@ -124,7 +124,7 @@
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Add new House facility</h4>
+                        <h4 class="modal-title" style="color: #4E944F">Add new House facility</h4>
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">
@@ -184,8 +184,8 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Yes</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Yes</button>
                     </div>
 
                 </div>
@@ -201,7 +201,7 @@
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Add new Villa facility</h4>
+                        <h4 class="modal-title" style="color: #4E944F">Add new Villa facility</h4>
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">
@@ -267,8 +267,8 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Yes</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Yes</button>
                     </div>
 
                 </div>
@@ -278,9 +278,9 @@
 
 </div></div>
 
-<table class="table table-bordered" style="color: #feb900">
+<table class="table table-bordered" style="color: #041C32 ; border-color: #CEE5D0">
     <thead>
-    <tr style="background: #1e1e1a">
+    <tr style="background: #A3DA8D; color: #041C32">
         <th>STT</th>
         <th>Name</th>
         <th>Cost</th>
@@ -292,13 +292,13 @@
     <tbody th:each="facility,loop :${facilityPage}">
     <tr>
 <!--        <td th:text="${facility.id}"></td>-->
-        <td th:text="${loop.count}"></td>
+        <td th:text="${loop.count + facilityPage.number * facilityPage.size}"></td>
         <td th:text="${facility.name}"></td>
         <td th:text="${#numbers.formatDecimal(facility.cost, 0, 'DEFAULT', 0, 'DEFAULT')}"></td>
         <td th:text="${facility.rentType.name}"></td>
         <td th:text="${facility.facilityType.name}"></td>
         <td>
-            <button class="btn btn-outline-warning" th:onclick="'getFacilityByIdThenOpenModal(' + ${facility.id} + ')'">
+            <button class="btn btn-outline-success" th:onclick="'getFacilityByIdThenOpenModal(' + ${facility.id} + ')'">
                 Edit
             </button>
         </td>
@@ -310,14 +310,14 @@
 
 
             <!-- The delete Modal -->
-            <div class="modal fade" th:id="'deleteModal'+${facility.id}">
+            <div class="modal fade" th:id="'deleteModal'+${facility.id}" style="color: crimson">
                 <div class="modal-dialog">
                     <div class="modal-content">
 
                         <!-- Modal Header -->
                         <div class="modal-header">
-                            <h4 class="modal-title">Delete <span th:text="${facility.name}"></span></h4>
-                            <button class="close btn btn-warning" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title" style="color: #4E944F">Delete <span th:text="${facility.name}"></span></h4>
+                            <button class="close btn btn-success" data-dismiss="modal">&times;</button>
                         </div>
 
                         <!-- Modal body -->
@@ -327,7 +327,7 @@
 
                         <!-- Modal footer -->
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-warning" data-dismiss="modal">No</button>
+                            <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
                             <form th:action="@{/facility/delete/{id}(id=${facility.id})}" method="post">
                                 <button type="submit" class="btn btn-danger">Yes</button>
                             </form>
@@ -367,7 +367,7 @@
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Mess</h4>
+                <h4 class="modal-title" style="color: #4E944F">Mess</h4>
             </div>
             <div class="modal-body" th:text="${mess}">
             </div>
@@ -382,7 +382,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Edit <span></span> facility</h4>
+                <h4 class="modal-title" style="color: #4E944F">Edit <span></span> facility</h4>
             </div>
             <!-- Modal body -->
             <div class="modal-body" id="editFacilityTable">
@@ -533,7 +533,7 @@
                     </tr>
                 </table>
             <div class="modal-footer">
-                <button type="button" onclick="confirmEditFacility(${id})" class="btn btn-primary">Yes</button>
+                <button type="button" onclick="confirmEditFacility(${id})" class="btn btn-danger">Yes</button>
             </div>`
 
                     $("#editFacilityTable").html(editTable);
@@ -593,7 +593,7 @@
                     </tr>
                 </table>
             <div class="modal-footer">
-                <button type="button" onclick="confirmEditFacility(${id})" class="btn btn-primary">Yes</button>
+                <button type="button" onclick="confirmEditFacility(${id})" class="btn btn-danger">Yes</button>
             </div>`
 
                     $("#editFacilityTable").html(editTable);
@@ -657,7 +657,7 @@
                     </tr>
                 </table>
             <div class="modal-footer">
-                <button type="button" onclick="confirmEditFacility(${id})" class="btn btn-primary">Yes</button>
+                <button type="button" onclick="confirmEditFacility(${id})" class="btn btn-danger">Yes</button>
             </div>`
 
                     $("#editFacilityTable").html(editTable);
