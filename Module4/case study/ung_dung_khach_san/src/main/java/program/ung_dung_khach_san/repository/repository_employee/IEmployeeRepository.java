@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface IEmployeeRepository extends JpaRepository<Employee,Integer> {
     Page<Employee> findAll(Pageable pageable);
+    Page<Employee> findAllByNameContaining(String name,Pageable pageable);
 
     void deleteById(Integer id);
 

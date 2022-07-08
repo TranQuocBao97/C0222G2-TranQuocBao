@@ -15,7 +15,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class ContractOtherService {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @ManyToOne
     @JoinColumn(name="contract_id",nullable = false,referencedColumnName = "contract_id")

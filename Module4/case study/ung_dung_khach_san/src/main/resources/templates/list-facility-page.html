@@ -21,377 +21,411 @@
 <th:block th:insert="~{layout :: header}"></th:block>
 
 <main class="container">
-<div style="padding: 30px">
-    <h1 style="color: #4E944F" class="text-center">Facility Management</h1>
-    <!-- Button to Open the Modal -->
-    <button class="btn btn-success" id="addNew">Add New Facility</button>
-    <select id="selectFacilityType" class="btn btn-success">
-        <option selected value="0" class="form-control">None</option>
-        <option th:each="facilityType :${facilityTypeList}"
-                th:value="${facilityType.id}"
-                th:text="${facilityType.name}" class="form-control"></option>
-    </select>
-
-
-    <!--none add select-->
-    <div class="modal fade" id="noneSelect">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" style="color: #4E944F">Mess</h4>
-                </div>
-                <div class="modal-body">
-                    Vui lòng chọn facility
-                </div>
-            </div>
-        </div>
+    <div style="padding: 30px">
+        <h1 style="color: #4E944F" class="text-center">Facility Management</h1>
     </div>
 
-    <!--add room-->
-    <form action="/facility/add" th:object="${facilityObj}" method="post">
-        <div class="modal fade" id="addRoomFacility">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title" style="color: #4E944F">Add new Room facility</h4>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body">
-
-                        <table class="table table-bordered" style="color: #000000">
-                            <select hidden th:field="*{facilityType}">
-                                <option th:each="facilityType :${facilityTypeList}" th:if="${facilityType.id == 1}"
-                                        th:value="${facilityType.id}"></option>
-                            </select>
-                            <input type="hidden" th:field="*{standardRoom}">
-                            <input type="hidden" th:field="*{convenience}">
-                            <input type="hidden" th:field="*{poolArea}">
-                            <input type="hidden" th:field="*{numberOfFloors}">
-                            <tr>
-                                <th>Name</th>
-                                <td>
-                                    <input class="form-control" th:field="*{name}">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Rent type</th>
-                                <td>
-                                    <select th:field="*{rentType}" class="form-select">
-                                        <option th:each="rentType :${rentTypeList}" th:value="${rentType.id}"
-                                                th:text="${rentType.name}"></option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Area</th>
-                                <td>
-                                    <input class="form-control" th:field="*{area}">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Cost</th>
-                                <td>
-                                    <input class="form-control" th:field="*{cost}">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Facility free</th>
-                                <td>
-                                    <input class="form-control" th:field="*{facilityFree}">
-                                </td>
-                            </tr>
-                        </table>
-
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger">Yes</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <!--add house-->
-    <form action="/facility/add" th:object="${facilityObj}" method="post">
-        <div class="modal fade" id="addHouseFacility">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title" style="color: #4E944F">Add new House facility</h4>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body">
-
-                        <table class="table table-bordered" style="color: #000000">
-                            <select hidden th:field="*{facilityType}" class="form-control">
-                                <option th:each="facilityType :${facilityTypeList}" th:if="${facilityType.id == 2}"
-                                        th:value="${facilityType.id}"></option>
-                            </select>
-                            <tr>
-                                <th>Name</th>
-                                <td>
-                                    <input class="form-control" th:field="*{name}">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Rent type</th>
-                                <td>
-                                    <select th:field="*{rentType}" class="form-select">
-                                        <option th:each="rentType :${rentTypeList}" th:value="${rentType.id}"
-                                                th:text="${rentType.name}"></option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Area</th>
-                                <td>
-                                    <input class="form-control" th:field="*{area}">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Cost</th>
-                                <td>
-                                    <input class="form-control" th:field="*{cost}">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Standard Room</th>
-                                <td>
-                                    <input class="form-control" th:field="*{standardRoom}">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Convenience</th>
-                                <td>
-                                    <input class="form-control" th:field="*{convenience}">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Number Off Floors</th>
-                                <td>
-                                    <input class="form-control" th:field="*{numberOfFloors}">
-                                </td>
-                            </tr>
-                        </table>
-
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger">Yes</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <!--add villa-->
-    <form action="/facility/add" th:object="${facilityObj}" method="post">
-        <div class="modal fade" id="addVillaFacility">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title" style="color: #4E944F">Add new Villa facility</h4>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body">
-
-                        <table class="table table-bordered" style="color: #000000">
-                            <select hidden th:field="*{facilityType}" class="form-control">
-                                <option th:each="facilityType :${facilityTypeList}" th:if="${facilityType.id == 3}"
-                                        th:value="${facilityType.id}"></option>
-                            </select>
-                            <tr>
-                                <th>Name</th>
-                                <td>
-                                    <input class="form-control" th:field="*{name}">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Rent type</th>
-                                <td>
-                                    <select th:field="*{rentType}" class="form-select">
-                                        <option th:each="rentType :${rentTypeList}" th:value="${rentType.id}"
-                                                th:text="${rentType.name}"></option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Area</th>
-                                <td>
-                                    <input class="form-control" th:field="*{area}">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Cost</th>
-                                <td>
-                                    <input class="form-control" th:field="*{cost}">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Standard Room</th>
-                                <td>
-                                    <input class="form-control" th:field="*{standardRoom}">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Convenience</th>
-                                <td>
-                                    <input class="form-control" th:field="*{convenience}">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Number Off Floors</th>
-                                <td>
-                                    <input class="form-control" th:field="*{numberOfFloors}">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Pool Area</th>
-                                <td>
-                                    <input class="form-control" th:field="*{poolArea}">
-                                </td>
-                            </tr>
-                        </table>
-
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger">Yes</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </form>
-
-</div></div>
-
-<table class="table table-bordered" style="color: #041C32 ; border-color: #CEE5D0">
-    <thead>
-    <tr style="background: #A3DA8D; color: #041C32">
-        <th>STT</th>
-        <th>Name</th>
-        <th>Cost</th>
-        <th>Rent Type</th>
-        <th>Facility Type</th>
-        <th colspan="2" class="text-center">Action</th>
-    </tr>
-    </thead>
-    <tbody th:each="facility,loop :${facilityPage}">
-    <tr>
-<!--        <td th:text="${facility.id}"></td>-->
-        <td th:text="${loop.count + facilityPage.number * facilityPage.size}"></td>
-        <td th:text="${facility.name}"></td>
-        <td th:text="${#numbers.formatDecimal(facility.cost, 0, 'DEFAULT', 0, 'DEFAULT')}"></td>
-        <td th:text="${facility.rentType.name}"></td>
-        <td th:text="${facility.facilityType.name}"></td>
-        <td>
-            <button class="btn btn-outline-success" th:onclick="'getFacilityByIdThenOpenModal(' + ${facility.id} + ')'">
-                Edit
-            </button>
-        </td>
-        <td>
-            <!-- Button Open delete Modal -->
-            <button class="btn btn-outline-danger" data-toggle="modal" th:data-target="'#deleteModal'+${facility.id}">
-                Delete
-            </button>
+    <nav class="navbar justify-content-between container-fluid">
+        <div>
+            <!-- Button to Open the Modal -->
+            <button class="btn btn-success" id="addNew">Add New Facility</button>
+            <select id="selectFacilityType" class="btn btn-success">
+                <option selected value="0" class="form-control">None</option>
+                <option th:each="facilityType :${facilityTypeList}"
+                        th:value="${facilityType.id}"
+                        th:text="${facilityType.name}" class="form-control"></option>
+            </select>
 
 
-            <!-- The delete Modal -->
-            <div class="modal fade" th:id="'deleteModal'+${facility.id}" style="color: crimson">
-                <div class="modal-dialog">
+            <!--none add select-->
+            <div class="modal fade" id="noneSelect">
+                <div class="modal-dialog modal-sm">
                     <div class="modal-content">
-
-                        <!-- Modal Header -->
                         <div class="modal-header">
-                            <h4 class="modal-title" style="color: #4E944F">Delete <span th:text="${facility.name}"></span></h4>
-                            <button class="close btn btn-success" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title" style="color: #4E944F">Mess</h4>
                         </div>
-
-                        <!-- Modal body -->
                         <div class="modal-body">
-                            Bạn có chắc chắn muốn xóa không?
+                            Vui lòng chọn facility
                         </div>
-
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
-                            <form th:action="@{/facility/delete/{id}(id=${facility.id})}" method="post">
-                                <button type="submit" class="btn btn-danger">Yes</button>
-                            </form>
-                        </div>
-
                     </div>
                 </div>
             </div>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<!--paging-->
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-end">
-        <li class="page-item">
-            <a class="page-link" th:if="${facilityPage.hasPrevious()}"
-               th:href="@{/facility/list(page=${facilityPage.number - 1})}">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" th:if="${facilityPage.hasPrevious()}"
-                                 th:href="@{/facility/list(page=${facilityPage.number - 1})}"
-                                 th:text="${facilityPage.number}"></a></li>
-        <li class="page-item"><span class="page-link" th:text="${facilityPage.number + 1}"></span></li>
-        <li class="page-item"><a class="page-link" th:if="${facilityPage.hasNext()}"
-                                 th:href="@{/facility/list(page=${facilityPage.number + 1})}"
-                                 th:text="${facilityPage.number + 2}"></a></li>
-        <li class="page-item">
-            <a class="page-link" th:if="${facilityPage.hasNext()}"
-               th:href="@{/facility/list(page=${facilityPage.number + 1})}">Next</a>
-        </li>
-    </ul>
-</nav>
+
+            <!--add room-->
+            <form action="/facility/add" th:object="${facilityObj}" method="post">
+                <div class="modal fade" id="addRoomFacility">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title" style="color: #4E944F">Add new Room facility</h4>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+
+                                <table class="table table-bordered" style="color: #000000">
+                                    <select hidden th:field="*{facilityType}">
+                                        <option th:each="facilityType :${facilityTypeList}"
+                                                th:if="${facilityType.id == 1}"
+                                                th:value="${facilityType.id}"></option>
+                                    </select>
+                                    <input type="hidden" th:field="*{standardRoom}">
+                                    <input type="hidden" th:field="*{convenience}">
+                                    <input type="hidden" th:field="*{poolArea}">
+                                    <input type="hidden" th:field="*{numberOfFloors}">
+                                    <tr>
+                                        <th>Name</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{name}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Rent type</th>
+                                        <td>
+                                            <select th:field="*{rentType}" class="form-select">
+                                                <option th:each="rentType :${rentTypeList}" th:value="${rentType.id}"
+                                                        th:text="${rentType.name}"></option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Area</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{area}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Cost</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{cost}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Facility free</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{facilityFree}">
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger">Yes</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!--add house-->
+            <form action="/facility/add" th:object="${facilityObj}" method="post">
+                <div class="modal fade" id="addHouseFacility">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title" style="color: #4E944F">Add new House facility</h4>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+
+                                <table class="table table-bordered" style="color: #000000">
+                                    <select hidden th:field="*{facilityType}" class="form-control">
+                                        <option th:each="facilityType :${facilityTypeList}"
+                                                th:if="${facilityType.id == 2}"
+                                                th:value="${facilityType.id}"></option>
+                                    </select>
+                                    <tr>
+                                        <th>Name</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{name}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Rent type</th>
+                                        <td>
+                                            <select th:field="*{rentType}" class="form-select">
+                                                <option th:each="rentType :${rentTypeList}" th:value="${rentType.id}"
+                                                        th:text="${rentType.name}"></option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Area</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{area}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Cost</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{cost}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Standard Room</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{standardRoom}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Convenience</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{convenience}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Number Off Floors</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{numberOfFloors}">
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger">Yes</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!--add villa-->
+            <form action="/facility/add" th:object="${facilityObj}" method="post">
+                <div class="modal fade" id="addVillaFacility">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title" style="color: #4E944F">Add new Villa facility</h4>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+
+                                <table class="table table-bordered" style="color: #000000">
+                                    <select hidden th:field="*{facilityType}" class="form-control">
+                                        <option th:each="facilityType :${facilityTypeList}"
+                                                th:if="${facilityType.id == 3}"
+                                                th:value="${facilityType.id}"></option>
+                                    </select>
+                                    <tr>
+                                        <th>Name</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{name}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Rent type</th>
+                                        <td>
+                                            <select th:field="*{rentType}" class="form-select">
+                                                <option th:each="rentType :${rentTypeList}" th:value="${rentType.id}"
+                                                        th:text="${rentType.name}"></option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Area</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{area}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Cost</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{cost}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Standard Room</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{standardRoom}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Convenience</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{convenience}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Number Off Floors</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{numberOfFloors}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pool Area</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{poolArea}">
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger">Yes</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div></div>
+        <div>
+            <form action="/facility/list" style="padding: 15px">
+                <table>
+                    <tr>
+                        <td>
+                            <input name="nameSearch" th:value="${nameSearchValue}" class="form-control mr-sm-2">
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-success">
+                                Search
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </nav>
+
+    <div style="overflow-x:auto;">
+        <table class="table table-bordered table-sm"
+               style="color: #041C32 ; border-color: #CEE5D0;box-shadow: 5px 10px 18px #ADCF9F; white-space: nowrap">
+            <thead>
+            <tr style="background: #A3DA8D; color: #041C32 ">
+                <th>STT</th>
+                <th>Name</th>
+                <th>Cost</th>
+                <th>Rent Type</th>
+                <th>Facility Type</th>
+                <th colspan="2" class="text-center">Action</th>
+            </tr>
+            </thead>
+            <tbody th:each="facility,loop :${facilityPage}">
+            <tr>
+                <!--        <td th:text="${facility.id}"></td>-->
+                <td th:text="${loop.count + facilityPage.number * facilityPage.size}"></td>
+                <td th:text="${facility.name}"></td>
+                <td th:text="${#numbers.formatDecimal(facility.cost, 0, 'DEFAULT', 0, 'DEFAULT')}"></td>
+                <td th:text="${facility.rentType.name}"></td>
+                <td th:text="${facility.facilityType.name}"></td>
+                <td>
+                    <button class="btn btn-outline-success"
+                            th:onclick="'getFacilityByIdThenOpenModal(' + ${facility.id} + ')'">
+                        Edit
+                    </button>
+                </td>
+                <td>
+                    <!-- Button Open delete Modal -->
+                    <button class="btn btn-outline-danger" data-toggle="modal"
+                            th:data-target="'#deleteModal'+${facility.id}">
+                        Delete
+                    </button>
 
 
-<!-- mess Modal -->
-<div th:if="${mess!=null}" class="modal fade" id="deleteSuccessModal">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" style="color: #4E944F">Mess</h4>
+                    <!-- The delete Modal -->
+                    <div class="modal fade" th:id="'deleteModal'+${facility.id}" style="color: crimson">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title" style="color: #4E944F">Delete <span
+                                            th:text="${facility.name}"></span></h4>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    Bạn có chắc chắn muốn xóa không?
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+                                    <form th:action="@{/facility/delete/{id}(id=${facility.id})}" method="post">
+                                        <button type="submit" class="btn btn-danger">Yes</button>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="row text-center">
+            <p1 th:text="${pageEmpty}" style="color: crimson"></p1>
+        </div>
+
+        <!--paging-->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+                <li class="page-item">
+                    <a class="page-link" th:if="${facilityPage.hasPrevious()}"
+                       th:href="@{/facility/list(page=${facilityPage.number - 1})}">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" th:if="${facilityPage.hasPrevious()}"
+                                         th:href="@{/facility/list(page=${facilityPage.number - 1})}"
+                                         th:text="${facilityPage.number}"></a></li>
+                <li class="page-item"><span class="page-link" th:text="${facilityPage.number + 1}"></span></li>
+                <li class="page-item"><a class="page-link" th:if="${facilityPage.hasNext()}"
+                                         th:href="@{/facility/list(page=${facilityPage.number + 1})}"
+                                         th:text="${facilityPage.number + 2}"></a></li>
+                <li class="page-item">
+                    <a class="page-link" th:if="${facilityPage.hasNext()}"
+                       th:href="@{/facility/list(page=${facilityPage.number + 1})}">Next</a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <!-- mess Modal -->
+        <div th:if="${mess!=null}" class="modal fade" id="deleteSuccessModal">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="color: #4E944F">Mess</h4>
+                    </div>
+                    <div class="modal-body" th:text="${mess}">
+                    </div>
+                </div>
             </div>
-            <div class="modal-body" th:text="${mess}">
+        </div>
+
+
+        <div class="modal fade" id="editFacilityModal">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="color: #4E944F">Edit <span></span> facility</h4>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body" id="editFacilityTable">
+
+                    </div>
+                    <!-- Modal footer -->
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
-<div class="modal fade" id="editFacilityModal">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title" style="color: #4E944F">Edit <span></span> facility</h4>
-            </div>
-            <!-- Modal body -->
-            <div class="modal-body" id="editFacilityTable">
-
-            </div>
-            <!-- Modal footer -->
-        </div>
-    </div>
-</div>
 </main>
 
 <th:block th:replace="~{home-page :: footer}"></th:block>

@@ -36,6 +36,9 @@ public class CustomerController {
         model.addAttribute("customerTypeList",iCustomerTypeRepository.findAll());
         model.addAttribute("customerObj",new Customer());
         model.addAttribute("nameSearchVal",nameSearchVal);
+        if(customerPage.isEmpty()){
+            model.addAttribute("pageEmpty","Không tìm thấy kết quả");
+        }
         return "/list-customer-page";
     }
 

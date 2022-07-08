@@ -8,9 +8,11 @@ import java.util.Optional;
 
 public interface IFacilityService {
     Page<Facility> findAll(Pageable pageable);
+    Page<Facility> findAllByNameContaining(String name,Pageable pageable);
     void deleteById(Integer id);
     boolean existsById(Integer id);
 
     void save(Facility facility);
     Optional<Facility> findById(Integer id);
+
 }

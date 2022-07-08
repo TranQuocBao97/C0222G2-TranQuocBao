@@ -6,4 +6,8 @@ import program.ung_dung_khach_san.model.entities_employee.Employee;
 
 public interface IEmployeeService {
     Page<Employee> findAll(Pageable pageable);
+    Page<Employee> findAllByNameContaining(String name,Pageable pageable);
+
+    void deleteById(Integer id);
+    void save(Employee employee);
 }

@@ -21,123 +21,22 @@
 <main class="container">
     <div style="padding: 30px">
         <h1 style="color: #4E944F" class="text-center">Employee Management</h1>
-        <button type="button" class="btn btn-success" id="addNew" data-toggle="modal"
-                data-target="#addNewEmployeeModal">Add New Employee
-        </button>
-
-        <!-- Add new customer Modal -->
-        <div class="modal fade" id="addNewEmployeeModal">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title" style="color: #4E944F">Add new employee</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>Name</th>
-                                <td>
-                                    <input class="form-control">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Date of Birth</th>
-                                <td>
-                                    <input class="form-control">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Id Card</th>
-                                <td>
-                                    <input class="form-control">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Phone Number</th>
-                                <td>
-                                    <input class="form-control">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Email</th>
-                                <td>
-                                    <input class="form-control">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Address</th>
-                                <td>
-                                    <input class="form-control">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Gender</th>
-                                <td>
-                                    <input class="form-control">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Customer Type</th>
-                                <td>
-                                    <input class="form-control">
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
     </div>
-    <table class="table table-bordered" style="color: #041C32 ; border-color: #CEE5D0">
-        <thead>
-        <tr style="background: #A3DA8D; color: #041C32">
-            <th>STT</th>
-            <th>Name</th>
-            <th>Date of birth</th>
-            <th>Id Card</th>
-            <th>Phone Number</th>
-            <th>Salary</th>
-            <th>Address</th>
-            <th>Position</th>
-            <th>Education Degree</th>
-            <th colspan="2" class="text-center">Action</th>
-        </tr>
-        </thead>
-        <tr th:each="employee,loop :${employeePage}">
-<!--            <td th:text="${employee.id}"></td>-->
-            <td th:text="${loop.count + employeePage.number * employeePage.size}"></td>
-            <td th:text="${employee.name}"></td>
-            <td th:text="${employee.dateOfBirth}"></td>
-            <td th:text="${employee.idCard}"></td>
-            <td th:text="${employee.phoneNumber}"></td>
-            <td th:text="${employee.salary}"></td>
-            <td th:text="${employee.address}"></td>
-            <td th:text="${employee.position.name}"></td>
-            <td th:text="${employee.educationDegree.name}"></td>
-            <td>
-                <button class="btn btn-outline-success" data-toggle="modal" data-target="#editCustomerModal">
-                    Edit
-                </button>
-                <!-- Edit customer Modal -->
-                <div class="modal fade" id="editCustomerModal">
+    <nav class="navbar justify-content-between container-fluid">
+        <div>
+            <button type="button" class="btn btn-success" id="addNew" data-toggle="modal"
+                    data-target="#addNewEmployeeModal">Add New Employee
+            </button>
+
+            <!-- Add new customer Modal -->
+            <form th:object="${employeeObj}" action="/employee/add" method="post">
+                <div class="modal fade" id="addNewEmployeeModal">
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">
 
                             <!-- Modal Header -->
                             <div class="modal-header">
-                                <h4 class="modal-title" style="color: #4E944F">Edit employee</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" style="color: #4E944F">Add new employee</h4>
                             </div>
 
                             <!-- Modal body -->
@@ -146,49 +45,74 @@
                                     <tr>
                                         <th>Name</th>
                                         <td>
-                                            <input class="form-control">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Date of Birth</th>
-                                        <td>
-                                            <input class="form-control">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Id Card</th>
-                                        <td>
-                                            <input class="form-control">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Phone Number</th>
-                                        <td>
-                                            <input class="form-control">
+                                            <input class="form-control" th:field="*{name}">
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Salary</th>
                                         <td>
-                                            <input class="form-control">
+                                            <input class="form-control" th:field="*{salary}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date of Birth</th>
+                                        <td>
+                                            <input type="date" class="form-control" th:field="*{dateOfBirth}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Id Card</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{idCard}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phone Number</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{phoneNumber}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{account.username}" id="email">
+                                            <input type="hidden" th:field="*{account.password}" id="passwordAuto">
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Address</th>
                                         <td>
-                                            <input class="form-control">
+                                            <input class="form-control" th:field="*{address}">
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Position</th>
                                         <td>
-                                            <input class="form-control">
+                                            <select th:field="*{position}" class="form-select">
+                                                <option th:each="position :${positionList}"
+                                                        th:value="${position.id}" th:text="${position.name}">
+                                                </option>
+                                            </select>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>Education Degree</th>
+                                        <th>Education degree</th>
                                         <td>
-                                            <input class="form-control">
+                                            <select th:field="*{educationDegree}" class="form-select">
+                                                <option th:each="education :${educationList}" th:value="${education.id}"
+                                                        th:text="${education.name}">
+                                                </option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Division</th>
+                                        <td>
+                                            <select th:field="*{division}" class="form-select">
+                                                <option th:each="division :${divisionList}" th:value="${division.id}"
+                                                        th:text="${division.name}">
+                                                </option>
+                                            </select>
                                         </td>
                                     </tr>
                                 </table>
@@ -197,75 +121,233 @@
                             <!-- Modal footer -->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger">Submit</button>
                             </div>
 
                         </div>
                     </div>
                 </div>
-            </td>
-            <td>
-                <!-- Button Open delete Modal -->
-                <button class="btn btn-outline-danger" data-toggle="modal"
-                        th:data-target="'#deleteModal'+${employee.id}">
-                    Delete
-                </button>
+            </form>
+        </div>
+        <div></div>
+        <div>
+            <form action="/employee/list" style="padding: 15px">
+                <table>
+                    <tr>
+                        <td>
+                            <input name="nameSearch" th:value="${nameSearchValue}" class="form-control mr-sm-2">
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-success">
+                                Search
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
 
-
-                <!-- The delete Modal -->
-                <div class="modal fade" th:id="'deleteModal'+${employee.id}" style="color: crimson">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title" style="color: #4E944F">Delete <span th:text="${employee.name}"></span></h4>
-                                <button class="close btn btn-success" data-dismiss="modal">&times;</button>
-                            </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                Bạn có chắc chắn muốn xóa không?
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
-                                <form th:action="@{/employee/delete/{id}(id=${employee.id})}" method="post">
-                                    <button type="submit" class="btn btn-danger">Yes</button>
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </td>
-        </tr>
-    </table>
-
-    <!--paging-->
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-end">
-            <li class="page-item">
-                <a class="page-link" th:if="${employeePage.hasPrevious()}"
-                   th:href="@{/employee/list(page=${employeePage.number - 1})}">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" th:if="${employeePage.hasPrevious()}"
-                                     th:href="@{/employee/list(page=${employeePage.number - 1})}"
-                                     th:text="${employeePage.number}"></a></li>
-            <li class="page-item"><span class="page-link" th:text="${employeePage.number + 1}"></span></li>
-            <li class="page-item"><a class="page-link" th:if="${employeePage.hasNext()}"
-                                     th:href="@{/employee/list(page=${employeePage.number + 1})}"
-                                     th:text="${employeePage.number + 2}"></a></li>
-            <li class="page-item">
-                <a class="page-link" th:if="${employeePage.hasNext()}"
-                   th:href="@{/employee/list(page=${employeePage.number + 1})}">Next</a>
-            </li>
-        </ul>
     </nav>
 
+    <div style="overflow-x:auto;">
+        <table class="table table-bordered table-sm"
+               style="color: #041C32 ; border-color: #CEE5D0; box-shadow: 5px 10px 18px #ADCF9F; white-space: nowrap">
+            <thead>
+            <tr style="background: #A3DA8D; color: #041C32">
+                <th>STT</th>
+                <th>Name</th>
+                <th>Date of birth</th>
+                <th>Id Card</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Salary</th>
+                <th>Address</th>
+                <th>Position</th>
+                <th>Education Degree</th>
+                <th colspan="2" class="text-center">Action</th>
+            </tr>
+            </thead>
+            <tr th:each="employee,loop :${employeePage}">
+                <!--            <td th:text="${employee.id}"></td>-->
+                <td th:text="${loop.count + employeePage.number * employeePage.size}"></td>
+                <td th:text="${employee.name}"></td>
+                <td th:text="${employee.dateOfBirth}"></td>
+                <td th:text="${employee.idCard}"></td>
+                <td th:text="${employee.account.username}"></td>
+                <td th:text="${employee.phoneNumber}"></td>
+                <td th:text="${#numbers.formatDecimal(employee.salary, 0, 'DEFAULT', 0, 'DEFAULT')}"></td>
+                <td th:text="${employee.address}"></td>
+                <td th:text="${employee.position.name}"></td>
+                <td th:text="${employee.educationDegree.name}"></td>
+                <td>
+                    <button class="btn btn-outline-success" data-toggle="modal" data-target="#editCustomerModal">
+                        Edit
+                    </button>
+                    <!-- Edit customer Modal -->
+                    <div class="modal fade" id="editCustomerModal">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title" style="color: #4E944F">Edit employee</h4>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th>Name</th>
+                                            <td>
+                                                <input class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Date of Birth</th>
+                                            <td>
+                                                <input class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Id Card</th>
+                                            <td>
+                                                <input class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Phone Number</th>
+                                            <td>
+                                                <input class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Salary</th>
+                                            <td>
+                                                <input class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Address</th>
+                                            <td>
+                                                <input class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Position</th>
+                                            <td>
+                                                <input class="form-control">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Education Degree</th>
+                                            <td>
+                                                <input class="form-control">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-danger">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <!-- Button Open delete Modal -->
+                    <button class="btn btn-outline-danger" data-toggle="modal"
+                            th:data-target="'#deleteModal'+${employee.id}">
+                        Delete
+                    </button>
+
+
+                    <!-- The delete Modal -->
+                    <div class="modal fade" th:id="'deleteModal'+${employee.id}" style="color: crimson">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title" style="color: #4E944F">
+                                        Delete name: <span th:text="${employee.name}"></span>
+                                        .and Id : <span th:text="${employee.id}"></span>
+                                    </h4>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    Bạn có chắc chắn muốn xóa không?
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+                                    <form th:action="@{/employee/delete/{id}(id=${employee.id})}" method="post">
+                                        <button type="submit" class="btn btn-danger">Yes</button>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="row text-center">
+            <p1 th:text="${pageEmpty}" style="color: crimson"></p1>
+        </div>
+
+        <!--paging-->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+                <li class="page-item">
+                    <a class="page-link" th:if="${employeePage.hasPrevious()}"
+                       th:href="@{/employee/list(page=${employeePage.number - 1})}">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" th:if="${employeePage.hasPrevious()}"
+                                         th:href="@{/employee/list(page=${employeePage.number - 1})}"
+                                         th:text="${employeePage.number}"></a></li>
+                <li class="page-item"><span class="page-link" th:text="${employeePage.number + 1}"></span></li>
+                <li class="page-item"><a class="page-link" th:if="${employeePage.hasNext()}"
+                                         th:href="@{/employee/list(page=${employeePage.number + 1})}"
+                                         th:text="${employeePage.number + 2}"></a></li>
+                <li class="page-item">
+                    <a class="page-link" th:if="${employeePage.hasNext()}"
+                       th:href="@{/employee/list(page=${employeePage.number + 1})}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
 </main>
+
+<!-- mess Modal -->
+<div th:if="${mess!=null}" class="modal fade" id="messModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="color: #4E944F">Mess</h4>
+            </div>
+            <div class="modal-body" th:text="${mess}">
+            </div>
+        </div>
+    </div>
+</div>
 <th:block th:replace="~{home-page :: footer}"></th:block>
 </body>
 <th:block th:replace="~{home-page :: js}"></th:block>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("document").ready(function () {
+        $("#messModal").modal("show");
+        let pass = "123"
+        $("#passwordAuto").val(pass);
+    })
+
+
+</script>
 </html>

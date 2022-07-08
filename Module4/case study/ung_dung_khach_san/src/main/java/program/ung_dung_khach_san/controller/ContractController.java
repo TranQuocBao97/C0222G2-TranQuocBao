@@ -6,21 +6,19 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import program.ung_dung_khach_san.dto.ContractOtherServiceAddDTO;
 import program.ung_dung_khach_san.model.Contract;
 import program.ung_dung_khach_san.model.ContractOtherService;
-import program.ung_dung_khach_san.model.OtherService;
 import program.ung_dung_khach_san.repository.repository_contract.IContractOtherServiceRepository;
 import program.ung_dung_khach_san.repository.repository_contract.IOtherServiceRepository;
 import program.ung_dung_khach_san.repository.repository_customer.ICustomerRepository;
+import program.ung_dung_khach_san.repository.repository_employee.IEmployeeRepository;
+import program.ung_dung_khach_san.repository.repository_facility.IFacilityRepository;
 import program.ung_dung_khach_san.service.service_contract.IContractService;
-import program.ung_dung_khach_san.service.service_customer.ICustomerService;
-import program.ung_dung_khach_san.service.service_employee.IEmployeeService;
 
-import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/contract")
@@ -28,28 +26,65 @@ public class ContractController {
     @Autowired
     private IContractService iContractService;
     @Autowired
-    private IEmployeeService iEmployeeService;
+    private IEmployeeRepository iEmployeeRepository;
     @Autowired
-    private ICustomerService iCustomerService;
+    private ICustomerRepository iCustomerRepository;
+
+    @Autowired
+    private IFacilityRepository iFacilityRepository;
     @Autowired
     private IOtherServiceRepository iOtherServiceRepository;
+
     @Autowired
     private IContractOtherServiceRepository iContractOtherServiceRepository;
 
 
     @GetMapping("/list")
     public String getListPageContract(@PageableDefault(5) Pageable pageable,
-                                      Model model){
-        Page<Contract> contractPage = iContractService.findAll(pageable);
-        List<OtherService> otherServiceList = iOtherServiceRepository.findAll();
+                                      Model model,
+                                      @RequestParam Optional<String> searchValue){
+        String search = searchValue.orElse("");
+        Page<Contract> contractPage = iContractService.findAllByStartDateContaining(search,pageable);
+        model.addAttribute("contractObj",new Contract());
         model.addAttribute("contractPage",contractPage);
-        model.addAttribute("otherServiceList", otherServiceList);
-        model.addAttribute("contractOtherServiceObj",new ContractOtherService());
+        model.addAttribute("otherServiceList", iOtherServiceRepository.findAll());
+        model.addAttribute("employeeList",iEmployeeRepository.findAll());
+        model.addAttribute("customerList",iCustomerRepository.findAll());
+        model.addAttribute("facilityList",iFacilityRepository.findAll());
+        model.addAttribute("contractOtherServiceObj", new ContractOtherService());
+        model.addAttribute("contractOtherServiceAddDTO", new ContractOtherServiceAddDTO());
+        if(contractPage.isEmpty()){
+            model.addAttribute("pageEmpty","Không tìm thấy kết quả");
+        }
         return "/list-contract-page";
     }
 
-//    @PostMapping("/addContractOtherService")
-//    public String addContractOtherService(@ModelAttribute ){
-//
-//    }
+    @PostMapping("/add")
+    public String addContract(@ModelAttribute("contractOtherServiceAddDTO") ContractOtherServiceAddDTO contractOtherServiceAddDTO,
+                              RedirectAttributes redirectAttributes){
+        Contract contractForAdd = iContractService.save(contractOtherServiceAddDTO.getContract());
+        ContractOtherService contractOtherServiceForAdd = contractOtherServiceAddDTO.getContractOtherService();
+        contractOtherServiceForAdd.setContract(contractForAdd);
+        iContractOtherServiceRepository.save(contractOtherServiceForAdd);
+        redirectAttributes.addFlashAttribute("mess","Thêm mới hợp đồng thành công");
+        return "redirect:/contract/list";
+    }
+
+    @PostMapping("/addContractOtherService")
+    public String addContractOtherService(@ModelAttribute ContractOtherService contractOtherService,
+                                          RedirectAttributes redirectAttributes){
+        iContractOtherServiceRepository.save(contractOtherService);
+        redirectAttributes.addFlashAttribute("mess","Thêm mới dịch vụ mở rộng cho hợp đồng thành công");
+        return "redirect:/contract/list";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteContract(@PathVariable Integer id,
+                                 RedirectAttributes redirectAttributes){
+//        iContractOtherServiceRepository.deleteContractOtherServicesByContractId(id);
+//        System.out.println(id);
+        iContractService.deleteById(id);
+        redirectAttributes.addFlashAttribute("mess","xóa thành công");
+        return "redirect:/contract/list";
+    }
 }

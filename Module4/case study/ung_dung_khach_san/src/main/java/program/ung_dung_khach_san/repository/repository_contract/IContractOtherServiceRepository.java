@@ -10,4 +10,6 @@ import java.util.List;
 public interface IContractOtherServiceRepository extends JpaRepository<ContractOtherService,Integer> {
 
     List<ContractOtherService> findAll();
+
+    void deleteContractOtherServicesByContractId(Integer id);
 }

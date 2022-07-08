@@ -13,6 +13,8 @@ import program.ung_dung_khach_san.repository.repository_facility.IFacilityTypeRe
 import program.ung_dung_khach_san.repository.repository_facility.IRentTypeRepository;
 import program.ung_dung_khach_san.service.service_facility.IFacilityService;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping("/facility")
 public class FacilityController {
@@ -27,12 +29,18 @@ public class FacilityController {
 
     @GetMapping("/list")
     public String getListPageFacility(Model model,
-                                      @PageableDefault(5) Pageable pageable) {
-        Page<Facility> facilityPage = iFacilityService.findAll(pageable);
+                                      @PageableDefault(5) Pageable pageable,
+                                      @RequestParam Optional<String> nameSearch) {
+        String nameSearchValue = nameSearch.orElse("");
+        Page<Facility> facilityPage = iFacilityService.findAllByNameContaining(nameSearchValue,pageable);
         model.addAttribute("facilityPage", facilityPage);
         model.addAttribute("facilityTypeList", iFacilityTypeRepository.findAll());
         model.addAttribute("rentTypeList", iRentTypeRepository.findAll());
         model.addAttribute("facilityObj", new Facility());
+        model.addAttribute("nameSearchValue",nameSearchValue);
+        if(facilityPage.isEmpty()){
+            model.addAttribute("pageEmpty","Không tìm thấy kết quả");
+        }
         return "list-facility-page";
     }
 

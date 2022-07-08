@@ -12,6 +12,7 @@ import java.util.Optional;
 public interface IFacilityRepository extends JpaRepository<Facility, Integer> {
 
     Page<Facility> findAll(Pageable pageable);
+    Page<Facility> findAllByNameContaining(String name,Pageable pageable);
 
     void deleteById(Integer id);
 

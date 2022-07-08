@@ -22,6 +22,11 @@ public class FacilityServiceImpl implements IFacilityService {
     }
 
     @Override
+    public Page<Facility> findAllByNameContaining(String name, Pageable pageable) {
+        return iFacilityRepository.findAllByNameContaining(name,pageable);
+    }
+
+    @Override
     public void deleteById(Integer id) {
         iFacilityRepository.deleteById(id);
     }

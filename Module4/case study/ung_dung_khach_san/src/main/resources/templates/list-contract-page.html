@@ -14,6 +14,7 @@
             margin-top: 10%;
             background: #2c3e50;
         }
+
     </style>
 </head>
 <body style="background-color: #EFFFFD">
@@ -22,86 +23,141 @@
     <div style="padding: 30px">
         <h1 style="color: #4E944F" class="text-center">Contract Management</h1>
 
-        <button type="button" class="btn btn-success" id="addNew" data-toggle="modal"
-                data-target="#addNewCustomerModal">Add New Contract
-        </button>
-
-        <!-- Add new customer Modal -->
-        <div class="modal fade" id="addNewCustomerModal">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title" style="color: #4E944F">Add new Contract</h4>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>Start Date</th>
-                                <td>
-                                    <input type="date" class="form-control">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>End Date</th>
-                                <td>
-                                    <input type="date" class="form-control">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Deposit</th>
-                                <td>
-                                    <input class="form-control">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Other Service</th>
-                                <td>
-                                    <button class="btn btn-success">
-                                        Add (+)
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Total cost</th>
-                                <td>
-                                    <div class="form-control bg-light">0</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Select Customer</th>
-                                <td>
-                                    <select class="form-select"></select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Select Facility</th>
-                                <td>
-                                    <select class="form-select"></select>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-danger">Create Contract</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
 
     </div>
 
-    <table class="table table-bordered" style="color: #041C32 ; border-color: #CEE5D0">
+    <nav class="navbar justify-content-between container-fluid">
+        <div>
+            <button type="button" class="btn btn-success" id="addNew" data-toggle="modal"
+                    data-target="#addNewContractModal">Add New Contract
+            </button>
+
+            <!-- Add new customer Modal -->
+            <form th:object="${contractOtherServiceAddDTO}" method="post" action="/contract/add">
+                <div class="modal fade" id="addNewContractModal">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title" style="color: #4E944F">Add new Contract</h4>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th>Start Date</th>
+                                        <td>
+                                            <input type="date" class="form-control" th:field="*{contract.startDate}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>End Date</th>
+                                        <td>
+                                            <input type="date" class="form-control" th:field="*{contract.endDate}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Deposit</th>
+                                        <td>
+                                            <input class="form-control" th:field="*{contract.deposit}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Other Service</th>
+                                        <td class="row">
+                                            <div class="col-6">
+                                                <select class="form-select"
+                                                        th:field="*{contractOtherService.otherService.id}">
+                                                    <option th:each="osOBJ :${otherServiceList}"
+                                                            th:value="${osOBJ.id}"
+                                                            th:text="${osOBJ.name}"></option>
+                                                </select>
+                                            </div>
+                                            <div class="col-6 row">
+                                                <div class="col-3">
+                                                    Amount :
+                                                </div>
+                                                <div class="col-9">
+                                                    <input class="form-control"
+                                                           th:field="*{contractOtherService.amount}">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Total cost</th>
+                                        <td>
+                                            <div class="form-control bg-light">0</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Select employee</th>
+                                        <td>
+                                            <select class="form-select" th:field="*{contract.employee.id}">
+                                                <option th:each="employee :${employeeList}" th:value="${employee.id}"
+                                                        th:text="'Name = '+${employee.name}+'  |  Id card = '+${employee.idCard}"></option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Select Customer</th>
+                                        <td>
+                                            <select class="form-select" th:field="*{contract.customer.id}">
+                                                <option th:each="customer :${customerList}" th:value="${customer.id}"
+                                                        th:text="'Name = '+${customer.name}+'  |  Id card = '+${customer.idCard}"></option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Select Facility</th>
+                                        <td>
+                                            <select class="form-select" th:field="*{contract.facility.id}">
+                                                <option th:each="facility: ${facilityList}" th:value="${facility.id}"
+                                                        th:text="'Name = '+${facility.name}+' | Price = '+${#numbers.formatDecimal(facility.cost, 0, 'DEFAULT', 0, 'DEFAULT')}">
+                                                </option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger">Create Contract</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div></div>
+        <div>
+            <form action="/contract/list" style="padding: 15px">
+                <table>
+                    <tr>
+                        <td>
+                            <input name="searchValue" th:value="${searchValue}" class="form-control mr-sm-2">
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-success">
+                                Search
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </nav>
+    <div style="overflow-x:auto;">
+    <table class="table table-bordered table-sm"
+           style="color: #041C32 ; border-color: #CEE5D0;box-shadow: 5px 10px 18px #ADCF9F; white-space: nowrap">
         <thead>
         <tr style="background: #A3DA8D; color: #041C32">
-<!--            <th>STT</th>-->
+            <!--            <th>STT</th>-->
             <th>Id</th>
             <th>Start Date</th>
             <th>End Date</th>
@@ -115,7 +171,7 @@
         </tr>
         </thead>
         <tr th:each="contract,loop :${contractPage}">
-<!--            <td th:text="${loop.count + contractPage.number * contractPage.size}"></td>-->
+            <!--            <td th:text="${loop.count + contractPage.number * contractPage.size}"></td>-->
             <td th:text="${contract.id}"></td>
             <td th:text="${contract.startDate}"></td>
             <td th:text="${contract.endDate}"></td>
@@ -166,12 +222,13 @@
             <td>
                 <!-- Button to Open the Modal -->
                 <button class="btn btn-success" data-toggle="modal"
-                        th:data-target="'#modalAddOtherService'+${contract.id}">
+                        th:data-target="'#modalAddOtherService'+${contract.id}"
+                        th:onclick="'getIdContract('+${contract.id}+')'">
                     +
                 </button>
+
                 <!-- The Modal -->
-                <form th:object="${contractOtherServiceObj}" th:action="@{/contract/addContractOtherService}">
-                    <input hidden th:field="*{contract}" th:value="${contract.id}">
+                <form th:object="${contractOtherServiceObj}" action="/contract/addContractOtherService" method="post">
                     <div class="modal fade" th:id="'modalAddOtherService'+${contract.id}" style="color: #4E944F">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -184,6 +241,7 @@
 
                                 <!-- Modal body -->
                                 <div class="modal-body">
+                                    <input type="hidden" th:field="*{contract.id}" th:id="'contractId'+${contract.id}">
                                     <table class="table table-bordered">
                                         <tr>
                                             <th>Select Other Service</th>
@@ -191,9 +249,10 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <select th:field="*{otherService}" class="form-select">
+                                                <select th:field="*{otherService.id}" class="form-select">
                                                     <option th:each="otherServiceObj :${otherServiceList}"
-                                                            th:value="${otherServiceObj.id}" th:text="${otherServiceObj.name}">
+                                                            th:value="${otherServiceObj.id}"
+                                                            th:text="${otherServiceObj.name}">
                                                     </option>
                                                 </select>
                                             </td>
@@ -229,8 +288,8 @@
 
                             <!-- Modal Header -->
                             <div class="modal-header">
-                                <h4 class="modal-title" style="color: #4E944F">Delete contract id: <span th:text="${contract.id}"></span></h4>
-                                <button class="close btn btn-success" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" style="color: #4E944F">Delete contract id: <span
+                                        th:text="${contract.id}"></span></h4>
                             </div>
 
                             <!-- Modal body -->
@@ -253,6 +312,10 @@
         </tr>
     </table>
 
+<div class="row text-center">
+    <p1 th:text="${pageEmpty}" style="color: crimson"></p1>
+</div>
+
     <!--paging-->
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-end">
@@ -273,11 +336,35 @@
             </li>
         </ul>
     </nav>
-
+    </div>
 </main>
+
+<!-- mess Modal -->
+<div th:if="${mess!=null}" class="modal fade" id="messModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="color: #4E944F">Mess</h4>
+            </div>
+            <div class="modal-body" th:text="${mess}">
+            </div>
+        </div>
+    </div>
+</div>
 <th:block th:replace="~{home-page :: footer}"></th:block>
 
 </body>
 <th:block th:replace="~{home-page :: js}"></th:block>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $("#messModal").modal('show');
+    });
+
+    function getIdContract(id) {
+        console.log(id);
+        $("#contractId" + `${id}`).val(id);
+    }
+</script>
 </html>

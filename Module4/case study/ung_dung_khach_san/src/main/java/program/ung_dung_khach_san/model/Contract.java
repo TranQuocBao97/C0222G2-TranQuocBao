@@ -47,4 +47,8 @@ public class Contract {
 
     @OneToMany(mappedBy = "contract")
     private List<ContractOtherService> contractOtherServices;
+
+    public void addContractOtherService(ContractOtherService contractOtherService){
+        contractOtherServices.add(contractOtherService);
+    }
 }

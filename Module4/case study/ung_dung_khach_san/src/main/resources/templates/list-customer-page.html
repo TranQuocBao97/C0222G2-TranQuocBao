@@ -132,8 +132,9 @@
         </form>
     </nav>
 
-
-    <table class="table table-bordered" style="color: #041C32 ; border-color: #CEE5D0">
+<div style="overflow-x:auto;">
+    <table class="table table-bordered table-sm" style="color: #041C32
+    ; border-color: #CEE5D0;box-shadow: 5px 10px 18px #ADCF9F; white-space: nowrap">
         <thead>
         <tr style="background: #A3DA8D; color: #041C32">
             <th>STT</th>
@@ -173,7 +174,6 @@
                             <!-- Modal Header -->
                             <div class="modal-header">
                                 <h4 class="modal-title" style="color: #4E944F">Edit Customer</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
 
                             <!-- Modal body -->
@@ -305,6 +305,10 @@
         </tr>
     </table>
 
+    <div class="row text-center">
+        <p1 th:text="${pageEmpty}" style="color: crimson"></p1>
+    </div>
+
     <!--paging-->
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-end">
@@ -325,7 +329,7 @@
             </li>
         </ul>
     </nav>
-
+</div>
 </main>
 
 <!-- mess Modal -->

@@ -5,15 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import program.ung_dung_khach_san.model.Contract;
-import program.ung_dung_khach_san.model.OtherService;
+import program.ung_dung_khach_san.model.ContractOtherService;
 
-import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ContractOtherServiceDTO {
-    private List<Contract> contractList;
-    private List<OtherService> otherServiceList;
+public class ContractOtherServiceAddDTO {
+    private Contract contract;
+    private ContractOtherService contractOtherService;
 }

@@ -7,6 +7,6 @@ import program.ung_dung_khach_san.model.entities_employee.Division;
 import java.util.List;
 
 @Repository
-public interface iDivisionRepository extends JpaRepository<Division,Integer> {
+public interface IDivisionRepository extends JpaRepository<Division,Integer> {
     List<Division> findAll();
 }

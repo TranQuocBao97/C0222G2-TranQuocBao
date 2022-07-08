@@ -17,4 +17,19 @@ public class EmployeeServiceImpl implements IEmployeeService {
     public Page<Employee> findAll(Pageable pageable) {
         return iEmployeeRepository.findAll(pageable);
     }
+
+    @Override
+    public Page<Employee> findAllByNameContaining(String name, Pageable pageable) {
+        return iEmployeeRepository.findAllByNameContaining(name,pageable);
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        iEmployeeRepository.deleteById(id);
+    }
+
+    @Override
+    public void save(Employee employee) {
+        iEmployeeRepository.save(employee);
+    }
 }
