@@ -1,5 +1,6 @@
 package program.ung_dung_khach_san.model.entities_customer;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;

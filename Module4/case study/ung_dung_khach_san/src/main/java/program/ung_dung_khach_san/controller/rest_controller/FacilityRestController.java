@@ -40,6 +40,15 @@ public class FacilityRestController {
         return new ResponseEntity<>(facilityDTO, HttpStatus.OK);
     }
 
+    @GetMapping("/getOne/{id}")
+    public ResponseEntity<Facility> getOneFacilityById(@PathVariable("id") Integer id){
+        Optional<Facility> facilityOptional = iFacilityService.findById(id);
+        if (!facilityOptional.isPresent()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(facilityOptional.get(),HttpStatus.OK);
+    }
+
     @PutMapping
     public ResponseEntity<Void> editFacility(@RequestBody Facility facility){
         iFacilityService.save(facility);

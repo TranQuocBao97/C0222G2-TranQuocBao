@@ -1,5 +1,6 @@
 package program.ung_dung_khach_san.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -28,5 +29,6 @@ public class OtherService {
 //    private List<Contract> contracts;
 
     @OneToMany(mappedBy = "otherService")
+    @JsonBackReference
     private List<ContractOtherService> contractOtherServices;
 }

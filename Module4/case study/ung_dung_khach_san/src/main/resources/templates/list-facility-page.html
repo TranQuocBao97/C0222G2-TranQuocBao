@@ -64,7 +64,7 @@
                             <!-- Modal body -->
                             <div class="modal-body">
 
-                                <table class="table table-bordered" style="color: #000000">
+                                <table class="table table-hover" style="color: #000000">
                                     <select hidden th:field="*{facilityType}">
                                         <option th:each="facilityType :${facilityTypeList}"
                                                 th:if="${facilityType.id == 1}"
@@ -134,7 +134,7 @@
                             <!-- Modal body -->
                             <div class="modal-body">
 
-                                <table class="table table-bordered" style="color: #000000">
+                                <table class="table table-hover" style="color: #000000">
                                     <select hidden th:field="*{facilityType}" class="form-control">
                                         <option th:each="facilityType :${facilityTypeList}"
                                                 th:if="${facilityType.id == 2}"
@@ -212,7 +212,7 @@
                             <!-- Modal body -->
                             <div class="modal-body">
 
-                                <table class="table table-bordered" style="color: #000000">
+                                <table class="table table-hover" style="color: #000000">
                                     <select hidden th:field="*{facilityType}" class="form-control">
                                         <option th:each="facilityType :${facilityTypeList}"
                                                 th:if="${facilityType.id == 3}"
@@ -525,7 +525,7 @@
                 if (facilityDTO.facility.facilityType.id === 1) {
                     let editTable = "";
                     editTable +=
-                        `<table class="table table-bordered" style="color: #000000">
+                        `<table class="table table-hover" style="color: #000000">
                     <tr>
                         <th>Id facility</th>
                         <td>
@@ -577,7 +577,7 @@
                 if (facilityDTO.facility.facilityType.id === 2) {
                     let editTable = "";
                     editTable +=
-                        `<table class="table table-bordered" style="color: #000000">
+                        `<table class="table table-hover" style="color: #000000">
                     <tr>
                         <th>Id facility</th>
                         <td>
@@ -637,7 +637,7 @@
                 if (facilityDTO.facility.facilityType.id === 3) {
                     let editTable = "";
                     editTable +=
-                        `<table class="table table-bordered" style="color: #000000">
+                        `<table class="table table-hover" style="color: #000000">
                     <tr>
                         <th>Id facility</th>
                         <td>
