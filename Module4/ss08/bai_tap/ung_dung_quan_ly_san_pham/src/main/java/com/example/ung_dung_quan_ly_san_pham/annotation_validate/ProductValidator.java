@@ -11,7 +11,7 @@ import java.util.List;
 public class ProductValidator implements ConstraintValidator<ValidateProduct,String> {
 
     @Autowired
-    IProductRepository iProductRepository;
+    private IProductRepository iProductRepository;
 
 
     @Override

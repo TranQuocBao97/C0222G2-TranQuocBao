@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.Set;
 
 @Entity

@@ -46,30 +46,40 @@
                                         <th>Name</th>
                                         <td>
                                             <input class="form-control" th:field="*{name}">
+                                            <small style="color: red" th:if="${#fields.hasErrors('name')}"
+                                                   th:errors="*{name}"></small>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Salary</th>
                                         <td>
                                             <input class="form-control" th:field="*{salary}">
+                                            <small style="color: red" th:if="${#fields.hasErrors('salary')}"
+                                                   th:errors="*{salary}"></small>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Date of Birth</th>
                                         <td>
                                             <input type="date" class="form-control" th:field="*{dateOfBirth}">
+                                            <small style="color: red" th:if="${#fields.hasErrors('dateOfBirth')}"
+                                                   th:errors="*{dateOfBirth}"></small>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Id Card</th>
                                         <td>
                                             <input class="form-control" th:field="*{idCard}">
+                                            <small style="color: red" th:if="${#fields.hasErrors('idCard')}"
+                                                   th:errors="*{idCard}"></small>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Phone Number</th>
                                         <td>
                                             <input class="form-control" th:field="*{phoneNumber}">
+                                            <small style="color: red" th:if="${#fields.hasErrors('phoneNumber')}"
+                                                   th:errors="*{phoneNumber}"></small>
                                         </td>
                                     </tr>
                                     <tr>
@@ -337,6 +347,9 @@
         </div>
     </div>
 </div>
+
+<input type="hidden" id="checkValidate" th:value="${checkValidate}">
+
 <th:block th:replace="~{home-page :: footer}"></th:block>
 </body>
 <th:block th:replace="~{home-page :: js}"></th:block>
@@ -346,6 +359,12 @@
         $("#messModal").modal("show");
         let pass = "123"
         $("#passwordAuto").val(pass);
+    })
+
+    $(window).on("load",function (){
+        if($("#checkValidate").val() === "error"){
+            $("#addNewEmployeeModal").modal("show");
+        }
     })
 
 
