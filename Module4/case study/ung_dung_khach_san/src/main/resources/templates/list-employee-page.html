@@ -87,6 +87,7 @@
                                         <td>
                                             <input class="form-control" th:field="*{account.username}" id="email">
                                             <input type="hidden" th:field="*{account.password}" id="passwordAuto">
+                                            <small style="color: red" th:errors="*{account}"></small>
                                         </td>
                                     </tr>
                                     <tr>
@@ -130,7 +131,7 @@
 
                             <!-- Modal footer -->
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-danger">Submit</button>
                             </div>
 
@@ -190,11 +191,11 @@
                 <td th:text="${employee.position.name}"></td>
                 <td th:text="${employee.educationDegree.name}"></td>
                 <td>
-                    <button class="btn btn-outline-success" data-toggle="modal" data-target="#editCustomerModal">
+                    <button class="btn btn-outline-success" data-toggle="modal" th:data-target="'#editEmployeeModal'+${employee.id}">
                         Edit
                     </button>
                     <!-- Edit customer Modal -->
-                    <div class="modal fade" id="editCustomerModal">
+                    <div class="modal fade" th:id="'editEmployeeModal'+${employee.id}">
                         <div class="modal-dialog modal-xl">
                             <div class="modal-content">
 
@@ -205,53 +206,91 @@
 
                                 <!-- Modal body -->
                                 <div class="modal-body">
+                                    <input type="hidden" th:value="${employee.id}" th:id="'employeeId'+${employee.id}">
+<!--                                    <input type="hidden" th:value="${employee.account.username}" th:id="'employeeAccount'+${employee.id}">-->
                                     <table class="table table-hover">
                                         <tr>
                                             <th>Name</th>
                                             <td>
-                                                <input class="form-control">
+                                                <input class="form-control" th:value="${employee.name}" th:id="'employeeName'+${employee.id}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Email</th>
+                                            <td>
+                                                <input class="form-control" th:value="${employee.account.username}" th:id="'employeeAccount'+${employee.id}">
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Date of Birth</th>
                                             <td>
-                                                <input class="form-control">
+                                                <input class="form-control" th:value="${employee.dateOfBirth}" th:id="'employeeDateOfBirth'+${employee.id}">
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Id Card</th>
                                             <td>
-                                                <input class="form-control">
+                                                <input class="form-control" th:value="${employee.idCard}" th:id="'employeeIdCard'+${employee.id}">
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Phone Number</th>
                                             <td>
-                                                <input class="form-control">
+                                                <input class="form-control" th:value="${employee.phoneNumber}" th:id="'employeePhoneNumber'+${employee.id}">
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Salary</th>
                                             <td>
-                                                <input class="form-control">
+                                                <input class="form-control" th:value="${employee.salary}" th:id="'employeeSalary'+${employee.id}">
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Address</th>
                                             <td>
-                                                <input class="form-control">
+                                                <input class="form-control" th:value="${employee.address}" th:id="'employeeAddress'+${employee.id}">
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Position</th>
                                             <td>
-                                                <input class="form-control">
+                                                <select class="form-select" th:id="'employeePosition'+${employee.id}">
+                                                    <option th:each="position :${positionList}"
+                                                            th:value="${position.id}" th:text="${position.name}"
+                                                            th:if="${position.id == employee.position.id}" selected>
+                                                    </option>
+                                                    <option th:each="position :${positionList}"
+                                                            th:value="${position.id}" th:text="${position.name}">
+                                                    </option>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Education Degree</th>
                                             <td>
-                                                <input class="form-control">
+                                                <select class="form-select" th:id="'employeeEducation'+${employee.id}">
+                                                    <option th:each="education :${educationList}"
+                                                            th:value="${education.id}" th:text="${education.name}"
+                                                            th:if="${education.id == employee.educationDegree.id}" selected>
+                                                    </option>
+                                                    <option th:each="education :${educationList}"
+                                                            th:value="${education.id}" th:text="${education.name}">
+                                                    </option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Division</th>
+                                            <td>
+                                                <select class="form-select" th:id="'employeeDivision'+${employee.id}">
+                                                    <option th:each="division :${divisionList}"
+                                                            th:value="${division.id}" th:text="${division.name}"
+                                                            th:if="${division.id == employee.division.id}" selected>
+                                                    </option>
+                                                    <option th:each="division :${divisionList}"
+                                                            th:value="${division.id}" th:text="${division.name}">
+                                                    </option>
+                                                </select>
                                             </td>
                                         </tr>
                                     </table>
@@ -260,7 +299,7 @@
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-danger">Submit</button>
+                                    <button type="button" class="btn btn-danger" th:onclick="'dataForEditForm('+${employee.id}+')'">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -367,6 +406,57 @@
         }
     })
 
-
+    function dataForEditForm(id) {
+        let idVal = $("#employeeId" + `${id}`).val();
+        let nameVal = $("#employeeName" + `${id}`).val();
+        let dateOfBirthVal = $("#employeeDateOfBirth" + `${id}`).val();
+        let idCardVal = $("#employeeIdCard" + `${id}`).val();
+        let phoneNumberVal = $("#employeePhoneNumber" + `${id}`).val();
+        let salaryVal = $("#employeeSalary" + `${id}`).val();
+        let addressVal = $("#employeeAddress" + `${id}`).val();
+        let positionVal = $("#employeePosition" + `${id}`).val();
+        let educationVal = $("#employeeEducation" + `${id}`).val();
+        let divisionVal = $("#employeeDivision" + `${id}`).val();
+        let accountVal = $("#employeeAccount" + `${id}`).val();
+        let employeeObj = {
+            id: idVal,
+            name: nameVal,
+            dateOfBirth: dateOfBirthVal,
+            idCard: idCardVal,
+            phoneNumber: phoneNumberVal,
+            salary: salaryVal,
+            address: addressVal,
+            position: {
+                id: positionVal
+            },
+            educationDegree: {
+                id: educationVal
+            },
+            division: {
+                id: divisionVal
+            },
+            account: {
+                username: accountVal,
+                password:123
+            }
+        }
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "PUT",
+            url: "/api/employee/",
+            data: JSON.stringify(employeeObj),
+            success: function (resultSuccess) {
+                console.log(resultSuccess);
+                alert("Edit success")
+                location.reload();
+            },
+            error: function (resultError) {
+                alert("Edit fail")
+            }
+        });
+    }
 </script>
 </html>

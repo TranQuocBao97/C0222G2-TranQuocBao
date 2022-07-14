@@ -12,6 +12,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import program.ung_dung_khach_san.dto.validation_dto.CustomerValidationDto;
+import program.ung_dung_khach_san.dto.validation_dto.EmployeeValidationDto;
 import program.ung_dung_khach_san.model.entities_customer.Customer;
 import program.ung_dung_khach_san.repository.repository_customer.ICustomerTypeRepository;
 import program.ung_dung_khach_san.repository.repository_customer.IGenderRepository;
@@ -55,7 +56,9 @@ public class CustomerController {
                                  BindingResult bindingResult,
                                  RedirectAttributes redirectAttributes,
                                  Model model){
+
         if(bindingResult.hasErrors()){
+//            bindingResult.getFieldErrors();
             redirectAttributes.addFlashAttribute("checkValidate","error");
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.customerObj",bindingResult);
             redirectAttributes.addFlashAttribute("customerObj",customer);

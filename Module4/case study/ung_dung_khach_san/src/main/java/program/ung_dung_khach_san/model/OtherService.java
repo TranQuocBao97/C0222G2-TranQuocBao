@@ -25,8 +25,6 @@ public class OtherService {
     private Double cost;
     private Integer amount;
 
-//    @ManyToMany(mappedBy = "otherServices")
-//    private List<Contract> contracts;
 
     @OneToMany(mappedBy = "otherService")
     @JsonBackReference

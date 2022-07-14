@@ -39,12 +39,6 @@ public class Contract {
     @JoinColumn(name="facility_id", nullable = false, referencedColumnName = "facility_id")
     private Facility facility;
 
-//    @ManyToMany
-//    @JoinTable(name="contract_otherService",
-//            joinColumns = @JoinColumn(name="contract_id"),
-//            inverseJoinColumns = @JoinColumn(name="other_service_id"))
-//    private List<OtherService> otherServices;
-
 
     @OneToMany(mappedBy = "contract")
     private List<ContractOtherService> contractOtherServices;

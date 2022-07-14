@@ -21,7 +21,6 @@ public class FacilityValidationDto {
     @Pattern(regexp = "^([A-Z][^A-Z\\s]+)(\\s[A-Z][^A-Z\\s]+)*$", message = "Tên dịch vụ được phép chứa số. Và các kí tự đầu tiên của mỗi từ phải viết hoa")
     private String name;
 
-
     private Double area;
     private Double cost;
     private String standardRoom;

@@ -68,7 +68,7 @@ public class EmployeeController {
     public String addNewEmployee(@ModelAttribute("employeeObj") @Validated EmployeeValidationDto employee,
                                  BindingResult bindingResult,
                                  RedirectAttributes redirectAttributes){
-
+        new EmployeeValidationDto().validate(employee,bindingResult);
         if(bindingResult.hasErrors()){
             redirectAttributes.addFlashAttribute("checkValidate","error");
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.employeeObj",bindingResult);

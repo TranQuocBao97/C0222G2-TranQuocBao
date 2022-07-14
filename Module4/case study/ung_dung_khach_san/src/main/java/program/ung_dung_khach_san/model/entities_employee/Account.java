@@ -1,10 +1,11 @@
 package program.ung_dung_khach_san.model.entities_employee;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import java.util.Set;
 
 @Entity

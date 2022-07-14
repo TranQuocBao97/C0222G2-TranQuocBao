@@ -74,12 +74,11 @@
                                             <div id="areaSelectOtherService">
                                                 <div class="d-flex flex-row">
                                                     <div class="p-1">
-                                                        <select class="form-select"
+                                                        <select class="form-select totalCost"
                                                                 th:field="*{contractOtherService.otherService.id}"
-                                                                id="selectOtherService">
-                                                            <option value="" selected>None</option>
-                                                            <option id="idOtherService"
-                                                                    th:each="osOBJ :${otherServiceList}"
+                                                                id="otherServiceId">
+                                                            <option value="" selected class="totalCost">None</option>
+                                                            <option th:each="osOBJ :${otherServiceList}"
                                                                     th:value="${osOBJ.id}"
                                                                     th:text="${osOBJ.name}+' (Price :'+${#numbers.formatDecimal(osOBJ.cost, 0, 'DEFAULT', 0, 'DEFAULT')}+')'">
                                                             </option>
@@ -378,6 +377,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script>
+
     $(window).on("load", function () {
         $("#areaSelectOtherService").hide();
         $("#selectOtherService").prop("disabled", true);
@@ -440,6 +440,12 @@
         });
     }
 
+    $(".totalCost").on("change", function () {
+        let facilityId = $("#facilityId").val();
+        getCostFacilityById(facilityId);
+        let idOtherService = $("#otherServiceId").val();
+        getCostOtherServiceById(idOtherService);
+    });
 
 
     function getNumberDaysRent(startDateString, endDateString) {
@@ -465,18 +471,11 @@
                 let startDate = $("#startDate").val();
                 let endDate = $("#endDate").val();
                 let numberDaysRent = getNumberDaysRent(startDate, endDate);
-                let idOtherService = $("#idOtherService").val();
-                getCostOtherServiceById(idOtherService);
-                console.log('cost1: '+costOtherService);
-                console.log('cost2: '+costFacility);
-
                 let amountOtherService = $("#amount").val();
-
                 let totalCostOtherService = 0;
                 if (checkOtherServiceBar) {
                     totalCostOtherService = costOtherService * amountOtherService;
                 }
-
                 let totalCostUseFacility = costFacility * numberDaysRent + totalCostOtherService;
 
                 if (totalCostUseFacility > 0) {
@@ -503,6 +502,20 @@
             url: "/api/otherService/" + id,
             success: function (otherService) {
                 costOtherService = otherService.cost;
+                let startDate = $("#startDate").val();
+                let endDate = $("#endDate").val();
+                let numberDaysRent = getNumberDaysRent(startDate, endDate);
+                let amountOtherService = $("#amount").val();
+                let totalCostOtherService = 0;
+                if (checkOtherServiceBar) {
+                    totalCostOtherService = costOtherService * amountOtherService;
+                }
+                let totalCostUseFacility = costFacility * numberDaysRent + totalCostOtherService;
+                if (totalCostUseFacility > 0) {
+                    $("#addContractTotalCost").html(totalCostUseFacility);
+                }else {
+                    $("#addContractTotalCost").html(0);
+                }
             },
             error: function (resultError) {
                 console.log("error to get other service by id")
@@ -511,43 +524,28 @@
     }
 
 
-    $(".totalCost").on("change", function () {
-        showTotalCost();
-    });
-
-    function showTotalCost(){
-        let startDate = $("#startDate").val();
-        let endDate = $("#endDate").val();
-        let numberDaysRent = getNumberDaysRent(startDate, endDate);
-
-        let facilityId = $("#facilityId").val();
-        getCostFacilityById(facilityId);
-
-
-        console.log('cost1: '+costOtherService);
-        console.log('cost2: '+costFacility);
-
-
-        let idOtherService = $("#idOtherService").val();
-        getCostOtherServiceById(idOtherService);
-
-        let amountOtherService = $("#amount").val();
-
-        let totalCostOtherService = 0;
-        if (checkOtherServiceBar) {
-            totalCostOtherService = costOtherService * amountOtherService;
-        }
-
-        let totalCostUseFacility = costFacility * numberDaysRent + totalCostOtherService;
-
-        if (totalCostUseFacility > 0) {
-            $("#addContractTotalCost").html(totalCostUseFacility);
-        }else {
-            $("#addContractTotalCost").html(0);
-        }
-
-        console.log('tong tien = ' + totalCostUseFacility);
-    }
+    // function showTotalCost(){
+        // let startDate = $("#startDate").val();
+        // let endDate = $("#endDate").val();
+        // let numberDaysRent = getNumberDaysRent(startDate, endDate);
+        // let facilityId = $("#facilityId").val();
+        // getCostFacilityById(facilityId);
+        // let idOtherService = $("#otherServiceId").val();
+        // getCostOtherServiceById(idOtherService);
+        // console.log('check id :'+idOtherService)
+        // let amountOtherService = $("#amount").val();
+        // let totalCostOtherService = 0;
+        // if (checkOtherServiceBar) {
+        //     totalCostOtherService = costOtherService * amountOtherService;
+        // }
+        // let totalCostUseFacility = costFacility * numberDaysRent + totalCostOtherService;
+        // if (totalCostUseFacility > 0) {
+        //     $("#addContractTotalCost").html(totalCostUseFacility);
+        // }else {
+        //     $("#addContractTotalCost").html(0);
+        // }
+        // console.log('tong tien = ' + totalCostUseFacility);
+    // }
 
 
 </script>
