@@ -9,8 +9,8 @@
         * {
             box-sizing: border-box;
         }
+
         #menu {
-            overflow: hidden;
             background-color: beige;
             transition: 0.4s;
             position: fixed;
@@ -19,17 +19,14 @@
             z-index: 2;
         }
 
-        #logo img {
-            width: 150%;
-            object-fit: cover;
-        }
 
         #menu a {
             text-decoration: none;
             color: #0a600a;
             font-weight: bolder;
-            font-size: 25px;
+            font-size: 20px;
         }
+
         #menu a:hover {
             color: #63cb63;
         }
@@ -37,20 +34,52 @@
     </style>
 </head>
 <body>
-
-<div id="menu" class="row">
-    <div class="col-1">
-        <a href="#default" id="logo">
-            <img src="assets/img/logo2.png">
+<nav class="navbar navbar-expand-lg navbar-light" id="menu">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="assets/img/logo2.png" height="80">
         </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="home-page.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="list-facilities.html">Facilities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Employee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="table-contract-page.html">Contract</a>
+                </li>
+                <li hidden class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="col-5"></div>
-    <div class="col-6 d-flex justify-content-center align-items-center" id="selectMenu">
-        <a class="p-2" href="">Home</a>
-        <a class="p-2" href="">Contact</a>
-        <a class="p-2" href="">About</a>
-    </div>
-</div>
+</nav>
+
+
 <div style="margin-top:210px;padding:15px 15px 2500px;font-size:30px">
     <p><b>This example demonstrates how to shrink a navigation bar when the user starts to scroll the page.</b></p>
     <p>Scroll down this frame to see the effect!</p>
@@ -74,22 +103,20 @@
 
     function scrollFunction() {
         if ($("html").scrollTop() > 80) {
-            $("#menu").css("backgroundColor", "#000000");
-
-            $("#selectMenu a").css("color", "#8a8a8a");
-            $("#selectMenu a").mouseenter(function (){
+            $("#navbarSupportedContent a").css("color", "#8a8a8a");
+            $("#navbarSupportedContent a").mouseenter(function () {
                 $(this).css("color", "#ffffff");
             });
-            $("#selectMenu a").mouseleave(function (){
+            $("#navbarSupportedContent a").mouseleave(function () {
                 $(this).css("color", "#8a8a8a");
             });
-
+            $("#menu").css("backgroundColor", "#444444");
         } else {
             $("a").css("color", "#0a600a")
-            $("#selectMenu a").mouseenter(function (){
+            $("#navbarSupportedContent a").mouseenter(function () {
                 $(this).css("color", "#63cb63");
             });
-            $("#selectMenu a").mouseleave(function (){
+            $("#navbarSupportedContent a").mouseleave(function () {
                 $(this).css("color", "#0a600a");
             });
             $("#menu").css("backgroundColor", "beige");

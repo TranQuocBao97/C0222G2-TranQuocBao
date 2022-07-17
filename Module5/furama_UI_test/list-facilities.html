@@ -7,24 +7,91 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="list-facilities.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #menu {
+            background-color: beige;
+            transition: 0.4s;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 2;
+        }
+
+
+        #menu a {
+            text-decoration: none;
+            color: #0a600a;
+            font-weight: bolder;
+            font-size: 20px;
+        }
+
+        #menu a:hover {
+            color: #63cb63;
+        }
+
+    </style>
 
 </head>
 <body>
 
 
-<div class="d-flex flex-row" style="background-color: white; position: fixed">
+<nav class="navbar navbar-expand-lg navbar-light" id="menu">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="assets/img/logo2.png" height="80">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="home-page.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="list-facilities.html">Facilities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="table-customer-page.html">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Employee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="table-contract-page.html">Contract</a>
+                </li>
+                <li hidden class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-</div>
 
-
-<div id="main">
+<div id="main" style="margin-top: 140px">
 
 
     <div id="title-area" class="border border-secondary">
         <img src="assets/img/header-5.jpg" id="title-img" alt="villa">
         <div id="title-text">FACILITIES</div>
     </div>
-
 
 
     <div class="container card-group">
@@ -207,7 +274,7 @@
 
 </div>
 
-<!-- EDIT Modal -->
+<!-- ADD Modal -->
 <div class="modal fade" id="addModal">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -231,36 +298,54 @@
                     </div>
                 </div>
                 <div class="col-8">
-                    <table class="table table-sm"
-                           style="color: #041C32 ; border-color: #CEE5D0;box-shadow: 5px 10px 18px #acadac; white-space: nowrap">
+                    <table class="table table-hover" style="color: #000000">
                         <tr>
-                            <th style="background: #A3DA8D; color: #041C32">Name</th>
+                            <th>Name</th>
                             <td>
                                 <input class="form-control">
                             </td>
                         </tr>
                         <tr>
-                            <th style="background: #A3DA8D; color: #041C32 ">Cost</th>
+                            <th>Rent type</th>
+                            <td>
+                                <select class="form-select">
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Area</th>
                             <td>
                                 <input class="form-control">
                             </td>
                         </tr>
                         <tr>
-                            <th style="background: #A3DA8D; color: #041C32 ">Area</th>
+                            <th>Cost</th>
                             <td>
                                 <input class="form-control">
                             </td>
                         </tr>
                         <tr>
-                            <th style="background: #A3DA8D; color: #041C32 ">Rent Type</th>
+                            <th>Standard Room</th>
                             <td>
-                                <select class="form-select"></select>
+                                <input class="form-control">
                             </td>
                         </tr>
                         <tr>
-                            <th style="background: #A3DA8D; color: #041C32 ">Facility Type</th>
+                            <th>Convenience</th>
                             <td>
-                                <select class="form-select"></select>
+                                <input class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Number Off Floors</th>
+                            <td>
+                                <input class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Pool Area</th>
+                            <td>
+                                <input class="form-control">
                             </td>
                         </tr>
                     </table>
@@ -273,7 +358,7 @@
         </div>
     </div>
 </div>
-<!-- EDIT Modal -->
+<!-- ADD Modal -->
 
 <!-- EDIT Modal -->
 <div class="modal fade" id="editModal">
@@ -365,6 +450,18 @@
 </div>
 <!-- END DELETE Modal -->
 
+<footer>
+    <div style="margin-top: 200px" class="bg-dark">
+        <div class="d-flex justify-content-center" style="height: 30px">
+            <div class="p-2"><a href="#" style="color: #a8a2a2">Home</a></div>
+            <div class="p-2"><a href="#" style="color: #a8a2a2">Features</a></div>
+            <div class="p-2"><a href="#" style="color: #a8a2a2">Pricing</a></div>
+            <div class="p-2"><a href="#" style="color: #a8a2a2">FAQs</a></div>
+            <div class="p-2"><a href="#" style="color: #a8a2a2">About</a></div>
+        </div>
+        <div class="text-center text-muted">© 2021 Company, Inc</div>
+    </div>
+</footer>
 
 </body>
 
@@ -379,8 +476,32 @@
         $("#deleteModal").modal("show");
     }
 
-    function editModal() {
+</script>
+<script>
+    $(window).on("scroll", function () {
+        scrollFunction();
+    })
 
+    function scrollFunction() {
+        if ($("html").scrollTop() > 80) {
+            $("#navbarSupportedContent a").css("color", "#8a8a8a");
+            $("#navbarSupportedContent a").mouseenter(function () {
+                $(this).css("color", "#ffffff");
+            });
+            $("#navbarSupportedContent a").mouseleave(function () {
+                $(this).css("color", "#8a8a8a");
+            });
+            $("#menu").css("backgroundColor", "#444444");
+        } else {
+            $("a").css("color", "#0a600a")
+            $("#navbarSupportedContent a").mouseenter(function () {
+                $(this).css("color", "#63cb63");
+            });
+            $("#navbarSupportedContent a").mouseleave(function () {
+                $(this).css("color", "#0a600a");
+            });
+            $("#menu").css("backgroundColor", "beige");
+        }
     }
 </script>
 
