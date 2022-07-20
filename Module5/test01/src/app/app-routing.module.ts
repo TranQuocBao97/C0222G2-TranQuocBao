@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {ArticleComponent} from './article/article.component';
+import {ArticleComponent} from './ss04/article/article.component';
 import {AngularColorPickerAppComponent} from './angular-color-picker-app/angular-color-picker-app.component';
 
 
