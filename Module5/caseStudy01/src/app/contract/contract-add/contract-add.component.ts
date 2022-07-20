@@ -13,3 +13,6 @@ export class ContractAddComponent implements OnInit {
   }
 
 }
+
+export class ContractAddAppComponent {
+}

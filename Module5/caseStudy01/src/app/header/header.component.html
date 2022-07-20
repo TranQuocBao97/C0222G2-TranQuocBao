@@ -10,19 +10,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="">Home</a>
+          <a class="nav-link" [routerLink]="['']" routerLinkActive="router-link-active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">Facilities</a>
+          <a class="nav-link" [routerLink]="['/facility-list']">Facilities</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">Customer</a>
+          <a class="nav-link" [routerLink]="['/customer-list']">Customer</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="">Employee</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">Contract</a>
+          <a class="nav-link" [routerLink]="['/contract-list']">Contract</a>
         </li>
         <li hidden class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
