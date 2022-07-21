@@ -28,22 +28,27 @@ public class Contract {
     private String endDate;
     private Double deposit;
 
+
+
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "employee_id",nullable = false,referencedColumnName = "employee_id")
     private Employee employee;
+
+
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name= "customer_id", nullable = false, referencedColumnName = "customer_id")
     private Customer customer;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="facility_id", nullable = false, referencedColumnName = "facility_id")
     private Facility facility;
 
-
+    @JsonBackReference
     @OneToMany(mappedBy = "contract")
     private List<ContractOtherService> contractOtherServices;
 
-    public void addContractOtherService(ContractOtherService contractOtherService){
-        contractOtherServices.add(contractOtherService);
-    }
+
 }

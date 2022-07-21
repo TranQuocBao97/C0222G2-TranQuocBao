@@ -1,7 +1,10 @@
 package program.ung_dung_khach_san.model.entities_employee;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import program.ung_dung_khach_san.model.Contract;
 
 import javax.persistence.*;
@@ -25,6 +28,7 @@ public class Employee {
     private String phoneNumber;
     private String address;
 
+
     @ManyToOne
     @JoinColumn(name="position_id", nullable = false, referencedColumnName = "position_id")
     private Position position;
@@ -33,13 +37,16 @@ public class Employee {
     @JoinColumn(name="education_id", nullable = false, referencedColumnName = "education_id")
     private EducationDegree educationDegree;
 
+
     @ManyToOne
     @JoinColumn(name="division_id",nullable = false,referencedColumnName = "division_id")
     private Division division;
 
 
+    @JsonBackReference
     @OneToMany(mappedBy = "employee")
     private List<Contract> contracts;
+
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="email",referencedColumnName = "username")

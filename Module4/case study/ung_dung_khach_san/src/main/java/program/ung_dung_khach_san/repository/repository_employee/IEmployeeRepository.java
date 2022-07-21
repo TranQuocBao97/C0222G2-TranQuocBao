@@ -5,10 +5,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import program.ung_dung_khach_san.model.entities_employee.Employee;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface IEmployeeRepository extends JpaRepository<Employee,Integer> {
-    Page<Employee> findAll(Pageable pageable);
+//    Page<Employee> findAll(Pageable pageable);
+    List<Employee> findAll();
     Page<Employee> findAllByNameContaining(String name,Pageable pageable);
 
     void deleteById(Integer id);

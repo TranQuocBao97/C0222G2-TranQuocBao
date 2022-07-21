@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import program.ung_dung_khach_san.model.entities_customer.Customer;
 import program.ung_dung_khach_san.repository.repository_customer.ICustomerRepository;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/api/customer")
@@ -20,6 +22,12 @@ public class CustomerRestController {
     public ResponseEntity<Void> editCustomer(@RequestBody Customer customer){
         iCustomerRepository.save(customer);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<List<Customer>> getListCustomer(){
+        List<Customer> customerList = iCustomerRepository.findAll();
+        return new ResponseEntity<>(customerList,HttpStatus.OK);
     }
 
 }

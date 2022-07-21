@@ -2,3 +2,12 @@
 #demo img{
   filter: brightness(40%);
 }
+p{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 80px;
+  white-space: nowrap;
+}

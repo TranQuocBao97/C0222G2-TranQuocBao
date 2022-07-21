@@ -18,6 +18,7 @@ public class Role {
     private Integer id;
     private String name;
 
+    @JsonBackReference
     @ManyToMany(mappedBy = "roles")
     private Set<Account> accounts;
 

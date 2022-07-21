@@ -1,5 +1,6 @@
 package program.ung_dung_khach_san.model.entities_employee;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,9 +20,10 @@ public class Account {
     private String username;
     private String password;
 
+    @JsonBackReference
     @OneToOne(mappedBy = "account")
     private Employee employee;
-
+    @JsonBackReference
     @ManyToMany
     @JoinTable(name = "account_role",
             joinColumns = @JoinColumn(name = "username"),

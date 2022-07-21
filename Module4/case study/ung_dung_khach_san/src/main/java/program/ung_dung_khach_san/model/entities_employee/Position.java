@@ -18,6 +18,7 @@ public class Position {
     private Integer id;
     private String name;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "position")
     private List<Employee> employees;
 }

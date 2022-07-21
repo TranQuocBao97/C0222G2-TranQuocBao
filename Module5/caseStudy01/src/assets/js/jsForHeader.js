@@ -20,6 +20,6 @@ function scrollFunction() {
     $("#navbarSupportedContent a").mouseleave(function () {
       $(this).css("color", "#0a600a");
     });
-    $("#menu").css("backgroundColor", "beige");
+    $("#menu").css("backgroundColor", "white");
   }
 }

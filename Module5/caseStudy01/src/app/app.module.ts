@@ -14,6 +14,7 @@ import { CustomerEditComponent } from './customer/customer-edit/customer-edit.co
 import { ContractListComponent } from './contract/contract-list/contract-list.component';
 import { ContractAddComponent } from './contract/contract-add/contract-add.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HomePageComponent } from './home-page/home-page.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -18,6 +18,8 @@ public class Division {
     private Integer id;
     private String name;
 
+
+    @JsonBackReference
     @OneToMany(mappedBy = "division")
     private List<Employee> employees;
 

@@ -18,6 +18,7 @@ public class Gender {
     private Integer id;
     private String name;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "gender")
     private List<Customer> customers;
 }

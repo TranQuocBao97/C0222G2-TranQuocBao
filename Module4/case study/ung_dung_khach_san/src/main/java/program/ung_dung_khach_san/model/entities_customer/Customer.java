@@ -1,5 +1,6 @@
 package program.ung_dung_khach_san.model.entities_customer;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,6 +36,7 @@ public class Customer {
     @JoinColumn(name = "customer_type_id", nullable = false, referencedColumnName = "customer_type_id")
     private CustomerType customerType;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "customer")
     private List<Contract> contracts;
 

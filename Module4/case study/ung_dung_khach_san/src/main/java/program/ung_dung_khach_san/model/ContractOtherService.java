@@ -1,7 +1,6 @@
 package program.ung_dung_khach_san.model;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,9 +17,12 @@ public class ContractOtherService {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+
     @ManyToOne
-    @JoinColumn(name="contract_id",nullable = false,referencedColumnName = "contract_id")
+    @JoinColumn(name = "contract_id", nullable = false, referencedColumnName = "contract_id")
     private Contract contract;
+
 
     @ManyToOne
     @JoinColumn(name = "otherService_id", nullable = false, referencedColumnName = "other_service_id")
