@@ -1,0 +1,19 @@
+<h1 style="text-align: center">Login</h1>
+<h3>{{message}}</h3>
+<form class="container" [formGroup]="loginForm" (ngSubmit)="checkLogin()">
+  <div class="mb-3">
+    <label class="form-label">Email address</label>
+    <input type="email" class="form-control" formControlName="email">
+    <small style="color: crimson" *ngIf="loginForm.controls.email.hasError('email') && loginForm.controls.email.dirty ">
+      Email is not correct type
+    </small>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Password</label>
+    <input type="password" class="form-control" formControlName="password">
+    <small style="color: crimson" *ngIf="loginForm.controls.password.hasError('minlength') && loginForm.controls.password.dirty ">
+      Password need more than 6 letter
+    </small>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

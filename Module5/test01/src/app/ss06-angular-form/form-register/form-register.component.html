@@ -1,0 +1,97 @@
+<h1 style="text-align: center; color: blue">{{mess}}</h1>
+
+<form [formGroup]="accountFrom" (ngSubmit)="registerAccountToDataListWithReactive()" class="container">
+  <h1>Register</h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <td>email</td>
+      <td>
+        <input formControlName="email" class="form-control">
+        <small *ngIf="accountFrom.controls.email.hasError('required')
+        && accountFrom.controls.email.dirty ">Email cant be empty</small>
+        <small *ngIf="accountFrom.controls.email.hasError('email')
+        && accountFrom.controls.email.dirty ">Incorrect Email Type</small>
+      </td>
+    </tr>
+    <tr formGroupName="passwordGroup">
+      <td>password</td>
+      <td>
+        <input formControlName="password" class="form-control" (keyup)="updateTempPassword($event)">
+        <small *ngIf="accountFrom.controls.passwordGroup.get('password').hasError('required')
+        && accountFrom.controls.passwordGroup.get('password').dirty ">Password cant be empty</small>
+        <small *ngIf="accountFrom.controls.passwordGroup.get('password').hasError('minlength')
+        && accountFrom.controls.passwordGroup.get('password').dirty ">Password min length is 6</small>
+      </td>
+      <td>confirm password</td>
+      <td>
+        <input formControlName="confirmPassword" class="form-control">
+        <small *ngIf="accountFrom.controls.passwordGroup.hasError('passNotMatch')
+&& accountFrom.controls.passwordGroup.dirty ">Password not match</small>
+      </td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>
+        <select formControlName="country" class="form-select">
+          <option selected value="">Choose</option>
+          <option *ngFor="let country of countryList" [ngValue]="country">{{country.name}}</option>
+        </select>
+        <small *ngIf="accountFrom.controls.country.hasError('required')
+        && accountFrom.controls.country.dirty ">Country cant be empty</small>
+      </td>
+    </tr>
+    <tr>
+      <td>age</td>
+      <td>
+        <input formControlName="age" class="form-control">
+        <small *ngIf="accountFrom.controls.age.hasError('required')
+        && accountFrom.controls.age.dirty ">Age cant be empty</small>
+        <small *ngIf="accountFrom.controls.age.hasError('min')
+        && accountFrom.controls.age.dirty ">Age need over 18</small>
+      </td>
+    </tr>
+    <tr>
+      <td>gender</td>
+      <td>
+        <input type="hidden" formControlName="gender" checked>
+        <input type="radio" value="Male" formControlName="gender"> Male
+        <input type="radio" value="FeMale" formControlName="gender"> FeMale
+        <input type="radio" value="Other" formControlName="gender"> Other
+        <br>
+        <small *ngIf="accountFrom.controls.gender.hasError('required')
+        && accountFrom.controls.gender.pristine ">Gender cant be empty</small>
+      </td>
+    </tr>
+    <tr>
+      <td>phone</td>
+      <td>
+        <input formControlName="phone" class="form-control">
+        <small *ngIf="accountFrom.controls.phone.hasError('required')
+        && accountFrom.controls.phone.dirty ">Phone cant be empty</small>
+        <small *ngIf="accountFrom.controls.phone.hasError('pattern')
+        && accountFrom.controls.phone.dirty ">Phone +84x (x is 9 or 10 numbers)</small>
+      </td>
+    </tr>
+    </thead>
+  </table>
+  <button type="submit" class="btn btn-primary">submit</button>
+</form>
+
+<div style="margin-top: 100px" class="container">
+  <h2>Show List Account</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <td>Name</td>
+      <td>Gender</td>
+      <td>Country</td>
+    </tr>
+    <tr *ngFor="let account of accountList">
+      <td>{{ account.email }}</td>
+      <td>{{ account.gender }}</td>
+      <td *ngIf="account.country != null">{{ account.country.name }}</td>
+    </tr>
+    </thead>
+  </table>
+</div>
