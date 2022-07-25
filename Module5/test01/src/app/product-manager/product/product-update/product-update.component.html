@@ -1,12 +1,16 @@
 <h2>Edit</h2>
 <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
+  <input type="hidden" formControlName="id">
   <div> name
-    <input value="{{product.name}}">
+    <input formControlName="name">
   </div>
   <div> price
-    <input value="{{product.price}}">
+    <input formControlName="price">
   </div>
   <div> description
-    <input value="{{product.description}}">
+    <input formControlName="description">
+  </div>
+  <div>
+    <button type="submit">submit</button>
   </div>
 </form>

@@ -10,6 +10,7 @@ import {ProductCreateComponent} from './product-manager/product/product-create/p
 import {DictionayPageComponent} from './ss07-dictionary/dictionay-page/dictionay-page.component';
 import {DictionaryDetailComponent} from './ss07-dictionary/dictionary-detail/dictionary-detail.component';
 import {ProductUpdateComponent} from './product-manager/product/product-update/product-update.component';
+import {ProductDeleteComponent} from './product-manager/product/product-delete/product-delete.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: 'product/edit/:id',
     component: ProductUpdateComponent
+  },
+  {
+    path: 'product/delete/:id',
+    component: ProductDeleteComponent
   },
   {
     path: 'dictionary/list',

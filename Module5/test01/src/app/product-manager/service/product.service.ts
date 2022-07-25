@@ -5,13 +5,24 @@ import {Product} from '../model/product';
   providedIn: 'root'
 })
 export class ProductService {
-
   getAll() {
     return this.products;
   }
 
   saveProduct(product) {
     this.products.push(product);
+  }
+
+  updateProduct(productEdit) {
+    for (let i = 0; i < this.products.length ; i++) {
+      if(this.products[i].id === productEdit.id){
+        this.products[i] = productEdit;
+      }
+    }
+  }
+
+  deleteProduct(id) {
+    this.products = this.products.filter(product => product.id !== id);
   }
 
   findById(id: number) {

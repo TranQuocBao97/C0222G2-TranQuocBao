@@ -29,6 +29,7 @@ import { ProductCreateComponent } from './product-manager/product/product-create
 import { DictionayPageComponent } from './ss07-dictionary/dictionay-page/dictionay-page.component';
 import { DictionaryDetailComponent } from './ss07-dictionary/dictionary-detail/dictionary-detail.component';
 import { ProductUpdateComponent } from './product-manager/product/product-update/product-update.component';
+import { ProductDeleteComponent } from './product-manager/product/product-delete/product-delete.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ProductUpdateComponent } from './product-manager/product/product-update
     ProductCreateComponent,
     DictionayPageComponent,
     DictionaryDetailComponent,
-    ProductUpdateComponent
+    ProductUpdateComponent,
+    ProductDeleteComponent
   ],
   imports: [
     BrowserModule,
