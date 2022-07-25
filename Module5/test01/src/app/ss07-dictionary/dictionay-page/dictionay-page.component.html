@@ -1,0 +1,11 @@
+<h1>List Dictionary</h1>
+<div>
+  <form #searchForm = "ngForm"  (ngSubmit)="searchByWord(searchForm)">
+    <input class="form-control" ngModel name="word">
+    <button type="submit">Search</button>
+  </form>
+
+</div>
+<div *ngFor="let dictionary of dictionaryList">
+  <div>{{dictionary.word}} | <span><button [routerLink]="['/dictionary/detail', dictionary.word]">translate</button></span></div>
+</div>

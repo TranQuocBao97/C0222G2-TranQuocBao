@@ -11,155 +11,19 @@
     <div class="row facilities">
       <div id="add-new">
         <a [routerLink]="['/facility-add']">
-        <button class="btn btn-danger" >Add new</button>
+          <button class="btn btn-danger">Add new</button>
         </a>
       </div>
-      <div class="col-md-4 col-sm-6 col-12 picture">
+      <div class="col-md-4 col-sm-6 col-12 picture" *ngFor="let facility of facilityList">
         <div class="card">
           <a href="">
-            <img src="assets/img/1.jpg">
+            <img [src]="facility.imgUrl">
           </a>
           <div class="card-body">
-            <h5>ROOM VIP</h5>
-            <div>Room size: 25m<sup>2</sup></div>
+            <h5>{{facility.name | uppercase}}</h5>
+            <div>Room size: {{facility.area}}m<sup>2</sup></div>
             <div class="button-area">
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
-                Edit
-              </button>
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 col-12 picture">
-        <div class="card">
-          <a href="">
-            <img src="assets/img/2.jpg">
-          </a>
-          <div class="card-body">
-            <h5>ROOM VIP</h5>
-            <div>Room size: 25m<sup>2</sup></div>
-            <div class="button-area">
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
-                Edit
-              </button>
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class=" col-md-4 col-sm-6 col-12 picture">
-        <div class="card">
-          <a href="">
-            <img src="assets/img/3.jpg">
-          </a>
-          <div class="card-body">
-            <h5>ROOM VIP</h5>
-            <div>Room size: 25m<sup>2</sup></div>
-            <div class="button-area">
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
-                Edit
-              </button>
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 col-12 picture">
-        <div class="card">
-          <a href="">
-            <img src="assets/img/4.jpg">
-          </a>
-          <div class="card-body">
-            <h5>ROOM VIP</h5>
-            <div>Room size: 25m<sup>2</sup></div>
-            <div class="button-area">
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
-                Edit
-              </button>
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 col-12 picture">
-        <div class="card">
-          <a href="">
-            <img src="assets/img/5.jpg">
-          </a>
-          <div class="card-body">
-            <h5>ROOM VIP</h5>
-            <div>Room size: 25m<sup>2</sup></div>
-            <div class="button-area">
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
-                Edit
-              </button>
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 col-12 picture">
-        <div class="card">
-          <a href="">
-            <img src="assets/img/6.jpg">
-          </a>
-          <div class="card-body">
-            <h5>ROOM VIP</h5>
-            <div>Room size: 25m<sup>2</sup></div>
-            <div class="button-area">
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
-                Edit
-              </button>
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 col-12 picture">
-        <div class="card">
-          <a href="">
-            <img src="assets/img/7.jpg">
-          </a>
-          <div class="card-body">
-            <h5>ROOM VIP</h5>
-            <div>Room size: 25m<sup>2</sup></div>
-            <div class="button-area">
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
-                Edit
-              </button>
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 col-12 picture">
-        <div class="card">
-          <a href="">
-            <img src="assets/img/8.jpg">
-          </a>
-          <div class="card-body">
-            <h5>ROOM VIP</h5>
-            <div>Room size: 25m<sup>2</sup></div>
-            <div class="button-area">
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
-                Edit
-              </button>
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 col-12 picture">
-        <div class="card">
-          <a href="">
-            <img src="assets/img/9.jpg">
-          </a>
-          <div class="card-body">
-            <h5>ROOM VIP</h5>
-            <div>Room size: 25m<sup>2</sup></div>
-            <div class="button-area">
-              <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+              <button class="btn btn-danger btn-sm" [routerLink]="['/facility-edit']">
                 Edit
               </button>
               <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
@@ -174,15 +38,39 @@
     <!--paging-->
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-end border border-dark">
-        <li class="page-item">
-          <a class="page-link">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link">1</a></li>
-        <li class="page-item"><a class="page-link">2</a></li>
-        <li class="page-item"><a class="page-link">3</a></li>
-        <li class="page-item">
-          <a class="page-link">Next</a>
-        </li>
+        <ng-container *ngIf="checkFirstPage; else hasPreviousPage">
+          <li class="page-item">
+            <div class="page-link" style="pointer-events: none; color: #8a8a8a">Previous</div>
+          </li>
+          <li class="page-item">
+            <div class="page-link" style="pointer-events: none; color: #8a8a8a">None</div>
+          </li>
+        </ng-container>
+        <ng-template #hasPreviousPage>
+          <li class="page-item">
+            <a class="page-link" (click)="previousPage()">Previous</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="previousPage()">{{numberPage}}</a>
+          </li>
+        </ng-template>
+        <li class="page-item"><a class="page-link">{{numberPage + 1}}</a></li>
+        <ng-container *ngIf="checkNextPage; else hasNextPage">
+          <li class="page-item">
+            <div class="page-link" style="pointer-events: none; color: #8a8a8a">None</div>
+          </li>
+          <li class="page-item">
+            <div class="page-link" style="pointer-events: none; color: #8a8a8a">Next</div>
+          </li>
+        </ng-container>
+        <ng-template #hasNextPage>
+          <li class="page-item">
+            <a class="page-link" (click)="nextPage()">{{numberPage+2}}</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="nextPage()">Next</a>
+          </li>
+        </ng-template>
       </ul>
     </nav>
   </div>

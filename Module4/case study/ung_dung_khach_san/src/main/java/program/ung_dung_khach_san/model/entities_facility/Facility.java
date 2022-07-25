@@ -28,6 +28,7 @@ public class Facility {
     private Double poolArea;
     private Integer numberOfFloors;
     private String facilityFree;
+    private String imgUrl;
 
     @ManyToOne
     @JoinColumn(name="facility_type_id",nullable = false,referencedColumnName = "facility_type_id")

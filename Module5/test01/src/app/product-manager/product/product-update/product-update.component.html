@@ -1,0 +1,12 @@
+<h2>Edit</h2>
+<form [formGroup]="productForm" (ngSubmit)="updateProduct()">
+  <div> name
+    <input value="{{product.name}}">
+  </div>
+  <div> price
+    <input value="{{product.price}}">
+  </div>
+  <div> description
+    <input value="{{product.description}}">
+  </div>
+</form>

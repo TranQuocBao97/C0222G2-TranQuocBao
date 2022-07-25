@@ -21,6 +21,14 @@ import { CountdownTimerComponent } from './countdown-timer/countdown-timer.compo
 import { TodoComponent } from './todo/todo.component';
 import { FormRegisterComponent } from './ss06-angular-form/form-register/form-register.component';
 import { FormLoginComponent } from './ss06-angular-form/form-login/form-login.component';
+import { TimelinesComponent } from './timelines/timelines.component';
+import { YoutubePlaylistComponent } from './youtube-playlist/youtube-playlist.component';
+import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
+import { ProductListComponent } from './product-manager/product/product-list/product-list.component';
+import { ProductCreateComponent } from './product-manager/product/product-create/product-create.component';
+import { DictionayPageComponent } from './ss07-dictionary/dictionay-page/dictionay-page.component';
+import { DictionaryDetailComponent } from './ss07-dictionary/dictionary-detail/dictionary-detail.component';
+import { ProductUpdateComponent } from './product-manager/product/product-update/product-update.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +49,15 @@ import { FormLoginComponent } from './ss06-angular-form/form-login/form-login.co
     CountdownTimerComponent,
     TodoComponent,
     FormRegisterComponent,
-    FormLoginComponent
+    FormLoginComponent,
+    TimelinesComponent,
+    YoutubePlaylistComponent,
+    YoutubePlayerComponent,
+    ProductListComponent,
+    ProductCreateComponent,
+    DictionayPageComponent,
+    DictionaryDetailComponent,
+    ProductUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -56,7 +56,7 @@ public class FacilityRestController {
     }
 
     @GetMapping("/list")
-    public ResponseEntity<Page<Facility>> getPageFacility(@PageableDefault(value = 5) Pageable pageable) {
+    public ResponseEntity<Page<Facility>> getPageFacility(@PageableDefault(value = 6) Pageable pageable) {
         Page<Facility> facilityPage = iFacilityService.findAll(pageable);
         return new ResponseEntity<>(facilityPage, HttpStatus.OK);
     }

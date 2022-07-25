@@ -12,7 +12,9 @@ export class CustomerListComponent implements OnInit {
   private subscription: Subscription;
   public customerList: Customer[] = [];
 
-  constructor(private customerService: CustomerService) { }
+  constructor(private customerService: CustomerService) {
+
+  }
 
   ngOnInit(): void {
     this.getAllCustomer();
@@ -21,6 +23,7 @@ export class CustomerListComponent implements OnInit {
   getAllCustomer() {
     this.subscription = this.customerService.getAllCustomer().subscribe(data =>{
       this.customerList = data;
+      console.log(this.customerList);
     }, error => {
       console.log(error);
     })

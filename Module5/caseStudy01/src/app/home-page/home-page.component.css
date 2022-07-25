@@ -1,6 +1,10 @@
 
 #demo img{
   filter: brightness(40%);
+  height: 800px !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  overflow: hidden !important;
 }
 p{
   position: absolute;
