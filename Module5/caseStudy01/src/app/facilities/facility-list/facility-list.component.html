@@ -1,9 +1,12 @@
-<div id="main" style="margin-top: 140px">
+<div id="main" style="margin-top: 110px">
 
 
-  <div id="title-area" class="border border-secondary">
-    <img src="assets/img/header-5.jpg" id="title-img" alt="villa">
-    <div id="title-text">FACILITIES</div>
+  <div id="title-area">
+<!--    <img src="assets/img/header-5.jpg" id="title-img" alt="villa">-->
+<!--    <div id="title-text">FACILITIES</div>-->
+    <div style="color: #ffffff; font-size: 60px; text-align: center;">
+      FACILITIES
+    </div>
   </div>
 
 
@@ -11,7 +14,7 @@
     <div class="row facilities">
       <div id="add-new">
         <a [routerLink]="['/facility-add']">
-          <button class="btn btn-danger">Add new</button>
+          <button class="btn btn-success">Add new</button>
         </a>
       </div>
       <div class="col-md-4 col-sm-6 col-12 picture" *ngFor="let facility of facilityList">
@@ -20,7 +23,7 @@
             <img [src]="facility.imgUrl">
           </a>
           <div class="card-body">
-            <h5>{{facility.name | uppercase}}</h5>
+            <h5 style="white-space: nowrap; overflow: clip">{{facility.name | uppercase}}</h5>
             <div>Room size: {{facility.area}}m<sup>2</sup></div>
             <div class="button-area">
               <button class="btn btn-danger btn-sm" [routerLink]="['/facility-edit']">

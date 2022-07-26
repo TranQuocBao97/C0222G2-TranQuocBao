@@ -15,4 +15,5 @@ export class CustomerService {
   getAllCustomer(): Observable<Customer[]>{
     return this.httpClient.get<Customer[]>(this.API_URL)
   }
+
 }

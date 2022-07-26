@@ -1,6 +1,7 @@
 package program.ung_dung_khach_san.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class ContractOtherService {
     private Integer id;
 
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "contract_id", nullable = false, referencedColumnName = "contract_id")
     private Contract contract;

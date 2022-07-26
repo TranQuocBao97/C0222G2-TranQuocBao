@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {Subscription} from 'rxjs';
 import {Employee} from './models/Employee';
-import {EmployeeService} from './services/EmployeeService';
+import {EmployeeService} from './services/employee.service';
 
 @Component({
   selector: 'app-root',

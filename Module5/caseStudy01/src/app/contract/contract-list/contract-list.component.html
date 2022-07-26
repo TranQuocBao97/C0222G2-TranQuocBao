@@ -1,7 +1,7 @@
-<div id="main" style="margin-top: 140px">
+<div id="main" style="margin-top: 110px">
 
 
-  <div style="color: #4e9a53; font-size: 60px; text-align: center;">
+  <div style="color: #ffffff; font-size: 60px; text-align: center;">
     CONTRACT LIST PAGE
   </div>
 
@@ -36,28 +36,20 @@
       <thead>
       <tr style="background: #A3DA8D; color: #041C32">
         <th>STT</th>
-        <th>Id</th>
         <th>Start Date</th>
         <th>End Date</th>
-        <th>Deposit</th>
-        <th>Total price</th>
-        <th>Employee Name</th>
         <th>Customer Name</th>
-        <th>Cus Id Card</th>
+        <th>Employee Name</th>
         <th>Facility Name</th>
         <th colspan="2" class="text-center">Other Service</th>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
+      <tr *ngFor="let contract of contractList; index as stt">
+        <td>{{stt+1}}</td>
+        <td>{{contract.startDate | date:"dd-MM-yyyy"}}</td>
+        <td>{{contract.endDate | date:"dd-MM-yyyy"}}</td>
+        <td>{{contract.customer.name}}</td>
+        <td>{{contract.employee.name}}</td>
+        <td>{{contract.facility.name}}</td>
         <td>
           <button class="btn btn-success btn-sm">Other service selected</button>
         </td>

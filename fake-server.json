@@ -1,0 +1,58 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Bánh bao",
+      "price": "5000",
+      "description": "Nóng hổi",
+      "category": {
+        "id": 1,
+        "name": "Đồ ăn"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Gạo",
+      "price": "100000",
+      "description": "Dẻo",
+      "category": {
+        "id": 1,
+        "name": "Đồ ăn"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Máy tính",
+      "price": "1000000",
+      "description": "Xịn",
+      "category": {
+        "id": 2,
+        "name": "Điện tử"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Bột giăt",
+      "price": "50000",
+      "description": "Sạch",
+      "category": {
+        "id": 3,
+        "name": "Tiêu dùng"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Đồ ăn"
+    },
+    {
+      "id": 2,
+      "name": "Điện tử"
+    },
+    {
+      "id": 3,
+      "name": "Tiêu dùng"
+    }
+  ]
+}

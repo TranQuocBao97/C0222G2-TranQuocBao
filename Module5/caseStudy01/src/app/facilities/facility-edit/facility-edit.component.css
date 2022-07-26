@@ -55,3 +55,13 @@ img {
 #add-new{
   margin: 15px 0 0 5px;
 }
+#main {
+  position: relative;
+  /*background-image: url(src/assets/img/12.jpg);*/
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  backdrop-filter: brightness(20%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(src/assets/img/beach2.jpg);
+  padding-bottom: 50px
+}

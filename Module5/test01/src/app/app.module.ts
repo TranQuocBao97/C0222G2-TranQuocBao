@@ -30,6 +30,7 @@ import { DictionayPageComponent } from './ss07-dictionary/dictionay-page/diction
 import { DictionaryDetailComponent } from './ss07-dictionary/dictionary-detail/dictionary-detail.component';
 import { ProductUpdateComponent } from './product-manager/product/product-update/product-update.component';
 import { ProductDeleteComponent } from './product-manager/product/product-delete/product-delete.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { ProductDeleteComponent } from './product-manager/product/product-delete
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

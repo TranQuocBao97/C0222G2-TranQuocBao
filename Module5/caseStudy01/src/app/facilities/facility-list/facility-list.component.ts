@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Subscription} from 'rxjs';
 import {Facility} from '../../models/Facility';
-import {FacilityService} from '../../services/FacilityService';
+import {FacilityService} from '../../services/facility.service';
 
 @Component({
   selector: 'app-facility-list',
