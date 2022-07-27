@@ -31,6 +31,12 @@ import { DictionaryDetailComponent } from './ss07-dictionary/dictionary-detail/d
 import { ProductUpdateComponent } from './product-manager/product/product-update/product-update.component';
 import { ProductDeleteComponent } from './product-manager/product/product-delete/product-delete.component';
 import {HttpClientModule} from '@angular/common/http';
+import {ImageGalleryModule} from './ss08-gallery/image-gallery/image-gallery.module';
+import {GalleryConfig} from './ss08-gallery/image-gallery/token';
+
+import { SlideComponent } from './ss08_image_slide/img-slider/slide/slide.component';
+
+let SliderComponent;
 
 @NgModule({
   declarations: [
@@ -60,16 +66,21 @@ import {HttpClientModule} from '@angular/common/http';
     DictionayPageComponent,
     DictionaryDetailComponent,
     ProductUpdateComponent,
-    ProductDeleteComponent
+    ProductDeleteComponent,
+    SliderComponent,
+    SlideComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ImageGalleryModule,
   ],
-  providers: [],
+  providers: [
+    {provide: GalleryConfig, useValue: 3}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

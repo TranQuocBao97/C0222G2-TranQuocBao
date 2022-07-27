@@ -1,16 +1,13 @@
-export class Customer {
-  id: number;
-  name: string;
-  address: string;
-  idCard: string;
-  email: string;
+import {CustomerType} from './CustomerType';
 
+export interface Customer {
+  id?: number;
+  name?: string;
+  dateOfBirth?: string;
+  address?: string;
+  idCard?: string;
+  email?: string;
+  gender?: any;
+  customerType?: CustomerType;
 
-  constructor(id: number, name: string, address: string, idCard: string, email: string) {
-    this.id = id;
-    this.name = name;
-    this.address = address;
-    this.idCard = idCard;
-    this.email = email;
-  }
 }

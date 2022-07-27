@@ -39,6 +39,36 @@
         "id": 3,
         "name": "Tiêu dùng"
       }
+    },
+    {
+      "name": "6",
+      "price": 6,
+      "description": "6",
+      "category": {
+        "id": 2,
+        "name": "Điện tử"
+      },
+      "id": 5
+    },
+    {
+      "name": "6",
+      "price": 6,
+      "description": "6",
+      "category": {
+        "id": 2,
+        "name": "Điện tử"
+      },
+      "id": 6
+    },
+    {
+      "name": "6",
+      "price": 6,
+      "description": "6",
+      "category": {
+        "id": 2,
+        "name": "Điện tử"
+      },
+      "id": 7
     }
   ],
   "categories": [

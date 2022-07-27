@@ -1,0 +1,146 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "name": "Thịnh",
+      "dateOfBirth": "2000-05-10",
+      "idCard": "545665567",
+      "email": "dothilinh@gmail.com",
+      "gender": 1,
+      "customerType": {
+        "id": 1,
+        "name": "Member"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Hồng",
+      "dateOfBirth": "1999-03-09",
+      "email": "hongthivo@gmail.com",
+      "idCard": "452573563",
+      "gender": 0,
+      "customerType": {
+        "id": 2,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Đinh",
+      "dateOfBirth": "2000-05-11",
+      "email": "trandinh@gmail.com",
+      "idCard": "167534555",
+      "gender": 0,
+      "customerType": {
+        "id": 5,
+        "name": "Diamond"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Đà",
+      "dateOfBirth": "2000-07-22",
+      "email": "nguyenthida@gmail.com",
+      "idCard": "223634553",
+      "gender": 1,
+      "customerType": {
+        "id": 1,
+        "name": "Member"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Bam",
+      "dateOfBirth": "2000-05-10",
+      "email": "dothilinh@gmail.com",
+      "idCard": "645663267",
+      "gender": 1,
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Thắng",
+      "dateOfBirth": "2000-05-10",
+      "email": "tulathang@gmail.com",
+      "idCard": "897821313",
+      "gender": 1,
+      "customerType": {
+        "id": 4,
+        "name": "Platinum"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Dần",
+      "dateOfBirth": "1993-05-10",
+      "email": "trandan@gmail.com",
+      "idCard": "542315367",
+      "gender": 1,
+      "customerType": {
+        "id": 1,
+        "name": "Member"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Hà",
+      "dateOfBirth": "1997-05-25",
+      "email": "phatron@gmail.com",
+      "idCard": "346998687",
+      "gender": 0,
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Trang",
+      "dateOfBirth": "2000-02-20",
+      "email": "thinhduc@gmail.com",
+      "idCard": "123532662",
+      "gender": 1,
+      "customerType": {
+        "id": 2,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Bảo",
+      "dateOfBirth": "1997-05-27",
+      "idCard": "666777888",
+      "email": "quocbao1217@gmail.com",
+      "gender": 0,
+      "customerType": {
+        "id": 5,
+        "name": "Diamond"
+      }
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Member"
+    },
+    {
+      "id": 2,
+      "name": "Silver"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Platinum"
+    },
+    {
+      "id": 5,
+      "name": "Diamond"
+    }
+  ]
+}

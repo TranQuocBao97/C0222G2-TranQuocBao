@@ -9,8 +9,8 @@
     <td>Loại</td>
     <td colspan="2"></td>
   </tr>
-  <tr *ngFor="let product of products; index as i">
-    <td>{{i + 1}}</td>
+  <tr *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: page } ; index as i">
+    <td>{{i + 1 + (5*page)}}</td>
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
@@ -19,3 +19,4 @@
     <td><a [routerLink]="['/product/delete',product.id]">Delete</a></td>
   </tr>
 </table>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>

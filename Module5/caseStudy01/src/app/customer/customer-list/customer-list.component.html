@@ -15,8 +15,11 @@
       <div></div>
 
       <div>
-        <form class="d-flex" action="/contract/list">
-          <input class="form-control me-2" type="search" placeholder="Search" name="searchWord">
+        <form class="d-flex" [formGroup]="searchForm" (ngSubmit)="getFormSearch()">
+          <input class="form-control me-2" type="search" placeholder="Search By Name"
+                 formControlName="nameSearch">
+          <input class="form-control me-2" type="search" placeholder="Search By Email"
+                 formControlName="emailSearch">
           <button type="submit" class="btn btn-outline-success">Search</button>
         </form>
       </div>
@@ -29,46 +32,49 @@
       <tr style="background: #A3DA8D; color: #041C32">
         <th>STT</th>
         <th>Name</th>
-        <th>Address</th>
+        <th>Birth</th>
         <th>Id Card</th>
         <th>Email</th>
+        <th>Customer Type</th>
         <th colspan="2" class="text-center">action</th>
       </tr>
-      <tr *ngFor="let customer of customerList; index as id">
-        <td>{{id+1}}</td>
+      <tr *ngFor="let customer of customerList | paginate: { itemsPerPage: 5, currentPage: page }; index as id">
+        <td>{{id+1+(5*(page-1))}}</td>
         <td>{{customer.name}}</td>
-        <td>{{customer.address}}</td>
+        <td>{{customer.dateOfBirth}}</td>
         <td>{{customer.idCard}}</td>
         <td>{{customer.email}}</td>
-
+        <td>{{customer.customerType.name}}</td>
         <td style="text-align: center">
-          <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                  data-bs-target="#editModal">Edit
+          <button class="btn btn-danger btn-sm" [routerLink]="['/customer-edit', customer.id]">Edit
           </button>
         </td>
         <td style="text-align: center">
-          <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+          <button class="btn btn-danger btn-sm" (click)="showDelete(customer)" data-bs-toggle="modal"
                   data-bs-target="#deleteModal">Delete
           </button>
         </td>
       </tr>
       </thead>
     </table>
-    <!--paging-->
-    <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-end">
-        <li class="page-item">
-          <a class="page-link">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link">1</a></li>
-        <li class="page-item"><a class="page-link">2</a></li>
-        <li class="page-item"><a class="page-link">3</a></li>
-        <li class="page-item">
-          <a class="page-link">Next</a>
-        </li>
-      </ul>
-    </nav>
-    <!--end paging-->
+    <div style="text-align: end">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+<!--    &lt;!&ndash;paging&ndash;&gt;-->
+<!--    <nav aria-label="Page navigation example">-->
+<!--      <ul class="pagination justify-content-end">-->
+<!--        <li class="page-item">-->
+<!--          <a class="page-link">Previous</a>-->
+<!--        </li>-->
+<!--        <li class="page-item"><a class="page-link">1</a></li>-->
+<!--        <li class="page-item"><a class="page-link">2</a></li>-->
+<!--        <li class="page-item"><a class="page-link">3</a></li>-->
+<!--        <li class="page-item">-->
+<!--          <a class="page-link">Next</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+<!--    &lt;!&ndash;end paging&ndash;&gt;-->
 
   </div>
 </div>
@@ -86,13 +92,15 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        Are You Sure Delete?
+        Are You Sure Delete this Customer?
+        <div>name is <span style="color: crimson">{{name}}</span></div>
+        <div> email is <span style="color: crimson">{{email}}</span></div>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-danger">Yes
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteCustomer()">Yes
         </button>
       </div>
     </div>

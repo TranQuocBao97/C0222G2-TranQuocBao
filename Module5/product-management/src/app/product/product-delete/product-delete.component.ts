@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {ProductService} from '../../service/product.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-product-delete',
   templateUrl: './product-delete.component.html',
@@ -37,7 +38,10 @@ export class ProductDeleteComponent implements OnInit {
 
   deleteProduct(id: number) {
     this.productService.deleteProduct(id).subscribe(() => {
-      this.router.navigate(['/product/list']);
-    }, e => console.log(e));
+        this.router.navigate(['/product/list']);
+      }, e => console.log(e),
+      () => {
+        // this.notification.showSuccess('Xóa thành công', 'DELETE');
+      });
   }
 }

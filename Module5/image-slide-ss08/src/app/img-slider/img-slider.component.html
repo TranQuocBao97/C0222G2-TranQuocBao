@@ -1,0 +1,14 @@
+<div class="pic margin-right" [class.color-border]="border" [class.color]="color" [style.margin-left.px]=marginR></div>
+
+<br>
+<button (click)="border =! border">border</button>
+<br>
+<br>
+<button (click)="color =! color">color</button>
+<br>
+<br>
+<button (click)="right()">right</button>
+<button (click)="left()">left</button>
+<br>
+<br>
+<div class="pic margin-right" [class]="{'color-border': border , 'color' : color}" [style.margin-left.px]=marginR></div>

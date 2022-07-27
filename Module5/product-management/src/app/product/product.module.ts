@@ -7,6 +7,7 @@ import {ProductCreateComponent} from './product-create/product-create.component'
 import {ProductEditComponent} from './product-edit/product-edit.component';
 import {ProductDeleteComponent} from './product-delete/product-delete.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {ReactiveFormsModule} from '@angular/forms';
   imports: [
     CommonModule,
     ProductRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ]
 })
 export class ProductModule {
