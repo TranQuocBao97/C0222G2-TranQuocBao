@@ -35,46 +35,66 @@
         <th>Birth</th>
         <th>Id Card</th>
         <th>Email</th>
+        <th>Gender</th>
         <th>Customer Type</th>
         <th colspan="2" class="text-center">action</th>
       </tr>
-      <tr *ngFor="let customer of customerList | paginate: { itemsPerPage: 5, currentPage: page }; index as id">
-        <td>{{id+1+(5*(page-1))}}</td>
-        <td>{{customer.name}}</td>
-        <td>{{customer.dateOfBirth}}</td>
-        <td>{{customer.idCard}}</td>
-        <td>{{customer.email}}</td>
-        <td>{{customer.customerType.name}}</td>
-        <td style="text-align: center">
-          <button class="btn btn-danger btn-sm" [routerLink]="['/customer-edit', customer.id]">Edit
-          </button>
-        </td>
-        <td style="text-align: center">
-          <button class="btn btn-danger btn-sm" (click)="showDelete(customer)" data-bs-toggle="modal"
-                  data-bs-target="#deleteModal">Delete
-          </button>
-        </td>
-      </tr>
+      <ng-container *ngIf="customerList.length !== 0 ; else elseBlock">
+        <tr *ngFor="let customer of customerList | paginate: { itemsPerPage: 5, currentPage: page }; index as id">
+          <td>{{id + 1 + (5 * (page - 1))}}</td>
+          <td>{{customer.name}}</td>
+          <td>{{customer.dateOfBirth}}</td>
+          <td>{{customer.idCard}}</td>
+          <td>{{customer.email}}</td>
+          <ng-container *ngIf="customer.gender === 1; else elseBlockGender">
+            <td>
+              Nam
+            </td>
+          </ng-container>
+          <ng-template #elseBlockGender>
+            <td>
+              Nữ
+            </td>
+          </ng-template>
+          <td>{{customer.customerType.name}}</td>
+          <td style="text-align: center">
+            <button class="btn btn-danger btn-sm" [routerLink]="['/customer-edit', customer.id]">Edit
+            </button>
+          </td>
+          <td style="text-align: center">
+            <button class="btn btn-danger btn-sm" (click)="showDelete(customer)" data-bs-toggle="modal"
+                    data-bs-target="#deleteModal">Delete
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+      <ng-template #elseBlock>
+        <tr style="text-align: center; color: crimson">
+          <td colspan="7">
+            <h1>Data is empty</h1>
+          </td>
+        </tr>
+      </ng-template>
       </thead>
     </table>
     <div style="text-align: end">
-    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
-<!--    &lt;!&ndash;paging&ndash;&gt;-->
-<!--    <nav aria-label="Page navigation example">-->
-<!--      <ul class="pagination justify-content-end">-->
-<!--        <li class="page-item">-->
-<!--          <a class="page-link">Previous</a>-->
-<!--        </li>-->
-<!--        <li class="page-item"><a class="page-link">1</a></li>-->
-<!--        <li class="page-item"><a class="page-link">2</a></li>-->
-<!--        <li class="page-item"><a class="page-link">3</a></li>-->
-<!--        <li class="page-item">-->
-<!--          <a class="page-link">Next</a>-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--    </nav>-->
-<!--    &lt;!&ndash;end paging&ndash;&gt;-->
+    <!--    &lt;!&ndash;paging&ndash;&gt;-->
+    <!--    <nav aria-label="Page navigation example">-->
+    <!--      <ul class="pagination justify-content-end">-->
+    <!--        <li class="page-item">-->
+    <!--          <a class="page-link">Previous</a>-->
+    <!--        </li>-->
+    <!--        <li class="page-item"><a class="page-link">1</a></li>-->
+    <!--        <li class="page-item"><a class="page-link">2</a></li>-->
+    <!--        <li class="page-item"><a class="page-link">3</a></li>-->
+    <!--        <li class="page-item">-->
+    <!--          <a class="page-link">Next</a>-->
+    <!--        </li>-->
+    <!--      </ul>-->
+    <!--    </nav>-->
+    <!--    &lt;!&ndash;end paging&ndash;&gt;-->
 
   </div>
 </div>

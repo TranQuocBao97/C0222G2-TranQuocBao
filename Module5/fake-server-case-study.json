@@ -2,11 +2,11 @@
   "customer": [
     {
       "id": 1,
-      "name": "Thịnh",
+      "name": "Thung",
       "dateOfBirth": "2000-05-10",
       "idCard": "545665567",
       "email": "dothilinh@gmail.com",
-      "gender": 1,
+      "gender": {},
       "customerType": {
         "id": 1,
         "name": "Member"
@@ -16,12 +16,12 @@
       "id": 2,
       "name": "Hồng",
       "dateOfBirth": "1999-03-09",
-      "email": "hongthivo@gmail.com",
       "idCard": "452573563",
-      "gender": 0,
+      "email": "hongthivo@gmail.com",
+      "gender": {},
       "customerType": {
-        "id": 2,
-        "name": "Silver"
+        "id": 3,
+        "name": "Gold"
       }
     },
     {
@@ -118,6 +118,54 @@
       "customerType": {
         "id": 5,
         "name": "Diamond"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Trần Bảo",
+      "dateOfBirth": "1997-01-01",
+      "idCard": "222666333",
+      "email": "nostom2@gmail.com",
+      "gender": 1,
+      "customerType": {
+        "id": 5,
+        "name": "Diamond"
+      }
+    },
+    {
+      "id": 12,
+      "name": "Lần",
+      "dateOfBirth": "1990-01-01",
+      "idCard": "555444333",
+      "email": "popo@gmail.com",
+      "gender": 1,
+      "customerType": {
+        "id": 1,
+        "name": "Member"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Thu",
+      "dateOfBirth": "1999-04-04",
+      "idCard": "777666555",
+      "email": "thu@gmail.com",
+      "gender": 0,
+      "customerType": {
+        "id": 2,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 14,
+      "name": "Châu Chấu",
+      "dateOfBirth": "2000-06-05",
+      "idCard": "665544331",
+      "email": "chauchau@gmail.com",
+      "gender": {},
+      "customerType": {
+        "id": 2,
+        "name": "Silver"
       }
     }
   ],

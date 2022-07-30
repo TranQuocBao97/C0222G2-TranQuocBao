@@ -57,7 +57,7 @@
             <a class="page-link" (click)="previousPage()">{{numberPage}}</a>
           </li>
         </ng-template>
-        <li class="page-item"><a class="page-link">{{numberPage + 1}}</a></li>
+        <li class="page-item"><a  class="page-link">{{numberPage + 1}}</a></li>
         <ng-container *ngIf="checkNextPage; else hasNextPage">
           <li class="page-item">
             <div class="page-link" style="pointer-events: none; color: #8a8a8a">None</div>

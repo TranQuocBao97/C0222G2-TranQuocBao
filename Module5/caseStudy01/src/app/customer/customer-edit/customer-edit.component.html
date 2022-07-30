@@ -11,14 +11,19 @@
 
   <div style="overflow-x:auto ; margin-top: 50px; background-color: beige;
  border-radius: 20px; box-shadow:5px 5px 5px 5px #ADCF9F" class="container">
-<form [formGroup]="customerForm" (ngSubmit)="EditCustomer(id)">
-<!--  <input formControlName="id">-->
+<form *ngIf="customerForm" [formGroup]="customerForm" (ngSubmit)="EditCustomer(id)">
+<!--  <input type="hidden" formControlName="id">-->
     <table class="table table-hover" style="white-space: nowrap">
       <thead>
       <tr>
         <th>Name</th>
         <td>
           <input class="form-control" formControlName="name">
+          <small style="color: crimson" *ngIf="customerForm.controls.name.hasError('required')
+          && customerForm.controls.name.touched">Cant be empty</small>
+          <small style="color: crimson" *ngIf="customerForm.controls.name.hasError('pattern')
+          && customerForm.controls.name.touched">Name need upper case on first letter</small>
+
         </td>
       </tr>
       <tr>
@@ -26,18 +31,33 @@
         <td>
           <input type="date" class="form-control"
                  formControlName="dateOfBirth" >
+          <small style="color: crimson" *ngIf="customerForm.controls.dateOfBirth.hasError('required')
+          && customerForm.controls.dateOfBirth.touched">Cant be empty</small>
+          <small style="color: crimson" *ngIf="customerForm.controls.dateOfBirth.hasError('dateValidator')
+          && customerForm.controls.dateOfBirth.touched">Date type</small>
+
         </td>
       </tr>
       <tr>
         <th>Id Card</th>
         <td>
           <input class="form-control" formControlName="idCard">
+          <small style="color: crimson" *ngIf="customerForm.controls.idCard.hasError('required')
+          && customerForm.controls.idCard.touched">Cant be empty</small>
+          <small style="color: crimson" *ngIf="customerForm.controls.idCard.hasError('pattern')
+          && customerForm.controls.idCard.touched">Id card is 9 number</small>
+
         </td>
       </tr>
       <tr>
         <th>Email</th>
         <td>
           <input class="form-control" formControlName="email">
+          <small style="color: crimson" *ngIf="customerForm.controls.email.hasError('required')
+          && customerForm.controls.email.touched">Cant be empty</small>
+          <small style="color: crimson" *ngIf="customerForm.controls.email.hasError('email')
+          && customerForm.controls.email.touched">Much be Email type</small>
+
         </td>
       </tr>
       <tr>
@@ -59,23 +79,27 @@
 <!--            <option value="0">Nữ</option>-->
 <!--            <option value="1">Nam</option>-->
           </select>
+          <small style="color: crimson" *ngIf="customerForm.controls.gender.hasError('required')
+          && customerForm.controls.gender.touched">Cant be empty</small>
         </td>
       </tr>
       <tr>
         <th>Customer Type</th>
         <td>
           <select class="form-select" formControlName="customerType" [compareWith]="defaultSelectCustomerType">
-            <option [ngValue]="null" disabled>--Select customer type--</option>
+            <option [ngValue]="" disabled>--Select customer type--</option>
             <option *ngFor="let customerType of customerTypeList"
                     [ngValue]="customerType">
               {{customerType.name}}
             </option>
           </select>
+          <small style="color: crimson" *ngIf="customerForm.controls.customerType.hasError('required')
+          && customerForm.controls.customerType.touched">Cant be empty</small>
         </td>
       </tr>
       <tr>
         <th></th>
-        <td>
+        <td style="text-align: end">
           <button class="btn btn-danger" style="text-align: end" type="submit">Submit Edit</button>
         </td>
       </tr>

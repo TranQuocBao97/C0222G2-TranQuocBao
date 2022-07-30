@@ -1,0 +1,89 @@
+<div id="main" style="margin-top: 2px">
+
+
+  <div style="color: #ffffff; font-size: 60px; text-align: center;">
+    NHẬP HÀNG
+  </div>
+
+
+  <div style="text-align: center; color: #051554; font-size: 35px" id="messConfirm">
+  </div>
+
+  <div style="overflow-x:auto ; margin-top: 50px; background-color: beige;
+ border-radius: 20px; box-shadow:5px 5px 5px 5px #ADCF9F" class="container">
+    <form [formGroup]="packForm" (ngSubmit)="addPack()">
+      <table class="table table-hover" style="white-space: nowrap">
+        <thead>
+        <tr>
+          <th>Mã lô hàng</th>
+          <td>
+            <input class="form-control" formControlName="nameId">
+            <small style="color: crimson" *ngIf="packForm.controls.nameId.hasError('required')
+          && packForm.controls.nameId.touched">Cant be empty</small>
+            <small style="color: crimson" *ngIf="packForm.controls.nameId.hasError('pattern')
+          && packForm.controls.nameId.touched">LH-XXXX</small>
+          </td>
+        </tr>
+        <tr>
+          <th>Số lượng</th>
+          <td>
+            <input class="form-control" formControlName="amount">
+            <small style="color: crimson" *ngIf="packForm.controls.amount.hasError('required')
+          && packForm.controls.amount.touched">Cant be empty</small>
+            <small style="color: crimson" *ngIf="packForm.controls.amount.hasError('min')
+          && packForm.controls.amount.touched">Over 0</small>
+          </td>
+        </tr>
+        <tr>
+          <th>Ngày nhập hàng</th>
+          <td>
+            <input type="date" class="form-control" formControlName="dateIn">
+            <small style="color: crimson" *ngIf="packForm.controls.dateIn.hasError('required')
+          && packForm.controls.dateIn.touched">Cant be empty</small>
+            <small style="color: crimson" *ngIf="packForm.controls.dateIn.hasError('validateDate')
+          && packForm.controls.dateIn.touched">Have be date type</small>
+          </td>
+        </tr>
+        <tr>
+          <th>Ngày sản xuất</th>
+          <td>
+            <input  type="date" class="form-control" formControlName="dateProduct">
+            <small style="color: crimson" *ngIf="packForm.controls.dateProduct.hasError('required')
+          && packForm.controls.dateProduct.touched">Cant be empty</small>
+            <small style="color: crimson" *ngIf="packForm.controls.dateProduct.hasError('validateDate')
+          && packForm.controls.dateIn.touched">Have be date type</small>
+          </td>
+        </tr>
+        <tr>
+          <th>Ngày hết hạn</th>
+          <td>
+            <input type="date" class="form-control" formControlName="dateOver">
+            <small style="color: crimson" *ngIf="packForm.controls.dateOver.hasError('required')
+          && packForm.controls.dateProduct.touched">Cant be empty</small>
+            <small style="color: crimson" *ngIf="packForm.controls.dateOver.hasError('validateDate')
+          && packForm.controls.dateIn.touched">Have be date type</small>
+          </td>
+        </tr>
+        <tr>
+          <th>Sản phẩm</th>
+          <td>
+            <select class="form-select" formControlName="product">
+              <option value="" selected>--Choose--</option>
+              <option *ngFor="let product of productList" [ngValue]="product.id">{{product.name}}</option>
+            </select>
+            <small style="color: crimson" *ngIf="packForm.controls.product.hasError('required')
+          && packForm.controls.product.touched">Cant be empty</small>
+          </td>
+        </tr>
+        <tr>
+          <th></th>
+          <td style="text-align: end">
+            <button type="submit" class="btn btn-danger">Add</button>
+          </td>
+        </tr>
+        </thead>
+      </table>
+    </form>
+
+  </div>
+</div>

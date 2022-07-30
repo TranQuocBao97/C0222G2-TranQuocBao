@@ -20,6 +20,8 @@
           <input class="form-control" formControlName="name">
           <small style="color: crimson" *ngIf="customerForm.controls.name.hasError('required')
           && customerForm.controls.name.touched">Cant be empty</small>
+          <small style="color: crimson" *ngIf="customerForm.controls.name.hasError('pattern')
+          && customerForm.controls.name.touched">Name need upper case on first letter</small>
         </td>
       </tr>
       <tr>
@@ -38,6 +40,8 @@
           <input class="form-control" formControlName="idCard">
           <small style="color: crimson" *ngIf="customerForm.controls.idCard.hasError('required')
           && customerForm.controls.idCard.touched">Cant be empty</small>
+          <small style="color: crimson" *ngIf="customerForm.controls.idCard.hasError('pattern')
+          && customerForm.controls.idCard.touched">Id card is 9 number</small>
         </td>
       </tr>
       <tr>
@@ -46,12 +50,27 @@
           <input class="form-control" formControlName="email">
           <small style="color: crimson" *ngIf="customerForm.controls.email.hasError('required')
           && customerForm.controls.email.touched">Cant be empty</small>
+          <small style="color: crimson" *ngIf="customerForm.controls.email.hasError('email')
+          && customerForm.controls.email.touched">Much be Email type</small>
+        </td>
+      </tr>
+      <tr>
+        <th>Gender</th>
+        <td>
+          <select class="form-control" formControlName="gender">
+            <option value="" selected>--Choose gender--</option>
+            <option [ngValue]=0>Nữ</option>
+            <option [ngValue]=1>Nam</option>
+          </select>
+          <small style="color: crimson" *ngIf="customerForm.controls.gender.hasError('required')
+          && customerForm.controls.gender.touched">Cant be empty</small>
         </td>
       </tr>
       <tr>
         <th>Customer Type</th>
         <td>
           <select class="form-select" formControlName="customerType">
+            <option value="" selected>--Choose Customer Type--</option>
             <option *ngFor="let type of customerTypeList" [ngValue]="type">{{type.name}}</option>
           </select>
           <small style="color: crimson" *ngIf="customerForm.controls.customerType.hasError('required')

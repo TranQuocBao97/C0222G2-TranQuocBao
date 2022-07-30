@@ -1,0 +1,45 @@
+<div id="main" style="margin-top: 2px">
+  <div style="color: #ffffff; font-size: 60px; text-align: center;">
+    LIST MAIN
+  </div>
+
+  <div style="overflow-x:auto ; margin-top: 50px; background-color: rgba(255,255,210,0.38);
+ border-radius: 20px; box-shadow: 3px 3px #ADCF9F" class="container">
+    <!--first row-->
+    <nav class="navbar justify-content-between container-fluid" style="margin-top: 20px">
+      <div>
+        <button class="btn btn-success" [routerLink]="['main/add']">Add New
+        </button>
+      </div>
+
+      <div></div>
+      <!--search-->
+      <div>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search By">
+          <input class="form-control me-2" type="search" placeholder="Search By">
+          <button type="submit" class="btn btn-success">Search</button>
+        </form>
+      </div>
+    </nav>
+    <!--end first row-->
+
+    <!--second row-->
+    <table class="table table-bordered table-sm" style="color: #041C32 ;
+    border-color: #CEE5D0;box-shadow: 5px 10px 18px #ADCF9F; white-space: nowrap">
+      <thead>
+      <tr style="background: #A3DA8D; color: #041C32">
+        <th>STT</th>
+        <th>Name</th>
+        <th>Birth</th>
+        <th>Id Card</th>
+        <th>Email</th>
+        <th>Customer Type</th>
+        <th colspan="2" class="text-center">action</th>
+      </tr>
+      </thead>
+    </table>
+    <!--end second row-->
+  </div>
+
+</div>

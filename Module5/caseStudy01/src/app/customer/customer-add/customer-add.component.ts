@@ -36,6 +36,7 @@ export class CustomerAddComponent implements OnInit {
       dateOfBirth: new FormControl("",[Validators.required, this.validateDate]),
       idCard: new FormControl("",[Validators.required, Validators.pattern("^[0-9]{9}$")]),
       email: new FormControl("",[Validators.required, Validators.email]),
+      gender: new FormControl("",[Validators.required]),
       customerType: new FormControl("",[Validators.required])
     })
   }

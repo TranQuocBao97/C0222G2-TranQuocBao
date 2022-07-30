@@ -1,0 +1,137 @@
+<div id="main" style="margin-top: 2px">
+  <div style="color: #ffffff; font-size: 60px; text-align: center;">
+    DANH SÁCH SẢN PHẨM
+  </div>
+
+  <div style="overflow-x:auto ; margin-top: 50px; background-color: rgb(255,255,210);
+ border-radius: 20px; box-shadow: 3px 3px #ADCF9F" class="container">
+    <!--first row-->
+    <nav class="navbar justify-content-between container-fluid" style="margin-top: 20px">
+      <div>
+        <button class="btn btn-success" [routerLink]="['pack/add']">Add New
+        </button>
+      </div>
+
+      <div></div>
+      <!--search-->
+      <div>
+        <form class="d-flex" [formGroup]="searchForm" (ngSubmit)="getFormSearch()">
+          <input class="form-control me-2" type="search" placeholder="Tìm Tên sản phẩm" formControlName="productNameSearch">
+          <input class="form-control me-2" type="date" placeholder="Tìm Ngày hết hạn" formControlName="dateOverSearch">
+<!--          <input class="form-control me-2" type="search" placeholder="Search By">-->
+<!--          <input class="form-control me-2" type="search" placeholder="Search By">-->
+          <button type="submit" class="btn btn-success">Search</button>
+        </form>
+      </div>
+    </nav>
+    <!--end first row-->
+
+    <!--second row-->
+    <table class="table table-bordered table-sm" style="color: #041C32 ;
+    border-color: #CEE5D0;box-shadow: 5px 10px 18px #ADCF9F; white-space: nowrap">
+      <thead>
+      <tr style="background: #A3DA8D; color: #041C32">
+        <th>Mã lô hàng</th>
+        <th>Tên sản phẩm</th>
+        <th>Giá tiền</th>
+        <th>Đơn vị</th>
+        <th>Số lượng</th>
+        <th>Ngày nhập hàng</th>
+        <th>Ngày sản xuất</th>
+        <th>Ngày hết hạn</th>
+        <th colspan="2" class="text-center"></th>
+      </tr>
+      <tr *ngFor="let pack of packList">
+        <td>{{pack.nameId}}</td>
+        <td>{{pack.product.name}}</td>
+        <td>{{pack.product.price | currency: 'VND'}}</td>
+        <td>{{pack.product.type}}</td>
+        <td>{{pack.amount}}</td>
+        <td>{{pack.dateIn | date:"dd-MM-yyyy"}}</td>
+        <td>{{pack.dateProduct | date:"dd-MM-yyyy"}}</td>
+        <td>{{pack.dateOver | date:"dd-MM-yyyy"}}</td>
+        <td style="text-align: center">
+          <button class="btn btn-danger btn-sm" [routerLink]="['pack/edit', pack.id]">Edit
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="showDelete(pack)" data-bs-toggle="modal"
+                  data-bs-target="#deleteModal">Delete
+          </button>
+        </td>
+      </tr>
+      </thead>
+    </table>
+    <!--end second row-->
+    <div class="d-flex justify-content-center mt-4">
+      <!--paging-->
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end border border-dark">
+          <ng-container *ngIf="checkFirstPage; else hasPreviousPage">
+            <li class="page-item">
+              <div class="page-link" style="pointer-events: none; color: #8a8a8a">Previous</div>
+            </li>
+            <li class="page-item">
+              <div class="page-link" style="pointer-events: none; color: #8a8a8a">None</div>
+            </li>
+          </ng-container>
+          <ng-template #hasPreviousPage>
+            <li class="page-item">
+              <a class="page-link" (click)="previousPage()">Previous</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" (click)="previousPage()">{{numberPage}}</a>
+            </li>
+          </ng-template>
+          <li class="page-item"><a style="background-color: #eef3ff" class="page-link">{{numberPage + 1}}</a></li>
+          <ng-container *ngIf="checkNextPage; else hasNextPage">
+            <li class="page-item">
+              <div class="page-link" style="pointer-events: none; color: #8a8a8a">None</div>
+            </li>
+            <li class="page-item">
+              <div class="page-link" style="pointer-events: none; color: #8a8a8a">Next</div>
+            </li>
+          </ng-container>
+          <ng-template #hasNextPage>
+            <li class="page-item">
+              <a class="page-link" (click)="nextPage()">{{numberPage+2}}</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" (click)="nextPage()">Next</a>
+            </li>
+          </ng-template>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+</div>
+
+<!-- delete Modal -->
+<div class="modal fade" id="deleteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Delete</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Bạn có muốn xóa?
+        <div>Tên sản phẩm :  <span style="color: crimson">{{nameDelete}}</span></div>
+        <div>Ngày nhập: <span style="color: crimson">{{dateInDelete}}</span></div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deletePack()">Yes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end delete Modal -->

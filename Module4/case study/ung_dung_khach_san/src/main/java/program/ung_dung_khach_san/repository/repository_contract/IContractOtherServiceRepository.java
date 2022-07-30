@@ -19,4 +19,5 @@ public interface IContractOtherServiceRepository extends JpaRepository<ContractO
     @Modifying
     @Query(value = " DELETE FROM contract_other_service WHERE contract_id = :contractId ",nativeQuery = true)
     void deleteContractOtherServicesByContractId(@Param("contractId") Integer id);
+
 }

@@ -22,7 +22,7 @@ export class CustomerListComponent implements OnInit {
   constructor(private customerService: CustomerService,
               private router: Router,
               private messService: MessService) {
-
+    this.getAllCustomer();
   }
 
   ngOnInit(): void {
