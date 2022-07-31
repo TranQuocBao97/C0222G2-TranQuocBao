@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Pack} from '../models/Pack';
 
@@ -8,6 +8,7 @@ import {Pack} from '../models/Pack';
 })
 export class PackService {
   private readonly API_URL = 'http://localhost:8080/api/pack/';
+
   constructor(private httpClient: HttpClient) { }
 
   getAllPack(): Observable<Pack[]>{
@@ -15,6 +16,10 @@ export class PackService {
   }
   getAllPackWithPage(pageNumber: number): Observable<Pack[]>{
     return this.httpClient.get<Pack[]>(this.API_URL + `?page=${pageNumber}`);
+  }
+
+  getPackById(id: number): Observable<Pack>{
+    return this.httpClient.get<Pack>(this.API_URL + "getOne/"+ id);
   }
 
   deletePackById(id: number): Observable<Pack>{
@@ -25,9 +30,17 @@ export class PackService {
     return this.httpClient.post<Pack>(this.API_URL, pack);
   }
 
-  search(nameProduct: string, dateOver: string): Observable<Pack[]>{
-    return this.httpClient.get<Pack[]>("http://localhost:3000/pack?product.name_like="+nameProduct+"&dateOver_like="+dateOver);
+  editPack(pack: Pack): Observable<Pack>{
+    return this.httpClient.put<Pack>(this.API_URL, pack);
   }
+
+  search(nameProduct: string): Observable<Pack[]>{
+    if(nameProduct===null){
+      nameProduct = "";
+    }
+    return this.httpClient.get<Pack[]>(this.API_URL + "search/?name=" + nameProduct);
+  }
+
 
 
 }

@@ -40,7 +40,7 @@
             <input type="date" class="form-control" formControlName="dateIn">
             <small style="color: crimson" *ngIf="packForm.controls.dateIn.hasError('required')
           && packForm.controls.dateIn.touched">Cant be empty</small>
-            <small style="color: crimson" *ngIf="packForm.controls.dateIn.hasError('validateDate')
+            <small style="color: crimson" *ngIf="packForm.controls.dateIn.hasError('dateValidator')
           && packForm.controls.dateIn.touched">Have be date type</small>
           </td>
         </tr>
@@ -50,8 +50,8 @@
             <input  type="date" class="form-control" formControlName="dateProduct">
             <small style="color: crimson" *ngIf="packForm.controls.dateProduct.hasError('required')
           && packForm.controls.dateProduct.touched">Cant be empty</small>
-            <small style="color: crimson" *ngIf="packForm.controls.dateProduct.hasError('validateDate')
-          && packForm.controls.dateIn.touched">Have be date type</small>
+            <small style="color: crimson" *ngIf="packForm.controls.dateProduct.hasError('dateValidator')
+          && packForm.controls.dateProduct.touched">Have be date type</small>
           </td>
         </tr>
         <tr>
@@ -59,9 +59,9 @@
           <td>
             <input type="date" class="form-control" formControlName="dateOver">
             <small style="color: crimson" *ngIf="packForm.controls.dateOver.hasError('required')
-          && packForm.controls.dateProduct.touched">Cant be empty</small>
-            <small style="color: crimson" *ngIf="packForm.controls.dateOver.hasError('validateDate')
-          && packForm.controls.dateIn.touched">Have be date type</small>
+          && packForm.controls.dateOver.touched">Cant be empty</small>
+            <small style="color: crimson" *ngIf="packForm.controls.dateOver.hasError('dateValidator')
+          && packForm.controls.dateOver.touched">Have be date type</small>
           </td>
         </tr>
         <tr>
@@ -69,7 +69,7 @@
           <td>
             <select class="form-select" formControlName="product">
               <option value="" selected>--Choose--</option>
-              <option *ngFor="let product of productList" [ngValue]="product.id">{{product.name}}</option>
+              <option *ngFor="let product of productList" [ngValue]="product">{{product.name}}</option>
             </select>
             <small style="color: crimson" *ngIf="packForm.controls.product.hasError('required')
           && packForm.controls.product.touched">Cant be empty</small>

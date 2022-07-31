@@ -45,7 +45,7 @@ export class PackAddComponent implements OnInit {
       // id: new FormControl(),
       nameId: new FormControl('', [Validators.required, Validators.pattern('^LH-[0-9]{4}$')]),
       product: new FormControl('', [Validators.required]),
-      amount: new FormControl('', [Validators.required, Validators.min(0)]),
+      amount: new FormControl('', [Validators.required, Validators.min(1)]),
       dateIn: new FormControl('', [Validators.required, this.validateDate]),
       dateProduct: new FormControl('', [Validators.required, this.validateDate]),
       dateOver: new FormControl('', [Validators.required, this.validateDate]),
@@ -53,9 +53,8 @@ export class PackAddComponent implements OnInit {
   }
 
   validateDate(AC: AbstractControl) {
-    // @ts-ignore
     if (AC && AC.value && !moment(AC.value, 'YYYY-MM-DD', true).isValid()) {
-      return {'dateValidator': true};
+      return { 'dateValidator': true };
     }
     return null;
   }
@@ -73,7 +72,8 @@ export class PackAddComponent implements OnInit {
   }
 
   addPack() {
-    console.log(this.packForm.value);
+
+    console.log(JSON.stringify(this.packForm.value));
     if (this.packForm.valid) {
       this.packService.addPack(this.packForm.value).subscribe(data => {
 

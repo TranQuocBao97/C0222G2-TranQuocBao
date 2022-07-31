@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light" id="menu">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="assets/img/logo2.png" height="80">
+      <img src="../../../assets/img/logo2.png" height="80">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,20 +9,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" [routerLink]="['']">Home</a>-->
+<!--        </li>-->
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['']">Home</a>
+          <a class="nav-link" [routerLink]="['/facilities/list']">Facilities</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/facility-list']">Facilities</a>
+          <a class="nav-link" [routerLink]="['/customer/list']">Customer</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/customer-list']">Customer</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">Employee</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/contract-list']">Contract</a>
+          <a class="nav-link" [routerLink]="['/contract/list']">Contract</a>
         </li>
         <li hidden class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

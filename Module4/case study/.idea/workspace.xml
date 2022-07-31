@@ -5,34 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46625066-7849-4852-b84a-cb6ae7ec39c4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Module5/store/src/main/java/program/store/controller/PackRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Module5/store/src/main/java/program/store/controller/ProductRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Module5/store/src/main/java/program/store/model/Pack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Module5/store/src/main/java/program/store/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Module5/store/src/main/java/program/store/repository/repository_pack/IPackRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Module5/store/src/main/java/program/store/repository/repository_pack/IProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/models/MainObject.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/models/Pack.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/models/PackDto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/models/Product.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Audit and CaseStudy/module 4/CG-DN Case Study for Spring_v1.1.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Audit and CaseStudy/module 4/CG-DN Case Study for Spring_v1.1.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ung_dung_khach_san/src/main/java/program/ung_dung_khach_san/repository/repository_contract/IContractOtherServiceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ung_dung_khach_san/src/main/java/program/ung_dung_khach_san/repository/repository_contract/IContractOtherServiceRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ss05/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../ss05/thuc_hanh/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ss09/thuc_hanh/aspect_log_quan_ly_khach_hang/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../ss09/thuc_hanh/aspect_log_quan_ly_khach_hang/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ss09/thuc_hanh/exceptionHandler_quan_ly_khach_hang/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../ss09/thuc_hanh/exceptionHandler_quan_ly_khach_hang/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ss09/thuc_hanh/new/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../ss09/thuc_hanh/new/customer-management" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-add/customer-add.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-add/customer-add.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-add/customer-add.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-add/customer-add.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-edit/customer-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-edit/customer-edit.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-edit/customer-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-edit/customer-edit.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-list/customer-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-list/customer-list.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-list/customer-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-list/customer-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-list/customer-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-list/customer-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/facilities/facility-list/facility-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/facilities/facility-list/facility-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/fake-server-case-study.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/fake-server-case-study.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module5/store/src/main/java/program/store/controller/PackRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/store/src/main/java/program/store/controller/PackRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module5/store/src/main/java/program/store/repository/repository_pack/IPackRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/store/src/main/java/program/store/repository/repository_pack/IPackRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/models/PackDto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/pack/pack-add/pack-add.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/pack/pack-add/pack-add.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/pack/pack-add/pack-add.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/pack/pack-add/pack-add.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/pack/pack-edit/pack-edit.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/pack/pack-edit/pack-edit.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/pack/pack-edit/pack-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/pack/pack-edit/pack-edit.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/pack/pack-edit/pack-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/pack/pack-edit/pack-edit.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/services/pack.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/services/pack.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +95,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/CodeGym/C0222G2-TranQuocBao/Module4/case study",
+    "last_opened_file_path": "D:/CodeGym/C0222G2-TranQuocBao/Module4/case study/ung_dung_khach_san",
     "spring.configuration.checksum": "8087728de51729be242ff978f8a421a1"
   }
 }]]></component>
@@ -121,7 +109,7 @@
       <updated>1656962605620</updated>
       <workItem from="1656962606797" duration="75000" />
       <workItem from="1657021406539" duration="17000" />
-      <workItem from="1659174321206" duration="10329000" />
+      <workItem from="1659174321206" duration="14873000" />
     </task>
     <servers />
   </component>

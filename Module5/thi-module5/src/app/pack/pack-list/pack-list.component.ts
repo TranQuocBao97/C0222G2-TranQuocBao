@@ -24,7 +24,7 @@ export class PackListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllPack(this.numberPage);
+    this.getAllPack(0);
     this.formSearch();
   }
 
@@ -68,14 +68,15 @@ export class PackListComponent implements OnInit {
 
   formSearch(){
     this.searchForm = new FormGroup({
-      productNameSearch: new FormControl(""),
-      dateOverSearch: new FormControl("")
+      productNameSearch: new FormControl(),
+      // dateOverSearch: new FormControl("")
     });
   }
 
   getFormSearch() {
-    this.packService.search(this.searchForm.value.productNameSearch,this.searchForm.value.dateOverSearch).subscribe(data => {
-      this.packList = data;
+    this.packService.search(this.searchForm.value.productNameSearch).subscribe(data => {
+      // @ts-ignore
+      this.packList = data.content;
       console.log(data);
     }, error => {
 
