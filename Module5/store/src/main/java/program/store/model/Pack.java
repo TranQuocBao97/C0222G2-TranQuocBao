@@ -17,7 +17,6 @@ public class Pack {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="pack_id")
     private Integer id;
-
     private String nameId;
     private Integer amount;
     private String dateIn;

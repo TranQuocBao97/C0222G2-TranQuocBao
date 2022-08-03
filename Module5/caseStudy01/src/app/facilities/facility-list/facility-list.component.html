@@ -13,7 +13,7 @@
   <div class="container card-group">
     <div class="row facilities">
       <div id="add-new">
-        <a [routerLink]="['/facility-add']">
+        <a [routerLink]="['/facility/add']">
           <button class="btn btn-success">Add new</button>
         </a>
       </div>
@@ -26,7 +26,7 @@
             <h5 style="white-space: nowrap; overflow: clip">{{facility.name | uppercase}}</h5>
             <div>Room size: {{facility.area}}m<sup>2</sup></div>
             <div class="button-area">
-              <button class="btn btn-danger btn-sm" [routerLink]="['/facility-edit']">
+              <button class="btn btn-danger btn-sm" [routerLink]="['/facility/edit', facility.id]">
                 Edit
               </button>
               <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>

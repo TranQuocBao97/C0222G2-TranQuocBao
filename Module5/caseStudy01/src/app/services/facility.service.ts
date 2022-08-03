@@ -19,4 +19,8 @@ export class FacilityService {
   getAllFacilitiesWithPage(pageCurrent: number): Observable<Facility[]> {
     return this.httpClient.get<Facility[]>(this.API_URL + `?page=${pageCurrent}`);
   }
+
+  addFacility(facility: Facility): Observable<Facility>{
+    return this.httpClient.post<Facility>("http://localhost:8080/api/facility/", facility);
+  }
 }

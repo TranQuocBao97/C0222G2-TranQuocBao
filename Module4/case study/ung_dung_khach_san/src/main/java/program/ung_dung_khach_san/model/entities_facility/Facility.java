@@ -1,6 +1,7 @@
 package program.ung_dung_khach_san.model.entities_facility;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,7 +41,7 @@ public class Facility {
 
 
     @OneToMany(mappedBy = "facility")
-    @JsonBackReference
+    @JsonIgnore
     private List<Contract> contracts;
 
 }

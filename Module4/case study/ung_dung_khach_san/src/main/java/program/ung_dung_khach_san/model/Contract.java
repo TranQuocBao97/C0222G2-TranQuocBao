@@ -43,6 +43,7 @@ public class Contract {
 
     @ManyToOne
     @JoinColumn(name="facility_id", nullable = false, referencedColumnName = "facility_id")
+    @JsonBackReference
     private Facility facility;
 
 

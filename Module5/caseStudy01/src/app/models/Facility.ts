@@ -1,14 +1,10 @@
-export class Facility {
-  id: number;
-  name: string;
-  imgUrl: string;
-  area: number;
+export interface Facility {
+  id?: number;
+  name?: string;
+  area?: number;
+  cost?: number;
+  imgUrl?: string;
+  facilityType?: any;
+  rentType?:any;
 
-
-  constructor(id: number, name: string, imgUrl: string, area: number) {
-    this.id = id;
-    this.name = name;
-    this.imgUrl = imgUrl;
-    this.area = area;
-  }
 }

@@ -8,7 +8,7 @@
     <!--search-->
     <nav class="navbar justify-content-between container-fluid" style="margin-top: 20px">
       <div>
-        <button class="btn btn-success" [routerLink]="['/customer-add']">Add New
+        <button class="btn btn-success" [routerLink]="['/customer/add']">Add New
         </button>
       </div>
 
@@ -58,7 +58,7 @@
           </ng-template>
           <td>{{customer.customerType.name}}</td>
           <td style="text-align: center">
-            <button class="btn btn-danger btn-sm" [routerLink]="['/customer-edit', customer.id]">Edit
+            <button class="btn btn-danger btn-sm" [routerLink]="['/customer/edit', customer.id]">Edit
             </button>
           </td>
           <td style="text-align: center">

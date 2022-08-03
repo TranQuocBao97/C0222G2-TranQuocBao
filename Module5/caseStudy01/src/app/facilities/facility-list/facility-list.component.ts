@@ -25,6 +25,7 @@ export class FacilityListComponent implements OnInit {
     this.subscriptions = this.facilityService.getAllFacilitiesWithPage(numberPage).subscribe( data => {
       // @ts-ignore
       this.facilityList = data.content;
+      // console.log(JSON.stringify(this.facilityList));
       // @ts-ignore
       this.checkFirstPage = data.first;
       // @ts-ignore

@@ -7,12 +7,13 @@ import {SharedRoutingModule} from './shared-routing.module';
 
 @NgModule({
   declarations: [HeaderComponent],
+  exports: [
+    HeaderComponent
+  ],
   imports: [
     CommonModule,
     SharedRoutingModule
   ],
-  exports: [
-    HeaderComponent
-  ],
+
 })
 export class SharedModule { }

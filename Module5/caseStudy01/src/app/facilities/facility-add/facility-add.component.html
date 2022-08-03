@@ -14,77 +14,49 @@
 
 
     <!--table-->
-    <div class="modal-body row">
-      <div class="col-4">
-        <div class="card">
-          <div class="card-body">
-            <h5>Add picture: </h5>
-          </div>
-          <div style="margin: 10px">
-            <div class="mb-3">
-              <input class="form-control" type="file" id="formFile">
+    <form [formGroup]="facilityForm" (ngSubmit)="addNewFacility()" >
+      <div class="modal-body row">
+        <div class="col-4">
+          <div class="card">
+            <div class="card-body">
+              <h5>Add picture: </h5>
+            </div>
+            <div style="margin: 10px">
+              <div class="mb-3">
+                <input class="form-control-file" type="file" id="formFile" (change)="showPicture($event)">
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-8">
-        <table class="table table-hover" style="color: #000000">
-          <thead>
-          <tr>
-            <th>Name</th>
-            <td>
-              <input class="form-control">
-            </td>
-          </tr>
-          <tr>
-            <th>Rent type</th>
-            <td>
-              <select class="form-select">
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <th>Area</th>
-            <td>
-              <input class="form-control">
-            </td>
-          </tr>
-          <tr>
-            <th>Cost</th>
-            <td>
-              <input class="form-control">
-            </td>
-          </tr>
-          <tr>
-            <th>Standard Room</th>
-            <td>
-              <input class="form-control">
-            </td>
-          </tr>
-          <tr>
-            <th>Convenience</th>
-            <td>
-              <input class="form-control">
-            </td>
-          </tr>
-          <tr>
-            <th>Number Off Floors</th>
-            <td>
-              <input class="form-control">
-            </td>
-          </tr>
-          <tr>
-            <th>Pool Area</th>
-            <td>
-              <input class="form-control">
-            </td>
-          </tr>
-          </thead>
-        </table>
-        <div class="d-flex justify-content-end">
-          <button type="button" class="btn btn-danger">Summit</button>
+        <div class="col-8">
+          <table class="table table-hover" style="color: #000000">
+            <thead>
+            <tr>
+              <th>Name</th>
+              <td>
+                <input class="form-control" formControlName="name">
+              </td>
+            </tr>
+            <tr>
+              <th>Area</th>
+              <td>
+                <input class="form-control" formControlName="area">
+              </td>
+            </tr>
+            <tr>
+              <th>Cost</th>
+              <td>
+                <input class="form-control" formControlName="cost">
+              </td>
+            </tr>
+            </thead>
+          </table>
+          <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-danger" [disabled]="buttonDisabled">Summit</button>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
   </div>
+
 </div>

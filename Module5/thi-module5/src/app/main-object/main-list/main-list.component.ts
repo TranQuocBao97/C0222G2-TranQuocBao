@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
-import {PackService} from '../../services/pack.service';
 
 @Component({
   selector: 'app-main-list',
@@ -9,7 +8,8 @@ import {PackService} from '../../services/pack.service';
 })
 export class MainListComponent implements OnInit {
 
-  constructor(private mess: ToastrService) { }
+  constructor(private mess: ToastrService) {
+  }
 
   ngOnInit(): void {
   }
