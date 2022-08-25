@@ -4,9 +4,9 @@
 
 
 #menu {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(59, 59, 59, 0.56);
   transition: 0.4s;
-  position: fixed;
+  position: absolute;
   width: 100%;
   top: 0;
   z-index: 100;
@@ -28,7 +28,7 @@
 #menu a:hover {
   color: #ffffff;
   cursor: pointer;
-  background-color: #6c5c48;
+    background-color: #6c5c48;
   border-radius: 20px;
   transition: 0.5s;
 
@@ -37,3 +37,4 @@
 li {
   margin: 0 10px 0 10px;
 }
+

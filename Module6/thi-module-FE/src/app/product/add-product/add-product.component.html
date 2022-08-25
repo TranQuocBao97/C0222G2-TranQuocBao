@@ -1,0 +1,172 @@
+<div id="main" style="margin-top: 2px">
+
+
+  <div style="color: #a1ffa4; font-size: 60px; text-align: center;">
+    THÊM MỚI SẢN PHẨM
+  </div>
+
+
+  <div style="text-align: center; color: #051554; font-size: 35px" id="messConfirm">
+  </div>
+
+  <div class="d-inline-flex container" style="text-align: center; margin-left: 200px">
+    <select class="form-select" [(ngModel)]="selectedOption" style="margin-right: 10px">
+      <option selected value=0>Chọn loại muốn thêm</option>
+      <option *ngFor="let type of productTypeList" [ngValue]="type.id">{{type.name}}</option>
+    </select>
+<!--    <button (click)="showAddForm()" class="btn btn-success">Hiện thêm mới</button>-->
+  </div>
+
+  <div *ngIf="selectedOption != 0" style="overflow-x:auto ; margin-top: 50px; background-color: beige;
+ border-radius: 20px; box-shadow:5px 5px 5px 5px #ADCF9F" class="container">
+
+    <form [formGroup]="productForm" (ngSubmit)="addProduct()" *ngIf="productForm">
+      <table class="table table-hover" style="white-space: nowrap">
+        <thead>
+        <tr>
+          <th>Tên Sản Phẩm</th>
+          <td>
+            <input type="text" class="form-control" formControlName="name">
+            <small style="color: crimson" *ngIf="productForm.controls.name.hasError('required')
+          && productForm.controls.name.touched">Không được để trống</small>
+            <!--            <small style="color: crimson" *ngIf="packForm.controls.nameId.hasError('pattern')-->
+            <!--          && packForm.controls.nameId.touched">LH-XXXX</small>-->
+          </td>
+        </tr>
+        <tr>
+          <th>Mã Sản Phẩm</th>
+          <td>
+            <input type="text" class="form-control" formControlName="code">
+            <small style="color: crimson" *ngIf="productForm.controls.code.hasError('required')
+          && productForm.controls.code.touched">Không được để trống</small>
+            <small style="color: crimson" *ngIf="productForm.controls.code.hasError('pattern')
+          && productForm.controls.code.touched">Mã phải là SP-XXX (XXX là số)</small>
+          </td>
+        </tr>
+        <tr>
+          <th>Giá</th>
+          <td>
+            <input type="number" class="form-control" formControlName="price">
+            <small style="color: crimson" *ngIf="productForm.controls.price.hasError('required')
+                      && productForm.controls.price.touched">Không được để trống</small>
+            <small style="color: crimson" *ngIf="productForm.controls.price.hasError('min')
+                      && productForm.controls.price.touched">Số phải lớn hơn không</small>
+            <small style="color: crimson" *ngIf="productForm.controls.price.hasError('pattern')
+                      && productForm.controls.price.touched">Chỉ được nhập số</small>
+          </td>
+        </tr>
+        <tr *ngIf="selectedOption == 1 || selectedOption == 2">
+          <th>Công ty</th>
+          <td>
+            <input type="text" class="form-control" formControlName="company">
+            <!--            <small style="color: crimson" *ngIf="packForm.controls.amount.hasError('required')-->
+            <!--          && packForm.controls.amount.touched">Cant be empty</small>-->
+            <!--            <small style="color: crimson" *ngIf="packForm.controls.amount.hasError('min')-->
+            <!--          && packForm.controls.amount.touched">Over 0</small>-->
+          </td>
+        </tr>
+        <tr>
+          <th>Ngày nhập hàng</th>
+          <td>
+            <input type="date" class="form-control" formControlName="dateCreateProduct">
+            <small style="color: crimson" *ngIf="productForm.controls.dateCreateProduct.hasError('required')
+          && productForm.controls.dateCreateProduct.touched">Không được để trống</small>
+            <small style="color: crimson" *ngIf="productForm.controls.dateCreateProduct.hasError('dateValidator')
+          && productForm.controls.dateCreateProduct.touched">Phải nhập đúng định dạng ngày</small>
+          </td>
+        </tr>
+        <tr *ngIf="selectedOption == 1">
+          <th>Có Ga</th>
+          <td>
+            <select class="form-select" formControlName="isGas">
+              <option ngValue=true>Có Ga</option>
+              <option ngValue=false>Không Ga</option>
+            </select>
+            <!--            <small style="color: crimson" *ngIf="packForm.controls.dateIn.hasError('required')-->
+            <!--          && packForm.controls.dateIn.touched">Cant be empty</small>-->
+            <!--            <small style="color: crimson" *ngIf="packForm.controls.dateIn.hasError('dateValidator')-->
+            <!--          && packForm.controls.dateIn.touched">Have be date type</small>-->
+          </td>
+        </tr>
+        <tr *ngIf="selectedOption == 2">
+          <th>Bánh Ngọt</th>
+          <td>
+            <select type="text" class="form-select" formControlName="cakeSugar">
+              <option ngValue=true>Ngọt</option>
+              <option ngValue=false>Không Ngọt</option>
+            </select>
+            <!--            <small style="color: crimson" *ngIf="packForm.controls.dateProduct.hasError('required')-->
+            <!--          && packForm.controls.dateProduct.touched">Cant be empty</small>-->
+            <!--            <small style="color: crimson" *ngIf="packForm.controls.dateProduct.hasError('dateValidator')-->
+            <!--          && packForm.controls.dateProduct.touched">Have be date type</small>-->
+          </td>
+        </tr>
+        <tr *ngIf="selectedOption == 3">
+          <th>Tác giả</th>
+          <td>
+            <input type="text" class="form-control" formControlName="writer">
+            <!--            <small style="color: crimson" *ngIf="packForm.controls.dateOver.hasError('required')-->
+            <!--          && packForm.controls.dateOver.touched">Cant be empty</small>-->
+            <!--            <small style="color: crimson" *ngIf="packForm.controls.dateOver.hasError('dateValidator')-->
+            <!--          && packForm.controls.dateOver.touched">Have be date type</small>-->
+          </td>
+        </tr>
+        <tr *ngIf="selectedOption == 3">
+          <th>Loại sách</th>
+          <td>
+            <select type="text" class="form-select" formControlName="cakeSugar">
+              <option ngValue=true>Ngọt</option>
+              <option ngValue=false>Không Ngọt</option>
+            </select>
+            <!--            <small style="color: crimson" *ngIf="packForm.controls.product.hasError('required')-->
+            <!--          && packForm.controls.product.touched">Cant be empty</small>-->
+          </td>
+        </tr>
+        <tr *ngIf="selectedOption == 3">
+          <th>Ngày sản xuất sách</th>
+          <td>
+            <input type="date" class="form-control" formControlName="dateCreateBook">
+            <small style="color: crimson" *ngIf="productForm.controls.dateCreateBook.hasError('required')
+          && productForm.controls.dateCreateBook.touched">Không được để trống</small>
+            <small style="color: crimson" *ngIf="productForm.controls.dateCreateBook.hasError('dateValidator')
+          && productForm.controls.dateCreateBook.touched">Phải nhập đúng định dạng ngày</small>
+          </td>
+        </tr>
+        <tr>
+        <tr>
+          <th>Tình trạng</th>
+          <td>
+            <select type="text" class="form-select" formControlName="status">
+              <option ngValue=true>Còn Hàng</option>
+              <option ngValue=false>Hết Hàng</option>
+            </select>
+            <small style="color: crimson" *ngIf="productForm.controls.status.hasError('required')
+          && productForm.controls.status.touched">Không được để trống</small>
+            <!--            <small style="color: crimson" *ngIf="packForm.controls.product.hasError('required')-->
+            <!--          && packForm.controls.product.touched">Cant be empty</small>-->
+          </td>
+        </tr>
+        <tr>
+          <th>Loại sản phẩm</th>
+          <td>
+            <select class="form-select" formControlName="productType">
+              <option value="" selected>--Choose--</option>
+              <option *ngFor="let type of productTypeList" [ngValue]="type">{{type.name}}</option>
+            </select>
+            <!--            <small style="color: crimson" *ngIf="packForm.controls.product.hasError('required')-->
+            <!--          && packForm.controls.product.touched">Cant be empty</small>-->
+          </td>
+        </tr>
+        <tr>
+          <th></th>
+          <td style="text-align: end">
+            <button type="submit" class="btn btn-danger">Add</button>
+          </td>
+        </tr>
+        </thead>
+      </table>
+    </form>
+
+  </div>
+</div>
+

@@ -1,0 +1,9 @@
+#main {
+  position: relative;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  backdrop-filter: brightness(20%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(src/assets/img/bao3.jpg);
+  padding-bottom: 50px
+}

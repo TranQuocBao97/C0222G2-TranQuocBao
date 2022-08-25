@@ -5,29 +5,93 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46625066-7849-4852-b84a-cb6ae7ec39c4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Module6/thi-module-BE/src/main/java/program/thimodulebe/controller/ProductRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module6/thi-module-BE/src/main/java/program/thimodulebe/controller/ProductTypeRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module6/thi-module-BE/src/main/java/program/thimodulebe/dto/IProductDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module6/thi-module-BE/src/main/java/program/thimodulebe/dto/ProductDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module6/thi-module-BE/src/main/java/program/thimodulebe/model/Bill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module6/thi-module-BE/src/main/java/program/thimodulebe/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module6/thi-module-BE/src/main/java/program/thimodulebe/model/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module6/thi-module-BE/src/main/java/program/thimodulebe/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module6/thi-module-BE/src/main/java/program/thimodulebe/model/ProductOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module6/thi-module-BE/src/main/java/program/thimodulebe/model/ProductType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module6/thi-module-BE/src/main/java/program/thimodulebe/repository/IProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module6/thi-module-BE/src/main/java/program/thimodulebe/repository/IProductTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module6/thi-module-FE/src/app/product/model/product-type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module6/thi-module-FE/src/app/product/model/product.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Audit and CaseStudy/module 4/CG-DN Case Study for Spring_v1.1.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Audit and CaseStudy/module 4/CG-DN Case Study for Spring_v1.1.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.." beforeDir="false" afterPath="$PROJECT_DIR$/../.." afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ss05/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../ss05/thuc_hanh/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ss09/thuc_hanh/aspect_log_quan_ly_khach_hang/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../ss09/thuc_hanh/aspect_log_quan_ly_khach_hang/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ss09/thuc_hanh/exceptionHandler_quan_ly_khach_hang/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../ss09/thuc_hanh/exceptionHandler_quan_ly_khach_hang/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ss09/thuc_hanh/new/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../ss09/thuc_hanh/new/customer-management" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/contract/contract-add/contract-add.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/contract/contract-add/contract-add.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/contract/contract-add/contract-add.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/contract/contract-list/contract-list.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/contract/contract-list/contract-list.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/contract/contract-list/contract-list.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/contract/contract-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/contract/contract.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-list/customer-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-list/customer-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/customer/customer.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/shared/shared-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/shared/shared-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/shared/shared.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/caseStudy01/src/app/shared/shared.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module5/product-management/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/product-management/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module5/thi-module5/src/app/services/product.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/.idea/template.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/Body.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/Footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/Header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/HomePage (header,body,footer).html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/css/cssForHomePage.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/1-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/2-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/banner1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/banner2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/banner3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/bg2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/bg3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/caffee1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/caffee2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/caffee3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/caffee4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/footer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/iconForAll.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/iconForAll2jpg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/iconForAll3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/iconcf1-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/iconcf1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/iconcf2-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/iconcf2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/iconcf3-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/iconcf3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/iconcf4-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/iconcf4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/logo1-removebg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/logo1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/logo2-removebg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/logo2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/logo3-removebg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/logo3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/mini1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/mini2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/mini3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/mini4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/us1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/us2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/img/us3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/[C0222G2]_Prototype_BaoTQ/assets/js/jsForHeader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/module6/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module6/module6/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/module6/src/app/body/body.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module6/module6/src/app/body/body.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/module6/src/app/body/body.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module6/module6/src/app/body/body.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/module6/src/app/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module6/module6/src/app/footer/footer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/module6/src/app/header/header.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module6/module6/src/app/header/header.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/module6/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module6/module6/src/app/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/module6/src/assets/js/jsForHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module6/module6/src/assets/js/jsForHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module6/template/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,15 +161,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/CodeGym/C0222G2-TranQuocBao/Module4/case study/ung_dung_khach_san&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;8087728de51729be242ff978f8a421a1&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/CodeGym/C0222G2-TranQuocBao/Module4/case study",
+    "spring.configuration.checksum": "8087728de51729be242ff978f8a421a1"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -118,6 +182,7 @@
       <workItem from="1657021406539" duration="17000" />
       <workItem from="1659174321206" duration="14873000" />
       <workItem from="1659290032049" duration="15000" />
+      <workItem from="1661307347695" duration="5297000" />
     </task>
     <servers />
   </component>

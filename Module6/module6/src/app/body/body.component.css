@@ -40,7 +40,7 @@ p{
 .buttonOrder {
   height: 60px;
   width: 200px;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.77);
   color: #ffffff;
   border-color: white;
   font-family: 'Montserrat', sans-serif;
@@ -61,7 +61,7 @@ p{
 
 }
 
-#firstBodyContent{
+.firstBodyContent{
   padding-top: 50px;
   font-family: 'Bungee', cursive;
 }
@@ -94,8 +94,8 @@ p{
 
 .card {
   margin: 10px;
-  height: 360px;
-  width: 300px;
+  height: 300px;
+  width: 240px;
   border-radius: 20px;
   transition: background 0.8s;
   overflow: hidden;
@@ -115,47 +115,117 @@ h2 {
 
 .card0 {
   background: url("src/assets/img/caffee1.jpg") center center no-repeat;
-  background-size: 300px;
+  background-size: 250px;
 }
 .card0:hover {
   background: url("src/assets/img/caffee1.jpg") left center no-repeat;
-  background-size: 350px;
+  background-size: 300px;
 }
 .card0:hover h2 {
   opacity: 1;
 }
 .card1 {
   background: url("src/assets/img/caffee2.jpg") center center no-repeat;
-  background-size: 300px;
+  background-size: 250px;
 }
 .card1:hover {
   background: url("src/assets/img/caffee2.jpg") left center no-repeat;
-  background-size: 350px;
+  background-size: 300px;
 }
 .card1:hover h2 {
   opacity: 1;
 }
 .card2 {
   background: url("src/assets/img/caffee3.jpg") center center no-repeat;
-  background-size: 300px;
+  background-size: 250px;
 }
 .card2:hover {
   background: url("src/assets/img/caffee3.jpg") left center no-repeat;
-  background-size: 350px;
+  background-size: 300px;
 }
 .card2:hover h2 {
   opacity: 1;
 }
 .card3 {
   background: url("src/assets/img/caffee4.jpg") center center no-repeat;
-  background-size: 300px;
+  background-size: 250px;
 }
 .card3:hover {
   background: url("src/assets/img/caffee4.jpg") left center no-repeat;
-  background-size: 350px;
+  background-size: 300px;
 }
 .card3:hover h2 {
   opacity: 1;
 }
 
+.card4 {
+  background: url("src/assets/img/15.png") center center no-repeat;
+  background-size: 250px;
+}
+.card4:hover {
+  background: url("src/assets/img/15.png") left center no-repeat;
+  background-size: 300px;
+}
+.card4:hover h2 {
+  opacity: 1;
+}
 
+.card5 {
+  background: url("src/assets/img/16.png") center center no-repeat;
+  background-size: 250px;
+}
+.card5:hover {
+  background: url("src/assets/img/16.png") left center no-repeat;
+  background-size: 300px;
+}
+.card5:hover h2 {
+  opacity: 1;
+}
+
+.card6 {
+  background: url("src/assets/img/17.png") center center no-repeat;
+  background-size: 250px;
+}
+.card6:hover {
+  background: url("src/assets/img/17.png") left center no-repeat;
+  background-size: 300px;
+}
+.card6:hover h2 {
+  opacity: 1;
+}
+
+.card7 {
+  background: url("src/assets/img/18.png") center center no-repeat;
+  background-size: 250px;
+}
+.card7:hover {
+  background: url("src/assets/img/18.png") left center no-repeat;
+  background-size: 300px;
+}
+.card7:hover h2 {
+  opacity: 1;
+}
+
+.card8 {
+  background: url("src/assets/img/19.png") center center no-repeat;
+  background-size: 250px;
+}
+.card8:hover {
+  background: url("src/assets/img/19.png") left center no-repeat;
+  background-size: 300px;
+}
+.card8:hover h2 {
+  opacity: 1;
+}
+
+.card9 {
+  background: url("src/assets/img/20.png") center center no-repeat;
+  background-size: 250px;
+}
+.card9:hover {
+  background: url("src/assets/img/20.png") left center no-repeat;
+  background-size: 300px;
+}
+.card9:hover h2 {
+  opacity: 1;
+}

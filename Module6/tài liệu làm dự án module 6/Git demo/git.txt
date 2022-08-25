@@ -1,0 +1,34 @@
+đầu tiên clone dự án về để có thể tạo git ở máy
+
+1 : 'git checkout -b <tên-nhánh>'
+	1.1: branch mới sẽ đc tạo ở local (máy của chúng ta) 
+	1.2: dùng 'git branch' để check nhánh đang ở -> 'git checkout tên nhánh' để di chuyển đến nhánh
+2 :  git marge <nhánh chức năng chính đang làm>
+    'git push origin <tên nhánh>'
+
+=> đã up đc nhánh lên git, giờ chỉ cần request để marge nhánh chứng năng chính vô nhánh dev
+------------------------------------
+3 : tạo pull request trên git
+	3.1 vô nhánh muốn marge chọn new pull request
+4 : review code
+	4.1 có thể comment review từng dòng code
+	4.2 bạn dev bị comment điều chỉnh sẽ về chỉnh lại code rồi push lên lại branch đó
+	( nếu bên review muốn xem code ở máy
+		- 'git fetch origin <tên branch>' để lấy code về máy
+			-> review xong, đã marge thì có thể xóa
+		- 'git branch -D <tên branch> )
+	
+5 : nhập vô nhánh chính -> marge to main (chỉ dành cho owner - owner sẽ tự pull code develop về test rồi merge lên nhánh chính)
+	5.1 bên review  thấy ok thì chọn 'marge pull request' ở cuối request
+-------------------------------------
+Tương tự với các chức năng nhỏ, người làm sẽ tạo branch mới, sau khi hoàn thành thì marge vô branch chức năng chính
+
+-------------------------------------
+*** Trường hợp conflict trong 1 branch
+-khi nhiều người cùng sửa 1 file, người push sau sẽ bị conflict
+	+ 'git pull' => lúc này 2 code cũ và mới sẽ bị trộn lại => xóa những dấu đặc biệt, 
+giữ lại code cần giữ (tốt nhất lúc sửa nên thảo luận với người up trước để tránh lỗi toàn bộ code)
+	+ push lên lại branch
+
+
+	
