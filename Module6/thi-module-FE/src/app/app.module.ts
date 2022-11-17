@@ -9,6 +9,7 @@ import {HeaderComponent} from './header/header.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { Error404PageComponent } from './error404-page/error404-page.component';
 import {ProductModule} from './product/product.module';
+import {ItemCsgoModule} from './item-csgo/item-csgo.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {ProductModule} from './product/product.module';
         preventDuplicates: true,
       }
     ),
-    ProductModule
+    ProductModule,
+    ItemCsgoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

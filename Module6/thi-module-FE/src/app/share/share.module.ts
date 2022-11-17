@@ -4,6 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
@@ -15,7 +16,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     FormsModule,
     RouterModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule
   ],
   exports: [
     CommonModule,
@@ -23,7 +25,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     FormsModule,
     RouterModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule
   ]
 })
 export class ShareModule { }
